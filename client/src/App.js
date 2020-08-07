@@ -1,11 +1,13 @@
 import React from 'react';
-
+import Map from './Containers/Map'
 
 function App() {
   return (
-    <>
-    <h1>Homepage</h1>
-    </>
+
+    <div className="App">
+      <Map />
+      
+    </div>
   );
 }
 
