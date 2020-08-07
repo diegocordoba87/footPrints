@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const UserSchema = new Schema({
     username: {
         type: String,
     unique: true,
@@ -15,13 +15,13 @@ const userSchema = new Schema({
         validate: [({ length }) => length >= 6, "Password should be longer."]
       },
     notes:{
-        type: Schema.Types.ObjectId, ref: "Notes"
+        type: Array
     },
     locations:{
-        type: Schema.Types.ObjectId, ref: "Locations"
+        type: Array
     }
 });
 
-const User = mongoose.model("User", userSchema)
+const User = mongoose.model("User", UserSchema)
 
 module.exports = User;
