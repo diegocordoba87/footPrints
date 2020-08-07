@@ -30,6 +30,13 @@ export default class Map extends React.Component {
     );
 
     const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+    const lineString = new H.geo.LineString();
+    lineString.pushPoint({ lat: 33.9, lng: -83.3})
+    lineString.pushPoint({ lat: 33.6, lng: -83.6})
+    lineString.pushPoint({ lat: 33.3, lng: -83})
+    lineString.pushPoint({ lat: 33.9, lng: -83.3})
+    const polygon = new H.map.Polygon(lineString)
+    map.addObject(polygon)
 
     const ui = H.ui.UI.createDefault(map, defaultLayers)
  
