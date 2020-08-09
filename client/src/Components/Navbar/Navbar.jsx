@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import navbarLinks from "../../data/navbarLinks.json";
 import "./navbar.css";
 
 const Navbar = () => {
-
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
@@ -19,13 +19,10 @@ const Navbar = () => {
         >
           ×
         </a>
-        <a href="#">Home</a>
-        <a href="#">Sign In</a>
-        <a href="#">Sign Up</a>
-        <a href="#">My Profile</a>
-        <a href="#">Locations</a>
-        <a href="#">About Us</a>
-        <a href="#">How it Works</a>
+        {navbarLinks.map((link) => (
+          <a href={link.href}>{link.title}</a>
+        ))}
+        
       </div>
       <button
         id="hamburger"
