@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Home",
+    "href": "#"
+  },
+  {
+    "title": "Sign In",
+    "href": "#"
+  },
+  {
+    "title": "Sign Up",
+    "href": "#"
+  },
+  {
+    "title": "My Profile",
+    "href": "#"
+  },
+  {
+    "title": "Locations",
+    "href": "#"
+  },
+  {
+    "title": "About Us",
+    "href": "#"
+  },
+  {
+    "title": "How it Works",
+    "href": "#"
+  }
+]
