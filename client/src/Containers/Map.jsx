@@ -24,11 +24,26 @@ export default class Map extends React.Component {
 			defaultLayers.vector.normal.map,
 			{
 				//change locations here
-				center: { lat: 33.9, lng: -83.3 },
-				zoom: 10,
+				center: { lat: 34.025868, lng: -83.290385 },
+				zoom: 17,
 				pixelRatio: window.devicePixelRatio || 1,
 			}
-		);
+        );
+        
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+              (position) => {
+                  console.log(position)
+                // this.setState({
+                //   value: position.coords.latitude + ',' + position.coords.longitude,
+                //   error: null,
+                // });
+              },
+              (error) => this.setState(
+                {error: error.message}
+              )
+            );
+          }
 
 		const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 		const lineString = new H.geo.LineString();
