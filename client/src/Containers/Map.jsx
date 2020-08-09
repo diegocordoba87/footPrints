@@ -1,5 +1,7 @@
 // src/DisplayMapClass.js
 import React from 'react';
+import JSZip from 'jszip';
+import Axios from 'axios';
 
 export default class Map extends React.Component {
 	mapRef = React.createRef();
@@ -34,11 +36,33 @@ export default class Map extends React.Component {
 		lineString.pushPoint({ lat: 33.6, lng: -83.6 });
 		lineString.pushPoint({ lat: 33.3, lng: -83 });
 		lineString.pushPoint({ lat: 33.9, lng: -83.3 });
-		const polygon = new H.map.Polygon(lineString);
+        const polygon = new H.map.Polygon(lineString);
         map.addObject(polygon);
         const geometry = polygon.getGeometry();
-        const wkt = geometry.toString;
-        console.log(wkt);
+        // const wkt = geometry.toString;
+        // const zip = new JSZip();
+        // zip.file("data.wkt", "NAME\tWKT\n" + "hullFence" + "\t" + wkt)
+        // zip.generateAsync({ type: "blob" }).then(content => {
+        //     let formData = new formData();
+        //     formData.append("zipfile", content);
+        //     Axios.post("https://gfe.api.here.com/2/layers/upload.json", formData, {
+        //         headers: {
+        //             "content-type": "multipart/form-data"
+        //         },
+        //         params: {
+        //             "app_id": "8z7CUgBueEVugTfdimvl",
+        //             "app_key": "x0ctxWIBslUK51f47JpqheGPcD8W3VBNTS_ZoFNTJgo",
+        //             "layer_id": "30646"
+        //         }
+        //     }).then(result => {
+        //         console.log(result)
+        //     }), error => {
+        //         console.log(error)
+        //     }
+        // }, error => {
+        //     console.log(error)
+        // })
+       
 
 		const ui = H.ui.UI.createDefault(map, defaultLayers);
 
