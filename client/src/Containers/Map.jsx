@@ -23,7 +23,7 @@ export default class Map extends React.Component {
       defaultLayers.vector.normal.map,
       {
         //change locations here
-        center: { lat: 33.9, lng: -83.3 },
+        center: { lat: 33.736, lng: -84.335 },
         zoom: 10,
         pixelRatio: window.devicePixelRatio || 1
       }
