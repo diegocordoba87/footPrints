@@ -28,7 +28,7 @@ export default class Map extends React.Component {
 			}
 		);
 
-		const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+		// const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 		const lineString = new H.geo.LineString();
 		lineString.pushPoint({ lat: 33.9, lng: -83.3 });
 		lineString.pushPoint({ lat: 33.6, lng: -83.6 });
@@ -40,7 +40,7 @@ export default class Map extends React.Component {
         const wkt = geometry.toString;
         console.log(wkt);
 
-		const ui = H.ui.UI.createDefault(map, defaultLayers);
+		// const ui = H.ui.UI.createDefault(map, defaultLayers);
 
 		this.setState({ map });
 	}
