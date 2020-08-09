@@ -1,8 +1,9 @@
 import React from "react";
 
-const SignUp = () => {
+const SignUp = ({ setIsSidebarOpen }) => {
+
   return (
-    <div>
+    <div onClick={() => setIsSidebarOpen(false)}>
       <h1 className="temporaryPageName">Sign Up</h1>
     </div>
   );

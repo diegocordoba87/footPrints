@@ -1,8 +1,9 @@
 import React from "react";
 
-const LogIn = () => {
+const LogIn = ({ setIsSidebarOpen }) => {
+
   return (
-    <div>
+    <div onClick={() => setIsSidebarOpen(false)}>
       <h1 className="temporaryPageName">Log In</h1>
     </div>
   );

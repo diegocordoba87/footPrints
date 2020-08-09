@@ -1,8 +1,9 @@
 import React from "react";
 
-const Profile = () => {
+const Profile = ({ setIsSidebarOpen }) => {
+
   return (
-    <div>
+    <div onClick={() => setIsSidebarOpen(false)}>
       <h1 className="temporaryPageName">Profile</h1>
     </div>
   );

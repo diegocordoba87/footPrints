@@ -12,13 +12,12 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
         className="sidebar"
         style={{ left: isSidebarOpen ? 0 : -250 }}
       >
-        <a
-          href="#"
+        <Button
           className="closebtn"
           onClick={() => setIsSidebarOpen(false)}
         >
           ×
-        </a>
+        </Button>
         {navbarLinks.map((link, index) => (
           <a
             key={index}
