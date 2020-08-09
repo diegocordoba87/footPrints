@@ -10,7 +10,7 @@ const Navbar = () => {
       <div
         id="mySidebar"
         className="sidebar"
-        style={{ width: isSidebarOpen ? 250 : 0 }}
+        style={{ left: isSidebarOpen ? 0 : -250 }}
       >
         <a
           href="#"
@@ -22,7 +22,7 @@ const Navbar = () => {
         {navbarLinks.map((link) => (
           <a href={link.href}>{link.title}</a>
         ))}
-        
+
       </div>
       <button
         id="hamburger"
