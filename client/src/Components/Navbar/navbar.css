@@ -4,12 +4,12 @@ body {
 
 .sidebar {
   height: 100%;
-  width: 0;
+  width: 250px;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: sienna;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -19,13 +19,13 @@ body {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: #f5f8fa ;
   display: block;
   transition: 0.3s;
 }
 
 .sidebar a:hover {
-  color: #f1f1f1;
+  color: #ffb8a3;
 }
 
 .sidebar .closebtn {
@@ -49,16 +49,18 @@ body {
   background-color: #444;
 }
 
-#main {
-  transition: margin-left 0.5s;
+#hamburger {
   padding: 16px;
-  display: block;
   position: relative;
+  overflow-x: hidden;
+  position: fixed;
+  z-index: 1;
+  top: 10px;
+  left: 10px;
+  border-radius: 5px;
+  background-color: sienna;
 }
 
-/* #navbar {
-  background-color: color|transparent|initial|inherit;
-} */
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidebar {
