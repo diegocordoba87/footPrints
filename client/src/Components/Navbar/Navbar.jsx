@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { Button } from 'react-foundation';
+import React from "react";
+import { Button } from "react-foundation";
 import navbarLinks from "../../data/navbarLinks.json";
 import "./navbar.css";
 
-const Navbar = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
 
   return (
     <div id="navbar">
@@ -20,10 +19,15 @@ const Navbar = () => {
         >
           ×
         </a>
-        {navbarLinks.map((link) => (
-          <a href={link.href}>{link.title}</a>
+        {navbarLinks.map((link, index) => (
+          <a
+            key={index}
+            href={link.href}
+            onClick={() => setIsSidebarOpen(false)}
+          >
+            {link.title}
+          </a>
         ))}
-
       </div>
       <Button
         id="hamburger"
