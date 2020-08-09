@@ -7,7 +7,7 @@ const LocationsSchema = new Schema({
         type: String
     },
     location:{
-        type: "Point",
+        type: String,
         coordinates: []
     },
     notes:{
@@ -18,6 +18,6 @@ const LocationsSchema = new Schema({
 
 LocationsSchema.index({ location: "2ndsphere"})
 
-const Locations = mongoose.model("Location", LocationsSchema)
+const Location = mongoose.model("Location", LocationsSchema)
 
 module.exports = Location;
