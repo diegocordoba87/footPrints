@@ -2,9 +2,29 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
+router.post("/api/user", (req, res) => {
+  db.User.create(req.body)
+    .then((createdUser) => {
+      res.json({
+        error: false,
+        data: createdUser,
+        message: "Successfully added new user.",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "Unable to create new user.",
+      });
+    });
+});
+
 router.get("/api/users", (req, res) => {
-  db.User.find({})
+  db.User.find()
     .then((foundUsers) => {
+      console.log(foundUsers)
       res.json({
         error: false,
         data: foundUsers,
@@ -41,25 +61,6 @@ router.get("/api/user/:id", (req, res) => {
     });
 });
 
-router.post("/api/user", (req, res) => {
-  console.log(req.body)
-  db.User.create(req.body)
-    .then((createdUser) => {
-      res.json({
-        error: false,
-        data: createdUser,
-        message: "Successfully added new user.",
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({
-        error: true,
-        data: null,
-        message: "Unable to create new user.",
-      });
-    });
-});
 
 router.put("/api/user/:id", (req, res) => {
   db.User.findByIdAndUpdate(req.params.id, req.body, { new: true })

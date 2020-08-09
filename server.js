@@ -11,17 +11,20 @@ app.use(express.json());
 app.use(express.static("client/build"));
 
 
+app.use(UserController);
 
 app.get("/api/config", (req, res) => {
   res.json({
     success: true,
   });
 });
+
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.use(UserController);
+
 
 mongoose
   .connect(process.env.MONGODB_URI || "mongodb://localhost/footPrints", {
