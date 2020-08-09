@@ -10,6 +10,7 @@ import Signup from "./pages/SignUp/SignUp";
 
 function App() {
   return (
+    console.log("hi");
     <div className="App">
       <Router>
         <div>
