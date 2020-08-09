@@ -1,28 +1,63 @@
-import React from "react";
-import Map from "./Containers/Map";
-import Navbar from "./Components/Navbar/Navbar";
-import './app.css';
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Login from "./pages/SignIn/SignIn";
-import Mappage from "./pages/Map/Mappage";
+import Navbar from "./Components/Navbar/Navbar";
+import Login from "./pages/LogIn/LogIn";
+import Locations from "./pages/Locations/Locations";
+import Footprints from "./pages/Footprints/Footprints";
 import Profile from "./pages/Profile/Profile";
 import Signup from "./pages/SignUp/SignUp";
+import Home from "./pages/Home/Home";
+import "./app.css";
 
 function App() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
-    console.log("hi");
     <div className="App">
       <Router>
         <div>
-          <Navbar />
-          {/* <Route exact path="/" component={App} /> */}
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/map" component={Mappage} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/signup" component={Signup} />
+          <Navbar
+            isSidebarOpen={isSidebarOpen}
+            setIsSidebarOpen={setIsSidebarOpen}
+          />
+          <Route
+            path="/login"
+            render={(props) => (
+              <Login {...props} setIsSidebarOpen={setIsSidebarOpen} />
+            )}
+          />
+          <Route
+            path="/locations"
+            render={(props) => (
+              <Locations {...props} setIsSidebarOpen={setIsSidebarOpen} />
+            )}
+          />
+          <Route
+            path="/profile"
+            render={(props) => (
+              <Profile {...props} setIsSidebarOpen={setIsSidebarOpen} />
+            )}
+          />
+          <Route
+            path="/signup"
+            render={(props) => (
+              <Signup {...props} setIsSidebarOpen={setIsSidebarOpen} />
+            )}
+          />
+          <Route
+            path="/footprints"
+            render={(props) => (
+              <Footprints {...props} setIsSidebarOpen={setIsSidebarOpen} />
+            )}
+          />
+          <Route
+            exact path="/"
+            render={(props) => (
+              <Home {...props} setIsSidebarOpen={setIsSidebarOpen} />
+            )}
+          />
         </div>
       </Router>
-      <Map />
     </div>
   );
 }
