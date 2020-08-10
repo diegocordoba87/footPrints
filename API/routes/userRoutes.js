@@ -1,15 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken")
 
 
-router.post("/api/user", (req, res) => {
+router.post("/api/signup", (req, res) => {
   db.User.create(req.body)
     .then((createdUser) => {
       res.json({
         error: false,
         data: createdUser,
-        message: "Successfully added new user.",
+        message: "Successfully created account.",
       });
     })
     .catch((err) => {
@@ -21,6 +23,22 @@ router.post("/api/user", (req, res) => {
       });
     });
 });
+
+router.post("/api/signin", (req, res)=>{
+  userModel.findOne({username:req.body.username}, function(err, userInfo){
+    if (err) {
+     next(err);
+    } else {
+if(req.body.password, userInfo.password) {
+const token = jwt.sign({id: userInfo._id}, req.app.get('secretKey'), { expiresIn: '1h' });
+res.json({status:"success", message: "user found!!!", data:{user: userInfo, token:token}});
+}else{
+res.json({status:"error", message: "Invalid email/password!!!", data:null});
+}
+    }
+   });
+
+})
 
 router.get("/api/users", (req, res)=>{
   db.User.find({})
