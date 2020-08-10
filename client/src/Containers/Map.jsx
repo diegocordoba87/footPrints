@@ -18,18 +18,6 @@ export default class Map extends React.Component {
 
 		const defaultLayers = platform.createDefaultLayers();
 
-		// Create an instance of the map
-		const map = new H.Map(
-			this.mapRef.current,
-			defaultLayers.vector.normal.map,
-			{
-				//change locations here
-				center: { lat: 34.025868, lng: -83.290385 },
-				zoom: 10,
-				pixelRatio: window.devicePixelRatio || 1,
-			}
-        );
-        
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
               (position) => {
@@ -45,6 +33,22 @@ export default class Map extends React.Component {
             );
           }
 
+
+		// Create an instance of the map
+		const map = new H.Map(
+			this.mapRef.current,
+			defaultLayers.vector.normal.map,
+			{
+                //change locations here
+                center: this.position,
+				// center: { lat: 34.025868, lng: -83.290385 },
+				zoom: 10,
+				pixelRatio: window.devicePixelRatio || 1,
+			}
+        );
+        
+      
+
 		const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 		const lineString = new H.geo.LineString();
 		lineString.pushPoint({ lat: 33.9, lng: -83.3 });
@@ -54,6 +58,8 @@ export default class Map extends React.Component {
         const polygon = new H.map.Polygon(lineString);
         map.addObject(polygon);
         const geometry = polygon.getGeometry();
+
+
         // const wkt = geometry.toString;
         // const zip = new JSZip();
         // zip.file("data.wkt", "NAME\tWKT\n" + "hullFence" + "\t" + wkt)

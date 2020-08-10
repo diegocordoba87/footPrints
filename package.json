@@ -32,6 +32,6 @@
     "jszip": "^3.5.0",
     "mongoose": "^5.9.27",
     "react-foundation": "^0.9.6",
-    "react-here-maps": "^0.4.0"
+    "react-router-dom": "^5.2.0"
   }
 }
