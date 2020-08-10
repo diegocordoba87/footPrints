@@ -1,8 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
-const UserController = require("./apiRoutes/userController")
-const noteController = require("./apiRoutes/notesController")
+const userRoutes = require("./API/routes/userRoutes");
+const notesRoutes = require("./API/routes/notesRoutes");
+const locationsRoutes = require("./API/routes/locationsRoutes")
 const app = express();
 
 const PORT = process.env.PORT || 3001;
@@ -11,8 +12,9 @@ app.use(express.json());
 app.use(express.static("client/build"));
 
 
-app.use(UserController);
-app.use(noteController);
+app.use(userRoutes);
+app.use(notesRoutes);
+app.use(locationsRoutes);
 
 app.get("/api/config", (req, res) => {
   res.json({

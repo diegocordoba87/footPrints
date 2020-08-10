@@ -17,7 +17,7 @@ router.get("/api/locations", (req, res) => {
         res.status(500).json({
           error: true,
           data: null,
-          message: "Unable to retrieve all users.",
+          message: "Unable to retrieve all locations.",
         });
       });
   });
@@ -46,3 +46,5 @@ router.get("/api/locations", (req, res) => {
         });
       });
   });
+
+  module.exports = router;
