@@ -6,6 +6,7 @@ const UserSchema = new Schema({
     username: {
         type: String,
     unique: true,
+    required: true,
     match: [/.+@.+\..+/, "Please enter a valid e-mail address"] 
     },
     password: {
@@ -14,12 +15,24 @@ const UserSchema = new Schema({
         required: "Password is Required",
         validate: [({ length }) => length >= 6, "Password should be longer."]
       },
-    notes:{
-        type: Array
-    },
-    locations:{
-        type: Array
+    notes:[
+        {
+            noteId: {
+                type: Schema.Types.ObjectId,
+                ref: "Notes"
+            }
+        }
+    ],
+    locations:[
+        {
+            locationId:{
+                
+                    type: Schema.Types.ObjectId,
+                    ref: "Location"
+
+        }
     }
+    ]
 });
 
 const User = mongoose.model("User", UserSchema)

@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
+
 router.post("/api/user", (req, res) => {
   db.User.create(req.body)
     .then((createdUser) => {
@@ -21,25 +22,25 @@ router.post("/api/user", (req, res) => {
     });
 });
 
-router.get("/api/users", (req, res) => {
-  db.User.find()
-    .then((foundUsers) => {
-      console.log(foundUsers)
-      res.json({
-        error: false,
-        data: foundUsers,
-        message: "All users retrieved.",
-      });
+router.get("/api/users", (req, res)=>{
+  db.User.find({})
+  .then((users)=>{
+    res.json({
+      error: false,
+      data: users,
+      message: "These are your users"
     })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({
-        error: true,
-        data: null,
-        message: "Unable to retrieve all users.",
-      });
-    });
-});
+  })
+  .catch((err)=>{
+    console.log(err)
+    res.status(500).json({
+      error: true,
+      data: null,
+      message: "Could not get users"
+    })
+  })
+})
+
 
 router.get("/api/user/:id", (req, res) => {
   db.User.findById(req.params.id)
