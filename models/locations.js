@@ -7,12 +7,16 @@ const LocationsSchema = new Schema({
         type: String
     },
     location:{
-        type: String,
+        type: {type: String},
         coordinates: []
     },
-    notes:{
-        type: Array
-    }
+    notes:[{
+        noteId: {
+            type: Schema.Types.ObjectId,
+            ref: "Notes",
+            required: true
+        }       
+    }]
 
 });
 
