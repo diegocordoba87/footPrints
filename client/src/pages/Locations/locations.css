@@ -1,3 +1,10 @@
 #locationsBody {
-  background-image: url(../../images/footprintsLocations.jpg);
+  background-image: url(../../images/FPLocationsHor.jpg);
+}
+
+@media screen and (max-width: 670px) {
+  #locationsBody {
+    background-image: url(../../images/FPLocationsVert.jpg);
+    height: 100vh;
+  }
 }

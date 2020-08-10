@@ -23,16 +23,21 @@ h1 {
   display: none;
 }
 
+.Logo {
+  text-align: center;
+  font-size: 4vw;
+}
+
 .temporaryPageName {
   text-align: center;
 }
 
 #map {
-  height: 100vw;
-  width: 75vw;
+  height: 25vw;
+  width: 35vw;
   position: relative;
-  top: 10vw;
-  margin: auto;
+  top: 5vw;
+  left: 10vw;
 }
 
 /* Lavender: 948C94

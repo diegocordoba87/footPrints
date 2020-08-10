@@ -1,17 +1,11 @@
 .cardBody {
-  background-color: rgba(177,166,154,0.7);
+  background-color: rgba(177, 166, 154, 0.7);
   border-radius: 5px;
   max-width: 70%;
   margin: auto;
   margin-bottom: 5vw;
   object-fit: cover;
 }
-
-/* .homeButton {
-  text-align: center;
-  font-size: 1vw;
-  margin: 2vw;
-} */
 
 .homeButtonDiv {
   text-align: center;
@@ -27,6 +21,9 @@
 #aboutus {
   position: relative;
   top: 50vw;
+  width: 43%;
+  float: left;
+  margin: 0vw 3vw;
 }
 
 #homeBody {
@@ -35,18 +32,33 @@
 
 #homeHeader {
   position: relative;
-  top: 23vw;
+  top: 20vw;
 }
 
 #howitworks {
   position: relative;
-  top: 55vw;
+  top: 50vw;
+  width: 43%;
+  float: right !important;
+  margin: 0vw 3vw;
 }
 
 @media screen and (max-width: 670px) {
+  #aboutus {
+    margin: 0vw 15%;
+    width: 70%;
+    clear: both;
+  }
+
   #homeBody {
     background-image: url(../../images/FPHomeVert.jpg);
     height: 100vh;
+  }
+
+  #howitworks {
+    margin: 10vw 15%;
+    width: 70%;
+    clear: both;
   }
 }
 

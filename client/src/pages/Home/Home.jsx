@@ -5,10 +5,6 @@ const Home = ({ setIsSidebarOpen }) => {
   return (
     <div id="homeBody" className="backgroundImage">
       <div onClick={() => setIsSidebarOpen(false)}>
-        {/* <div className="homeButtonDiv">
-          <span className="homeButton">Log In</span>
-          <span className="homeButton">Sign Up</span>
-        </div> */}
         <div id="homeHeader">
           <div className="Logo">Footprints</div>
         </div>

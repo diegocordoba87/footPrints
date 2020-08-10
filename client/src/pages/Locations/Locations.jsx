@@ -33,7 +33,7 @@ const Locations = ({ setIsSidebarOpen }) => {
         
         <div style={{marginTop: 80, marginLeft: 80}}>
           {location.map((location)=>(
-            <h4>{location.name}</h4>
+            <h4 className="cardBody">{location.name}</h4>
           ))}
           </div>
 

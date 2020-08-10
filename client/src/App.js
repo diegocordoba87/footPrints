@@ -7,7 +7,7 @@ import Footprints from "./pages/Footprints/Footprints";
 import Profile from "./pages/Profile/Profile";
 import Signup from "./pages/SignUp/SignUp";
 import Home from "./pages/Home/Home";
-import footprintsHome from './images/footstepsHome4.jpg';
+import footprintsHome from './images/FPHomeHor.jpg';
 import "./app.css";
 
 function App() {

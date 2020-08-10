@@ -7,13 +7,10 @@ const Profile = ({ setIsSidebarOpen }) => {
   return (
     <div id="profileBody" className="backgroundImage">
       <div onClick={() => setIsSidebarOpen(false)}>
-        <h1 className="temporaryPageName">Profile</h1>
-        {/* <div className="profileButtonDiv">
-          <Button className="profileButton">Log Out</Button>
-          <Button className="profileButton">Locations</Button>
-          <Button className="profileButton">See Footprints</Button>
-        </div> */}
-
+        <div id="profileHeader">
+          <div className="Logo">Profile</div>
+        </div>
+        
         <form>
           <div className="cardBody" id="homeHeader">
             <label className="homeText">
