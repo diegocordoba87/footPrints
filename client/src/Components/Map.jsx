@@ -23,13 +23,16 @@ export default class Map extends React.Component {
 				(error) => this.setState({ error: error.message })
 			);
 		}
-	};
+  };
+  
 
 	createMap = (lat, lng) => {
 		const H = window.H;
 		const platform = new H.service.Platform({
 			apikey: 'x0ctxWIBslUK51f47JpqheGPcD8W3VBNTS_ZoFNTJgo',
-		});
+    });
+    
+    
 
 		const defaultLayers = platform.createDefaultLayers();
 
@@ -49,7 +52,7 @@ export default class Map extends React.Component {
 		const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
 		//add a marker to a map at a given lat/long position
-		const marker = new H.map.Marker({ lat: 33.98, lng: -83.28 });
+		const marker = new H.map.Marker({ lat: lat, lng: lng });
 		map.addObject(marker);
 
 		//create a geofence around a given set of coordinates
