@@ -10,20 +10,16 @@ const Profile = ({ setIsSidebarOpen }) => {
         <div id="profileHeader">
           <div className="Logo">Profile</div>
         </div>
-        
-        <form>
-          <div className="cardBody" id="homeHeader">
+        <div className="cardBody" id="homeHeader">
+          <form>
             <label className="homeText">
               New Footprint:
               <input type="text" name="name" className="newFPForm" />
             </label>
-          </div>
-        </form>
+          </form>
 
-        <div className="cardBody" id="homeHeader">
           <div className="homeText">My Footprints</div>
-        </div>
-        <div className="cardBody" id="homeHeader">
+
           <div className="homeText">Saved Footprints</div>
         </div>
       </div>
