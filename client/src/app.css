@@ -1,3 +1,23 @@
+body {
+  margin: 0;
+}
+h1 {
+  margin: 0;
+}
+
+.backgroundImage {
+  background-size: cover;
+  height: 100vh;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: fixed;
+  color: #f6f5f3;
+  font-size: 3vw;
+  text-shadow: 1px 1px 1px #292218;
+}
+
 .H_imprint {
   display: none;
 }
@@ -5,3 +25,18 @@
 .temporaryPageName {
   text-align: center;
 }
+
+#map {
+  height: 100vw;
+  width: 75vw;
+  position: relative;
+  top: 10vw;
+  margin: auto;
+}
+
+/* Lavender: 948C94
+Chocolate: 292218
+Khaki: 7C6D57
+Green: 99A49D
+Beige: D5C8B4 
+White: f6f5f3 */
