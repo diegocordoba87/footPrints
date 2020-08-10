@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 import "../../app.css";
 
-
 const Footprints = ({ setIsSidebarOpen }) => {
   // Setting our component's initial state
   const [notes, setNotes] = useState([])
