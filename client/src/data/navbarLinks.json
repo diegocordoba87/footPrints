@@ -4,7 +4,7 @@
     "href": "/"
   },
   {
-    "title": "Sign In",
+    "title": "Log In",
     "href": "/login"
   },
   {
@@ -16,13 +16,15 @@
     "href": "/profile"
   },
   {
-    "title": "Map",
-    "href": "/map"
+    "title": "Locations",
+    "href": "/locations"
   },
   {
-    "title": "About Us"
+    "title": "About Us",
+    "href": "/#aboutus"
   },
   {
-    "title": "How it Works"
+    "title": "How it Works",
+    "href": "/#howitworks"
   }
 ]
