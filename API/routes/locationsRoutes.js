@@ -47,4 +47,23 @@ router.get("/api/locations", (req, res) => {
       });
   });
 
+router.post("/api/addlocation", (req, res)=>{
+  db.Location.create(req.body)
+  .then((newLocation)=>{
+    res.json({
+      error: false,
+      data: newLocation,
+      message: "Successfully added location"
+    });
+  })
+  .catch((err)=>{
+    res.status(500).jsin({
+      error: true,
+      data: null,
+      message: "Unable to add location"
+    })
+  })
+})
+
+
   module.exports = router;
