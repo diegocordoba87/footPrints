@@ -6,6 +6,7 @@ const Locations = ({ setIsSidebarOpen }) => {
   return (
     <div id="locationsBody" className="backgroundImage">
       <div onClick={() => setIsSidebarOpen(false)}>
+        <h1 className="temporaryPageName">Locations</h1>
         <Map />
       </div>
     </div>

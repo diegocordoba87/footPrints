@@ -22,12 +22,16 @@ h1 {
   display: none;
 }
 
-.map {
-  height: 50vh;
-  width: 50vw;
-}
 .temporaryPageName {
   text-align: center;
+}
+
+#map {
+  height: 100vw;
+  width: 75vw;
+  position: relative;
+  top: 10vw;
+  margin: auto;
 }
 
 /* Lavender: 948C94

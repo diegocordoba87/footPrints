@@ -1,6 +1,6 @@
 // src/DisplayMapClass.js
 import React from "react";
-import "../pages/Locations/locations.css";
+import "../app.css";
 
 export default class Map extends React.Component {
   mapRef = React.createRef();
@@ -54,7 +54,7 @@ export default class Map extends React.Component {
   render() {
     return (
       // Set a height on the map so it will display
-      <div className="map" ref={this.mapRef} />
+      <div id="map" ref={this.mapRef} />
     );
   }
 }
