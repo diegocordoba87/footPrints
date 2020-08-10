@@ -11,7 +11,7 @@ const LocationsSchema = new Schema({
         coordinates: []
     },
     notes:[{
-        noteId: {
+        notes: {
             type: Schema.Types.ObjectId,
             ref: "Notes",
             required: true
