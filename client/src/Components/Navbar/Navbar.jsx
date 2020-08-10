@@ -4,7 +4,6 @@ import navbarLinks from "../../data/navbarLinks.json";
 import "./navbar.css";
 
 const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
-
   return (
     <div id="navbar">
       <div
@@ -12,10 +11,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
         className="sidebar"
         style={{ left: isSidebarOpen ? 0 : -250 }}
       >
-        <Button
-          className="closebtn"
-          onClick={() => setIsSidebarOpen(false)}
-        >
+        <Button className="closebtn" onClick={() => setIsSidebarOpen(false)}>
           ×
         </Button>
         {navbarLinks.map((link, index) => (

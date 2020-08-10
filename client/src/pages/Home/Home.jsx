@@ -2,8 +2,9 @@ import React from "react";
 import "./home.css";
 
 const Home = ({ setIsSidebarOpen }) => {
+
   return (
-    <div id="homeBody">
+    <div id="homeBody" className="backgroundImage">
       <div onClick={() => setIsSidebarOpen(false)}>
         <h1 className="temporaryPageName">Home</h1>
 

@@ -1,7 +1,31 @@
+body {
+  margin: 0;
+}
+h1 {
+  margin: 0;
+}
+
+.backgroundImage {
+  background-size: cover;
+  height: 100vh;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: fixed;
+  color: #f6f5f3;
+  font-size: 3vw;
+  text-shadow: 1px 1px 1px #292218;
+}
+
 .H_imprint {
   display: none;
 }
 
+.map {
+  height: 50vh;
+  width: 50vw;
+}
 .temporaryPageName {
   text-align: center;
 }
