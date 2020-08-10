@@ -25,7 +25,7 @@ export default class Map extends React.Component {
 			{
 				//change locations here
 				center: { lat: 34.025868, lng: -83.290385 },
-				zoom: 17,
+				zoom: 10,
 				pixelRatio: window.devicePixelRatio || 1,
 			}
         );
