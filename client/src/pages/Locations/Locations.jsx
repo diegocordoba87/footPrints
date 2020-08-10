@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-foundation";
 import Map from "../../Components/Map";
 import "./locations.css";
 import "../../app.css";
