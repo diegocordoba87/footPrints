@@ -2,9 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 const UserController = require("./apiRoutes/userController")
-
-
+const noteController = require("./apiRoutes/notesController")
 const app = express();
+
 const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -12,6 +12,7 @@ app.use(express.static("client/build"));
 
 
 app.use(UserController);
+app.use(noteController);
 
 app.get("/api/config", (req, res) => {
   res.json({
