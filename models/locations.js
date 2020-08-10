@@ -7,17 +7,21 @@ const LocationsSchema = new Schema({
         type: String
     },
     location:{
-        type: "Point",
+        type: {type: String},
         coordinates: []
     },
-    notes:{
-        type: Array
-    }
+    notes:[{
+        noteId: {
+            type: Schema.Types.ObjectId,
+            ref: "Notes",
+            required: true
+        }       
+    }]
 
 });
 
 LocationsSchema.index({ location: "2ndsphere"})
 
-const Locations = mongoose.model("Location", LocationsSchema)
+const Location = mongoose.model("Location", LocationsSchema)
 
 module.exports = Location;
