@@ -5,10 +5,16 @@ body {
 .closebtn {
   background-color: transparent;
   border: none;
+  cursor: pointer;
+  color: #fffcf4 !important;
 }
 
 .closebtn:focus {
   outline: none;
+}
+
+.closebtn:hover {
+  color: #b1a69a !important;
 }
 
 .sidebar {
@@ -18,7 +24,7 @@ body {
   z-index: 2;
   top: 0;
   left: 0;
-  background-color: #292218;
+  background-color: #796764;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -28,13 +34,13 @@ body {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #D5C8B4 ;
+  color: #fffcf4 ;
   display: block;
   transition: 0.3s;
 }
 
 .sidebar a:hover {
-  color: #948C94;
+  color: #b1a69a;
 }
 
 .sidebar .closebtn {
@@ -49,13 +55,13 @@ body {
 .openbtn {
   font-size: 20px;
   cursor: pointer;
-  color: #D5C8B4;
+  color: #fffcf4;
   padding: 10px 15px;
   border: none;
 }
 
 .openbtn:hover {
-  background-color: #948C94;
+  background-color: #b1a69a;
 }
 
 #hamburger {
@@ -63,10 +69,10 @@ body {
   overflow-x: hidden;
   position: fixed;
   z-index: 1;
-  top: 2vw;
+  top: 1vw;
   left: 1vw;
   border-radius: 5px;
-  background-color: #292218;
+  background-color: #796764;
 }
 
 #hamburger:focus {
@@ -74,7 +80,7 @@ body {
 }
 
 #hamburger:hover {
-  color: #948C94;
+  color: #c0b5a2;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -87,8 +93,11 @@ body {
   }
 }
 
-/* Lavender: 948C94
-Chocolate: 292218
-Khaki: 7C6D57
-Green: 99A49D
-Beige: D5C8B4 */
+/* 
+white fffcf4
+Beige F1DDC2
+Green 89B1A3
+Lavender 80797C
+Purple 80616d
+Light Blue 5D8AA5
+Dark Blue 111825 */

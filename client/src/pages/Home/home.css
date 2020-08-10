@@ -1,5 +1,5 @@
 .cardBody {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(177,166,154,0.7);
   border-radius: 5px;
   max-width: 70%;
   margin: auto;
@@ -7,10 +7,11 @@
   object-fit: cover;
 }
 
-.homeButton {
+/* .homeButton {
   text-align: center;
+  font-size: 1vw;
   margin: 2vw;
-}
+} */
 
 .homeButtonDiv {
   text-align: center;
@@ -18,16 +19,40 @@
   margin-bottom: 40vw;
 }
 
-.homeText {
-  text-align: center !important;
+.Logo {
+  text-align: center;
   font-size: 4vw;
 }
 
+#aboutus {
+  position: relative;
+  top: 50vw;
+}
+
 #homeBody {
-  background-image: url(../../images/footstepsHome4.jpg);
+  background-image: url(../../images/FPHomeHor.jpg);
 }
 
 #homeHeader {
   position: relative;
-  top: 1vw;
+  top: 23vw;
 }
+
+#howitworks {
+  position: relative;
+  top: 55vw;
+}
+
+@media screen and (max-width: 670px) {
+  #homeBody {
+    background-image: url(../../images/FPHomeVert.jpg);
+    height: 100vh;
+  }
+}
+
+/* Beige F1DDC2
+Green 89B1A3
+Lavender 80797C
+Purple282A3E
+Light Blue 5D8AA5
+Dark Blue 111825 */

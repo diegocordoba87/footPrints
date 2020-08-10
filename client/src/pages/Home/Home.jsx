@@ -1,20 +1,19 @@
 import React from "react";
-import { Button } from "react-foundation";
 import "./home.css";
 
 const Home = ({ setIsSidebarOpen }) => {
   return (
     <div id="homeBody" className="backgroundImage">
       <div onClick={() => setIsSidebarOpen(false)}>
-        <div className="cardBody" id="homeHeader">
-          <div className="homeText">Footprints</div>
+        {/* <div className="homeButtonDiv">
+          <span className="homeButton">Log In</span>
+          <span className="homeButton">Sign Up</span>
+        </div> */}
+        <div id="homeHeader">
+          <div className="Logo">Footprints</div>
         </div>
-        <div className="homeButtonDiv">
-          <Button className="homeButton">Log In</Button>
-          <Button className="homeButton">Sign Up</Button>
-        </div>
-        <div className="cardBody">
-          <div id="aboutus" className="temporaryPageName">
+        <div>
+          <div id="aboutus" className="cardBody">
             About Us
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -27,8 +26,8 @@ const Home = ({ setIsSidebarOpen }) => {
             </p>
           </div>
         </div>
-        <div className="cardBody">
-          <div id="howitworks" className="temporaryPageName">
+        <div>
+          <div id="howitworks" className="cardBody">
             How It Works
             <p>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente
