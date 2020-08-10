@@ -6,7 +6,7 @@ const NotesSchema = new Schema({
     content: {
         type: String,
         required: true,
-        minlength: 250,
+        minlength: 10,
         maxlength: 1000
     }
 });
