@@ -51,7 +51,8 @@ function App() {
             )}
           />
           <Route
-            exact path="/"
+            exact
+            path="/"
             render={(props) => (
               <Home {...props} setIsSidebarOpen={setIsSidebarOpen} />
             )}
