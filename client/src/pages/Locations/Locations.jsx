@@ -1,6 +1,7 @@
 import React from "react";
 import Map from "../../Components/Map";
 import "./locations.css";
+import "../../app.css";
 
 const Locations = ({ setIsSidebarOpen }) => {
   return (

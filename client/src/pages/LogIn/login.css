@@ -1,3 +1,5 @@
 #loginBody {
   background-image: url(../../images/footprintsLogIn.jpg);
+  height: 100%;
+  overflow-y: visible;
 }
