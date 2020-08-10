@@ -1,4 +1,4 @@
-// src/DisplayMapClass.js
+
 import React from 'react';
 import '../app.css';
 
@@ -14,6 +14,7 @@ export default class Map extends React.Component {
 		this.getCoordinates();
 	}
 
+  //get coordinates from the window then push them to a new map
 	getCoordinates = () => {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(
@@ -25,14 +26,12 @@ export default class Map extends React.Component {
 		}
   };
   
-
+  //
 	createMap = (lat, lng) => {
 		const H = window.H;
 		const platform = new H.service.Platform({
 			apikey: 'x0ctxWIBslUK51f47JpqheGPcD8W3VBNTS_ZoFNTJgo',
     });
-    
-    
 
 		const defaultLayers = platform.createDefaultLayers();
 
@@ -44,7 +43,7 @@ export default class Map extends React.Component {
 			{
 				//change locations here
 				center: { lat: lat, lng: lng },
-				zoom: 10,
+				zoom: 6,
 				pixelRatio: window.devicePixelRatio || 1,
 			}
 		);
@@ -53,18 +52,27 @@ export default class Map extends React.Component {
 
 		//add a marker to a map at a given lat/long position
 		const marker = new H.map.Marker({ lat: lat, lng: lng });
-		map.addObject(marker);
+    map.addObject(marker);
+    
+    //create a circle on the map
+    
 
-		//create a geofence around a given set of coordinates
-		const lineString = new H.geo.LineString();
-		lineString.pushPoint({ lat: 33.9, lng: -83.3 });
-		lineString.pushPoint({ lat: 33.6, lng: -83.6 });
-		lineString.pushPoint({ lat: 33.3, lng: -83 });
-		lineString.pushPoint({ lat: 33.9, lng: -83.3 });
-		const polygon = new H.map.Polygon(lineString);
-		map.addObject(polygon);
-		const geometry = polygon.getGeometry();
-		const wkt = geometry.toString;
+    //create a geofence around a given set of coordinates
+    let trailCreek = new H.map.Circle({ lat: 33.971687, lng: -83.357537}, 6000)
+    map.addObject(trailCreek);
+
+    let morganFalls = new H.map.Circle({ lat: 33.968742, lng: -84.379742}, 6000)
+    map.addObject(morganFalls);
+
+    let elizabethPorterParkAndSprayground = new H.map.Circle({ lat: 33.959884, lng: -84.540687}, 6000)
+    map.addObject(elizabethPorterParkAndSprayground);
+
+    let westPaces = new H.map.Circle({ lat: 33.852656, lng: -84.365373}, 6000)
+    map.addObject(westPaces);
+   
+    let brownwood = new H.map.Circle({ lat: 33.737831, lng: -84.346715}, 6000)
+    map.addObject(brownwood);
+
 
 		const ui = H.ui.UI.createDefault(map, defaultLayers);
 
