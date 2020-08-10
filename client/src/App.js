@@ -7,6 +7,7 @@ import Footprints from "./pages/Footprints/Footprints";
 import Profile from "./pages/Profile/Profile";
 import Signup from "./pages/SignUp/SignUp";
 import Home from "./pages/Home/Home";
+import footprintsHome from './images/footstepsHome4.jpg';
 import "./app.css";
 
 function App() {
@@ -23,7 +24,9 @@ function App() {
           <Route
             path="/login"
             render={(props) => (
-              <Login {...props} setIsSidebarOpen={setIsSidebarOpen} />
+              <>
+                <Login {...props} setIsSidebarOpen={setIsSidebarOpen} />
+              </>
             )}
           />
           <Route
@@ -51,10 +54,12 @@ function App() {
             )}
           />
           <Route
-            exact path="/"
+            exact
+            path="/"
             render={(props) => (
               <Home {...props} setIsSidebarOpen={setIsSidebarOpen} />
             )}
+            style={{ backgroundImage:`url(${footprintsHome})` }}
           />
         </div>
       </Router>

@@ -1,10 +1,12 @@
 import React from "react";
+import "./signup.css";
 
 const SignUp = ({ setIsSidebarOpen }) => {
-
   return (
-    <div onClick={() => setIsSidebarOpen(false)}>
-      <h1 className="temporaryPageName">Sign Up</h1>
+    <div id="signupBody" className="backgroundImage">
+      <div onClick={() => setIsSidebarOpen(false)}>
+        <h1 className="temporaryPageName">Sign Up</h1>
+      </div>
     </div>
   );
 };
