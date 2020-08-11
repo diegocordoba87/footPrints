@@ -43,7 +43,7 @@ export default class Map extends React.Component {
 			{
 				//change locations here
 				center: { lat: lat, lng: lng },
-				zoom: 6,
+				zoom: 10,
 				pixelRatio: window.devicePixelRatio || 1,
 			}
 		);
