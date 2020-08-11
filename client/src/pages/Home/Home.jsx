@@ -1,20 +1,26 @@
 import React from "react";
-import { Button } from "react-foundation";
+import logo from "../../images/FPLogo.png";
+import '../../app.css';
 import "./home.css";
 
 const Home = ({ setIsSidebarOpen }) => {
   return (
     <div id="homeBody" className="backgroundImage">
       <div onClick={() => setIsSidebarOpen(false)}>
-        <div className="cardBody" id="homeHeader">
-          <div className="homeText">Footprints</div>
+        <div id="homeHeader">
+          <img
+            className="float-center"
+            id="heroImage"
+            src={logo}
+            alt="footprints logo"
+          />
+          <p className="float-center center">
+            Everyone has a story. Tell yours.
+          </p>
         </div>
-        <div className="homeButtonDiv">
-          <Button className="homeButton">Log In</Button>
-          <Button className="homeButton">Sign Up</Button>
-        </div>
-        <div className="cardBody">
-          <div id="aboutus" className="temporaryPageName">
+
+        <div>
+          <div id="aboutus" className="cardBody">
             About Us
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -27,8 +33,8 @@ const Home = ({ setIsSidebarOpen }) => {
             </p>
           </div>
         </div>
-        <div className="cardBody">
-          <div id="howitworks" className="temporaryPageName">
+        <div>
+          <div id="howitworks" className="cardBody">
             How It Works
             <p>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente

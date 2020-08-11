@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 import React from "react";
 import "../app.css";
 import JSZip from "jszip";
 import Axios from "axios";
+=======
+
+import React from 'react';
+import '../pages/Locations/locations.css';
+>>>>>>> 22335f21dc2e214d64c4b6e5aced003a5f7979f7
 
 export default class Map extends React.Component {
   mapRef = React.createRef();
@@ -15,8 +21,14 @@ export default class Map extends React.Component {
     this.getCoordinates();
     //function that checks to see if the user is inside fence
 
+<<<<<<< HEAD
     //function that queries the db and finds all the notes at the location.
   }
+=======
+	componentDidMount() {
+		this.getCoordinates();
+	}
+>>>>>>> 22335f21dc2e214d64c4b6e5aced003a5f7979f7
 
   //get coordinates from the window then push them to a new map
   getCoordinates = () => {
@@ -150,10 +162,10 @@ export default class Map extends React.Component {
     this.setState({ map });
   };
 
-  // componentWillUnmount() {
+  componentWillUnmount() {
   //   // Cleanup after the map to avoid memory leaks when this component exits the page
-  //   this.state.map.dispose();
-  // }
+    this.state.map.dispose();
+  }
 
   render() {
     return (

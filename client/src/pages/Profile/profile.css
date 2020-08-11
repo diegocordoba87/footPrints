@@ -14,12 +14,12 @@
 }
 
 #profileBody {
-  background-image: url(../../images/FPLoginHor.jpg);
+  background-image: url(../../images/FPProfileHor.jpg);
 }
 
 @media screen and (max-width: 670px) {
   #profileBody {
-    background-image: url(../../images/FPLoginVert.jpg);
+    background-image: url(../../images/FPProfileVert.jpg);
     height: 100vh;
   }
 }
