@@ -10,7 +10,7 @@ export default class Map extends React.Component {
 	};
 
 	componentDidMount() {
-		this.createMap(33.9, -83.3);
+		// this.createMap(33.9, -83.3);
 		this.getCoordinates();
 	}
 
@@ -43,34 +43,35 @@ export default class Map extends React.Component {
 			{
 				//change locations here
 				center: { lat: lat, lng: lng },
-				zoom: 6,
+				zoom: 9,
 				pixelRatio: window.devicePixelRatio || 1,
 			}
 		);
-		//make the map responsive
+    
+    //make the map responsive
 		const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
-		//add a marker to a map at a given lat/long position
+  
+    //add a marker to a map at a given lat/long position
 		const marker = new H.map.Marker({ lat: lat, lng: lng });
     map.addObject(marker);
     
-    //create a circle on the map
     
-
-    //create a geofence around a given set of coordinates
-    let trailCreek = new H.map.Circle({ lat: 33.971687, lng: -83.357537}, 6000)
+    
+    //create a circle on the map
+    let trailCreek = new H.map.Circle({ lat: 33.971687, lng: -83.357537}, 3000)
     map.addObject(trailCreek);
 
-    let morganFalls = new H.map.Circle({ lat: 33.968742, lng: -84.379742}, 6000)
+    let morganFalls = new H.map.Circle({ lat: 33.968742, lng: -84.379742}, 3000)
     map.addObject(morganFalls);
 
-    let elizabethPorterParkAndSprayground = new H.map.Circle({ lat: 33.959884, lng: -84.540687}, 6000)
+    let elizabethPorterParkAndSprayground = new H.map.Circle({ lat: 33.959884, lng: -84.540687}, 3000)
     map.addObject(elizabethPorterParkAndSprayground);
 
-    let westPaces = new H.map.Circle({ lat: 33.852656, lng: -84.365373}, 6000)
+    let westPaces = new H.map.Circle({ lat: 33.852656, lng: -84.365373}, 3000)
     map.addObject(westPaces);
    
-    let brownwood = new H.map.Circle({ lat: 33.737831, lng: -84.346715}, 6000)
+    let brownwood = new H.map.Circle({ lat: 33.737831, lng: -84.346715}, 3000)
     map.addObject(brownwood);
 
 
