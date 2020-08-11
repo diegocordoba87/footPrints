@@ -14,6 +14,11 @@
   margin-bottom: 40vw;
 }
 
+.profilePics {
+  width: 8vw;
+  padding: 2vw;
+}
+
 #aboutus {
   width: 70%;
   margin: auto;
@@ -43,11 +48,9 @@
 }
 
 #howitworks {
-  position: relative;
-  top: 0vw;
-  width: 43%;
-  float: left;
-  margin: 0vw 3vw;
+  width: 70%;
+  margin: auto;
+  margin-top: 2vw;
 }
 
 #scrollDown {

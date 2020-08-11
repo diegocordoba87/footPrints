@@ -4,11 +4,11 @@ import scrollDown from "../../images/FPDownIconPink.png";
 import aboutUs from "../../data/aboutUs.json";
 import Diego from "../../images/Diego.jpg";
 import Liz from "../../images/Liz.jpg";
+import Michael from "../../images/Michael.jpg";
 import "../../app.css";
 import "./home.css";
 
 const Home = ({ setIsSidebarOpen }) => {
-
   const getImage = (name) => {
     let imgName;
 
@@ -16,8 +16,11 @@ const Home = ({ setIsSidebarOpen }) => {
       case "Diego":
         imgName = Diego;
         break;
-      case "Liz":
+      case "Elizabeth":
         imgName = Liz;
+        break;
+      case "Michael":
+        imgName = Michael;
         break;
     }
     return imgName;
@@ -44,17 +47,17 @@ const Home = ({ setIsSidebarOpen }) => {
               {aboutUs.map((creator, index) => {
                 const source = getImage(creator.name);
                 return (
-                  <div key={index}>
-                    <a>
-                      <img className="profilePics" src={source} />
-                    </a>
-                    <div>{creator.name}</div>
-                    <div>{creator.quote1}</div>
-                    <div>{creator.quote2}</div>
-                    <div>{creator.quote3}</div>
-                  </div>
+                  <a key={index}>
+                    <img className="profilePics" src={source} />
+                    {/* <div>{creator.name}</div> */}
+                  </a>
                 );
               })}
+              {/* {aboutUs.map((name) => {name.name})} */}
+              {/* {creator.name}
+                    <div>{creator.quote1}</div>
+                    <div>{creator.quote2}</div>
+                    <div>{creator.quote3}</div> */}
             </div>
           </div>
         </div>

@@ -7,10 +7,17 @@
     "img": "../../images/Diego.jpg"
   },
   {
-    "name": "Liz",
+    "name": "Elizabeth",
     "quote1": "Master of Music",
     "quote2": "Insert Something Witty Here",
     "quote3": "Dom Manipulator",
     "img": "../../images/Liz.jpg"
+  },
+  {
+    "name": "Michael",
+    "quote1": "Resident Memelord",
+    "quote2": "Placeholder 2",
+    "quote3": "Placeholder 3",
+    "img": "../../images/Michael.jpg"
   }
 ]
