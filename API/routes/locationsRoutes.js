@@ -23,12 +23,8 @@ router.get("/api/locations", (req, res) => {
   });
 
   router.get("/api/locations/:id", (req, res) => {
-    db.Location.findById(req.params.id).populate({
-        path:"notes",
-        populate:{
-            model: "Note"
-        }
-    })
+    console.log(req.params.id)
+    db.Location.findById(req.params.id).populate("Notes")
       .then((foundLocations) => {
         
         res.json({
@@ -62,6 +58,18 @@ router.post("/api/addlocation", (req, res)=>{
       data: null,
       message: "Unable to add location"
     })
+  })
+})
+
+router.put("api/location/:locationid", (req, res) => {
+  console.log("hi")
+  db.Location.findByIdAndUpdate(req.params.locationid, {$push: {"notes": {_id: req.body._id}}}, { new: true })
+  .then((updatednote) => {
+    res.json({
+      error: false,
+      data: updatednote,
+      message: "Successfully updated note.",
+    });
   })
 })
 
