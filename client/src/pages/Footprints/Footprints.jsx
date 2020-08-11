@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Button } from "react-foundation";
 import API from "../../utils/API";
 import "../../app.css";
 
@@ -24,6 +25,9 @@ const Footprints = ({ setIsSidebarOpen }) => {
 
   return (
     <div onClick={() => setIsSidebarOpen(false)}>
+      <h1 className="temporaryPageName">Footprints</h1>
+      <Button className="homeButton">Log Out</Button>
+
       {notes.map((note) => (
           <p key={note._id}>{note.content}</p>
       ))}
