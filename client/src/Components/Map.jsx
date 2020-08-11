@@ -1,6 +1,6 @@
 
 import React from 'react';
-import '../app.css';
+import '../pages/Locations/locations.css';
 
 export default class Map extends React.Component {
 	mapRef = React.createRef();
@@ -10,7 +10,6 @@ export default class Map extends React.Component {
 	};
 
 	componentDidMount() {
-		this.createMap(33.9, -83.3);
 		this.getCoordinates();
 	}
 
@@ -48,7 +47,7 @@ export default class Map extends React.Component {
 			}
 		);
 		//make the map responsive
-		const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+		// const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
 		//add a marker to a map at a given lat/long position
 		const marker = new H.map.Marker({ lat: lat, lng: lng });
@@ -74,7 +73,7 @@ export default class Map extends React.Component {
     map.addObject(brownwood);
 
 
-		const ui = H.ui.UI.createDefault(map, defaultLayers);
+		// const ui = H.ui.UI.createDefault(map, defaultLayers);
 
 		this.setState({ map });
 	};

@@ -13,11 +13,6 @@
   margin-bottom: 40vw;
 }
 
-.Logo {
-  text-align: center;
-  font-size: 4vw;
-}
-
 #aboutus {
   position: relative;
   top: 50vw;
@@ -26,13 +21,17 @@
   margin: 0vw 3vw;
 }
 
+#heroImage {
+  width: 29%;
+}
+
 #homeBody {
-  background-image: url(../../images/FPHomeHor.jpg);
+  background-image: url(../../images/FPHeroTest2Hor.jpg);
 }
 
 #homeHeader {
   position: relative;
-  top: 20vw;
+  top: 15vw;
 }
 
 #howitworks {
@@ -51,7 +50,7 @@
   }
 
   #homeBody {
-    background-image: url(../../images/FPHomeVert.jpg);
+    background-image: url(../../images/FPHeroTest2Vert.jpg);
     height: 100vh;
   }
 

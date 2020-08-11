@@ -1,6 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Button } from "react-foundation";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
+// import { Button } from "react-foundation";
 import "./profile.css";
 
 const Profile = ({ setIsSidebarOpen }) => {

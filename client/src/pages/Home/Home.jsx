@@ -1,4 +1,6 @@
 import React from "react";
+import logo from "../../images/FPLogo.png";
+import '../../app.css';
 import "./home.css";
 
 const Home = ({ setIsSidebarOpen }) => {
@@ -6,8 +8,17 @@ const Home = ({ setIsSidebarOpen }) => {
     <div id="homeBody" className="backgroundImage">
       <div onClick={() => setIsSidebarOpen(false)}>
         <div id="homeHeader">
-          <div className="Logo">Footprints</div>
+          <img
+            className="float-center"
+            id="heroImage"
+            src={logo}
+            alt="footprints logo"
+          />
+          <p className="float-center center">
+            Everyone has a story. Tell yours.
+          </p>
         </div>
+
         <div>
           <div id="aboutus" className="cardBody">
             About Us

@@ -1,12 +1,8 @@
-body {
-  font-family: "Lato", sans-serif;
-}
-
 .closebtn {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  color: #fffcf4 !important;
+  color: #ffffff !important;
 }
 
 .closebtn:focus {
@@ -14,7 +10,7 @@ body {
 }
 
 .closebtn:hover {
-  color: #b1a69a !important;
+  color: #dec49a !important;
 }
 
 .sidebar {
@@ -24,7 +20,7 @@ body {
   z-index: 2;
   top: 0;
   left: 0;
-  background-color: #796764;
+  background-color: #85616a;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -34,13 +30,13 @@ body {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #fffcf4 ;
+  color: #ffffff ;
   display: block;
   transition: 0.3s;
 }
 
 .sidebar a:hover {
-  color: #b1a69a;
+  color: #dec49a;
 }
 
 .sidebar .closebtn {
@@ -49,19 +45,19 @@ body {
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
-  color: #D5C8B4 ;
+  color: #ffffff ;
 }
 
 .openbtn {
   font-size: 20px;
   cursor: pointer;
-  color: #fffcf4;
+  color: #ffffff;
   padding: 10px 15px;
   border: none;
 }
 
 .openbtn:hover {
-  background-color: #b1a69a;
+  background-color: #dec49a;
 }
 
 #hamburger {
@@ -72,7 +68,7 @@ body {
   top: 1vw;
   left: 1vw;
   border-radius: 5px;
-  background-color: #796764;
+  background-color: #85616a;
 }
 
 #hamburger:focus {
@@ -80,7 +76,7 @@ body {
 }
 
 #hamburger:hover {
-  color: #c0b5a2;
+  color: #dec49a;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
