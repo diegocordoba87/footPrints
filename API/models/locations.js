@@ -10,14 +10,10 @@ const LocationsSchema = new Schema({
         type: {type: String},
         coordinates: []
     },
-    notes:[{
-        notes: {
-            type: Schema.Types.ObjectId,
-            ref: "Notes",
-            required: true
-        }       
+    
+    notes: [{ 
+        type: Schema.Types.ObjectId, ref: 'Notes'
     }]
-
 });
 
 LocationsSchema.index({ location: "2ndsphere"})

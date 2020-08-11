@@ -13,7 +13,7 @@ router.post("/api/signup", (req, res) => {
       });
     }
     else {
-      db.User.create({username: req.body.username, password: hash})
+      db.User.create({initials: req.body.initials, username: req.body.username, password: hash})
       .then((createdUser) => {
         console.log(createdUser)
         res.json({

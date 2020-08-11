@@ -10,7 +10,6 @@ export default class Map extends React.Component {
 	};
 
 	componentDidMount() {
-		this.createMap(33.9, -83.3);
 		this.getCoordinates();
 	}
 
