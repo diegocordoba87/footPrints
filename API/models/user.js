@@ -1,14 +1,12 @@
 const mongoose = require("mongoose");
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
+
 
 const Schema = mongoose.Schema;
-
 const UserSchema = new Schema({
     initials: {
         type: String,
-    required: true, 
-    },   
+        required: true
+    },    
     username: {
         type: String,
     unique: true,
@@ -20,8 +18,16 @@ const UserSchema = new Schema({
         trim: true,
         required: "Password is Required",
         validate: [({ length }) => length >= 6, "Password should be longer."]
-      },
-    notes:[
+    },
+    foundNotes:[
+        {
+            noteId: {
+                type: Schema.Types.ObjectId,
+                ref: "Notes"
+            }
+        }
+    ],
+    writtenNotes:[
         {
             noteId: {
                 type: Schema.Types.ObjectId,
@@ -35,13 +41,12 @@ const UserSchema = new Schema({
                 
                     type: Schema.Types.ObjectId,
                     ref: "Location"
-
         }
     }
     ]
 });
-
-
 const User = mongoose.model("User", UserSchema)
-
 module.exports = User;
+
+
+
