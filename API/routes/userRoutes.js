@@ -33,7 +33,8 @@ router.post("/api/signup", (req, res) => {
   })
 })
 
-router.post("/api/signin", (req, res)=>{
+router.post("/api/login", (req, res)=>{
+  console.log(req.body)
   db.User.find({username:req.body.username})
   .exec()
   .then(user=>{
@@ -121,5 +122,25 @@ router.put("/api/user/:id", (req, res) => {
       });
     });
 });
+
+router.put("/api/users/:id/addfoundnote", (req, res) => {
+  db.User.findByIdAndUpdate(req.params.id, {$push: {foundNotes: req.body._id}}, { new: true })
+    .then((updatedUser) => {
+      res.json({
+        error: false,
+        data: updatedUser,
+        message: "Successfully updated user.",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "Unable to update user.",
+      });
+    });
+});
+
 
 module.exports = router;
