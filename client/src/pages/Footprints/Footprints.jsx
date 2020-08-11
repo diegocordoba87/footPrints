@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "react-foundation";
 import API from "../../utils/API";
+import logo from "../../images/FPLogo.jpg";
 import "../../app.css";
-
 
 const Footprints = ({ setIsSidebarOpen }) => {
   // Setting our component's initial state
@@ -25,7 +25,7 @@ const Footprints = ({ setIsSidebarOpen }) => {
 
   return (
     <div onClick={() => setIsSidebarOpen(false)}>
-      <h1 className="temporaryPageName">Footprints</h1>
+      <img className="heroImage" src={logo} alt = "footprints logo" />
       <Button className="homeButton">Log Out</Button>
 
       {notes.map((note) => (
