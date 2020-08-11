@@ -41,7 +41,7 @@ export default class Map extends React.Component {
 
 			defaultLayers.vector.normal.map,
 			{
-				//change locations here
+				//change map center locations and zoom here
 				center: { lat: lat, lng: lng },
 				zoom: 9,
 				pixelRatio: window.devicePixelRatio || 1,
@@ -49,16 +49,18 @@ export default class Map extends React.Component {
 		);
     
     //make the map responsive
-		const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+    const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+    console.log(behavior)
 
   
+
     //add a marker to a map at a given lat/long position
 		const marker = new H.map.Marker({ lat: lat, lng: lng });
     map.addObject(marker);
     
     
     
-    //create a circle on the map
+    //create a circle on the map for each park
     let trailCreek = new H.map.Circle({ lat: 33.971687, lng: -83.357537}, 3000)
     map.addObject(trailCreek);
 
@@ -75,15 +77,16 @@ export default class Map extends React.Component {
     map.addObject(brownwood);
 
 
-		const ui = H.ui.UI.createDefault(map, defaultLayers);
+    const ui = H.ui.UI.createDefault(map, defaultLayers);
+    console.log(ui)
 
 		this.setState({ map });
 	};
 
-	// componentWillUnmount() {
-	//   // Cleanup after the map to avoid memory leaks when this component exits the page
-	//   this.state.map.dispose();
-	// }
+	componentWillUnmount() {
+	  // Cleanup after the map to avoid memory leaks when this component exits the page
+	  this.state.map.dispose();
+	}
 
 	render() {
 		return (
