@@ -61,6 +61,14 @@ function App() {
             )}
             style={{ backgroundImage:`url(${footprintsHome})` }}
           />
+                    <Route
+            exact
+            path="/notes"
+            render={(props) => (
+              <Footprints {...props} setIsSidebarOpen={setIsSidebarOpen} />
+            )}
+            style={{ backgroundImage:`url(${footprintsHome})` }}
+          />
         </div>
       </Router>
     </div>
