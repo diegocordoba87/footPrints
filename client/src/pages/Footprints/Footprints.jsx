@@ -25,7 +25,7 @@ const Footprints = ({ setIsSidebarOpen }) => {
   return (
     <div onClick={() => setIsSidebarOpen(false)}>
       {notes.map((note) => (
-          <p key={note._id}>>{note.content}</p>
+          <p key={note._id}>{note.content}</p>
       ))}
     </div>
   );
