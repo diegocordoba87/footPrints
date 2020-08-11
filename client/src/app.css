@@ -1,6 +1,8 @@
 body {
   margin: 0;
   font-family: 'Kalam', cursive !important;
+  text-shadow: 1px 1px 1px #000;
+
 }
 
 h1 {
@@ -17,7 +19,6 @@ h1 {
   background-attachment: fixed;
   color: #f6f5f3;
   font-size: 3vw;
-  text-shadow: 1px 1px 1px #292218;
   overflow-x: scroll;
 }
 

@@ -1,10 +1,11 @@
 .cardBody {
-  background-color: rgba(177, 166, 154, 0.7);
+  background-color: rgba(170, 170, 170, 0.7);
   border-radius: 5px;
   max-width: 70%;
   margin: auto;
   margin-bottom: 5vw;
   object-fit: cover;
+  text-align: center;
 }
 
 .homeButtonDiv {
@@ -14,32 +15,54 @@
 }
 
 #aboutus {
+  width: 70%;
+  margin: auto;
+}
+
+#heroImage {
+  width: 40vw;
   position: relative;
-  top: 50vw;
+  left: 37vw;
+  -webkit-filter: drop-shadow(6px 6px 12px #000);
+  filter: drop-shadow(6px 6px 12px #000);
+}
+
+#homeBody {
+  background-image: url(../../images/FPHomeBWHor.jpg);
+}
+
+#homeHeader {
+  margin: 4vw 5vw;
+}
+
+#homeTagLine {
+  font-size: 1.25em;
+  position: relative;
+  left: 53vw;
+  top: -10vw;
+}
+
+#howitworks {
+  position: relative;
+  top: 0vw;
   width: 43%;
   float: left;
   margin: 0vw 3vw;
 }
 
-#heroImage {
-  width: 29%;
-}
-
-#homeBody {
-  background-image: url(../../images/FPHeroTest2Hor.jpg);
-}
-
-#homeHeader {
+#scrollDown {
+  height: 4vw;
   position: relative;
-  top: 15vw;
+  top: -8vw;
+  left: 44vw;
+  -webkit-filter: drop-shadow(2px 2px 1px #000);
+  filter: drop-shadow(2px 2px 1px #000);
 }
 
-#howitworks {
+#tellYours {
   position: relative;
-  top: 50vw;
-  width: 43%;
-  float: right !important;
-  margin: 0vw 3vw;
+  top: -4vw;
+  left: 11vw;
 }
 
 @media screen and (max-width: 670px) {
@@ -50,7 +73,7 @@
   }
 
   #homeBody {
-    background-image: url(../../images/FPHeroTest2Vert.jpg);
+    background-image: url(../../images/FPHomeBWVert.jpg);
     height: 100vh;
   }
 

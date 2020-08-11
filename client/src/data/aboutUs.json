@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Diego",
+    "quote1": "Futbal Fanatic",
+    "quote2": "Avid Reader",
+    "quote3": "King of the Database",
+    "img": "../../images/Diego.jpg"
+  },
+  {
+    "name": "Liz",
+    "quote1": "Master of Music",
+    "quote2": "Insert Something Witty Here",
+    "quote3": "Dom Manipulator",
+    "img": "../../images/Liz.jpg"
+  }
+]

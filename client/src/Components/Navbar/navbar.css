@@ -2,7 +2,7 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 .closebtn:focus {
@@ -10,7 +10,7 @@
 }
 
 .closebtn:hover {
-  color: #dec49a !important;
+  color: #989a9b !important;
 }
 
 .sidebar {
@@ -36,7 +36,7 @@
 }
 
 .sidebar a:hover {
-  color: #dec49a;
+  color: #989a9b;
 }
 
 .sidebar .closebtn {
@@ -57,7 +57,7 @@
 }
 
 .openbtn:hover {
-  background-color: #dec49a;
+  background-color: #989a9b;
 }
 
 #hamburger {
@@ -76,7 +76,7 @@
 }
 
 #hamburger:hover {
-  color: #dec49a;
+  color: #989a9b;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
