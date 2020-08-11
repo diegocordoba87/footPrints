@@ -1,6 +1,8 @@
 body {
   margin: 0;
+  font-family: 'Kalam', cursive !important;
 }
+
 h1 {
   margin: 0;
 }
@@ -19,20 +21,25 @@ h1 {
   overflow-x: scroll;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100vh;
+  text-align: center;  
+}
+
 .H_imprint {
   display: none;
 }
 
-.temporaryPageName {
+.Logo {
   text-align: center;
+  font-size: 4vw;
 }
 
-#map {
-  height: 100vw;
-  width: 75vw;
-  position: relative;
-  top: 10vw;
-  margin: auto;
+.temporaryPageName {
+  text-align: center;
 }
 
 /* Lavender: 948C94

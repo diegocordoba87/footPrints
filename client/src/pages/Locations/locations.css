@@ -1,3 +1,32 @@
+.H_ui {
+  display: none;
+}
+
+.locationDiv {
+  height: 25vw;
+  width: 50vw;
+  position: relative;
+  top: 5vw;
+  left: 10vw;
+  float: left;
+}
+
 #locationsBody {
-  background-image: url(../../images/footprintsLocations.jpg);
+  background-image: url(../../images/FPLocationsHor.jpg);
+}
+
+#map {
+  height: 25vw;
+  width: 35vw;
+  position: relative;
+  top: 5vw;
+  left: 10vw;
+  float: left;
+}
+
+@media screen and (max-width: 670px) {
+  #locationsBody {
+    background-image: url(../../images/FPLocationsVert.jpg);
+    height: 100vh;
+  }
 }

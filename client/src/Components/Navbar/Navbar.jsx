@@ -4,6 +4,7 @@ import navbarLinks from "../../data/navbarLinks.json";
 import "./navbar.css";
 
 const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
+
   return (
     <div id="navbar">
       <div
@@ -11,9 +12,10 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
         className="sidebar"
         style={{ left: isSidebarOpen ? 0 : -250 }}
       >
-        <Button className="closebtn" onClick={() => setIsSidebarOpen(false)}>
+        <span className="closebtn" onClick={() => setIsSidebarOpen(false)}>
           ×
-        </Button>
+        </span>
+        {/* mapping through navbar links for display on side navbar */}
         {navbarLinks.map((link, index) => (
           <a
             key={index}
@@ -24,6 +26,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           </a>
         ))}
       </div>
+      {/* hamburger button */}
       <Button
         id="hamburger"
         className="openbtn"
