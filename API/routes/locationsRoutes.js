@@ -23,12 +23,8 @@ router.get("/api/locations", (req, res) => {
   });
 
   router.get("/api/locations/:id", (req, res) => {
-    db.Location.findById(req.params.id).populate({
-        path:"notes",
-        populate:{
-            model: "Note"
-        }
-    })
+    console.log(req.params.id)
+    db.Location.findById(req.params.id).populate("Notes")
       .then((foundLocations) => {
         
         res.json({
@@ -45,8 +41,8 @@ router.get("/api/locations", (req, res) => {
           message: "Unable to retrieve all users.",
         });
       });
-  });
-
+  })
+  
 router.post("/api/addlocation", (req, res)=>{
   db.Location.create(req.body)
   .then((newLocation)=>{
@@ -64,6 +60,37 @@ router.post("/api/addlocation", (req, res)=>{
     })
   })
 })
+
+router.put("api/location/:locationid/:noteid", (req, res) => {
+  db.Location.findByIdAndUpdate(req.params.locationid, req.params.noteid, req.body, { new: true })
+  .then((updatednote) => {
+    updatednote.notes.push(req.params.noteid),
+    res.json({
+      error: false,
+      data: updatednote,
+      message: "Successfully updated note.",
+    });
+  })
+})
+
+router.put("/api/note/:id", (req, res) => {
+  db.Notes.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then((updatednote) => {
+      res.json({
+        error: false,
+        data: updatednote,
+        message: "Successfully updated note.",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "Unable to update note.",
+      });
+    });
+});
 
 
   module.exports = router;
