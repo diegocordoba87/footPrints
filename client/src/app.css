@@ -7,15 +7,16 @@ h1 {
 
 .backgroundImage {
   background-size: cover;
-  height: 100vh;
+  height: 100vw;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-position: fixed;
+  background-attachment: fixed;
   color: #f6f5f3;
   font-size: 3vw;
   text-shadow: 1px 1px 1px #292218;
+  overflow-x: scroll;
 }
 
 .H_imprint {

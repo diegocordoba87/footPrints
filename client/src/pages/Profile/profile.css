@@ -1,3 +1,25 @@
+.newFPForm {
+  width: 69vw;
+}
+
+.profileButton {
+  text-align: center;
+  margin: 2vw;
+}
+
+.profileButtonDiv {
+  text-align: center;
+  margin: auto;
+  padding: 1vw 5vw;
+}
+
 #profileBody {
-  background-image: url(../../images/footprintsProfile.jpg);
+  background-image: url(../../images/FPLoginHor.jpg);
+}
+
+@media screen and (max-width: 670px) {
+  #profileBody {
+    background-image: url(../../images/FPLoginVert.jpg);
+    height: 100vh;
+  }
 }
