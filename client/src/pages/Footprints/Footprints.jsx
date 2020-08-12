@@ -1,36 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "react-foundation";
 import API from "../../utils/API";
-import logo from "../../images/FPLogo.jpg";
+import logo from "../../images/FPLogo.png";
 import "../../app.css";
+import "./footprints.css";
 
 const Footprints = ({ setIsSidebarOpen }) => {
   // Setting our component's initial state
-  const [notes, setNotes] = useState([])
+  const [notes, setNotes] = useState([]);
   // Load all books and store them with setBooks
   useEffect(() => {
-    console.log('hi')
-    loadNotes()
-  }, [])
+    console.log("hi");
+    loadNotes();
+  }, []);
 
   // Loads all books and sets them to books
   function loadNotes() {
     API.getNotes()
-      .then(res => {
-        setNotes(res.data.data)
-      }
-      )
-      .catch(err => console.log(err));
-  };
+      .then((res) => {
+        setNotes(res.data.data);
+      })
+      .catch((err) => console.log(err));
+  }
 
   return (
-    <div onClick={() => setIsSidebarOpen(false)}>
-      <img className="heroImage" src={logo} alt = "footprints logo" />
-      <Button className="homeButton">Log Out</Button>
+    <div id="footprintsBody">
+      <div onClick={() => setIsSidebarOpen(false)}>
+        <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
 
-      {notes.map((note) => (
+        {notes.map((note) => (
           <p key={note._id}>{note.content}</p>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

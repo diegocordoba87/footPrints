@@ -22,6 +22,7 @@
   top: 5vw;
   left: 10vw;
   float: left;
+  box-shadow: 40px 40px 0px #867;
 }
 
 @media screen and (max-width: 670px) {

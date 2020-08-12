@@ -6,6 +6,7 @@
   margin-bottom: 5vw;
   object-fit: cover;
   text-align: center;
+  box-shadow: 1px 1px 5px #000;
 }
 
 .homeButtonDiv {

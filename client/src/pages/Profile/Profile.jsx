@@ -1,26 +1,31 @@
 import React from "react";
-// import { BrowserRouter as Router, Route } from "react-router-dom";
-// import { Button } from "react-foundation";
+import logo from "../../images/FPLogo.png";
 import "./profile.css";
 
 const Profile = ({ setIsSidebarOpen }) => {
   return (
     <div id="profileBody" className="backgroundImage">
+      <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
       <div onClick={() => setIsSidebarOpen(false)}>
         <div id="profileHeader">
-          <div className="Logo">Profile</div>
+          <h2 className="Logo">Profile</h2>
         </div>
-        <div className="cardBody" id="homeHeader">
-          <form>
+        <div className="cardBody">
+          <form id="profileForm">
             <label className="homeText">
               New Footprint:
-              <input type="text" name="name" className="newFPForm" />
+              <input
+                id="newFootprint"
+                type="text"
+                name="name"
+                className="newFPForm"
+              />
             </label>
           </form>
 
-          <div className="homeText">My Footprints</div>
+          <div className="homeText">My Footprints:</div>
 
-          <div className="homeText">Saved Footprints</div>
+          <div className="homeText">Saved Footprints:</div>
         </div>
       </div>
     </div>
