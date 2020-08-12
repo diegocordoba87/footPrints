@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
-
 const Schema = mongoose.Schema;
-
 const LocationsSchema = new Schema({
     name:{
         type: String
@@ -11,13 +9,12 @@ const LocationsSchema = new Schema({
         coordinates: []
     },
     
-    notes: [{ 
-        type: Schema.Types.ObjectId, ref: 'Notes'
-    }]
+        notes: [{
+            type: Schema.Types.ObjectId,
+            ref: "Notes",
+        }]       
+    
 });
-
 LocationsSchema.index({ location: "2ndsphere"})
-
 const Location = mongoose.model("Location", LocationsSchema)
-
 module.exports = Location;

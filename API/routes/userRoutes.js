@@ -83,13 +83,14 @@ router.get("/api/users", (req, res)=>{
 })
 
 
-router.get("/api/user/:id", (req, res) => {
+router.get("/api/users/:id", (req, res) => {
   db.User.findById(req.params.id)
    
     .then((foundUser) => {
+      console.log(foundUser)
       res.json({
         error: false,
-        data: foundUser,
+        data: foundUser.foundNotes,
         message: "User retrieved.",
       });
     })
@@ -104,8 +105,8 @@ router.get("/api/user/:id", (req, res) => {
 });
 
 
-router.put("/api/user/:id", (req, res) => {
-  db.User.findByIdAndUpdate(req.params.id, req.body, { new: true })
+router.put("/api/users/:id/addfoundnote", (req, res) => {
+  db.User.findByIdAndUpdate(req.params.id, {$push: {foundNotes: {_id: req.body._id, content: req.body.content}}}, { new: true })
     .then((updatedUser) => {
       res.json({
         error: false,
