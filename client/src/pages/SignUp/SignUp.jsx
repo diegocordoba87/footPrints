@@ -1,8 +1,33 @@
 import React from "react";
 import logo from "../../images/FPLogo.png";
+import React, {useState} from "react";
 import "./signup.css";
+import axios from "axios"
 
-const SignUp = ({ setIsSidebarOpen }) => {
+
+const SignUp = (props) => {
+  const [initials, setInitials] = useState("")
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  
+    const handleSubmit= (e)=>{
+      e.preventDefault();
+      console.log(e)
+  
+      axios
+        .post("/api/signup", { initials: initials, username: username, password: password })
+        .then((response) => {
+          console.log(response);
+          window.alert(`Successfully created new account with email: ${username}`);
+          props.history.push("/login")
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+
+
+
   return (
     <div id="signupBody" className="backgroundImage">
       <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
@@ -37,6 +62,13 @@ const SignUp = ({ setIsSidebarOpen }) => {
             placeholder="Re-enter your password"
             required
           />
+          <div className="row">
+              <div className="col s12">
+                <button className="btn" type="submit">
+                  Login
+                </button>
+              </div>
+            </div>
         </form>
       </div>
     </div>
