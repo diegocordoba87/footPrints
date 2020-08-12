@@ -13,14 +13,26 @@
   padding: 1vw 5vw;
 }
 
-#newFootprint {
-  padding: 1vw;
+#newFootprintButton {
+  border-radius: 5px;
+  background-color: white;
+  position: relative;
+  top: -2vw;
+}
+
+#note {
   margin: auto;
-  width: 60vw;
+  width: 70%;
+  border-radius: 5px;
+  padding: 1vw 0vw 0vw 1vw;
 }
 
 #profileBody {
   background-image: url(../../images/FPProfileHor.jpg);
+}
+
+#profileCardBody {
+  padding: .5% 0%;
 }
 
 #profileForm {
