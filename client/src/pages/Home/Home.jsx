@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../../images/FPLogo.png";
 import scrollDown from "../../images/FPDownIconPink.png";
 import aboutUs from "../../data/aboutUs.json";
+import Andrea from "../../images/Andrea.png";
 import Diego from "../../images/Diego.jpg";
 import Liz from "../../images/Liz.jpg";
 import Mark from "../../images/Mark.jpg";
@@ -14,6 +15,9 @@ const Home = ({ setIsSidebarOpen }) => {
     let imgName;
 
     switch (name) {
+      case "Andrea":
+        imgName = Andrea;
+        break;
       case "Diego":
         imgName = Diego;
         break;
@@ -49,28 +53,33 @@ const Home = ({ setIsSidebarOpen }) => {
         <div>
           <div id="aboutus" className="cardBody">
             About Us
-            <div class="uk-flex uk-flex-center uk-flex-between specialPadding">
+            <div className="uk-flex uk-flex-center uk-flex-between specialPadding">
               {aboutUs.map((creator, index) => {
                 const source = getImage(creator.name);
                 return (
                   <>
-                    <div class="uk-card-medium uk-card-default uk-card-body uk-flex-between">
+                    <div className="uk-card-small uk-card-default uk-card-body uk-flex-between">
                       <a key={index}>
                         <img className="profilePics" src={source} />
                       </a>
                       <br />
                       <div className="creatorName">{creator.name}</div>
+                      <div className="creatorQuote">{creator.quote}</div>
                     </div>
                   </>
                 );
               })}
             </div>
-            {/* {aboutUs.map((name) => {name.name})} */}
-            {/* {creator.name}
-                    <div>{creator.quote1}</div>
-                    <div>{creator.quote2}</div>
-                    <div>{creator.quote3}</div> */}
           </div>
+        </div>
+
+        <div className="uk-text-center upDownArrows" uk-grid>
+          <a href="/#aboutus">
+            <img id="scrollDown" src={scrollDown} alt="scroll down button" />
+          </a>
+          <a href="/#aboutus">
+            <img id="scrollDown" src={scrollDown} alt="scroll down button" />
+          </a>
         </div>
         <div>
           <div id="howitworks" className="cardBody">

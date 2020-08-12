@@ -11,8 +11,15 @@
 
 .creatorName {
   text-align: center;
-  font-size: .5em;
+  font-size: .6em;
   padding: 1vw 0vw;
+  color: #85616a;
+}
+
+.creatorQuote {
+  font-size: .4em;
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: none;
 }
 
 /* .homeButtonDiv {
@@ -35,6 +42,11 @@
   padding: 2vw;
 }
 
+.uk-card-body {
+  border-radius: 5px;
+  max-width: 15%;
+}
+
 #heroImage {
   width: 41vw;
   margin-top: 11vw;
@@ -53,7 +65,8 @@
 #homeTagLine {
   font-size: 1.25em;
   margin: -4vw 0vw 0vw 22vw;
-  text-shadow: 2px 2px 3px #000;
+  text-shadow: 3px 3px 5px #000;
+
 }
 
 #howitworks {
@@ -64,7 +77,7 @@
 
 #scrollDown {
   height: 4vw;
-  margin-top: 1vw;
+  margin: 6vw 0vw;
   -webkit-filter: drop-shadow(2px 2px 1px #000);
   filter: drop-shadow(2px 2px 1px #000);
 }
