@@ -4,6 +4,7 @@ import scrollDown from "../../images/FPDownIconPink.png";
 import aboutUs from "../../data/aboutUs.json";
 import Diego from "../../images/Diego.jpg";
 import Liz from "../../images/Liz.jpg";
+import Mark from "../../images/Mark.jpg";
 import Michael from "../../images/Michael.jpg";
 import "../../app.css";
 import "./home.css";
@@ -18,6 +19,9 @@ const Home = ({ setIsSidebarOpen }) => {
         break;
       case "Elizabeth":
         imgName = Liz;
+        break;
+      case "Mark":
+        imgName = Mark;
         break;
       case "Michael":
         imgName = Michael;

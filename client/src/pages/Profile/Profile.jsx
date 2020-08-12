@@ -8,7 +8,7 @@ const Profile = ({ setIsSidebarOpen }) => {
       <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
       <div onClick={() => setIsSidebarOpen(false)}>
         <div id="profileHeader">
-          <h2 className="Logo">Profile</h2>
+          <h2>Profile</h2>
         </div>
         <div className="cardBody">
           <form id="profileForm">

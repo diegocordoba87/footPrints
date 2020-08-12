@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 import logo from "../../images/FPLogo.png";
-import "../../app.css";
 import "./footprints.css";
 
 const Footprints = ({ setIsSidebarOpen }) => {
@@ -23,9 +22,10 @@ const Footprints = ({ setIsSidebarOpen }) => {
   }
 
   return (
-    <div id="footprintsBody">
+    <div id="footprintsBody" className="backgroundImage">
+      <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
       <div onClick={() => setIsSidebarOpen(false)}>
-        <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
+        <h2>My Footprint</h2>
 
         {notes.map((note) => (
           <p key={note._id}>{note.content}</p>
