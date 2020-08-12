@@ -1,4 +1,4 @@
-.cardBody {
+/* .cardBody {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
   max-width: 70%;
@@ -7,28 +7,32 @@
   object-fit: cover;
   text-align: center;
   box-shadow: 1px 1px 5px #000;
-}
+} */
 
-.homeButtonDiv {
+/* .homeButtonDiv {
   text-align: center;
   margin: auto;
   margin-bottom: 40vw;
-}
+} */
 
 .profilePics {
   width: 8vw;
-  padding: 2vw;
 }
 
-#aboutus {
+/* #aboutus {
   width: 70%;
   margin: auto;
-}
+} */
+
+/* .specialPadding {
+  margin: 2vw;
+  padding: 2vw;
+} */
 
 #heroImage {
   width: 40vw;
-  position: relative;
-  left: 37vw;
+  /* position: relative;
+  left: 37vw; */
   -webkit-filter: drop-shadow(6px 6px 12px #000);
   filter: drop-shadow(6px 6px 12px #000);
 }
@@ -38,42 +42,42 @@
 }
 
 #homeHeader {
-  margin: 4vw 5vw;
+  /* margin: 4vw 5vw; */
 }
 
 #homeTagLine {
   font-size: 1.25em;
-  position: relative;
+  /* position: relative;
   left: 53vw;
-  top: -10vw;
+  top: -10vw; */
 }
 
 #howitworks {
-  width: 70%;
-  margin: auto;
-  margin-top: 2vw;
+  /* width: 70%; */
+  /* margin: auto;
+  margin-top: 2vw; */
 }
 
 #scrollDown {
   height: 4vw;
-  position: relative;
+  /* position: relative;
   top: -8vw;
-  left: 44vw;
+  left: 44vw; */
   -webkit-filter: drop-shadow(2px 2px 1px #000);
   filter: drop-shadow(2px 2px 1px #000);
 }
 
 #tellYours {
-  position: relative;
+  /* position: relative;
   top: -4vw;
-  left: 11vw;
+  left: 11vw; */
 }
 
 @media screen and (max-width: 670px) {
   #aboutus {
-    margin: 0vw 15%;
+    /* margin: 0vw 15%;
     width: 70%;
-    clear: both;
+    clear: both; */
   }
 
   #homeBody {
@@ -82,9 +86,9 @@
   }
 
   #howitworks {
-    margin: 10vw 15%;
+    /* margin: 10vw 15%;
     width: 70%;
-    clear: both;
+    clear: both; */
   }
 }
 

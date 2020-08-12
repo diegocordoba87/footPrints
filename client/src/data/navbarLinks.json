@@ -1,38 +1,50 @@
 [
   {
     "title": "Home",
-    "href": "/"
+    "href": "/",
+    "hiddenWhenLoggedIn": false,
+    "hiddenIfLoggedOut": false
   },
   {
     "title": "Log In",
-    "href": "/login"
+    "href": "/login",
+    "hiddenWhenLoggedIn": true,
+    "hiddenIfLoggedOut": false
   },
   {
     "title": "Sign Up",
-    "href": "/signup"
+    "href": "/signup",
+    "hiddenWhenLoggedIn": true,
+    "hiddenIfLoggedOut": false
   },
   {
     "title": "My Profile",
-    "href": "/profile"
+    "href": "/profile",
+    "hiddenWhenLoggedIn": false,
+    "hiddenIfLoggedOut": true
   },
   {
     "title": "Locations",
-    "href": "/locations"
+    "href": "/locations",
+    "hiddenWhenLoggedIn": false,
+    "hiddenIfLoggedOut": true
   },
   {
     "title": "Footprints",
-    "href": "/footprints"
+    "href": "/footprints",
+    "hiddenWhenLoggedIn": false,
+    "hiddenIfLoggedOut": true
   },
   {
     "title": "About Us",
-    "href": "/#aboutus"
+    "href": "/#aboutus",
+    "hiddenWhenLoggedIn": false,
+    "hiddenIfLoggedOut": false
   },
   {
     "title": "How it Works",
-    "href": "/#howitworks"
-  },
-  {
-    "title": "Log Out",
-    "href": "/"
+    "href": "/#howitworks",
+    "hiddenWhenLoggedIn": false,
+    "hiddenIfLoggedOut": false
   }
 ]

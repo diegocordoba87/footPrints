@@ -44,25 +44,28 @@ const Home = ({ setIsSidebarOpen }) => {
             <img id="scrollDown" src={scrollDown} alt="scroll down button" />
           </a>
         </div>
+
         <div>
-          <div id="aboutus" className="cardBody float-left">
+          <div id="aboutus" className="cardBody">
             About Us
-            <div className="align-center">
+            <div class="uk-flex uk-flex-center uk-flex-between specialPadding">
               {aboutUs.map((creator, index) => {
                 const source = getImage(creator.name);
                 return (
-                  <a key={index}>
-                    <img className="profilePics" src={source} />
-                    {/* <div>{creator.name}</div> */}
-                  </a>
+                  <div class="uk-card-medium uk-card-default uk-card-body uk-flex-between">
+                    <a key={index}>
+                      <img className="profilePics" src={source} />
+                    </a>
+                    {creator.name}
+                  </div>
                 );
               })}
-              {/* {aboutUs.map((name) => {name.name})} */}
-              {/* {creator.name}
+            </div>
+            {/* {aboutUs.map((name) => {name.name})} */}
+            {/* {creator.name}
                     <div>{creator.quote1}</div>
                     <div>{creator.quote2}</div>
                     <div>{creator.quote3}</div> */}
-            </div>
           </div>
         </div>
         <div>

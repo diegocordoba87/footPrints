@@ -11,7 +11,9 @@ import footprintsHome from './images/FPHomeHor.jpg';
 import "./app.css";
 
 function App() {
+  const sessionActiveUser = sessionStorage.getItem('username') || '';
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [activeUser, setActiveUser] = useState(sessionActiveUser);
 
   return (
     <div className="App">
@@ -20,12 +22,18 @@ function App() {
           <Navbar
             isSidebarOpen={isSidebarOpen}
             setIsSidebarOpen={setIsSidebarOpen}
+            activeUser={activeUser}
+            setActiveUser={setActiveUser}
           />
           <Route
             path="/login"
             render={(props) => (
               <>
-                <Login {...props} setIsSidebarOpen={setIsSidebarOpen} />
+                <Login 
+                  {...props} 
+                  setIsSidebarOpen={setIsSidebarOpen} 
+                  setActiveUser={setActiveUser}
+                />
               </>
             )}
           />

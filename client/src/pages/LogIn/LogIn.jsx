@@ -6,7 +6,7 @@ import "./login.css";
 const LogIn = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { setIsSidebarOpen } = props;
+  const { setIsSidebarOpen, setActiveUser } = props;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,6 +16,9 @@ const LogIn = (props) => {
       .post("/api/login", { username: username, password: password })
       .then((response) => {
         console.log(response);
+        //put in place for dynamic navbar- can be replaced with cookies 
+        setActiveUser(username);
+        sessionStorage.setItem('username', username);
       })
       .catch((err) => {
         console.log(err);
@@ -32,6 +35,10 @@ const LogIn = (props) => {
             className="input"
             type="email"
             name="email"
+            value={username}
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
             placeholder="Email"
             required
           />
@@ -48,7 +55,7 @@ const LogIn = (props) => {
           />
           <div className="row">
             <div className="col s12">
-              <button className="logSignButton input" type="submit">
+              <button className="logSignButton input" type="submit" onClick={handleSubmit}>
                 Login
               </button>
             </div>
