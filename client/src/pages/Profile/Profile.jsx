@@ -36,9 +36,10 @@ function handleSubmit(e){
 
   return (
     <div id="profileBody" className="backgroundImage">
+      <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
       <div onClick={() => setIsSidebarOpen(false)}>
         <div id="profileHeader">
-          <div className="Logo">Profile</div>
+          <h2>Profile</h2>
         </div>
         <div className="cardBody" id="homeHeader">
           <form  onSubmit={handleSubmit}>
