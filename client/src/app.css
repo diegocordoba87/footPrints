@@ -1,8 +1,17 @@
 body {
   margin: 0;
+  font-family: "Kalam", cursive !important;
+  text-shadow: 1px 1px 1px #000;
 }
+
 h1 {
   margin: 0;
+}
+
+h2 {
+  text-align: center;
+  text-shadow: 2px 2px 5px #000;
+  margin: 2vw 20vw 0vw 20vw;
 }
 
 .backgroundImage {
@@ -15,24 +24,35 @@ h1 {
   background-attachment: fixed;
   color: #f6f5f3;
   font-size: 3vw;
-  text-shadow: 1px 1px 1px #292218;
   overflow-x: scroll;
+}
+
+.logSignButton {
+  color: #85616a;
+  background-color: white;
+  width: 7vw;
+  box-shadow: 2px 2px 2px #000;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
 }
 
 .H_imprint {
   display: none;
 }
 
-.temporaryPageName {
+.Logo {
   text-align: center;
+  font-size: 4vw;
 }
 
-#map {
-  height: 100vw;
-  width: 75vw;
-  position: relative;
-  top: 10vw;
-  margin: auto;
+.temporaryPageName {
+  text-align: center;
 }
 
 /* Lavender: 948C94

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import '../app.css';
+import '../pages/Locations/locations.css';
 
 export default class Map extends React.Component {
 	mapRef = React.createRef();
@@ -10,7 +10,6 @@ export default class Map extends React.Component {
 	};
 
 	componentDidMount() {
-		// this.createMap(33.9, -83.3);
 		this.getCoordinates();
 	}
 

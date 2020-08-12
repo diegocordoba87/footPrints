@@ -1,15 +1,12 @@
 .cardBody {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
   max-width: 70%;
   margin: auto;
   margin-bottom: 5vw;
   object-fit: cover;
-}
-
-.homeButton {
   text-align: center;
-  margin: 2vw;
+  box-shadow: 1px 1px 5px #000;
 }
 
 .homeButtonDiv {
@@ -18,16 +15,82 @@
   margin-bottom: 40vw;
 }
 
-.homeText {
-  text-align: center !important;
-  font-size: 4vw;
+.profilePics {
+  width: 8vw;
+  padding: 2vw;
+}
+
+#aboutus {
+  width: 70%;
+  margin: auto;
+}
+
+#heroImage {
+  width: 40vw;
+  position: relative;
+  left: 37vw;
+  -webkit-filter: drop-shadow(6px 6px 12px #000);
+  filter: drop-shadow(6px 6px 12px #000);
 }
 
 #homeBody {
-  background-image: url(../../images/footstepsHome4.jpg);
+  background-image: url(../../images/FPHomeBWHor.jpg);
 }
 
 #homeHeader {
-  position: relative;
-  top: 1vw;
+  margin: 4vw 5vw;
 }
+
+#homeTagLine {
+  font-size: 1.25em;
+  position: relative;
+  left: 53vw;
+  top: -10vw;
+}
+
+#howitworks {
+  width: 70%;
+  margin: auto;
+  margin-top: 2vw;
+}
+
+#scrollDown {
+  height: 4vw;
+  position: relative;
+  top: -8vw;
+  left: 44vw;
+  -webkit-filter: drop-shadow(2px 2px 1px #000);
+  filter: drop-shadow(2px 2px 1px #000);
+}
+
+#tellYours {
+  position: relative;
+  top: -4vw;
+  left: 11vw;
+}
+
+@media screen and (max-width: 670px) {
+  #aboutus {
+    margin: 0vw 15%;
+    width: 70%;
+    clear: both;
+  }
+
+  #homeBody {
+    background-image: url(../../images/FPHomeBWVert.jpg);
+    height: 100vh;
+  }
+
+  #howitworks {
+    margin: 10vw 15%;
+    width: 70%;
+    clear: both;
+  }
+}
+
+/* Beige F1DDC2
+Green 89B1A3
+Lavender 80797C
+Purple282A3E
+Light Blue 5D8AA5
+Dark Blue 111825 */

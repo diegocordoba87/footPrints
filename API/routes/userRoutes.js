@@ -2,44 +2,67 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
 
 
 router.post("/api/signup", (req, res) => {
-  db.User.create(req.body)
-    .then((createdUser) => {
-      res.json({
-        error: false,
-        data: createdUser,
-        message: "Successfully created account.",
+  bcrypt.hash(req.body.password, 10, (err, hash)=>{
+    if(err){
+      return res.status(500).json({
+        error: err
       });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({
-        error: true,
-        data: null,
-        message: "Unable to create new user.",
-      });
-    });
-});
-
-router.post("/api/signin", (req, res)=>{
-  userModel.findOne({username:req.body.username}, function(err, userInfo){
-    if (err) {
-     next(err);
-    } else {
-if(req.body.password, userInfo.password) {
-const token = jwt.sign({id: userInfo._id}, req.app.get('secretKey'), { expiresIn: '1h' });
-res.json({status:"success", message: "user found!!!", data:{user: userInfo, token:token}});
-}else{
-res.json({status:"error", message: "Invalid email/password!!!", data:null});
-}
     }
-   });
+    else {
+      db.User.create({initials: req.body.initials, username: req.body.username, password: hash})
+      .then((createdUser) => {
+        console.log(createdUser)
+        res.json({
+          error: false,
+          message: "Successfully created account.",
+          
+        });
+      }).catch((err)=>{
+        console.log(err)
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Could not create users"
+        })
+      })
+    }
+  })
+})
+
+router.post("/api/login", (req, res)=>{
+  console.log(req.body)
+  db.User.find({username:req.body.username})
+  .exec()
+  .then(user=>{
+    if(user.length < 1){
+      return res.status(401).json({
+        message: "Authorization failed"
+      })
+    }
+    bcrypt.compare(req.body.password, user[0].password, (err, result)=>{
+      if(err){
+        return res.status(401).json({
+          message: "Authorizatoon failed"
+        })
+      }
+      if(result){
+        return res.status(200).json({
+          message: "Authorization successful"
+        })
+      }
+      res.status(401).json({
+        message: "Authorization failed"
+      })
+    })
+  })
 
 })
 
+//mainly for testing
 router.get("/api/users", (req, res)=>{
   db.User.find({})
   .then((users)=>{
@@ -100,5 +123,25 @@ router.put("/api/users/:id/addfoundnote", (req, res) => {
       });
     });
 });
+
+router.put("/api/users/:id/addfoundnote", (req, res) => {
+  db.User.findByIdAndUpdate(req.params.id, {$push: {foundNotes: req.body._id}}, { new: true })
+    .then((updatedUser) => {
+      res.json({
+        error: false,
+        data: updatedUser,
+        message: "Successfully updated user.",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "Unable to update user.",
+      });
+    });
+});
+
 
 module.exports = router;

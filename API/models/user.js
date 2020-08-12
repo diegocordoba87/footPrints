@@ -1,10 +1,12 @@
 const mongoose = require("mongoose");
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
+
 
 const Schema = mongoose.Schema;
-
 const UserSchema = new Schema({
+    initials: {
+        type: String,
+        required: true
+    },    
     username: {
         type: String,
     unique: true,
@@ -43,13 +45,12 @@ const UserSchema = new Schema({
                 
                     type: Schema.Types.ObjectId,
                     ref: "Location"
-
         }
     }
     ]
 });
-
-
 const User = mongoose.model("User", UserSchema)
-
 module.exports = User;
+
+
+

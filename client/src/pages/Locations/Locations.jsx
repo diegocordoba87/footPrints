@@ -1,42 +1,45 @@
-import React from "react";
-import { Button } from "react-foundation";
-import Map from "../../Components/Map";
-import "./locations.css";
-import "../../app.css";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react";
+import Map from "../../Components/Map";
+import logo from "../../images/FPLogo.png";
+import "./locations.css";
 
 const Locations = ({ setIsSidebarOpen }) => {
-  
-  const [location, setLocation] = useState([])
- 
- 
-  useEffect(()=>{
-    axios
-    .get("api/locations")
-    .then((locations)=>{
-      
-      setLocation(locations.data.data)
-      console.log(locations.data.data)
-    })
-  }, [])
+  const [location, setLocation] = useState([]);
 
-  
-  
+  const testing = [
+    {
+      name: "Marietta",
+    },
+    {
+      name: "Atlanta",
+    },
+  ];
+
+  useEffect(() => {
+    axios.get("api/locations").then((locations) => {
+      // setLocation(locations.data.data);
+      setLocation(testing);
+      console.log(locations.data.data);
+    });
+  }, []);
+
   return (
-
     <div id="locationsBody" className="backgroundImage">
+      <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
+      
       <div onClick={() => setIsSidebarOpen(false)}>
-        <h1 className="temporaryPageName">Locations</h1>
-        <Map />
-        
-        <div style={{marginTop: 80, marginLeft: 80}}>
-          {location.map((location)=>(
-            <h4>{location.name}</h4>
-          ))}
+        <h2>Locations</h2>
+        <div>
+          <div>
+            <Map />
           </div>
-
+          <div className="locationDiv">
+            {location.map((locationObj) => (
+              <h4 className="cardBody">{locationObj.name}</h4>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

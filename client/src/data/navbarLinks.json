@@ -30,5 +30,9 @@
   {
     "title": "How it Works",
     "href": "/#howitworks"
+  },
+  {
+    "title": "Log Out",
+    "href": "/"
   }
 ]
