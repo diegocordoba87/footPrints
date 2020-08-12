@@ -41,8 +41,8 @@ router.get("/api/locations", (req, res) => {
           message: "Unable to retrieve all users.",
         });
       });
-  });
-
+  })
+  
 router.post("/api/addlocation", (req, res)=>{
   db.Location.create(req.body)
   .then((newLocation)=>{
@@ -53,7 +53,7 @@ router.post("/api/addlocation", (req, res)=>{
     });
   })
   .catch((err)=>{
-    res.status(500).jsin({
+    res.status(500).json({
       error: true,
       data: null,
       message: "Unable to add location"
@@ -61,10 +61,11 @@ router.post("/api/addlocation", (req, res)=>{
   })
 })
 
-router.put("api/location/:locationid", (req, res) => {
+router.put("/api/locations/:id/addnote", (req, res) => {
   console.log("hi")
-  db.Location.findByIdAndUpdate(req.params.locationid, {$push: {"notes": {_id: req.body._id}}}, { new: true })
+  db.Location.findByIdAndUpdate(req.params.id, {$push: {notes: req.body._id, content: req.body.content}}, { new: true })
   .then((updatednote) => {
+
     res.json({
       error: false,
       data: updatednote,
@@ -72,6 +73,5 @@ router.put("api/location/:locationid", (req, res) => {
     });
   })
 })
-
 
   module.exports = router;
