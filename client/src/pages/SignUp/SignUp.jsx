@@ -11,8 +11,6 @@ const SignUp = ({ setIsSidebarOpen, history }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
-
     axios
       .post("/api/signup", {
         initials: initials,

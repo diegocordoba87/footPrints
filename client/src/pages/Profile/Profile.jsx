@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 // import { Button } from "react-foundation";
+import logo from "../../images/FPLogo.png";
 import "./profile.css";
 import axios from "axios";
 
@@ -29,6 +30,17 @@ function handleSubmit(e){
   
   axios.post("/api/newnote", {content: note}).then((res)=>{
     window.alert(`Successfully created new note`);
+    loadNotes()
+  })
+
+}
+
+function deleteNote(id){
+
+  console.log(id)
+  
+  axios.delete(`/api/note/${id}`).then((res)=>{
+    window.alert(`Successfully deleted new note`);
     loadNotes()
   })
 
@@ -63,7 +75,8 @@ function handleSubmit(e){
           {notes.map((note) => (
           <p key={note._id}>
             <h2>FootPrint</h2>
-            {note.content}</p>
+            {note.content} 
+            <button onClick={()=>{deleteNote(note._id)}}>Delete Footprint</button> </p>
       ))}
 
          
