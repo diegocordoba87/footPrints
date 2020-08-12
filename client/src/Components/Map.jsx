@@ -59,7 +59,7 @@ export default class Map extends React.Component {
 
 		//create a draggable marker
 		let dragMarker = new H.map.Marker(
-			{ lat: 33.98, lng: -83.36 },
+			{ lat: lat + .005, lng: lng + .005},
 			{ volatility: true }
 		);
 		dragMarker.draggable = true;
