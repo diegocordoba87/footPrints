@@ -13,13 +13,23 @@
   padding: 1vw 5vw;
 }
 
+#newFootprint {
+  padding: 1vw;
+  margin: auto;
+  width: 60vw;
+}
+
 #profileBody {
-  background-image: url(../../images/FPLoginHor.jpg);
+  background-image: url(../../images/FPProfileHor.jpg);
+}
+
+#profileForm {
+  margin-top: 2vw;
 }
 
 @media screen and (max-width: 670px) {
   #profileBody {
-    background-image: url(../../images/FPLoginVert.jpg);
+    background-image: url(../../images/FPProfileVert.jpg);
     height: 100vh;
   }
 }

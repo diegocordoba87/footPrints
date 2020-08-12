@@ -1,0 +1,18 @@
+.footprintsPageLogo {
+  margin: 1vw 2vw;
+  width: 15vw;
+  float: right;
+  -webkit-filter: drop-shadow(1px 1px 1px #000);
+  filter: drop-shadow(1px 1px 1px #000);}
+
+#footprintsBody {
+  background-image: url(../../images/FPFootprintsHor.jpg);
+  height: 100vh;
+}
+
+@media screen and (max-width: 670px) {
+  #footprintsBody {
+    background-image: url(../../images/FPFootprintsVert.jpg);
+    height: 100vh;
+  }
+}

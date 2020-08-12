@@ -1,3 +1,20 @@
+
+
 #signupBody {
-  background-image: url(../../images/footprintsSignUp.jpg);
+  background-image: url(../../images/FPSignupHor.jpg);
+  height: 100vh;
+}
+
+#signupInput {
+  width: 50%;
+  margin: auto;
+  position: relative;
+  top: 2vw;
+}
+
+@media screen and (max-width: 670px) {
+  #signupBody {
+    background-image: url(../../images/FPSignupVert.jpg);
+    height: 100vh;
+  }
 }
