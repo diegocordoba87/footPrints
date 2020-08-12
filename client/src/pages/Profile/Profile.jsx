@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import mongoose from "mongoose";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Button } from "react-foundation";
+import "./profile.css";
 import API from "../../utils/API";
 import logo from "../../images/FPLogo.png";
 import axios from "axios";
-import "./profile.css";
 
 const Profile = ({ setIsSidebarOpen }) => {
   // Setting our component's initial state
@@ -25,22 +27,23 @@ const Profile = ({ setIsSidebarOpen }) => {
       .catch((err) => console.log(err));
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    axios.post("/api/newnote", { content: notes }).then((res) => {
+  function handleSubmit(e){
+    e.preventDefault()
+    
+    axios.post("/api/newnote", {content: notes}).then((res)=>{
       window.alert(`Successfully created new note`);
-      loadNotes();
-    });
+      loadNotes()
+    })
   }
-  function deleteNote(id) {
-    console.log(id);
-
-    axios.delete(`/api/note/${id}`).then((res) => {
+  function deleteNote(id){
+    console.log(id)
+    
+    axios.delete(`/api/note/${id}`).then((res)=>{
       window.alert(`Successfully deleted new note`);
-      loadNotes();
-    });
+      loadNotes()
+    })
   }
+
 
   return (
     <div id="profileBody" className="backgroundImage">
@@ -49,11 +52,11 @@ const Profile = ({ setIsSidebarOpen }) => {
         <div id="profileHeader">
           <h2>Profile</h2>
         </div>
-        <div className="cardBody" id="profileCardBody">
-          <form onSubmit={handleSubmit} id="profileForm">
-            <div className="homeText">New FootPrint:</div>
-            <label>
-              <textarea
+        <div className="cardBody" id="homeHeader">
+          <form onSubmit={handleSubmit}>
+            <label className="homeText">
+              New Footprint:
+              <input
                 id="note"
                 type="text"
                 value={notes}
@@ -64,17 +67,16 @@ const Profile = ({ setIsSidebarOpen }) => {
                 placeholder="250 words minimum. 1000 words maximum"
                 className="newFPForm"
               />
+              <button>Save FootPrint</button>
             </label>
           </form>
-          <button id="newFootprintButton">Save FootPrint</button>
 
-          <div className="cardBody">
-            <div className="homeText">My Stories</div>
+          <div className="cardBody" id="homeHeader">
+            <div className="homeText">My stories</div>
           </div>
-
-          <div className="cardBody">
+          <div className="cardBody" id="homeHeader">
             <div className="homeText">
-              Found FootPrints
+              Found Footprints
               {notes.map((note) => {
                 return (
                   <p key={note.title}>
