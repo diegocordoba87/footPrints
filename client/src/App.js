@@ -7,7 +7,7 @@ import Footprints from "./pages/Footprints/Footprints";
 import Profile from "./pages/Profile/Profile";
 import Signup from "./pages/SignUp/SignUp";
 import Home from "./pages/Home/Home";
-import footprintsHome from './images/FPHomeHor.jpg';
+import footprintsHome from "./images/FPHomeHor.jpg";
 import "./app.css";
 
 function App() {
@@ -59,15 +59,22 @@ function App() {
             render={(props) => (
               <Home {...props} setIsSidebarOpen={setIsSidebarOpen} />
             )}
-            style={{ backgroundImage:`url(${footprintsHome})` }}
+            style={{ backgroundImage: `url(${footprintsHome})` }}
           />
-                    <Route
+          <Route
             exact
             path="/notes"
             render={(props) => (
               <Footprints {...props} setIsSidebarOpen={setIsSidebarOpen} />
             )}
-            style={{ backgroundImage:`url(${footprintsHome})` }}
+            style={{ backgroundImage: `url(${footprintsHome})` }}
+          />
+          {/* test map */}
+          <Route
+            path="/demo"
+            render={(props) => (
+              <Locations {...props} setIsSidebarOpen={setIsSidebarOpen} />
+            )}
           />
         </div>
       </Router>
