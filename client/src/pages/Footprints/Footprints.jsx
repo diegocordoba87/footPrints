@@ -5,12 +5,15 @@ import "./footprints.css";
 
 const Footprints = ({ setIsSidebarOpen }) => {
   // Setting our component's initial state
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState([])
+
+  
   // Load all books and store them with setBooks
   useEffect(() => {
-    console.log("hi");
-    loadNotes();
-  }, []);
+    
+    loadNotes()   
+    
+  }, [])
 
   // Loads all books and sets them to books
   function loadNotes() {
@@ -20,6 +23,8 @@ const Footprints = ({ setIsSidebarOpen }) => {
       })
       .catch((err) => console.log(err));
   }
+
+
 
   return (
     <div id="footprintsBody" className="backgroundImage">
