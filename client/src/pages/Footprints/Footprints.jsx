@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
+import "../../app.css";
 import logo from "../../images/FPLogo.png";
 import "./footprints.css";
 
