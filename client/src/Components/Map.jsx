@@ -69,10 +69,10 @@ export default class Map extends React.Component {
 		map.addEventListener(
 			'dragstart',
 			function (ev) {
-				var target = ev.target,
+				let target = ev.target,
 					pointer = ev.currentPointer;
 				if (target instanceof H.map.Marker) {
-					var targetPosition = map.geoToScreen(target.getGeometry());
+					let targetPosition = map.geoToScreen(target.getGeometry());
 					target['offset'] = new H.math.Point(
 						pointer.viewportX - targetPosition.x,
 						pointer.viewportY - targetPosition.y
@@ -87,7 +87,7 @@ export default class Map extends React.Component {
 		map.addEventListener(
 			'dragend',
 			function (ev) {
-				var target = ev.target;
+				let target = ev.target;
 				if (target instanceof H.map.Marker) {
 					behavior.enable();
 				}
@@ -100,7 +100,7 @@ export default class Map extends React.Component {
 		map.addEventListener(
 			'drag',
 			function (ev) {
-				var target = ev.target,
+				let target = ev.target,
 					pointer = ev.currentPointer;
 				if (target instanceof H.map.Marker) {
 					target.setGeometry(
