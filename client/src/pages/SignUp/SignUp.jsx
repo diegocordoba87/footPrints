@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button } from "react-foundation";
 import logo from "../../images/FPLogo.png";
 import axios from "axios";
 import "./signup.css";
@@ -71,9 +70,9 @@ const SignUp = ({ setIsSidebarOpen, history }) => {
           />
           <div className="row">
             <div className="col s12">
-              <Button className="logSignButton input" type="submit">
+              <button className="logSignButton input" type="submit">
                 Login
-              </Button>
+              </button>
             </div>
           </div>
         </form>

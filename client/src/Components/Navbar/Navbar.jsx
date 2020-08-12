@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "react-foundation";
 import navbarLinks from "../../data/navbarLinks.json";
 import "./navbar.css";
 
@@ -27,13 +26,13 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
         ))}
       </div>
       {/* hamburger button */}
-      <Button
+      <button
         id="hamburger"
         className="openbtn"
         onClick={() => setIsSidebarOpen(true)}
       >
         ☰
-      </Button>
+      </button>
     </div>
   );
 };
