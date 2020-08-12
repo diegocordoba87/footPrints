@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import mongoose from "mongoose";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Button } from "react-foundation";
-import "./profile.css";
 import API from "../../utils/API";
 import logo from "../../images/FPLogo.png";
 import axios from "axios";
+import "./profile.css";
 
 const Profile = ({ setIsSidebarOpen }) => {
   // Setting our component's initial state
@@ -37,15 +35,14 @@ const Profile = ({ setIsSidebarOpen }) => {
       loadNotes()
     })
   }
-  function deleteNote(id){
-    console.log(id)
-    
-    axios.delete(`/api/note/${id}`).then((res)=>{
-      window.alert(`Successfully deleted new note`);
-      loadNotes()
-    })
-  }
+  function deleteNote(id) {
+    console.log(id);
 
+    axios.delete(`/api/note/${id}`).then((res) => {
+      window.alert(`Successfully deleted new note`);
+      loadNotes();
+    });
+  }
 
   return (
     <div id="profileBody" className="backgroundImage">
@@ -54,11 +51,11 @@ const Profile = ({ setIsSidebarOpen }) => {
         <div id="profileHeader">
           <h2>Profile</h2>
         </div>
-        <div className="cardBody" id="homeHeader">
-          <form onSubmit={handleSubmit}>
-            <label className="homeText">
-              New Footprint:
-              <input
+        <div className="cardBody" id="profileCardBody">
+          <form onSubmit={handleSubmit} id="profileForm">
+            <div className="homeText">New FootPrint:</div>
+            <label>
+              <textarea
                 id="note"
                 type="text"
                 value={noteContent}
@@ -69,16 +66,17 @@ const Profile = ({ setIsSidebarOpen }) => {
                 placeholder="250 words minimum. 1000 words maximum"
                 className="newFPForm"
               />
-              <button>Save FootPrint</button>
             </label>
           </form>
+          <button id="newFootprintButton">Save FootPrint</button>
 
-          <div className="cardBody" id="homeHeader">
-            <div className="homeText">My stories</div>
+          <div className="cardBody">
+            <div className="homeText">My Stories</div>
           </div>
-          <div className="cardBody" id="homeHeader">
+
+          <div className="cardBody">
             <div className="homeText">
-              Found Footprints
+              Found FootPrints
               {notes.map((note) => {
                 return(
                 
