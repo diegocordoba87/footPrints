@@ -1,13 +1,6 @@
-<<<<<<< HEAD
 import React from "react";
 import "../app.css";
-import JSZip from "jszip";
-import Axios from "axios";
-=======
-
-import React from 'react';
-import '../pages/Locations/locations.css';
->>>>>>> 22335f21dc2e214d64c4b6e5aced003a5f7979f7
+import axios from "axios";
 
 export default class Map extends React.Component {
   mapRef = React.createRef();
@@ -20,15 +13,9 @@ export default class Map extends React.Component {
     //get user's coordinates and then creates a mat centralized on those coords
     this.getCoordinates();
     //function that checks to see if the user is inside fence
-
-<<<<<<< HEAD
+    console.log(postion)
     //function that queries the db and finds all the notes at the location.
   }
-=======
-	componentDidMount() {
-		this.getCoordinates();
-	}
->>>>>>> 22335f21dc2e214d64c4b6e5aced003a5f7979f7
 
   //get coordinates from the window then push them to a new map
   getCoordinates = () => {
@@ -46,6 +33,7 @@ export default class Map extends React.Component {
   //
   createMap = (lat, lng) => {
     const H = window.H;
+    console.log(H);
     const platform = new H.service.Platform({
       apikey: "x0ctxWIBslUK51f47JpqheGPcD8W3VBNTS_ZoFNTJgo",
     });
@@ -66,12 +54,11 @@ export default class Map extends React.Component {
     );
     //make the map responsive
     const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+    console.log(behavior);
 
     //add a marker to a map at a given lat/long position
     const marker = new H.map.Marker({ lat: lat, lng: lng });
     map.addObject(marker);
-
-    //create a circle on the map
 
     //create a geofence around a given set of coordinates
     let trailCreek = new H.map.Circle(
@@ -99,71 +86,35 @@ export default class Map extends React.Component {
     map.addObject(brownwood);
 
     //convert the brownwood map circle to wkt format
-    /* const brownwoodGeo = brownwood.getGeometry();
+    const brownwoodGeo = brownwood.getGeometry();
     const brownwoodWKT = brownwoodGeo.toString();
-	console.log(brownwoodWKT); */
-	
-	async function postData(url, data) {
-		const response = await fetch(url, {
-		  method: "POST",
-		  mode: "no-cors",
-		  headers: {
-			"Content-Type": "application/json"
-		  },
-		  redirect: "follow",
-		  body: JSON.stringify(data)
-		});
-		console.log(response)
-		return response.json();
-	  }
-	  const apiKey = "x0ctxWIBslUK51f47JpqheGPcD8W3VBNTS_ZoFNTJgo";
-	  postData(`https://pos.ls.hereapi.com/positioning/v1/locate?apiKey=${apiKey}`, {
-		"gsm": [{
-		  "mcc": 262,
-		  "mnc": 1,
-		  "lac": 5126,
-		  "cid": 21857
-		}]
-	  }).then(data => {
-		console.log(data);
-	  })
-
-    //creating zip file to send to api
-    /* const zip = new JSZip();
-    zip.file("data.wkt", "NAME\tWKT\n" + "brownwood" + "\t" + brownwoodWKT);
-    zip.generateAsync({ type: "blob" }).then((content) => {
-      let formData = new FormData();
-      formData.append("zipfile", content);
-      const mapKey = "x0ctxWIBslUK51f47JpqheGPcD8W3VBNTS_ZoFNTJgo";
-      Axios.post(
-        "https://pos.ls.hereapi.com/positioning/v1/locate?apiKey=x0ctxWIBslUK51f47JpqheGPcD8W3VBNTS_ZoFNTJgo",
-        formData,
-        {
-          headers: {
-            "content-type": "multipart/form-data",
+    console.log(brownwoodWKT);
+    const mapKey = "x0ctxWIBslUK51f47JpqheGPcD8W3VBNTS_ZoFNTJgo";
+    axios({
+      method: "POST",
+      url: `https://pos.ls.hereapi.com/positioning/v1/locate?apiKey=${mapKey}`,
+      headers: { "Content-Type": "application/json" },
+      data: {
+        gsm: [
+          {
+            mcc: 262,
+            mnc: 1,
+            lac: 5126,
+            cid: 21857,
           },
-          params: {
-            apiKey: apiKey,
-          },
-        }
-      ).then((result) => {
-        console.log(result);
-      }),
-        (error) => {
-          console.log(error);
-        };
-    }),
-      (error) => {
-        console.error(error);
-      }; */
+        ],
+      },
+    })
+      .then((ares) => console.log("axios response", ares.data))
+      .catch((err) => console.log(err));
 
     const ui = H.ui.UI.createDefault(map, defaultLayers);
-
+    console.log(ui);
     this.setState({ map });
   };
 
   componentWillUnmount() {
-  //   // Cleanup after the map to avoid memory leaks when this component exits the page
+    // Cleanup after the map to avoid memory leaks when this component exits the page
     this.state.map.dispose();
   }
 

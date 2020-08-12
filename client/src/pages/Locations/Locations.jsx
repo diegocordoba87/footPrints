@@ -19,7 +19,7 @@ const Locations = ({ setIsSidebarOpen }) => {
     axios.get("api/locations").then((locations) => {
       // setLocation(locations.data.data);
       setLocation(testing);
-      console.log(locations.data.data);
+      // console.log(locations.data.data);
     });
   }, [testing]);
 
