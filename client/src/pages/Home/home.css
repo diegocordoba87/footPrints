@@ -1,4 +1,4 @@
-/* .cardBody {
+.cardBody {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
   max-width: 70%;
@@ -7,7 +7,13 @@
   object-fit: cover;
   text-align: center;
   box-shadow: 1px 1px 5px #000;
-} */
+}
+
+.creatorName {
+  text-align: center;
+  font-size: .5em;
+  padding: 1vw 0vw;
+}
 
 /* .homeButtonDiv {
   text-align: center;
@@ -24,17 +30,16 @@
   margin: auto;
 } */
 
-/* .specialPadding {
+.specialPadding {
   margin: 2vw;
   padding: 2vw;
-} */
+}
 
 #heroImage {
-  width: 40vw;
-  /* position: relative;
-  left: 37vw; */
-  -webkit-filter: drop-shadow(6px 6px 12px #000);
-  filter: drop-shadow(6px 6px 12px #000);
+  width: 41vw;
+  margin-top: 11vw;
+  filter: drop-shadow(8px 8px 2px #000);
+  -webkit-filter: drop-shadow(8px 8px 2px #000);
 }
 
 #homeBody {
@@ -47,9 +52,8 @@
 
 #homeTagLine {
   font-size: 1.25em;
-  /* position: relative;
-  left: 53vw;
-  top: -10vw; */
+  margin: -4vw 0vw 0vw 22vw;
+  text-shadow: 2px 2px 3px #000;
 }
 
 #howitworks {
@@ -60,17 +64,14 @@
 
 #scrollDown {
   height: 4vw;
-  /* position: relative;
-  top: -8vw;
-  left: 44vw; */
+  margin-top: 1vw;
   -webkit-filter: drop-shadow(2px 2px 1px #000);
   filter: drop-shadow(2px 2px 1px #000);
 }
 
 #tellYours {
-  /* position: relative;
-  top: -4vw;
-  left: 11vw; */
+  margin: -1vw 0vw 0vw 6vw;
+  text-shadow: 2px 2px 3px #000;
 }
 
 @media screen and (max-width: 670px) {

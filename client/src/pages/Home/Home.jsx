@@ -33,9 +33,10 @@ const Home = ({ setIsSidebarOpen }) => {
   return (
     <div id="homeBody" className="backgroundImage">
       <div onClick={() => setIsSidebarOpen(false)}>
-        <div id="homeHeader" className="float-right">
-          <img id="heroImage" src={logo} alt="footprints logo" />
-
+        <div id="homeHeader" className="uk-text-center" uk-grid>
+          <div className="uk-flex-first uk-flex-center">
+            <img id="heroImage" src={logo} alt="footprints logo" />
+          </div>
           <div id="homeTagLine">
             <p>Everyone has a story.</p>
             <p id="tellYours">Tell yours.</p>
@@ -52,12 +53,15 @@ const Home = ({ setIsSidebarOpen }) => {
               {aboutUs.map((creator, index) => {
                 const source = getImage(creator.name);
                 return (
-                  <div class="uk-card-medium uk-card-default uk-card-body uk-flex-between">
-                    <a key={index}>
-                      <img className="profilePics" src={source} />
-                    </a>
-                    {creator.name}
-                  </div>
+                  <>
+                    <div class="uk-card-medium uk-card-default uk-card-body uk-flex-between">
+                      <a key={index}>
+                        <img className="profilePics" src={source} />
+                      </a>
+                      <br />
+                      <div className="creatorName">{creator.name}</div>
+                    </div>
+                  </>
                 );
               })}
             </div>

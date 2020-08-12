@@ -1,5 +1,12 @@
 [
   {
+    "name": "Andrea",
+    "quote1": "Futbal Fanatic",
+    "quote2": "Avid Reader",
+    "quote3": "King of the Database",
+    "img": "../../images/Andrea.jpg"
+  },
+  {
     "name": "Diego",
     "quote1": "Futbal Fanatic",
     "quote2": "Avid Reader",
