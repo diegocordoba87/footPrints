@@ -9,6 +9,12 @@ h1 {
   margin: 0;
 }
 
+h2 {
+  text-align: center;
+  text-shadow: 2px 2px 10px #000;
+  margin-bottom: 0vw;
+}
+
 .backgroundImage {
   background-size: cover;
   height: 100vw;

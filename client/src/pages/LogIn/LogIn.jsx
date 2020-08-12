@@ -5,6 +5,7 @@ const LogIn = ({ setIsSidebarOpen }) => {
   return (
     <div id="loginBody" className="backgroundImage">
       <div onClick={() => setIsSidebarOpen(false)}>
+        <h2>Log In</h2>
         <form id="loginInput">
           <input
             className="input"
