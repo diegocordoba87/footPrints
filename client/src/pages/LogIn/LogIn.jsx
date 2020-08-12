@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button } from "react-foundation";
 import axios from "axios";
 import logo from "../../images/FPLogo.png";
 import "./login.css";
@@ -49,9 +48,9 @@ const LogIn = (props) => {
           />
           <div className="row">
             <div className="col s12">
-              <Button className="logSignButton input" type="submit">
+              <button className="logSignButton input" type="submit">
                 Login
-              </Button>
+              </button>
             </div>
           </div>
         </form>
