@@ -10,7 +10,7 @@ import axios from "axios";
 const Profile = ({ setIsSidebarOpen }) => {
   // Setting our component's initial state
   const [notes, setNotes] = useState([]);
-  const noteContent = [];
+  const [noteContent, setNoteContent] = useState("");
   const userID = mongoose.Types.ObjectId("5f33f7f1b22841f37dd7b6fa");
   // Load all books and store them with setBooks
   useEffect(() => {
@@ -30,8 +30,10 @@ const Profile = ({ setIsSidebarOpen }) => {
   function handleSubmit(e){
     e.preventDefault()
     
-    axios.post("/api/newnote", {content: notes}).then((res)=>{
+    axios.post("/api/newnote", {content: noteContent}).then((res)=>{
+      console.log(res)
       window.alert(`Successfully created new note`);
+      setNoteContent("")
       loadNotes()
     })
   }
@@ -59,10 +61,10 @@ const Profile = ({ setIsSidebarOpen }) => {
               <input
                 id="note"
                 type="text"
-                value={notes}
+                value={noteContent}
                 name="note"
                 onChange={(e) => {
-                  setNotes(e.target.value);
+                  setNoteContent(e.target.value);
                 }}
                 placeholder="250 words minimum. 1000 words maximum"
                 className="newFPForm"
@@ -78,7 +80,8 @@ const Profile = ({ setIsSidebarOpen }) => {
             <div className="homeText">
               Found Footprints
               {notes.map((note) => {
-                return (
+                return(
+                
                   <p key={note.title}>
                     {note.content}
                     <button
@@ -89,8 +92,8 @@ const Profile = ({ setIsSidebarOpen }) => {
                       Delete Footprint
                     </button>
                   </p>
-                );
-              })}
+                
+              )})}
             </div>
           </div>
         </div>
