@@ -21,7 +21,7 @@ const Locations = ({ setIsSidebarOpen }) => {
       setLocation(testing);
       console.log(locations.data.data);
     });
-  }, [testing]);
+  }, []);
 
   return (
     <div id="locationsBody" className="backgroundImage">

@@ -53,7 +53,7 @@ router.post("/api/addlocation", (req, res)=>{
     });
   })
   .catch((err)=>{
-    res.status(500).jsin({
+    res.status(500).json({
       error: true,
       data: null,
       message: "Unable to add location"
@@ -72,6 +72,8 @@ router.put("api/location/:locationid", (req, res) => {
     });
   })
 })
+
+
 
 
   module.exports = router;

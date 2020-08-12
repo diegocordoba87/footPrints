@@ -7,10 +7,13 @@ import "../../app.css";
 const Footprints = ({ setIsSidebarOpen }) => {
   // Setting our component's initial state
   const [notes, setNotes] = useState([])
+
+  
   // Load all books and store them with setBooks
   useEffect(() => {
-    console.log('hi')
-    loadNotes()
+    
+    loadNotes()   
+    
   }, [])
 
   // Loads all books and sets them to books
@@ -22,6 +25,8 @@ const Footprints = ({ setIsSidebarOpen }) => {
       )
       .catch(err => console.log(err));
   };
+
+
 
   return (
     <div onClick={() => setIsSidebarOpen(false)}>
