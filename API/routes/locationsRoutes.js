@@ -63,7 +63,7 @@ router.post("/api/addlocation", (req, res)=>{
 
 router.put("/api/locations/:id/addnote", (req, res) => {
   console.log("hi")
-  db.Location.findByIdAndUpdate(req.params.id, {$push: {notes: req.body._id}}, { new: true })
+  db.Location.findByIdAndUpdate(req.params.id, {$push: {notes: req.body._id, content: req.body.content}}, { new: true })
   .then((updatednote) => {
 
     res.json({
