@@ -34,11 +34,16 @@ const SignUp = ({ setIsSidebarOpen, history }) => {
       <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
       <div onClick={() => setIsSidebarOpen(false)}>
         <h2>Sign Up</h2>
-        <form id="signupInput">
+        <form id="signupInput" onSubmit={handleSubmit}>
           <input
+            id="initials" 
             className="input"
             type="text"
             name="initials"
+            value={initials}
+            onChange={(e)=>{
+              setInitials(e.target.value)
+            }}
             placeholder="Enter your initials"
             required
           />
@@ -46,6 +51,10 @@ const SignUp = ({ setIsSidebarOpen, history }) => {
             className="input"
             type="email"
             name="email"
+            value={username}
+            onChange={(e)=>{
+              setUsername(e.target.value)
+            }}
             placeholder="Enter your email"
             required
           />
@@ -53,14 +62,11 @@ const SignUp = ({ setIsSidebarOpen, history }) => {
             className="input"
             type="password"
             name="password"
+            value={password}
+            onChange={(e)=>{
+              setPassword(e.target.value)
+            }}
             placeholder="Enter your password"
-            required
-          />
-          <input
-            className="input"
-            type="password"
-            name="password"
-            placeholder="Re-enter your password"
             required
           />
           <div className="row">
