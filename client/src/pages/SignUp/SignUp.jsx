@@ -1,71 +1,75 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { Button } from "react-foundation";
+import logo from "../../images/FPLogo.png";
+import axios from "axios";
 import "./signup.css";
-import axios from "axios"
 
-
-const SignUp = (props) => {
-  const [initials, setInitials] = useState("")
+const SignUp = ({ setIsSidebarOpen, history }) => {
+  const [initials, setInitials] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  
-    const handleSubmit= (e)=>{
-      e.preventDefault();
-      console.log(e)
-  
-      axios
-        .post("/api/signup", { initials: initials, username: username, password: password })
-        .then((response) => {
-          console.log(response);
-          window.alert(`Successfully created new account with email: ${username}`);
-          props.history.push("/login")
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
 
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post("/api/signup", {
+        initials: initials,
+        username: username,
+        password: password,
+      })
+      .then((response) => {
+        console.log(response);
+        window.alert(
+          `Successfully created new account with email: ${username}`
+        );
+        history.push("/login");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
-    <div id="loginBody" className="backgroundImage">
-      <div >
-        <form id="loginInput" onSubmit={handleSubmit}>
-        <input
-            id="initials" 
-            type="text" 
-            name="initials" 
-            value={initials}
-            onChange={(e)=>{
-              setInitials(e.target.value)
-            }}
-            placeholder="Enter Your Initials" required />
+    <div id="signupBody" className="backgroundImage">
+      <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
+      <div onClick={() => setIsSidebarOpen(false)}>
+        <h2>Sign Up</h2>
+        <form id="signupInput">
           <input
-            id="username" 
-            type="text" 
-            name="username" 
-            value={username}
-            onChange={(e)=>{
-              setUsername(e.target.value)
-            }}
-            placeholder="Email" required />
+            className="input"
+            type="text"
+            name="initials"
+            placeholder="Enter your initials"
+            required
+          />
           <input
-            id="password"
+            className="input"
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+          <input
+            className="input"
             type="password"
             name="password"
-            value={password}
-            onChange={(e)=>{
-              setPassword(e.target.value)
-            }}
-            placeholder="Password"
+            placeholder="Enter your password"
+            required
+          />
+          <input
+            className="input"
+            type="password"
+            name="password"
+            placeholder="Re-enter your password"
             required
           />
           <div className="row">
-              <div className="col s12">
-                <button className="btn" type="submit">
-                  Login
-                </button>
-              </div>
+            <div className="col s12">
+              <Button className="logSignButton input" type="submit">
+                Login
+              </Button>
             </div>
+          </div>
         </form>
       </div>
     </div>

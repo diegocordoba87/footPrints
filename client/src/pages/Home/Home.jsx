@@ -1,50 +1,73 @@
 import React from "react";
 import logo from "../../images/FPLogo.png";
-import '../../app.css';
+import scrollDown from "../../images/FPDownIconPink.png";
+import aboutUs from "../../data/aboutUs.json";
+import Diego from "../../images/Diego.jpg";
+import Liz from "../../images/Liz.jpg";
+import Mark from "../../images/Mark.jpg";
+import Michael from "../../images/Michael.jpg";
+import "../../app.css";
 import "./home.css";
 
 const Home = ({ setIsSidebarOpen }) => {
+  const getImage = (name) => {
+    let imgName;
+
+    switch (name) {
+      case "Diego":
+        imgName = Diego;
+        break;
+      case "Elizabeth":
+        imgName = Liz;
+        break;
+      case "Mark":
+        imgName = Mark;
+        break;
+      case "Michael":
+        imgName = Michael;
+        break;
+    }
+    return imgName;
+  };
+
   return (
     <div id="homeBody" className="backgroundImage">
       <div onClick={() => setIsSidebarOpen(false)}>
-        <div id="homeHeader">
-          <img
-            className="float-center"
-            id="heroImage"
-            src={logo}
-            alt="footprints logo"
-          />
-          <p className="float-center center">
-            Everyone has a story. Tell yours.
-          </p>
-        </div>
+        <div id="homeHeader" className="float-right">
+          <img id="heroImage" src={logo} alt="footprints logo" />
 
+          <div id="homeTagLine">
+            <p>Everyone has a story.</p>
+            <p id="tellYours">Tell yours.</p>
+          </div>
+          <a href="/#aboutus">
+            <img id="scrollDown" src={scrollDown} alt="scroll down button" />
+          </a>
+        </div>
         <div>
-          <div id="aboutus" className="cardBody">
+          <div id="aboutus" className="cardBody float-left">
             About Us
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Quibusdam ducimus reiciendis possimus, doloribus distinctio cum
-              soluta vero architecto quisquam, recusandae culpa saepe! Cumque
-              iusto sed assumenda. Ea numquam odio accusamus? Lorem ipsum dolor
-              sit amet consectetur adipisicing elit. Molestiae dolores magni,
-              veniam fugit quam expedita quae modi ab aliquam officiis doloribus
-              iure hic sed officia eligendi deserunt! Repudiandae, ea quidem!
-            </p>
+            <div className="align-center">
+              {aboutUs.map((creator, index) => {
+                const source = getImage(creator.name);
+                return (
+                  <a key={index}>
+                    <img className="profilePics" src={source} />
+                    {/* <div>{creator.name}</div> */}
+                  </a>
+                );
+              })}
+              {/* {aboutUs.map((name) => {name.name})} */}
+              {/* {creator.name}
+                    <div>{creator.quote1}</div>
+                    <div>{creator.quote2}</div>
+                    <div>{creator.quote3}</div> */}
+            </div>
           </div>
         </div>
         <div>
           <div id="howitworks" className="cardBody">
             How It Works
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-              earum non dignissimos facere aspernatur, dolores praesentium
-              facilis, in voluptatibus, autem aliquam harum sequi molestiae eius
-              labore. Velit molestiae eum magni! Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Veritatis nam harum commodi
-              recusandae minus unde illum excepturi adipisci. Laborum dolore id
-              rerum repellat beatae mollitia, totam numquam ipsam nam unde.
-            </p>
           </div>
         </div>
       </div>
