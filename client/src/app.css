@@ -1,8 +1,7 @@
 body {
   margin: 0;
-  font-family: 'Kalam', cursive !important;
+  font-family: "Kalam", cursive !important;
   text-shadow: 1px 1px 1px #000;
-
 }
 
 h1 {
@@ -28,12 +27,19 @@ h2 {
   overflow-x: scroll;
 }
 
+.logSignButton {
+  color: #85616a;
+  background-color: white;
+  width: 7vw;
+  box-shadow: 2px 2px 2px #000;
+}
+
 .center {
   display: flex;
   justify-content: center;
   align-items: center;
-  height:100vh;
-  text-align: center;  
+  height: 100vh;
+  text-align: center;
 }
 
 .H_imprint {

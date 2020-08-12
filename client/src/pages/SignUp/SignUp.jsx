@@ -1,32 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
+import { Button } from "react-foundation";
 import logo from "../../images/FPLogo.png";
-import React, {useState} from "react";
+import axios from "axios";
 import "./signup.css";
-import axios from "axios"
 
-
-const SignUp = (props) => {
-  const [initials, setInitials] = useState("")
+const SignUp = ({ setIsSidebarOpen, history }) => {
+  const [initials, setInitials] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  
-    const handleSubmit= (e)=>{
-      e.preventDefault();
-      console.log(e)
-  
-      axios
-        .post("/api/signup", { initials: initials, username: username, password: password })
-        .then((response) => {
-          console.log(response);
-          window.alert(`Successfully created new account with email: ${username}`);
-          props.history.push("/login")
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(e);
 
+    axios
+      .post("/api/signup", {
+        initials: initials,
+        username: username,
+        password: password,
+      })
+      .then((response) => {
+        console.log(response);
+        window.alert(
+          `Successfully created new account with email: ${username}`
+        );
+        history.push("/login");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div id="signupBody" className="backgroundImage">
@@ -63,12 +66,12 @@ const SignUp = (props) => {
             required
           />
           <div className="row">
-              <div className="col s12">
-                <button className="btn" type="submit">
-                  Login
-                </button>
-              </div>
+            <div className="col s12">
+              <Button className="logSignButton input" type="submit">
+                Login
+              </Button>
             </div>
+          </div>
         </form>
       </div>
     </div>

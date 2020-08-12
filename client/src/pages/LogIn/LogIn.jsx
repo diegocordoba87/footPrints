@@ -1,27 +1,27 @@
-import React from "react";
-import logo from "../../images/FPLogo.png";
-import React, {useState} from "react";
-import "./login.css";
+import React, { useState } from "react";
+import { Button } from "react-foundation";
 import axios from "axios";
+import logo from "../../images/FPLogo.png";
+import "./login.css";
 
-const LogIn = ( props) => {
-const [username, setUsername] = useState("");
-const [password, setPassword] = useState("");
+const LogIn = (props) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const { setIsSidebarOpen } = props;
 
-  const handleSubmit= (e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e)
+    console.log(e);
 
     axios
       .post("/api/login", { username: username, password: password })
       .then((response) => {
         console.log(response);
-        
       })
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
   return (
     <div id="loginBody" className="backgroundImage">
@@ -41,19 +41,19 @@ const [password, setPassword] = useState("");
             type="password"
             name="password"
             value={password}
-            onChange={(e)=>{
-              setPassword(e.target.value)
+            onChange={(e) => {
+              setPassword(e.target.value);
             }}
             placeholder="Password"
             required
           />
           <div className="row">
-              <div className="col s12">
-                <button className="btn" type="submit">
-                  Login
-                </button>
-              </div>
+            <div className="col s12">
+              <Button className="logSignButton input" type="submit">
+                Login
+              </Button>
             </div>
+          </div>
         </form>
       </div>
     </div>
