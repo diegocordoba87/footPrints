@@ -1,6 +1,32 @@
+.input {
+  margin: auto;
+  width: 25vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  padding: 0.5vw 1vw;
+  border: 3px solid #85616a;
+  margin-top: 3vw;
+  border-radius: 5px;
+  box-shadow: 3px 3px 11px;
+}
+
+#loginBody {
+  background-image: url(../../images/FPLoginHor.jpg);
+  height: 100vh;
+}
+
 #loginInput {
   width: 50%;
   margin: auto;
   position: relative;
   top: 2vw;
+}
+
+@media screen and (max-width: 670px) {
+  #homeBody {
+    background-image: url(../../images/FPLoginVert.jpg);
+    height: 100vh;
+  }
 }

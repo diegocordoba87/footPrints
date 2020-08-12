@@ -6,8 +6,15 @@ const LogIn = ({ setIsSidebarOpen }) => {
     <div id="loginBody" className="backgroundImage">
       <div onClick={() => setIsSidebarOpen(false)}>
         <form id="loginInput">
-          <input type="email" name="email" placeholder="Email" required />
           <input
+            className="input"
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+          <input
+            className="input"
             type="password"
             name="password"
             placeholder="Password"

@@ -7,17 +7,31 @@ const SignUp = ({ setIsSidebarOpen }) => {
       <div onClick={() => setIsSidebarOpen(false)}>
         <form id="signupInput">
           <input
+            className="input"
             type="text"
             name="initials"
             placeholder="Enter your initials"
             required
           />
-          <input type="email" name="email" placeholder="Email" required />
-
           <input
+            className="input"
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+          <input
+            className="input"
             type="password"
             name="password"
-            placeholder="Password"
+            placeholder="Enter your password"
+            required
+          />
+          <input
+            className="input"
+            type="password"
+            name="password"
+            placeholder="Re-enter your password"
             required
           />
         </form>
