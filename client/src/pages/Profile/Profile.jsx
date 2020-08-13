@@ -8,12 +8,16 @@ import "./profile.css";
 const Profile = ({ setIsSidebarOpen }) => {
   // Setting our component's initial state
   const [notes, setNotes] = useState([]);
-  const [noteContent, setNoteContent] = useState("");
-  const userID = mongoose.Types.ObjectId("5f33f7f1b22841f37dd7b6fa");
+  const [newNoteContent, setnewNoteContent] = useState("");
+  
+  const userID = mongoose.Types.ObjectId("5f330cd61dc6d17841ddc045");
   // Load all books and store them with setBooks
   useEffect(() => {
     loadNotes();
   }, []);
+
+  let username = sessionStorage.getItem("username")
+  console.log(username)
 
   // Loads all books and sets them to books
   function loadNotes() {
@@ -27,11 +31,14 @@ const Profile = ({ setIsSidebarOpen }) => {
 
   function handleSubmit(e){
     e.preventDefault()
-    
-    axios.post("/api/newnote", {content: noteContent}).then((res)=>{
+    console.log(e)
+    console.log(e.target.value)
+    axios.post("/api/newnote", {content: newNoteContent}).then((res)=>{
       console.log(res)
+      
       window.alert(`Successfully created new note`);
-      setNoteContent("")
+      //updateNote(note_id, userID)
+      setnewNoteContent("")
       loadNotes()
     })
   }
@@ -44,6 +51,12 @@ const Profile = ({ setIsSidebarOpen }) => {
     });
   }
 
+  function updateNote(note_id, userID){
+    axios.put(`/api/users/${userID}/writtennotes`, {_id:userID}).then((res)=>{
+      console.log(res)
+    })
+  }
+
   return (
     <div id="profileBody" className="backgroundImage">
       <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
@@ -52,23 +65,26 @@ const Profile = ({ setIsSidebarOpen }) => {
           <h2>Profile</h2>
         </div>
         <div className="cardBody" id="profileCardBody">
-          <form onSubmit={handleSubmit} id="profileForm">
+          <form  id="profileForm">
             <div className="homeText">New FootPrint:</div>
             <label>
               <textarea
                 id="note"
                 type="text"
-                value={noteContent}
+                value={newNoteContent}
                 name="note"
                 onChange={(e) => {
-                  setNoteContent(e.target.value);
+                  setnewNoteContent(e.target.value);
                 }}
                 placeholder="250 words minimum. 1000 words maximum"
                 className="newFPForm"
               />
             </label>
+            <button id="newFootprintButton"onClick={
+            (e)=>{handleSubmit(e.target.value)}}>Save FootPrint</button>
           </form>
-          <button id="newFootprintButton">Save FootPrint</button>
+          
+          
 
           <div className="cardBody">
             <div className="homeText">My Stories</div>
@@ -79,7 +95,6 @@ const Profile = ({ setIsSidebarOpen }) => {
               Found FootPrints
               {notes.map((note) => {
                 return(
-                
                   <p key={note.title}>
                     {note.content}
                     <button

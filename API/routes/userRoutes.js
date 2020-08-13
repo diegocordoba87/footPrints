@@ -61,28 +61,6 @@ router.post("/api/login", (req, res)=>{
   })
 
 })
-
-//mainly for testing
-router.get("/api/users", (req, res)=>{
-  db.User.find({})
-  .then((users)=>{
-    res.json({
-      error: false,
-      data: users,
-      message: "These are your users"
-    })
-  })
-  .catch((err)=>{
-    console.log(err)
-    res.status(500).json({
-      error: true,
-      data: null,
-      message: "Could not get users"
-    })
-  })
-})
-
-
 router.get("/api/users/:id", (req, res) => {
   db.User.findById(req.params.id)
    
@@ -124,6 +102,25 @@ router.put("/api/users/:id/addfoundnote", (req, res) => {
     });
 });
 
+router.put("/api/users/:id/writtennotes", (req, res) => {
+  db.User.findByIdAndUpdate(req.params.id, {$push: {writtenNotes: {_id: req.body._id, content: req.body.content}}}, { new: true })
+    .then((updatedUser) => {
+      res.json({
+        error: false,
+        data: updatedUser,
+        message: "Successfully updated user.",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "Unable to update user.",
+      });
+    });
+});
+
 router.put("/api/users/:id/addfoundnote", (req, res) => {
   db.User.findByIdAndUpdate(req.params.id, {$push: {foundNotes: req.body._id}}, { new: true })
     .then((updatedUser) => {
@@ -142,6 +139,26 @@ router.put("/api/users/:id/addfoundnote", (req, res) => {
       });
     });
 });
+
+//For testing
+router.get("/api/users", (req, res)=>{
+  db.User.find({})
+  .then((users)=>{
+    res.json({
+      error: false,
+      data: users,
+      message: "These are your users"
+    })
+  })
+  .catch((err)=>{
+    console.log(err)
+    res.status(500).json({
+      error: true,
+      data: null,
+      message: "Could not get users"
+    })
+  })
+})
 
 
 module.exports = router;

@@ -10,15 +10,31 @@ const LogIn = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
 
     axios
-      .post("/api/login", { username: username, password: password })
+      .post("/api/login", { 
+        username: username, 
+        password: password 
+      })
       .then((response) => {
+        console.log(response)
+        console.log(response.data.message);
+        
+        if(response.data.message==="Authorization successful"){
+          window.alert("Welcome back!")
+          props.history.push('/profile')
+          setActiveUser(username);
+          sessionStorage.setItem("username", username);
+          
+        }
+        else {
+
+          window.alert("Incorrect information. Try again!")
+        }       
+        
         console.log(response);
         //put in place for dynamic navbar- can be replaced with cookies
-        setActiveUser(username);
-        sessionStorage.setItem("username", username);
+        
       })
       .catch((err) => {
         console.log(err);
@@ -30,11 +46,10 @@ const LogIn = (props) => {
       <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
       <div onClick={() => setIsSidebarOpen(false)}>
         <h2 className="headerText">Log In</h2>
-
         <div>
           <div id="howitworks" className="cardBodyLogin">
             <div className="uk-card-medium uk-card-default">
-              <form id="loginInput">
+              <form id="loginInput" onSubmit={handleSubmit}>
                 <input
                   className="input"
                   type="email"
@@ -62,7 +77,7 @@ const LogIn = (props) => {
                     <button
                       className="logSignButton input"
                       type="submit"
-                      onClick={handleSubmit}
+                      
                     >
                       Login
                     </button>
