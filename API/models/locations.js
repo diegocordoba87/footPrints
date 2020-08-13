@@ -5,7 +5,7 @@ const LocationsSchema = new Schema({
     loc: {
         "type": "Point",
         "coordinates": []
-    }
+    },
         notes: [{
             type: Schema.Types.ObjectId,
             ref: "Notes",
