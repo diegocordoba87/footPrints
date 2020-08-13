@@ -9,71 +9,81 @@
   box-shadow: 1px 1px 5px #000;
 }
 
-.homeButtonDiv {
+.creatorName {
   text-align: center;
-  margin: auto;
-  margin-bottom: 40vw;
+  font-size: .6em;
+  padding: 1vw 0vw;
+  color: #85616a;
+}
+
+.creatorQuote {
+  font-size: .4em;
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: none;
+}
+
+.hiwText {
+  padding: 2vw;
+  text-align: left;
 }
 
 .profilePics {
   width: 8vw;
+}
+
+.scrollButton {
+  height: 4vw;
+  margin: 6vw 0vw;
+  -webkit-filter: drop-shadow(2px 2px 1px #000);
+  filter: drop-shadow(2px 2px 1px #000);
+  padding: 0% 3%;
+}
+
+.specialPadding {
   padding: 2vw;
 }
 
-#aboutus {
-  width: 70%;
-  margin: auto;
+.uk-card-body {
+  border-radius: 5px;
+  max-width: 15%;
+}
+
+.upDownArrows {
+  margin-top: -5vw;
 }
 
 #heroImage {
-  width: 40vw;
-  position: relative;
-  left: 37vw;
-  -webkit-filter: drop-shadow(6px 6px 12px #000);
-  filter: drop-shadow(6px 6px 12px #000);
+  width: 41vw;
+  margin-top: 11vw;
+  filter: drop-shadow(8px 8px 2px #000);
+  -webkit-filter: drop-shadow(8px 8px 2px #000);
 }
 
 #homeBody {
   background-image: url(../../images/FPHomeBWHor.jpg);
 }
 
-#homeHeader {
-  margin: 4vw 5vw;
-}
-
 #homeTagLine {
   font-size: 1.25em;
-  position: relative;
-  left: 53vw;
-  top: -10vw;
+  margin: -4vw 0vw 0vw 22vw;
+  text-shadow: 3px 3px 5px #000;
+
 }
 
 #howitworks {
-  width: 70%;
-  margin: auto;
-  margin-top: 2vw;
-}
-
-#scrollDown {
-  height: 4vw;
-  position: relative;
-  top: -8vw;
-  left: 44vw;
-  -webkit-filter: drop-shadow(2px 2px 1px #000);
-  filter: drop-shadow(2px 2px 1px #000);
+  padding: 2vw;
 }
 
 #tellYours {
-  position: relative;
-  top: -4vw;
-  left: 11vw;
+  margin: -1vw 0vw 0vw 6vw;
+  text-shadow: 2px 2px 3px #000;
 }
 
 @media screen and (max-width: 670px) {
   #aboutus {
-    margin: 0vw 15%;
+    /* margin: 0vw 15%;
     width: 70%;
-    clear: both;
+    clear: both; */
   }
 
   #homeBody {
@@ -82,9 +92,9 @@
   }
 
   #howitworks {
-    margin: 10vw 15%;
+    /* margin: 10vw 15%;
     width: 70%;
-    clear: both;
+    clear: both; */
   }
 }
 

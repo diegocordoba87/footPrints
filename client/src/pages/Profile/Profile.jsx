@@ -16,6 +16,9 @@ const Profile = ({ setIsSidebarOpen }) => {
     loadNotes();
   }, []);
 
+  let username = sessionStorage.getItem("username")
+  console.log(username)
+
   // Loads all books and sets them to books
   function loadNotes() {
     API.getNotes(userID)
