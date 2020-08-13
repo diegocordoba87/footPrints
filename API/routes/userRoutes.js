@@ -84,7 +84,7 @@ router.get("/api/users", (req, res)=>{
 
 
 router.get("/api/users/:id", (req, res) => {
-  db.User.findById(req.params.id)
+  db.User.findById({_id:req.params.id})
    
     .then((foundUser) => {
       console.log(foundUser)
