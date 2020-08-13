@@ -36,7 +36,7 @@ const Home = ({ setIsSidebarOpen }) => {
   };
 
   return (
-    <div id="homeBody" className="backgroundImage">
+    <div id="homeBody" className="backgroundImage headerText">
       <div onClick={() => setIsSidebarOpen(false)}>
         <div id="homeHeader" className="uk-text-center" uk-grid>
           <div className="uk-flex-first uk-flex-center">

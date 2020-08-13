@@ -16,9 +16,9 @@ const LogIn = (props) => {
       .post("/api/login", { username: username, password: password })
       .then((response) => {
         console.log(response);
-        //put in place for dynamic navbar- can be replaced with cookies 
+        //put in place for dynamic navbar- can be replaced with cookies
         setActiveUser(username);
-        sessionStorage.setItem('username', username);
+        sessionStorage.setItem("username", username);
       })
       .catch((err) => {
         console.log(err);
@@ -29,38 +29,49 @@ const LogIn = (props) => {
     <div id="loginBody" className="backgroundImage">
       <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
       <div onClick={() => setIsSidebarOpen(false)}>
-        <h2>Log In</h2>
-        <form id="loginInput">
-          <input
-            className="input"
-            type="email"
-            name="email"
-            value={username}
-            onChange={(e) => {
-              setUsername(e.target.value);
-            }}
-            placeholder="Email"
-            required
-          />
-          <input
-            className="input"
-            type="password"
-            name="password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-            placeholder="Password"
-            required
-          />
-          <div className="row">
-            <div className="col s12">
-              <button className="logSignButton input" type="submit" onClick={handleSubmit}>
-                Login
-              </button>
+        <h2 className="headerText">Log In</h2>
+
+        <div>
+          <div id="howitworks" className="cardBodyLogin">
+            <div className="uk-card-medium uk-card-default">
+              <form id="loginInput">
+                <input
+                  className="input"
+                  type="email"
+                  name="email"
+                  value={username}
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                  }}
+                  placeholder="Email"
+                  required
+                />
+                <input
+                  className="input"
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                  placeholder="Password"
+                  required
+                />
+                <div className="row">
+                  <div className="col s12">
+                    <button
+                      className="logSignButton input"
+                      type="submit"
+                      onClick={handleSubmit}
+                    >
+                      Login
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );

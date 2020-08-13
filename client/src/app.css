@@ -22,8 +22,6 @@ h2 {
   -o-background-size: cover;
   background-size: cover;
   background-attachment: fixed;
-  color: #f6f5f3;
-  font-size: 3vw;
   overflow-x: scroll;
 }
 
@@ -42,6 +40,13 @@ h2 {
   text-align: center;
 }
 
+.headerText {
+  color: #f6f5f3;
+  font-size: 3vw;
+  font-family: "Kalam", cursive !important;
+  text-shadow: 1px 1px 1px #000;
+}
+
 .H_imprint {
   display: none;
 }
@@ -54,7 +59,6 @@ h2 {
 .temporaryPageName {
   text-align: center;
 }
-
 /* Lavender: 948C94
 Chocolate: 292218
 Khaki: 7C6D57
