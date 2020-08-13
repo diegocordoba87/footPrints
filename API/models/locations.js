@@ -1,14 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const LocationsSchema = new Schema({
-    name:{
-        type: String
+    name:String,
+    loc: {
+        "type": { type: String},
+        "coordinates": []
     },
-    location:{
-        type: {type: String},
-        coordinates: []
-    },
-    
         notes: [{
             type: Schema.Types.ObjectId,
             ref: "Notes",
