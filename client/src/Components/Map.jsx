@@ -1,7 +1,6 @@
 import React from 'react';
 import '../app.css';
 
-
 export default class Map extends React.Component {
 	mapRef = React.createRef();
 	state = {
@@ -19,7 +18,7 @@ export default class Map extends React.Component {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(
 				(position) => {
-          // console.log(position)
+					// console.log(position)
 					this.createMap(position.coords.latitude, position.coords.longitude);
 				},
 				(error) => this.setState({ error: error.message })
@@ -44,7 +43,7 @@ export default class Map extends React.Component {
 			{
 				//change map center locations and zoom here
 				center: { lat: lat, lng: lng },
-        zoom: 7,
+				zoom: 7,
 				pixelRatio: window.devicePixelRatio || 1,
 			}
 		);
@@ -54,9 +53,66 @@ export default class Map extends React.Component {
 		console.log(behavior);
 
 		//add a marker to a map at user's lat/long position
-    let icon = new H.map.Icon('FPFavicon.png');
-    let marker = new H.map.Marker({ lat: lat,  lng: lng }, {icon: icon});
-		map.addObject(marker);
+		let icon = new H.map.Icon('FPFavicon.png');
+		let userMarker = new H.map.Marker({ lat: lat, lng: lng }, { icon: icon });
+		map.addObject(userMarker);
+
+		//create a draggable marker
+		let dragMarker = new H.map.Marker(
+			{ lat: lat + .005, lng: lng + .005},
+			{ volatility: true }
+		);
+		dragMarker.draggable = true;
+		map.addObject(dragMarker);
+
+		//disable map draggability while dragMarker is in use
+		map.addEventListener(
+			'dragstart',
+			function (ev) {
+				let target = ev.target,
+					pointer = ev.currentPointer;
+				if (target instanceof H.map.Marker) {
+					let targetPosition = map.geoToScreen(target.getGeometry());
+					target['offset'] = new H.math.Point(
+						pointer.viewportX - targetPosition.x,
+						pointer.viewportY - targetPosition.y
+					);
+					behavior.disable();
+				}
+			},
+			false
+		);
+		// re-enable the default draggability of the underlying map
+		// when dragging has completed
+		map.addEventListener(
+			'dragend',
+			function (ev) {
+				let target = ev.target;
+				if (target instanceof H.map.Marker) {
+					behavior.enable();
+				}
+			},
+			false
+		);
+
+		// Listen to the drag event and move the position of the marker
+		// as necessary
+		map.addEventListener(
+			'drag',
+			function (ev) {
+				let target = ev.target,
+					pointer = ev.currentPointer;
+				if (target instanceof H.map.Marker) {
+					target.setGeometry(
+						map.screenToGeo(
+							pointer.viewportX - target['offset'].x,
+							pointer.viewportY - target['offset'].y
+						)
+					);
+				}
+			},
+			false
+		);
 
 		//create a circle on the map for each park
 		let trailCreek = new H.map.Circle(
