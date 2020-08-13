@@ -3,10 +3,12 @@ import logo from "../../images/FPLogo.png";
 import axios from "axios";
 import "./signup.css";
 
-const SignUp = ({ setIsSidebarOpen, history }) => {
+const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
   const [initials, setInitials] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [userSignedUp, setUserSignedUp] = useState(false);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,10 +20,11 @@ const SignUp = ({ setIsSidebarOpen, history }) => {
       })
       .then((response) => {
         console.log(response);
-        window.alert(
-          `Successfully created new account with email: ${username}`
-        );
-        history.push("/profile");
+        setUserSignedUp(true);
+        setTimeout(() => {
+          setActiveUser(username);
+          history.push("/profile");
+        }, 3000);
       })
       .catch((err) => {
         console.log(err);
@@ -37,6 +40,12 @@ const SignUp = ({ setIsSidebarOpen, history }) => {
           <div id="howitworks" className="cardBodyLogin">
             <div className="uk-card-medium uk-card-default">
               <form id="signupInput" onSubmit={handleSubmit}>
+                {userSignedUp === true && 
+                  <div id="userSignedUp" className="uk-alert-primary" uk-alert>
+                    <a className="uk-alert-close" uk-close></a>
+                    <p>You have successfully created an account!</p>
+                  </div>
+                }
                 <input
                   id="initials"
                   className="input"

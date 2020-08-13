@@ -1,5 +1,5 @@
 .cardBody {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 5px;
   max-width: 70%;
   margin: auto;
@@ -11,13 +11,13 @@
 
 .creatorName {
   text-align: center;
-  font-size: .6em;
+  font-size: 0.6em;
   padding: 1vw 0vw;
   color: #85616a;
 }
 
 .creatorQuote {
-  font-size: .4em;
+  font-size: 0.4em;
   font-family: Arial, Helvetica, sans-serif;
   text-shadow: none;
 }
@@ -53,30 +53,64 @@
 }
 
 #heroImage {
-  width: 41vw;
-  margin-top: 11vw;
+  width: 34vw;
+  position: absolute;
+  top: 10vw;
+  left: 31vw;
   filter: drop-shadow(8px 8px 2px #000);
-  -webkit-filter: drop-shadow(8px 8px 2px #000);
+  -webkit-filter: drop-shadow(0px 6px 1px #000);
+  z-index: 1;
 }
 
 #homeBody {
   background-image: url(../../images/FPHomeBWHor.jpg);
 }
 
+#homeButtonOne {
+  position: absolute;
+  top: -5vw;
+  right: 0;
+}
+
+#homeHeader {
+  margin: 0%;
+  max-width: 100%;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  background-color: rgba(182, 178, 179, 0.5);
+}
+
+#homeLayerOne {
+  margin-top: 21vw;
+}
+
 #homeTagLine {
   font-size: 1.25em;
-  margin: -4vw 0vw 0vw 22vw;
-  text-shadow: 3px 3px 5px #000;
-
+  margin: -9vw 0vw 0vw 22vw;
+  text-shadow: 2px 3px 2px #000;
+  padding: 10vw 0vw 6vw 0vw;
+  color: white;
 }
 
 #howitworks {
   padding: 2vw;
 }
 
+#story {
+  animation-duration: 2s;
+  animation-delay: 2s;
+  animation-timing-function: linear;
+}
+
 #tellYours {
-  margin: -1vw 0vw 0vw 6vw;
-  text-shadow: 2px 2px 3px #000;
+  text-shadow: 2px 3px 2px #000;
+  text-align: center;
+  position: relative;
+  animation-duration: 1s;
+  top: -9vw;
+  right: -19vw;
+  font-size: 4vw;
+  width: 80%;
 }
 
 @media screen and (max-width: 670px) {

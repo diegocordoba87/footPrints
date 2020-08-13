@@ -7,11 +7,11 @@ import Footprints from "./pages/Footprints/Footprints";
 import Profile from "./pages/Profile/Profile";
 import Signup from "./pages/SignUp/SignUp";
 import Home from "./pages/Home/Home";
-import footprintsHome from './images/FPHomeHor.jpg';
+import footprintsHome from "./images/FPHomeHor.jpg";
 import "./app.css";
 
 function App() {
-  const sessionActiveUser = sessionStorage.getItem('username') || '';
+  const sessionActiveUser = sessionStorage.getItem("username") || "";
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeUser, setActiveUser] = useState(sessionActiveUser);
 
@@ -29,9 +29,9 @@ function App() {
             path="/login"
             render={(props) => (
               <>
-                <Login 
-                  {...props} 
-                  setIsSidebarOpen={setIsSidebarOpen} 
+                <Login
+                  {...props}
+                  setIsSidebarOpen={setIsSidebarOpen}
                   setActiveUser={setActiveUser}
                 />
               </>
@@ -52,7 +52,11 @@ function App() {
           <Route
             path="/signup"
             render={(props) => (
-              <Signup {...props} setIsSidebarOpen={setIsSidebarOpen} />
+              <Signup
+                {...props}
+                setIsSidebarOpen={setIsSidebarOpen}
+                setActiveUser={setActiveUser}
+              />
             )}
           />
           <Route
@@ -67,15 +71,15 @@ function App() {
             render={(props) => (
               <Home {...props} setIsSidebarOpen={setIsSidebarOpen} />
             )}
-            style={{ backgroundImage:`url(${footprintsHome})` }}
+            style={{ backgroundImage: `url(${footprintsHome})` }}
           />
-                    <Route
+          <Route
             exact
             path="/notes"
             render={(props) => (
               <Footprints {...props} setIsSidebarOpen={setIsSidebarOpen} />
             )}
-            style={{ backgroundImage:`url(${footprintsHome})` }}
+            style={{ backgroundImage: `url(${footprintsHome})` }}
           />
         </div>
       </Router>

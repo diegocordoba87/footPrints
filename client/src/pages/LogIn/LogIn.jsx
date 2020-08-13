@@ -6,38 +6,31 @@ import "./login.css";
 const LogIn = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState(false);
   const { setIsSidebarOpen, setActiveUser } = props;
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     axios
-      .post("/api/login", { 
-        username: username, 
-        password: password 
+      .post("/api/login", {
+        username: username,
+        password: password,
       })
       .then((response) => {
-        console.log(response)
+        console.log(response);
         console.log(response.data.message);
-        
-        if(response.data.message==="Authorization successful"){
-          window.alert("Welcome back!")
-          props.history.push('/profile')
+
+        if (response.data.message === "Authorization successful") {
+          props.history.push("/profile");
           setActiveUser(username);
           sessionStorage.setItem("username", username);
-          
-        }
-        else {
-
-          window.alert("Incorrect information. Try again!")
-        }       
-        
-        console.log(response);
-        //put in place for dynamic navbar- can be replaced with cookies
-        
+          console.log("username: ", username);
+        } 
       })
       .catch((err) => {
         console.log(err);
+        setLoginError(true);
       });
   };
 
@@ -50,6 +43,12 @@ const LogIn = (props) => {
           <div id="howitworks" className="cardBodyLogin">
             <div className="uk-card-medium uk-card-default">
               <form id="loginInput" onSubmit={handleSubmit}>
+                {loginError === true &&
+                  <div id="loginError" class="uk-alert-danger" uk-alert>
+                    <a class="uk-alert-close" uk-close></a>
+                    <p>Please enter a valid username and password.</p>
+                  </div>
+                }
                 <input
                   className="input"
                   type="email"
@@ -57,6 +56,7 @@ const LogIn = (props) => {
                   value={username}
                   onChange={(e) => {
                     setUsername(e.target.value);
+                    setLoginError(false);
                   }}
                   placeholder="Email"
                   required
@@ -68,17 +68,14 @@ const LogIn = (props) => {
                   value={password}
                   onChange={(e) => {
                     setPassword(e.target.value);
+                    setLoginError(false);
                   }}
                   placeholder="Password"
                   required
                 />
                 <div className="row">
                   <div className="col s12">
-                    <button
-                      className="logSignButton input"
-                      type="submit"
-                      
-                    >
+                    <button className="logSignButton input" type="submit">
                       Login
                     </button>
                   </div>

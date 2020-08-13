@@ -15,14 +15,17 @@ h2 {
 }
 
 .backgroundImage {
-  background-size: cover;
-  height: 100vw;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-attachment: fixed;
   overflow-x: scroll;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
 }
 
 .logSignButton {
