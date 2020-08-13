@@ -13,6 +13,7 @@ const GeoSchema = new Schema({
 });
 
 const LocationsSchema = new Schema({
+
   name: {
     type: String,
   },
