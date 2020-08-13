@@ -96,7 +96,6 @@ router.post("/api/addlocation", (req, res)=>{
 router.put("/api/locations/:id/addnote", (req, res) => {
   db.Location.findByIdAndUpdate(req.params.id, {$push: {notes: req.body._id}}, { new: true })
   .then((updatednote) => {
-
     res.json({
       error: false,
       data: updatednote,
