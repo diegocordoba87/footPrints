@@ -27,19 +27,6 @@ const Profile = ({ setIsSidebarOpen }) => {
       .catch((err) => console.log(err));
   }
 
-  function handleSubmit(e){
-    e.preventDefault()
-    console.log(e)
-    console.log(e.target.value)
-    axios.post("/api/newnote", {content: newNoteContent}).then((res)=>{
-      console.log(res)
-      
-      window.alert(`Successfully created new note`);
-      //updateNote(note_id, userID)
-      setnewNoteContent("")
-      
-    })
-  }
   function deleteNote(id) {
     console.log(id);
 
@@ -49,11 +36,7 @@ const Profile = ({ setIsSidebarOpen }) => {
     });
   }
 
-  function updateNote(note_id, userID){
-    axios.put(`/api/users/${userID}/writtennotes`, {_id:userID}).then((res)=>{
-      console.log(res)
-    })
-  }
+
 
   return (
     <div id="profileBody" className="backgroundImage">
@@ -78,8 +61,7 @@ const Profile = ({ setIsSidebarOpen }) => {
                 className="newFPForm"
               />
             </label>
-            <button id="newFootprintButton"onClick={
-            (e)=>{handleSubmit(e.target.value)}}>Save FootPrint</button>
+            <button id="newFootprintButton">Save FootPrint</button>
           </form>
           
           
