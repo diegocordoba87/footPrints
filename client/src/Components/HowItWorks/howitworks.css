@@ -1,0 +1,17 @@
+.hiwText {
+  padding: 2vw;
+  text-align: left;
+  font-size:1vw;
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: none;
+}
+
+#howitworks {
+  padding: 2vw;
+  color: #85616a;
+  text-shadow: 2px 2px 2px #000;
+  width: 35vw;
+  position: relative;
+  top: 10vw;
+  left: 9vw;
+}

@@ -11,7 +11,7 @@ h1 {
 h2 {
   text-align: center;
   text-shadow: 2px 2px 5px #000;
-  margin: 2vw 20vw;
+  margin: 2vw;
 }
 
 .backgroundImage {
@@ -44,7 +44,7 @@ h2 {
 }
 
 .headerText {
-  color: #f6f5f3;
+  color: #85616a;
   font-size: 3vw;
   font-family: "Kalam", cursive !important;
   text-shadow: 1px 1px 1px #000;

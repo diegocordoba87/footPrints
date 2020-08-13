@@ -1,17 +1,14 @@
 .cardBodyLogin {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
-  max-width: 35%;
-  margin: auto;
-  object-fit: cover;
   text-align: center;
   box-shadow: 1px 1px 5px #000;
+  width: 25%;
 }
 
 .input {
   margin: 1vw;
-  width: 25vw;
-  height: 5vh;
+  width: 20vw;
   padding: 0.5vw 1vw;
   border: 3px solid #85616a;
   border-radius: 5px;

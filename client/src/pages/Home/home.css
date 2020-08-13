@@ -1,5 +1,5 @@
 .cardBody {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
   max-width: 70%;
   margin: auto;
@@ -20,11 +20,6 @@
   font-size: 0.4em;
   font-family: Arial, Helvetica, sans-serif;
   text-shadow: none;
-}
-
-.hiwText {
-  padding: 2vw;
-  text-align: left;
 }
 
 .profilePics {
@@ -50,6 +45,14 @@
 
 .upDownArrows {
   margin-top: -5vw;
+}
+
+#aboutus {
+  position: relative;
+  top: 4vw;
+  width: 70%;
+  color: #85616a;
+  text-shadow: 2px 2px 2px #000;
 }
 
 #heroImage {
@@ -90,10 +93,6 @@
   text-shadow: 2px 3px 2px #000;
   padding: 10vw 0vw 6vw 0vw;
   color: white;
-}
-
-#howitworks {
-  padding: 2vw;
 }
 
 #story {
