@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import mongoose from "mongoose";
 import API from "../../utils/API";
 import logo from "../../images/FPLogo.png";
 import axios from "axios";
@@ -7,24 +6,23 @@ import "./profile.css";
 
 const Profile = ({ setIsSidebarOpen }) => {
   // Setting our component's initial state
-  const [notes, setNotes] = useState([]);
-  const [newNoteContent, setnewNoteContent] = useState("");
   
-  const userID = mongoose.Types.ObjectId("5f330cd61dc6d17841ddc045");
-  // Load all books and store them with setBooks
+  const [newNoteContent, setnewNoteContent] = useState("");
+  const notes =[]
+  const user = sessionStorage.getItem("username")
+  
   useEffect(() => {
-    loadNotes();
+    console.log(user)
+    
+    loadUser(user);
   }, []);
 
-  let username = sessionStorage.getItem("username")
-  console.log(username)
-
-  // Loads all books and sets them to books
-  function loadNotes() {
-    API.getNotes(userID)
+  function loadUser(username) {
+    console.log(username)
+    API.getUser(username)
       .then((res) => {
-        setNotes(res.data.data);
-        console.log(res.data.data);
+        
+        console.log(res);
       })
       .catch((err) => console.log(err));
   }
@@ -39,7 +37,7 @@ const Profile = ({ setIsSidebarOpen }) => {
       window.alert(`Successfully created new note`);
       //updateNote(note_id, userID)
       setnewNoteContent("")
-      loadNotes()
+      
     })
   }
   function deleteNote(id) {
@@ -47,7 +45,7 @@ const Profile = ({ setIsSidebarOpen }) => {
 
     axios.delete(`/api/note/${id}`).then((res) => {
       window.alert(`Successfully deleted new note`);
-      loadNotes();
+      
     });
   }
 

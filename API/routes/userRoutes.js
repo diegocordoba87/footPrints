@@ -61,14 +61,15 @@ router.post("/api/login", (req, res)=>{
   })
 
 })
-router.get("/api/users/:id", (req, res) => {
-  db.User.findById(req.params.id)
-   
+
+router.get("/api/users/:username", (req, res) => {
+  console.log(req.params.username)
+  db.User.find({username:req.params.username})   
     .then((foundUser) => {
       console.log(foundUser)
       res.json({
         error: false,
-        data: foundUser.foundNotes,
+        data: foundUser,
         message: "User retrieved.",
       });
     })
@@ -83,8 +84,8 @@ router.get("/api/users/:id", (req, res) => {
 });
 
 
-router.put("/api/users/:id/addfoundnote", (req, res) => {
-  db.User.findByIdAndUpdate(req.params.id, {$push: {foundNotes: {_id: req.body._id, content: req.body.content}}}, { new: true })
+router.put("/api/users/:id/addnote", (req, res) => {
+  db.User.findByIdAndUpdate(req.params.id, {$push: {Notes: {_id: req.body._id}}}, { new: true })
     .then((updatedUser) => {
       res.json({
         error: false,
@@ -121,24 +122,7 @@ router.put("/api/users/:id/writtennotes", (req, res) => {
     });
 });
 
-router.put("/api/users/:id/addfoundnote", (req, res) => {
-  db.User.findByIdAndUpdate(req.params.id, {$push: {foundNotes: req.body._id}}, { new: true })
-    .then((updatedUser) => {
-      res.json({
-        error: false,
-        data: updatedUser,
-        message: "Successfully updated user.",
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({
-        error: true,
-        data: null,
-        message: "Unable to update user.",
-      });
-    });
-});
+
 
 //For testing
 router.get("/api/users", (req, res)=>{
