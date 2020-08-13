@@ -76,16 +76,12 @@ const Home = ({ setIsSidebarOpen }) => {
               1. Create a user account or log in. 
               <br />
               <br />
-              2. Go to your profile page.
-              <br />
-              Here you can create new stories or edit those
+              2. On your profile page, you can create new stories or edit those
               you’ve already written. You can also see the stories you’ve found
               while visiting local points of interest. 
               <br />
               <br />
-              3. Visit the locations page.
-              <br />
-              Your map page will
+              3. Visit the locations on your map. The map will
               display your current location, indicated by a set of
               footprints. Points of interest are marked by a blue circle. Once
               you enter the circle, you will be shown a random story and can

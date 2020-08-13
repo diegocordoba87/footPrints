@@ -34,7 +34,7 @@ const LogIn = (props) => {
         <div>
           <div id="howitworks" className="cardBodyLogin">
             <div className="uk-card-medium uk-card-default">
-              <form id="loginInput">
+              <form id="loginInput" onClick={handleSubmit}>
                 <input
                   className="input"
                   type="email"
@@ -62,7 +62,7 @@ const LogIn = (props) => {
                     <button
                       className="logSignButton input"
                       type="submit"
-                      onClick={handleSubmit}
+                      
                     >
                       Login
                     </button>
