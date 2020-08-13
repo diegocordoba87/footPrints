@@ -25,7 +25,7 @@ export default class Map extends React.Component {
 			);
 		}
 	};
-
+	
 	//
 	createMap = (lat, lng) => {
 		const H = window.H;
