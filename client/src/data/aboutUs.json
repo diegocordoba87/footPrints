@@ -1,23 +1,24 @@
 [
   {
-    "name": "Diego",
+    "name": "Andrea",
     "quote1": "Futbal Fanatic",
     "quote2": "Avid Reader",
     "quote3": "King of the Database",
+    "img": "../../images/Andrea.png"
+  },
+  {
+    "name": "Diego",
+    "quote": "Diego, the Database King, spends his time reading, and playing Futbal, and reading about Futbal.",
     "img": "../../images/Diego.jpg"
   },
   {
     "name": "Elizabeth",
-    "quote1": "Master of Music",
-    "quote2": "Insert Something Witty Here",
-    "quote3": "Dom Manipulator",
+    "quote": "When she's not manipulating the DOM, Elizabeth loves the nightlife. She's got to boogey, on the disco 'round.",
     "img": "../../images/Liz.jpg"
   },
   {
     "name": "Mark",
-    "quote1": "Master of Music",
-    "quote2": "Insert Something Witty Here",
-    "quote3": "Dom Manipulator",
+    "quote": "In his free time, Mark enjoys long walks on the beach, classical literature, and world peace. Also, sarcasm.",
     "img": "../../images/Mark.jpg"
   },
   {
