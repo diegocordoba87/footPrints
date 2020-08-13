@@ -36,14 +36,14 @@
     "hiddenIfLoggedOut": true
   },
   {
-    "title": "About Us",
-    "href": "/#aboutus",
+    "title": "How it Works",
+    "href": "/#howitworks",
     "hiddenWhenLoggedIn": false,
     "hiddenIfLoggedOut": false
   },
   {
-    "title": "How it Works",
-    "href": "/#howitworks",
+    "title": "About Us",
+    "href": "/#aboutus",
     "hiddenWhenLoggedIn": false,
     "hiddenIfLoggedOut": false
   }

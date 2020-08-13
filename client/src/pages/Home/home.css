@@ -22,29 +22,34 @@
   text-shadow: none;
 }
 
-/* .homeButtonDiv {
-  text-align: center;
-  margin: auto;
-  margin-bottom: 40vw;
-} */
+.hiwText {
+  padding: 2vw;
+  text-align: left;
+}
 
 .profilePics {
   width: 8vw;
 }
 
-/* #aboutus {
-  width: 70%;
-  margin: auto;
-} */
+.scrollButton {
+  height: 4vw;
+  margin: 6vw 0vw;
+  -webkit-filter: drop-shadow(2px 2px 1px #000);
+  filter: drop-shadow(2px 2px 1px #000);
+  padding: 0% 3%;
+}
 
 .specialPadding {
-  margin: 2vw;
   padding: 2vw;
 }
 
 .uk-card-body {
   border-radius: 5px;
   max-width: 15%;
+}
+
+.upDownArrows {
+  margin-top: -5vw;
 }
 
 #heroImage {
@@ -58,10 +63,6 @@
   background-image: url(../../images/FPHomeBWHor.jpg);
 }
 
-#homeHeader {
-  /* margin: 4vw 5vw; */
-}
-
 #homeTagLine {
   font-size: 1.25em;
   margin: -4vw 0vw 0vw 22vw;
@@ -70,16 +71,7 @@
 }
 
 #howitworks {
-  /* width: 70%; */
-  /* margin: auto;
-  margin-top: 2vw; */
-}
 
-#scrollDown {
-  height: 4vw;
-  margin: 6vw 0vw;
-  -webkit-filter: drop-shadow(2px 2px 1px #000);
-  filter: drop-shadow(2px 2px 1px #000);
 }
 
 #tellYours {
