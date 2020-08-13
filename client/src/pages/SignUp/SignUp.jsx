@@ -22,7 +22,7 @@ const SignUp = ({ setIsSidebarOpen, history }) => {
         window.alert(
           `Successfully created new account with email: ${username}`
         );
-        history.push("/login");
+        history.push("/profile");
       })
       .catch((err) => {
         console.log(err);
