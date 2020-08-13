@@ -20,7 +20,7 @@ export default class Map extends React.Component {
         (position) => {
           //
           this.createMap(position.coords.latitude, position.coords.longitude);
-          console.log(position);
+          console.log(position.coords);
         },
         (error) => this.setState({ error: error.message })
       );
@@ -115,6 +115,18 @@ export default class Map extends React.Component {
       false
     );
 
+    map.addEventListener(
+      "tap",
+      function (evt) {
+        var coords = map.screenToGeo(
+          evt.currentPointer.viewportX,
+          evt.currentPointer.viewportY
+        );
+        findNearestMarker(coords);
+      },
+      false
+    );
+
     //create a circle on the map for each park
     let trailCreek = new H.map.Circle(
       { lat: 33.971687, lng: -83.357537 },
@@ -127,6 +139,19 @@ export default class Map extends React.Component {
       3000
     );
     map.addObject(morganFalls);
+
+    let mfpoly = new H.map.Polygon({
+		//33.739023, -84.347441
+		lng: -84.347441 , lat: 33.739023
+		//33.739041, 
+		lng: -84.346272 , lat: 33.739041
+
+		
+
+		lng: -84.347441 , lat: 33.739023
+
+
+    });
 
     let elizabethPorterParkAndSprayground = new H.map.Circle(
       { lat: 33.959884, lng: -84.540687 },
@@ -143,6 +168,37 @@ export default class Map extends React.Component {
     const ui = H.ui.UI.createDefault(map, defaultLayers);
     console.log(ui);
 
+    //finding the marker relative to my position
+    console.log("marker");
+    console.log(dragMarker.b);
+
+    function findNearestMarker(coords) {
+      var minDist = 1000,
+        nearest_text = "*None*",
+        markerDist,
+        // get all objects added to the map
+        objects = map.getObjects(),
+        len = map.getObjects().length;
+      console.log(objects);
+
+      // iterate over objects and calculate distance between them
+      for (let i = 0; i < len; i += 1) {
+        //   console.log(objects[i].b)
+        const geometry = objects[i].getGeometry();
+        let wkt = geometry.toString();
+        console.log(wkt);
+        //   console.log(coords)
+        // markerDist = objects[i].getGeometry().distance(coords);
+        // console.log(markerDist)
+        // if (markerDist < minDist) {
+        //   minDist = markerDist;
+        //   nearest_text = objects[i].getData();
+        // }
+      }
+
+      console.log("The nearest marker is: " + nearest_text);
+    }
+    findNearestMarker();
     this.setState({ map });
   };
 
