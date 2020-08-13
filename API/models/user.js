@@ -36,6 +36,10 @@ const UserSchema = new Schema({
             noteId: {
                 type: Schema.Types.ObjectId,
                 ref: "Notes"
+            },
+            content: {
+                type: String,
+                ref: "Notes"
             }
         }
     ],
