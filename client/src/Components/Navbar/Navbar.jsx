@@ -43,7 +43,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen, activeUser, setActiveUser }) 
           </a>
         ))}
 
-        {activeUser !== "" && <p onClick={handleLogOut}>Log Out</p>}
+        {activeUser !== "" && <p className="mediumText" onClick={handleLogOut}>Log Out</p>}
       </div>
       {/* hamburger button */}
       <button
