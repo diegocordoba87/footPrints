@@ -70,8 +70,6 @@ const Home = ({ setIsSidebarOpen }) => {
               As you interact with the community around you, you will learn more
               about those who went that way before, and can leave a story for
               those yet to come.
-              <br />
-              <br />
               Here's how to get started:
               <br />
               <br />

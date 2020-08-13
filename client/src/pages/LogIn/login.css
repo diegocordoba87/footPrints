@@ -18,6 +18,10 @@
   box-shadow: 3px 3px 11px;
 }
 
+.input:focus {
+  outline: none;
+}
+
 .uk-card-default {
   border-radius: 5px;
   padding: 2vw;
