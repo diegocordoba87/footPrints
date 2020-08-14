@@ -6,22 +6,21 @@ import "./locations.css";
 
 const Locations = ({ setIsSidebarOpen }) => {
   const [location, setLocation] = useState([]);
+  const [footprints, setFootprints] = useState([])
 
   useEffect(() => {
+    locationNear()
     const testing = [
-      {
-        name: "Marietta",
-      },
-      {
-        name: "Atlanta",
-      },
     ];
-    axios.get("api/locations").then((locations) => {
-      // setLocation(locations.data.data);
-      setLocation(testing);
-      // console.log(locations.data.data);
-    });
   }, []);
+
+  const locationNear = () => {
+    let lng= -84.365373
+    let lat= 33.852656
+    axios.get(`/api/locationsnear/?lng=${lng}&lat=${lat}`).then((res)=>{
+      console.log(res)
+    })
+  }
 
   return (
     <div id="locationsBody" className="backgroundImage">
@@ -33,10 +32,8 @@ const Locations = ({ setIsSidebarOpen }) => {
           <div>
             <Map />
           </div>
-          <div className="locationDiv">
-            {location.map((locationObj) => (
-              <h4 className="cardBody">{locationObj.name}</h4>
-            ))}
+          <div className="notesDiv">
+
           </div>
         </div>
       </div>

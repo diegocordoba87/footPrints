@@ -54,14 +54,15 @@ router.get("/api/locations", (req, res) => {
     db.Location.aggregate([
       {
         $geoNear: {
-           near: { type: "Point", coordinates: [ lng , lat ] },
-           distanceField: "dist.calculated",
-           maxDistance: 10000,
-           includeLocs: "dist.location",
-           spherical: true
+          near: { type: "Point", coordinates: [ lng , lat ] },
+          distanceField: "dist.calculated",
+          maxDistance: 10000,
+          includeLocs: "dist.location",
+          spherical: true
         }
       }
-   ]).then((location)=>{
+  ])
+  .then((location)=>{
       console.log(location)
       res.json({
         error: false,
