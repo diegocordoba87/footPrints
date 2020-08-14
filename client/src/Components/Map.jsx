@@ -93,8 +93,12 @@ export default class Map extends React.Component {
           behavior.enable();
           console.log("lat: " + dragMarker.b.lat);
           console.log("lng: " + dragMarker.b.lng);
-          getDistanceToBrownWood();
-
+          getDistanceToBrownWood(
+            dragMarker.b.lat,
+            dragMarker.b.lng,
+            brownwood.b.lat,
+            brownwood.b.lng
+          );
         }
       },
       false
@@ -149,22 +153,18 @@ export default class Map extends React.Component {
     console.log(ui);
 
     //finding the marker
-    console.log("marker");
-    console.log(dragMarker.b);
+    // console.log("marker");
+    // console.log(dragMarker.b);
 
     //calculating the distance between 2 coordinates.
 
-    function getDistanceToBrownWood() {
+    function getDistanceToBrownWood(lat1, lng1, lat2, lng2) {
       // console.log(brownwood.b.lat);
       // console.log(brownwood.b.lng);
-      let lat1 = dragMarker.b.lat;
-      let lon1 = dragMarker.b.lng;
-      let lat2 = brownwood.b.lat;
-      let lon2 = brownwood.b.lng;
       //Haversine formula: https://en.wikipedia.org/wiki/Haversine_formula
       const R = 3958.756; // Radius of the earth in mi
       const dLat = deg2rad(lat2 - lat1); // deg2rad below
-      const dLon = deg2rad(lon2 - lon1);
+      const dLon = deg2rad(lng2 - lng1);
       const a =
         Math.sin(dLat / 2) * Math.sin(dLat / 2) +
         Math.cos(deg2rad(lat1)) *
