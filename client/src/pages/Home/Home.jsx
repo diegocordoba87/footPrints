@@ -51,7 +51,7 @@ const Home = ({ setIsSidebarOpen }) => {
           <div id="homeLayerOne">
             <div
               id="homeHeader"
-              className="uk-text-center cardBody uk-animation-fade"
+              className="uk-text-center cardBody uk-animation-slide-bottom"
               uk-grid
               tabindex="0"
             >

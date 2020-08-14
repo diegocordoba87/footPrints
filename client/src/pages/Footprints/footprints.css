@@ -11,6 +11,10 @@
   height: 100vh;
 }
 
+#footprintsDivs {
+  margin: 10vw 5vw 5vw 5vw;
+}
+
 @media screen and (max-width: 670px) {
   #footprintsBody {
     background-image: url(../../images/FPFootprintsVert.jpg);

@@ -16,13 +16,13 @@
 }
 
 #map {
-  height: 25vw;
-  width: 35vw;
+  height: 10vw;
+  width: 10vw;
   position: relative;
   top: 5vw;
   left: 10vw;
   float: left;
-  box-shadow: 40px 40px 0px #867;
+  /* box-shadow: 40px 40px 0px #867; */
 }
 
 @media screen and (max-width: 670px) {

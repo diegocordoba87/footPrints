@@ -83,7 +83,7 @@ div.uk-flex.uk-flex-center.uk-flex-between.specialPadding {
 #homeHeader {
   margin: 0vw;
   max-width: 100%;
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-timing-function: linear;
   background-color: rgba(182, 178, 179, 0.5);
 }
