@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import API from "../../utils/API";
 import logo from "../../images/FPLogo.png";
 import axios from "axios";
@@ -7,60 +8,54 @@ import "./profile.css";
 const Profile = ({ setIsSidebarOpen }) => {
   // Setting our component's initial state
 
-  const [userInfo, setUserInfo] = useState([])
+  const [userInfo, setUserInfo] = useState({
+    initials: "",
+  });
   const [newNoteContent, setnewNoteContent] = useState("");
-  const [userNotes, setUserNotes] = useState([])
-  const [notesByLocation, setNotesByLocation]= useState([])
-  const user = sessionStorage.getItem("username")
-  const [parkName, setParkName] = useState("")
-  
-  useEffect(() => {
+  const [userNotes, setUserNotes] = useState([]);
+  const [notesByLocation, setNotesByLocation] = useState([]);
+  const user = sessionStorage.getItem("username");
+  const [parkName, setParkName] = useState("");
 
-    navigator.geolocation.getCurrentPosition(function(position) {
+  const { id } = useParams();
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(function (position) {
       const lat = position.coords.latitude;
       const lng = position.coords.longitude;
-      console.log(lat)
-      console.log(lng)
-      locationNear(lng, lat)})
-      
-    const user = sessionStorage.getItem("username");
+      console.log(lat);
+      console.log(lng);
+      locationNear(lng, lat);
+    });
 
-    loadUser(user);
-    
+    loadUser();
   }, []);
 
-  function loadUser(username) {
-    API.getUser(username)
+  function loadUser() {
+    API.getUserById(id)
       .then((res) => {
-        setUserInfo(res.data.data[0]);
+        console.log(res.data.data);
+        setUserInfo(res.data.data);
       })
       .catch((err) => console.log(err));
   }
 
-  const locationNear=(lng, lat)=>{
-    
-    axios
-    .get(`/api/locationsnear/?lng=${lng}&lat=${lat}`)
-    .then((res)=>{
-      console.log("testing", res.data.data[0]._id)
-      let id = res.data.data[0]._id
-      setParkName(res.data.data[0].name)
-      axios.get(`/api/locations/${id}`).then((res)=>{
-        console.log(res)
-      })
-      
-    })
-    
-    
-  }
+  const locationNear = (lng, lat) => {
+    axios.get(`/api/locationsnear/?lng=${lng}&lat=${lat}`).then((res) => {
+      console.log("testing", res.data.data[0]._id);
+      let id = res.data.data[0]._id;
+      setParkName(res.data.data[0].name);
+      axios.get(`/api/locations/${id}`).then((res) => {
+        console.log(res);
+      });
+    });
+  };
 
-  function addNote(e){
-    e.preventDefault()
-    axios.post("/api/newnote",{content: newNoteContent})
-    .then((res)=>{
-      console.log(res)
-    })
-    
+  function addNote(e) {
+    e.preventDefault();
+    axios.post("/api/newnote", { content: newNoteContent }).then((res) => {
+      console.log(res);
+    });
   }
 
   function deleteNote(id) {
@@ -75,11 +70,11 @@ const Profile = ({ setIsSidebarOpen }) => {
       <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
       <div onClick={() => setIsSidebarOpen(false)}>
         <div id="profileHeader">
-        <h2>{userInfo.initials}'s Profile</h2>   
+          <h2>{userInfo.initials}'s Profile</h2>
         </div>
         <div className="cardBody" id="profileCardBody">
-          <form  id="profileForm">
-  <div className="homeText">{parkName} New FootPrint:</div>
+          <form id="profileForm">
+            <div className="homeText">{parkName} New FootPrint:</div>
             <label>
               <textarea
                 id="note"
@@ -93,7 +88,9 @@ const Profile = ({ setIsSidebarOpen }) => {
                 className="newFPForm"
               />
             </label>
-            <button id="newFootprintButton" onClick={addNote}>Save FootPrint</button>
+            <button id="newFootprintButton" onClick={addNote}>
+              Save FootPrint
+            </button>
           </form>
           <div className="cardBody">
             <div className="homeText">My Stories</div>
@@ -102,10 +99,8 @@ const Profile = ({ setIsSidebarOpen }) => {
           <div className="cardBody">
             <div className="homeText">
               Found FootPrints
-
               {notesByLocation.map((note) => {
-                return(
-
+                return (
                   <p key={note.title}>
                     {note.content}
                     <button
