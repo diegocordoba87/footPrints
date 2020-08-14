@@ -11,6 +11,7 @@ const Profile = ({ setIsSidebarOpen }) => {
   const [userNotes, setUserNotes] = useState([])
   const [notesByLocation, setNotesByLocation]= useState([])
   const user = sessionStorage.getItem("username")
+  const [parkName, setParkName] = useState("")
   
   useEffect(() => {
     console.log(user)
@@ -31,8 +32,14 @@ const Profile = ({ setIsSidebarOpen }) => {
   function locationNear(){
     let lng= -84.365373
     let lat= 33.852656
-    axios.get(`http://localhost:3001/api/locationsnear/?lng=${lng}&lat=${lat}`).then((res)=>{
-      console.log(res)
+    axios
+    .get(`/api/locationsnear/?lng=${lng}&lat=${lat}`)
+    .then((res)=>{
+      console.log("testing", res.data.data)
+      let name = res.data.data[0].name
+      this.setParkName(name)
+      console.log(res.data.data[0].name)
+      
     })
   }
 
@@ -75,7 +82,9 @@ const Profile = ({ setIsSidebarOpen }) => {
                 className="newFPForm"
               />
             </label>
-            <button id="newFootprintButton" onSubmit={addNote}>Save FootPrint</button>
+            <button id="newFootprintButton" onClick={(e) => {
+                        addNote(e.target.value);
+                      }}>Save FootPrint</button>
           </form>
           <div className="cardBody">
             <div className="homeText">My Stories</div>
