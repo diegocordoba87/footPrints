@@ -11,7 +11,8 @@ const Profile = ({ setIsSidebarOpen }) => {
   const [userNotes, setUserNotes] = useState([])
   const [notesByLocation, setNotesByLocation]= useState([])
   const user = sessionStorage.getItem("username")
-
+  const [parkName, setParkName] = useState("")
+  
   useEffect(() => {
     const user = sessionStorage.getItem("username");
 
@@ -27,17 +28,30 @@ const Profile = ({ setIsSidebarOpen }) => {
       .catch((err) => console.log(err));
   }
 
-  function locationNear(){
+  const locationNear=()=>{
     let lng= -84.365373
     let lat= 33.852656
-    axios.get(`http://localhost:3001/api/locationsnear/?lng=${lng}&lat=${lat}`).then((res)=>{
-      console.log(res)
+    axios
+    .get(`/api/locationsnear/?lng=${lng}&lat=${lat}`)
+    .then((res)=>{
+      console.log("testing", res.data.data[0]._id)
+      let id = res.data.data[0]._id
+      setParkName(res.data.data[0].name)
+      axios.get(`/api/locations/${id}`).then((res)=>{
+        console.log(res)
+      })
+      
     })
+    
+    
   }
 
   function addNote(e){
     e.preventDefault()
-    console.log(e)
+    axios.post("/api/newnote",{content: newNoteContent})
+    .then((res)=>{
+      console.log(res)
+    })
     
   }
 
@@ -56,8 +70,8 @@ const Profile = ({ setIsSidebarOpen }) => {
           <h2>Profile</h2>
         </div>
         <div className="cardBody" id="profileCardBody">
-          <form id="profileForm">
-            <div className="homeText">New FootPrint:</div>
+          <form  id="profileForm">
+  <div className="homeText">{parkName} New FootPrint:</div>
             <label>
               <textarea
                 id="note"
@@ -71,7 +85,7 @@ const Profile = ({ setIsSidebarOpen }) => {
                 className="newFPForm"
               />
             </label>
-            <button id="newFootprintButton" onSubmit={addNote}>Save FootPrint</button>
+            <button id="newFootprintButton" onClick={addNote}>Save FootPrint</button>
           </form>
           <div className="cardBody">
             <div className="homeText">My Stories</div>
