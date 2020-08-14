@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
 import Login from "./pages/LogIn/LogIn";
-import Locations from "./pages/Locations/Locations";
 import Footprints from "./pages/Footprints/Footprints";
 import Profile from "./pages/Profile/Profile";
 import Signup from "./pages/SignUp/SignUp";
@@ -37,12 +36,6 @@ function App() {
                   setActiveUser={setActiveUser}
                 />
               </>
-            )}
-          />
-          <Route
-            path="/locations"
-            render={(props) => (
-              <Locations {...props} setIsSidebarOpen={setIsSidebarOpen} />
             )}
           />
           <Route

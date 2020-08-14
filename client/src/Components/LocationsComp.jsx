@@ -4,7 +4,6 @@ import "../pages/Dashboard/dashboard.css";
 import NewFootprint from "../Components/NewFootprint";
 
 const LocationsComp = () => {
-  
   return (
     <div id="dashboardTabs">
       <button class="tablink" onclick="openPage('Home', this, 'red')">
@@ -17,10 +16,8 @@ const LocationsComp = () => {
       >
         Footprints
       </button>
-      <div className="uk-card-default">
-        <NewFootprint />
-        <MapComp />
-      </div>
+      <NewFootprint />
+      <MapComp />
     </div>
   );
 };

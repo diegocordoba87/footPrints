@@ -20,7 +20,7 @@ const Home = ({ setIsSidebarOpen }) => {
   const renderLayerTwo = () => {
     setTimeout(() => {
       setLayerTwo(true);
-    }, 6000);
+    }, 5000);
   };
 
   // const renderLayerThree = () => {

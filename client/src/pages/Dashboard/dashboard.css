@@ -63,9 +63,7 @@
   border: #666 solid 5px;
   margin: 2vw;
 }
-#profileForm {
-  margin: 1vw;
-}
+
 
 @media screen and (max-width: 670px) {
   #locationsBody {

@@ -24,18 +24,6 @@
     "hiddenIfLoggedOut": true
   },
   {
-    "title": "Locations",
-    "href": "/locations",
-    "hiddenWhenLoggedIn": false,
-    "hiddenIfLoggedOut": true
-  },
-  {
-    "title": "Footprints",
-    "href": "/footprints",
-    "hiddenWhenLoggedIn": false,
-    "hiddenIfLoggedOut": true
-  },
-  {
     "title": "How it Works",
     "href": "/signup/#howitworks",
     "hiddenWhenLoggedIn": false,

@@ -20,7 +20,6 @@ const LogIn = (props) => {
       })
       .then((response) => {        
         if(response.data.message==="Authorization successful"){
-          window.alert("Welcome back!")
           props.history.push(`/profile/${response.data.data._id}`)
           setActiveUser(username);
           sessionStorage.setItem("username", username);

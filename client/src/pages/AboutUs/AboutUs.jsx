@@ -44,13 +44,13 @@ const AboutUs = ({ setIsSidebarOpen }) => {
           />
           <div className="uk-animation-fade">
             <div id="aboutus" className="cardBody headerText">
-              About Us
-              <div className="uk-flex uk-flex-center uk-flex-between specialPadding">
+              <p id="aboutUsText">About Us</p>
+              <div className="uk-flex specialPadding" uk-grid>
                 {aboutUs.map((creator, index) => {
                   const source = getImage(creator.name);
                   return (
                     <>
-                      <div className="uk-card-small uk-card-default uk-card-body">
+                      <div className="uk-card-default uk-grid-match">
                         <a key={index}>
                           <img className="profilePics" src={source} />
                         </a>

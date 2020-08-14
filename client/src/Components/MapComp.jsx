@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Map from './Map';
 import axios from "axios";
+import '../pages/Profile/profile.css';
 
 const MapComp = () => {
   const [newNoteContent, setnewNoteContent] = useState("");

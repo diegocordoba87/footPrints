@@ -5,12 +5,11 @@ import logo from "../../images/FPLogo.png";
 import MapComp from "../../Components/MapComp";
 import NewFootprint from "../../Components/NewFootprint";
 import axios from "axios";
-import "./profile.css";
 import FootprintsDisplay from "../../Components/FootprintsDisplay";
+import "./profile.css";
 
 const Profile = (props) => {
   // Setting our component's initial state
-
   const [userInfo, setUserInfo] = useState({
     initials: "",
   });
@@ -19,6 +18,8 @@ const Profile = (props) => {
   const [notesByLocation, setNotesByLocation] = useState([]);
   const user = sessionStorage.getItem("username");
   const [parkName, setParkName] = useState("");
+  const [isLocationDisplayed, setIsLocationDisplayed] = useState(true);
+  const { setIsSidebarOpen } = props;
 
   const { id } = useParams();
 
@@ -45,12 +46,14 @@ const Profile = (props) => {
 
   const locationNear = (lng, lat) => {
     axios.get(`/api/locationsnear/?lng=${lng}&lat=${lat}`).then((res) => {
-      console.log("testing", res.data.data[0]._id);
-      let id = res.data.data[0]._id;
-      setParkName(res.data.data[0].name);
-      axios.get(`/api/locations/${id}`).then((res) => {
-        console.log(res);
-      });
+      if (res.data && res.data.data && res.data.data.length > 0) {
+        console.log("testing", res.data.data[0]._id);
+        let id = res.data.data[0]._id;
+        setParkName(res.data.data[0].name);
+        axios.get(`/api/locations/${id}`).then((res) => {
+          console.log(res);
+        });
+      }
     });
   };
 
@@ -69,30 +72,46 @@ const Profile = (props) => {
   }
 
   return (
-    <div id="dashboardBody" className="backgroundImage headerText">
-      <div onClick={() => setIsSidebarOpen(false)}>
-        <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
-        <div id="dashboardTabs">
-          <button class="tablink" onClick={() => setIsLocationDisplayed(true)}>
-            Locations
-          </button>
-          <button class="tablink" onClick={() => setIsLocationDisplayed(false)}>
-            Footprints
-          </button>
-          {isLocationDisplayed === true && (
-            <div className="uk-card-default">
-              <NewFootprint />
-              <MapComp />
+    <div>
+      <div id="dashboardBody" className="backgroundImage headerText">
+        <div onClick={() => setIsSidebarOpen(false)}>
+          <img
+            className="footprintsPageLogo"
+            src={logo}
+            alt="footprints logo"
+          />
+          <div className="uk-card-default centerCard">
+            <div id="dashboardTabs">
+              <button
+                class="tablink"
+                onClick={() => setIsLocationDisplayed(true)}
+              >
+                Locations
+              </button>
+              <button
+                class="tablink"
+                onClick={() => setIsLocationDisplayed(false)}
+              >
+                Footprints
+              </button>
+              <div id="profileHeader">
+                <h2>{userInfo.initials}'s Profile</h2>
+              </div>
             </div>
-          )}
-          {isLocationDisplayed === false && (
-            <div className="uk-card-default">
-              <FootprintsDisplay />
-        <div id="profileHeader">
-          <h2>{userInfo.initials}'s Profile</h2>
-        </div>
-        <div className="cardBody" id="profileCardBody">
-          <form id="profileForm">
+            {isLocationDisplayed === true && (
+              <div className="uk-card-default">
+                <NewFootprint />
+                <MapComp />
+              </div>
+            )}
+            {isLocationDisplayed === false && (
+              <div className="uk-card-default">
+                <FootprintsDisplay />
+              </div>
+            )}
+          </div>
+
+          {/* <form id="profileForm">
             <div className="homeText">{parkName} New FootPrint:</div>
             <label>
               <textarea
@@ -110,30 +129,25 @@ const Profile = (props) => {
             <button id="newFootprintButton" onClick={addNote}>
               Save FootPrint
             </button>
-          </form>
-          <div className="cardBody">
-            <div className="homeText">My Stories</div>
-          </div>
+          </form> */}
 
-          <div className="cardBody">
-            <div className="homeText">
-              Found FootPrints
-              {notesByLocation.map((note) => {
-                return (
-                  <p key={note.title}>
-                    {note.content}
-                    <button
-                      onClick={() => {
-                        deleteNote(note._id);
-                      }}
-                    >
-                      Delete Footprint
-                    </button>
-                  </p>
-                );
-              })}
-            </div>
-          )}
+          {/* <div className="homeText">
+            Found FootPrints
+            {notesByLocation.map((note) => {
+              return (
+                <p key={note.title}>
+                  {note.content}
+                  <button
+                    onClick={() => {
+                      deleteNote(note._id);
+                    }}
+                  >
+                    Delete Footprint
+                  </button>
+                </p>
+              );
+            })}
+          </div> */}
         </div>
       </div>
     </div>

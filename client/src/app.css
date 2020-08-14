@@ -63,6 +63,11 @@ h2 {
 .temporaryPageName {
   text-align: center;
 }
+
+.uk-card-default {
+  width: 60vw;
+  margin: auto;
+}
 /* Lavender: 948C94
 Chocolate: 292218
 Khaki: 7C6D57

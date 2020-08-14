@@ -9,6 +9,7 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [userSignedUp, setUserSignedUp] = useState(false);
+  const [signUpError, setSignUpError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,14 +21,16 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
       })
       .then((response) => {
         console.log(response);
+        const id = response.data.data._id;
         setUserSignedUp(true);
         setTimeout(() => {
           setActiveUser(username);
-          history.push("/profile");
+          history.push(`/profile/${id}`);
         }, 3000);
       })
       .catch((err) => {
         console.log(err);
+        setSignUpError(true);
       });
   };
 
@@ -46,6 +49,12 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
                   <p>You have successfully created an account!</p>
                 </div>
               )}
+              {signUpError === true && (
+                <div id="loginError" class="uk-alert-danger" uk-alert>
+                  <a class="uk-alert-close" uk-close></a>
+                  <p>Sign up failed. Please try again.</p>
+                </div>
+              )}
               <input
                 id="initials"
                 className="input"
@@ -54,6 +63,7 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
                 value={initials}
                 onChange={(e) => {
                   setInitials(e.target.value);
+                  setSignUpError(false);
                 }}
                 placeholder="Enter your initials"
                 required
@@ -65,6 +75,7 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
                 value={username}
                 onChange={(e) => {
                   setUsername(e.target.value);
+                  setSignUpError(false);
                 }}
                 placeholder="Enter your email"
                 required
@@ -76,6 +87,7 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
                 value={password}
                 onChange={(e) => {
                   setPassword(e.target.value);
+                  setSignUpError(false);
                 }}
                 placeholder="Enter your password"
                 required
