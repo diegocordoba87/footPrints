@@ -83,7 +83,7 @@ export default class Map extends React.Component {
       },
       false
     );
-    // re-enable the default draggability of the underlying map
+    // re-enable the default drag ability of the underlying map
     // when dragging has completed
     map.addEventListener(
       "dragend",
@@ -91,6 +91,10 @@ export default class Map extends React.Component {
         let target = ev.target;
         if (target instanceof H.map.Marker) {
           behavior.enable();
+          console.log("lat: " + dragMarker.b.lat);
+          console.log("lng: " + dragMarker.b.lng);
+          getDistanceFromLatLon();
+
         }
       },
       false
@@ -145,9 +149,36 @@ export default class Map extends React.Component {
     console.log(ui);
 
     //finding the marker
-    // console.log("marker");
-    // console.log(dragMarker.b);
+    console.log("marker");
+    console.log(dragMarker.b);
 
+    //calculating the distance between 2 coordinates.
+
+    function getDistanceFromLatLon() {
+      console.log(brownwood.b);
+      // console.log(dragMarker.b.lng);
+      const lat1 = dragMarker.b.lat;
+      const lon1 = dragMarker.b.lng;
+      const lat2 = 33.737831;
+      const lon2 = -84.346715;
+      //Haversine formula: https://en.wikipedia.org/wiki/Haversine_formula
+      var R = 3958.756; // Radius of the earth in mi
+      var dLat = deg2rad(lat2 - lat1); // deg2rad below
+      var dLon = deg2rad(lon2 - lon1);
+      var a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(deg2rad(lat1)) *
+          Math.cos(deg2rad(lat2)) *
+          Math.sin(dLon / 2) *
+          Math.sin(dLon / 2);
+      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      var d = R * c; // Distance in km
+      console.log("Distance: " + d);
+    }
+
+    function deg2rad(deg) {
+      return deg * (Math.PI / 180);
+    }
 
     this.setState({ map });
   };
