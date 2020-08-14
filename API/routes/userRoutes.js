@@ -103,26 +103,6 @@ router.put("/api/users/:id/addnote", (req, res) => {
     });
 });
 
-router.put("/api/users/:id/writtennotes", (req, res) => {
-  db.User.findByIdAndUpdate(req.params.id, {$push: {writtenNotes: {_id: req.body._id, content: req.body.content}}}, { new: true })
-    .then((updatedUser) => {
-      res.json({
-        error: false,
-        data: updatedUser,
-        message: "Successfully updated user.",
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({
-        error: true,
-        data: null,
-        message: "Unable to update user.",
-      });
-    });
-});
-
-
 
 //For testing
 router.get("/api/users", (req, res)=>{

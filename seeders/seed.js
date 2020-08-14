@@ -1,7 +1,7 @@
 let mongoose = require("mongoose");
-let db = require("../models");
+let db = require("../API/models");
 
-mongoose.connect("mongodb://localhost:3001/footPrints", {
+mongoose.connect("mongodb://localhost/footPrints", {
   useNewUrlParser: true,
   useFindAndModify: false
 });
@@ -10,44 +10,30 @@ let LocationSeed = [
   
   {
     name: "West Paces Park",
-    geometry: {
-      type: "Point",
-      coordinates: [33.852656, -84.365373]
-    }
+    geometry: {type: "Point", coordinates: [-84.365373, 33.852656]} 
+    
   },
   {
     name: "Morgan Falls",
-    geometry: {
-      type: "Point",
-      coordinates: [33.968742, -84.379742]
-    } 
+    geometry: {type: "Point", coordinates: [-84.379742, 33.968742]} 
     
   },
   {
     name: "Trail Creek",
-    geometry: {
-      type: "Point",
-      coordinates: [33.971687, -83.357537]
-    }    
+    geometry: {type: "Point", coordinates: [-83.357537, 33.971687]}    
   },
   {
     name: "Elizabeth Porter Park And Spray ground",
-    geometry: {
-      type: "Point",
-      coordinates: [33.959884, -84.540687]
-    }
+    geometry: {type: "Point", coordinates: [-84.540687, 33.959884]}
   },
   {
     name: "Brownwood",
-    geometry: {
-      type: "Point",
-      coordinates: [33.737831, -84.346715]
-    }
+    geometry: {type: "Point", coordinates: [-84.346715, 33.737831]}
   },  
 ];
 
 db.Location.deleteMany({})
-  .then(() => db.Workout.collection.insertMany(LocationSeed))
+  .then(() => db.Location.collection.insertMany(LocationSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
