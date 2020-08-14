@@ -13,16 +13,16 @@ const Speech = () => {
   const { speak, cancel, speaking, supported, voices } = useSpeechSynthesis({
     onEnd,
   });
-  console.log(voiceIndex)
+ 
 
   const voice = voices[voiceIndex] || null;
 
-  const styleFlexRow = { display: 'flex', flexDirection: 'row' };
-  const styleContainerRatePitch = {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 12,
-  };
+//   const styleFlexRow = { display: 'flex', flexDirection: 'row' };
+//   const styleContainerRatePitch = {
+//     display: 'flex',
+//     flexDirection: 'column',
+//     marginBottom: 12,
+//   };
 
   return (
     <div>
