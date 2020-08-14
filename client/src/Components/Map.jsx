@@ -93,46 +93,20 @@ export default class Map extends React.Component {
           behavior.enable();
           const markerLat = dragMarker.b.lat;
           const markerLng = dragMarker.b.lng;
-          //Distance to brownwood park
           console.log("brownwood");
-          getDistanceToLocation(
-            markerLat,
-            markerLng,
-            brownwood.b.lat,
-            brownwood.b.lng
-          );
-          //trailCreek
+          getDistanceToLocation(brownwood, markerLat, markerLng);
           console.log("trailCreek");
-          getDistanceToLocation(
-            markerLat,
-            markerLng,
-            trailCreek.b.lat,
-            trailCreek.b.lng
-          );
-          //morganFalls
+          getDistanceToLocation(trailCreek, markerLat, markerLng);
           console.log("morganFalls");
-          getDistanceToLocation(
-            markerLat,
-            markerLng,
-            morganFalls.b.lat,
-            morganFalls.b.lng
-          );
-          //morganFalls
+          getDistanceToLocation(morganFalls, markerLat, markerLng);
           console.log("elizabethPorterParkAndSprayground");
           getDistanceToLocation(
+            elizabethPorterParkAndSprayground,
             markerLat,
-            markerLng,
-            elizabethPorterParkAndSprayground.b.lat,
-            elizabethPorterParkAndSprayground.b.lng
+            markerLng
           );
-          //morganFalls
           console.log("westPaces");
-          getDistanceToLocation(
-            markerLat,
-            markerLng,
-            westPaces.b.lat,
-            westPaces.b.lng
-          );
+          getDistanceToLocation(westPaces, markerLat, markerLng);
         }
       },
       false
@@ -192,10 +166,11 @@ export default class Map extends React.Component {
 
     //calculating the distance between 2 coordinates.
 
-    function getDistanceToLocation(lat1, lng1, lat2, lng2) {
-      // console.log(brownwood.b.lat);
-      // console.log(brownwood.b.lng);
+    function getDistanceToLocation(location, lat1, lng1) {
       //Haversine formula: https://en.wikipedia.org/wiki/Haversine_formula
+      // console.log(location);
+      let lat2 = location.b.lat;
+      let lng2 = location.b.lng;
       const R = 3958.756; // Radius of the earth in mi
       const dLat = deg2rad(lat2 - lat1); // deg2rad below
       const dLon = deg2rad(lng2 - lng1);
@@ -206,8 +181,8 @@ export default class Map extends React.Component {
           Math.sin(dLon / 2) *
           Math.sin(dLon / 2);
       const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      const d = R * c; // Distance in km
-      console.log("Distance: " + d + "mi");
+      const d = R * c; // Distance in mi
+      console.log(d + "mi");
     }
 
     function deg2rad(deg) {
