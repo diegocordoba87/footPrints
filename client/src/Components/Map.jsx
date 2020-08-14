@@ -141,16 +141,15 @@ export default class Map extends React.Component {
     map.addObject(morganFalls);
 
     let mfpoly = new H.map.Polygon({
-		//33.739023, -84.347441
-		lng: -84.347441 , lat: 33.739023,
-		//33.739041, 
-		lng: -84.346272 , lat: 33.739041,
+      //33.739023, -84.347441
+      lng: -84.347441,
+      lat: 33.739023,
+      //33.739041,
+      lng: -84.346272,
+      lat: 33.739041,
 
-		
-
-		lng: -84.347441 , lat: 33.739023
-
-
+      lng: -84.347441,
+      lat: 33.739023,
     });
 
     let elizabethPorterParkAndSprayground = new H.map.Circle(
