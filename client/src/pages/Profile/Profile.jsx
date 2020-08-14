@@ -70,13 +70,8 @@ const Profile = ({ setIsSidebarOpen }) => {
           <h2>Profile</h2>
         </div>
         <div className="cardBody" id="profileCardBody">
-<<<<<<< HEAD
           <form  id="profileForm">
   <div className="homeText">{parkName} New FootPrint:</div>
-=======
-          <form id="profileForm">
-            <div className="homeText">New FootPrint:</div>
->>>>>>> 2ec3f3be944872f6f1318528818bb2320421808d
             <label>
               <textarea
                 id="note"
