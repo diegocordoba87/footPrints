@@ -6,7 +6,6 @@ const db = require("../models");
 router.get("/api/locations", (req, res) => {
     db.Location.find({})
       .then((foundLocations) => {
-        
         res.json({
           error: false,
           data: foundLocations,
