@@ -1,23 +1,30 @@
 const mongoose = require("mongoose");
-
 const Schema = mongoose.Schema;
 
-const LocationsSchema = new Schema({
-    name:{
-        type: String
-    },
-    location:{
-        type: {type: String},
-        coordinates: []
-    },
-    
-    notes: [{ 
-        type: Schema.Types.ObjectId, ref: 'Notes'
-    }]
+const GeoSchema = new Schema({
+  type: {
+    type: String,
+    default: "Point",
+  },
+  coordinates: {
+    type: [Number],
+    index: "2dsphere",
+  },
 });
 
-LocationsSchema.index({ location: "2ndsphere"})
+const LocationsSchema = new Schema({
+  name: {
+    type: String,
+  },
+  geometry: GeoSchema,
 
-const Location = mongoose.model("Location", LocationsSchema)
+  notes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Notes",
+    },
+  ],
+});
 
+const Location = mongoose.model("Location", LocationsSchema);
 module.exports = Location;

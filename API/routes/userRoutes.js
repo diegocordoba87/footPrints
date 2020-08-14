@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
 
 
 router.post("/api/signup", (req, res) => {
@@ -62,7 +62,49 @@ router.post("/api/login", (req, res)=>{
 
 })
 
-//mainly for testing
+router.get("/api/users/:username", (req, res) => {
+  console.log(req.params.username)
+  db.User.find({username:req.params.username})   
+    .then((foundUser) => {
+      console.log(foundUser)
+      res.json({
+        error: false,
+        data: foundUser,
+        message: "User retrieved.",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "Unable to retrieve user.",
+      });
+    });
+});
+
+
+router.put("/api/users/:id/addnote", (req, res) => {
+  db.User.findByIdAndUpdate(req.params.id, {$push: {Notes: {_id: req.body._id}}}, { new: true })
+    .then((updatedUser) => {
+      res.json({
+        error: false,
+        data: updatedUser,
+        message: "Successfully updated user.",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "Unable to update user.",
+      });
+    });
+});
+
+
+//For testing
 router.get("/api/users", (req, res)=>{
   db.User.find({})
   .then((users)=>{
@@ -81,66 +123,6 @@ router.get("/api/users", (req, res)=>{
     })
   })
 })
-
-
-router.get("/api/user/:id", (req, res) => {
-  db.User.findById(req.params.id)
-   
-    .then((foundUser) => {
-      res.json({
-        error: false,
-        data: foundUser,
-        message: "User retrieved.",
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({
-        error: true,
-        data: null,
-        message: "Unable to retrieve user.",
-      });
-    });
-});
-
-
-router.put("/api/user/:id", (req, res) => {
-  db.User.findByIdAndUpdate(req.params.id, req.body, { new: true })
-    .then((updatedUser) => {
-      res.json({
-        error: false,
-        data: updatedUser,
-        message: "Successfully updated user.",
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({
-        error: true,
-        data: null,
-        message: "Unable to update user.",
-      });
-    });
-});
-
-router.put("/api/users/:id/addfoundnote", (req, res) => {
-  db.User.findByIdAndUpdate(req.params.id, {$push: {foundNotes: req.body._id}}, { new: true })
-    .then((updatedUser) => {
-      res.json({
-        error: false,
-        data: updatedUser,
-        message: "Successfully updated user.",
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({
-        error: true,
-        data: null,
-        message: "Unable to update user.",
-      });
-    });
-});
 
 
 module.exports = router;

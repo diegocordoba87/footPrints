@@ -1,27 +1,38 @@
-.input {
+.cardBodyLogin {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  max-width: 35%;
   margin: auto;
+  object-fit: cover;
+  text-align: center;
+  box-shadow: 1px 1px 5px #000;
+}
+
+.input {
+  margin: 1vw;
   width: 25vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 5vh;
   padding: 0.5vw 1vw;
   border: 3px solid #85616a;
-  margin-top: 3vw;
   border-radius: 5px;
   box-shadow: 3px 3px 11px;
 }
 
+.input:focus {
+  outline: none;
+}
+
+.uk-card-default {
+  border-radius: 5px;
+  padding: 2vw;
+}
 #loginBody {
   background-image: url(../../images/FPLoginHor.jpg);
   height: 100vh;
 }
 
 #loginInput {
-  width: 50%;
   margin: auto;
-  position: relative;
-  top: 2vw;
 }
 
 @media screen and (max-width: 670px) {

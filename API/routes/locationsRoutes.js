@@ -41,8 +41,40 @@ router.get("/api/locations", (req, res) => {
           message: "Unable to retrieve all users.",
         });
       });
-  });
+  })
 
+  router.get("/api/locationsnear", (req, res)=>{
+    let lng = parseFloat(req.query.lng)
+    let lat = parseFloat(req.query.lat)
+    console.log("lng", req.query.lng)
+    console.log("lat", req.query.lat)
+    db.Location.aggregate([
+      {
+        $geoNear: {
+           near: { type: "Point", coordinates: [ lng , lat ] },
+           distanceField: "dist.calculated",
+           maxDistance: 2,
+           spherical: true
+        }
+      }
+   ]).then((location)=>{
+      console.log(location)
+      res.json({
+        error: false,
+        data: location,
+        message: "All locations retrieved.",
+      })
+    }).catch((err)=>{
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "Unable to find location"
+      })
+    })
+  })
+
+
+  
 router.post("/api/addlocation", (req, res)=>{
   db.Location.create(req.body)
   .then((newLocation)=>{
@@ -53,7 +85,7 @@ router.post("/api/addlocation", (req, res)=>{
     });
   })
   .catch((err)=>{
-    res.status(500).jsin({
+    res.status(500).json({
       error: true,
       data: null,
       message: "Unable to add location"
@@ -61,9 +93,8 @@ router.post("/api/addlocation", (req, res)=>{
   })
 })
 
-router.put("api/location/:locationid", (req, res) => {
-  console.log("hi")
-  db.Location.findByIdAndUpdate(req.params.locationid, {$push: {"notes": {_id: req.body._id}}}, { new: true })
+router.put("/api/locations/:id/addnote", (req, res) => {
+  db.Location.findByIdAndUpdate(req.params.id, {$push: {notes: req.body._id}}, { new: true })
   .then((updatednote) => {
     res.json({
       error: false,
@@ -72,6 +103,5 @@ router.put("api/location/:locationid", (req, res) => {
     });
   })
 })
-
 
   module.exports = router;

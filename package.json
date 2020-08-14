@@ -11,7 +11,8 @@
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "seed": "node seeders/seed.js"
   },
   "repository": {
     "type": "git",
@@ -29,12 +30,10 @@
     "bcrypt": "^5.0.0",
     "concurrently": "^5.3.0",
     "express": "^4.17.1",
-    "foundation-sites": "^6.6.3",
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
     "jszip": "^3.5.0",
     "mongoose": "^5.9.27",
-    "react-foundation": "^0.9.6",
     "react-modal-login": "^1.4.5",
     "react-router-dom": "^5.2.0"
   }

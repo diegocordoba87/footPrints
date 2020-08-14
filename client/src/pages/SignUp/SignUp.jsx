@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button } from "react-foundation";
 import logo from "../../images/FPLogo.png";
 import axios from "axios";
 import "./signup.css";
@@ -11,8 +10,6 @@ const SignUp = ({ setIsSidebarOpen, history }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
-
     axios
       .post("/api/signup", {
         initials: initials,
@@ -24,7 +21,7 @@ const SignUp = ({ setIsSidebarOpen, history }) => {
         window.alert(
           `Successfully created new account with email: ${username}`
         );
-        history.push("/login");
+        history.push("/profile");
       })
       .catch((err) => {
         console.log(err);
@@ -35,44 +32,56 @@ const SignUp = ({ setIsSidebarOpen, history }) => {
     <div id="signupBody" className="backgroundImage">
       <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
       <div onClick={() => setIsSidebarOpen(false)}>
-        <h2>Sign Up</h2>
-        <form id="signupInput">
-          <input
-            className="input"
-            type="text"
-            name="initials"
-            placeholder="Enter your initials"
-            required
-          />
-          <input
-            className="input"
-            type="email"
-            name="email"
-            placeholder="Enter your email"
-            required
-          />
-          <input
-            className="input"
-            type="password"
-            name="password"
-            placeholder="Enter your password"
-            required
-          />
-          <input
-            className="input"
-            type="password"
-            name="password"
-            placeholder="Re-enter your password"
-            required
-          />
-          <div className="row">
-            <div className="col s12">
-              <Button className="logSignButton input" type="submit">
-                Login
-              </Button>
+        <h2 className="headerText">Sign Up</h2>
+        <div>
+          <div id="howitworks" className="cardBodyLogin">
+            <div className="uk-card-medium uk-card-default">
+              <form id="signupInput" onSubmit={handleSubmit}>
+                <input
+                  id="initials"
+                  className="input"
+                  type="text"
+                  name="initials"
+                  value={initials}
+                  onChange={(e) => {
+                    setInitials(e.target.value);
+                  }}
+                  placeholder="Enter your initials"
+                  required
+                />
+                <input
+                  className="input"
+                  type="email"
+                  name="email"
+                  value={username}
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                  }}
+                  placeholder="Enter your email"
+                  required
+                />
+                <input
+                  className="input"
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                  placeholder="Enter your password"
+                  required
+                />
+                <div className="row">
+                  <div className="col s12">
+                    <button className="logSignButton input" type="submit">
+                      Login
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );
