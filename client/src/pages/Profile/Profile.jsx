@@ -7,6 +7,7 @@ import "./profile.css";
 const Profile = ({ setIsSidebarOpen }) => {
   // Setting our component's initial state
 
+  const [userInfo, setUserInfo] = useState([])
   const [newNoteContent, setnewNoteContent] = useState("");
   const [userNotes, setUserNotes] = useState([])
   const [notesByLocation, setNotesByLocation]= useState([])
@@ -14,23 +15,30 @@ const Profile = ({ setIsSidebarOpen }) => {
   const [parkName, setParkName] = useState("")
   
   useEffect(() => {
+
+    navigator.geolocation.getCurrentPosition(function(position) {
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+      console.log(lat)
+      console.log(lng)
+      locationNear(lng, lat)})
+      
     const user = sessionStorage.getItem("username");
 
     loadUser(user);
-    locationNear()
+    
   }, []);
 
   function loadUser(username) {
     API.getUser(username)
       .then((res) => {
-        console.log(res);
+        setUserInfo(res.data.data[0]);
       })
       .catch((err) => console.log(err));
   }
 
-  const locationNear=()=>{
-    let lng= -84.365373
-    let lat= 33.852656
+  const locationNear=(lng, lat)=>{
+    
     axios
     .get(`/api/locationsnear/?lng=${lng}&lat=${lat}`)
     .then((res)=>{
@@ -67,7 +75,7 @@ const Profile = ({ setIsSidebarOpen }) => {
       <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
       <div onClick={() => setIsSidebarOpen(false)}>
         <div id="profileHeader">
-          <h2>Profile</h2>
+        <h2>{userInfo.initials}'s Profile</h2>   
         </div>
         <div className="cardBody" id="profileCardBody">
           <form  id="profileForm">
