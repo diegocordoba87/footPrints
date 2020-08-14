@@ -4,8 +4,8 @@ import "./howitworks.css";
 const HowItWorks = () => {
   return (
     <div>
-      <div id="howitworks" className="cardBodyLogin">
-        <div className="uk-card-medium uk-card-default uk-flex-between">
+      <div class="uk-flex uk-flex-center">
+        <div className="howitworks howitworksLogin">
           <h2 className="headerText">How It Works</h2>
           <div className="hiwText">
             FootPrints connects us to the people around us by sharing our
