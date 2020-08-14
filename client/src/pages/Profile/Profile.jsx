@@ -9,8 +9,8 @@ const Profile = ({ setIsSidebarOpen }) => {
   // Setting our component's initial state
 
   const [newNoteContent, setnewNoteContent] = useState("");
+
   const notes = [];
-<<<<<<< HEAD
   const user = sessionStorage.getItem("username");
   const [location, setLocation] = useState([]);
 
@@ -33,13 +33,13 @@ const Profile = ({ setIsSidebarOpen }) => {
 
   useEffect(() => {
     console.log(user);
-=======
 
   useEffect(() => {
     const user = sessionStorage.getItem("username");
 >>>>>>> a78460b8bed4c3ff45a0176ac73f1c76b8170b86
 
     loadUser(user);
+    locationNear()
   }, []);
 
   function loadUser(username) {
@@ -54,9 +54,22 @@ const Profile = ({ setIsSidebarOpen }) => {
       .catch((err) => console.log(err));
   }
 
+  function locationNear(){
+    let lng= -84.365373
+    let lat= 33.852656
+    axios.get(`http://localhost:3001/api/locationsnear/?lng=${lng}&lat=${lat}`).then((res)=>{
+      console.log(res)
+    })
+  }
+
+  function addNote(e){
+    e.preventDefault()
+    console.log(e)
+    
+  }
+
   function deleteNote(id) {
     console.log(id);
-
     axios.delete(`/api/note/${id}`).then((res) => {
       window.alert(`Successfully deleted new note`);
     });
@@ -71,6 +84,7 @@ const Profile = ({ setIsSidebarOpen }) => {
         <div id="profileHeader">
           <h2>Dashboard</h2>
         </div>
+<<<<<<< HEAD
         <div className="uk-flex-center" uk-grid>
           <div id="footprintsDivs">
             <div
@@ -156,6 +170,49 @@ const Profile = ({ setIsSidebarOpen }) => {
                   Item
                 </div>
               </div>
+=======
+        <div className="cardBody" id="profileCardBody">
+          <form id="profileForm">
+            <div className="homeText">New FootPrint:</div>
+            <label>
+              <textarea
+                id="note"
+                type="text"
+                value={newNoteContent}
+                name="note"
+                onChange={(e) => {
+                  setnewNoteContent(e.target.value);
+                }}
+                placeholder="250 words minimum. 1000 words maximum"
+                className="newFPForm"
+              />
+            </label>
+            <button id="newFootprintButton" onSubmit={addNote}>Save FootPrint</button>
+          </form>
+          <div className="cardBody">
+            <div className="homeText">My Stories</div>
+          </div>
+
+          <div className="cardBody">
+            <div className="homeText">
+              Found FootPrints
+
+              {notesByLocation.map((note) => {
+                return(
+
+                  <p key={note.title}>
+                    {note.content}
+                    <button
+                      onClick={() => {
+                        deleteNote(note._id);
+                      }}
+                    >
+                      Delete Footprint
+                    </button>
+                  </p>
+                );
+              })}
+>>>>>>> 2ec3f3be944872f6f1318528818bb2320421808d
             </div>
             <div class="uk-flex-first"></div>
           </div>

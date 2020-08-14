@@ -46,6 +46,7 @@ router.get("/api/locations", (req, res) => {
 
   //find locations near client
   router.get("/api/locationsnear", (req, res)=>{
+    console.log(req.query)
     let lng = parseFloat(req.query.lng)
     let lat = parseFloat(req.query.lat)
     db.Location.aggregate([
@@ -53,7 +54,7 @@ router.get("/api/locations", (req, res) => {
         $geoNear: {
            near: { type: "Point", coordinates: [ lng , lat ] },
            distanceField: "dist.calculated",
-           maxDistance: 50000,
+           maxDistance: 10000,
            includeLocs: "dist.location",
            spherical: true
         }
