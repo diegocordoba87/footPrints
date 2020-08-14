@@ -16,10 +16,7 @@ const LogIn = (props) => {
         username: username, 
         password: password 
       })
-      .then((response) => {
-        console.log(response)
-        console.log(response.data.message);
-        
+      .then((response) => {        
         if(response.data.message==="Authorization successful"){
           window.alert("Welcome back!")
           props.history.push('/profile')
