@@ -1,3 +1,7 @@
+div.uk-flex.uk-flex-center.uk-flex-between.specialPadding {
+  margin: 0vw 4vw;
+}
+
 .cardBody {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
@@ -38,6 +42,15 @@
   padding: 2vw;
 }
 
+.startButton {
+  opacity: .8;
+  margin: 1vw 2vw;
+  width: 7vw;
+  float: right;
+  -webkit-filter: drop-shadow(1px 1px 1px #000);
+  filter: drop-shadow(1px 1px 1px #000);
+}
+
 .uk-card-body {
   border-radius: 5px;
   max-width: 15%;
@@ -47,18 +60,10 @@
   margin-top: -5vw;
 }
 
-#aboutus {
-  position: relative;
-  top: 4vw;
-  width: 70%;
-  color: #85616a;
-  text-shadow: 2px 2px 2px #000;
-}
-
 #heroImage {
   width: 34vw;
   position: absolute;
-  top: 10vw;
+  top: 13vw;
   left: 31vw;
   filter: drop-shadow(8px 8px 2px #000);
   -webkit-filter: drop-shadow(0px 6px 1px #000);
@@ -66,7 +71,7 @@
 }
 
 #homeBody {
-  background-image: url(../../images/FPHomeBWHor.jpg);
+  background-image: url(../../images/FPHomeHor.jpg);
 }
 
 #homeButtonOne {
@@ -76,7 +81,7 @@
 }
 
 #homeHeader {
-  margin: 0%;
+  margin: 0vw;
   max-width: 100%;
   animation-duration: 3s;
   animation-timing-function: linear;
@@ -84,7 +89,7 @@
 }
 
 #homeLayerOne {
-  margin-top: 21vw;
+  margin-top: 24vw;
 }
 
 #homeTagLine {
@@ -110,6 +115,7 @@
   right: -19vw;
   font-size: 4vw;
   width: 80%;
+  color: white;
 }
 
 @media screen and (max-width: 670px) {
@@ -120,7 +126,7 @@
   }
 
   #homeBody {
-    background-image: url(../../images/FPHomeBWVert.jpg);
+    background-image: url(../../images/FPHomeVert.jpg);
     height: 100vh;
   }
 

@@ -7,6 +7,7 @@ import Footprints from "./pages/Footprints/Footprints";
 import Profile from "./pages/Profile/Profile";
 import Signup from "./pages/SignUp/SignUp";
 import Home from "./pages/Home/Home";
+import AboutUs from "./pages/AboutUs/AboutUs";
 import footprintsHome from "./images/FPHomeHor.jpg";
 import "./app.css";
 
@@ -63,6 +64,12 @@ function App() {
             path="/footprints"
             render={(props) => (
               <Footprints {...props} setIsSidebarOpen={setIsSidebarOpen} />
+            )}
+          />
+          <Route
+            path="/aboutus"
+            render={(props) => (
+              <AboutUs {...props} setIsSidebarOpen={setIsSidebarOpen} />
             )}
           />
           <Route

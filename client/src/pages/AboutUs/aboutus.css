@@ -1,0 +1,19 @@
+#aboutus {
+  position: relative;
+  top: 10vw;
+  width: 70%;
+  color: #85616a;
+  text-shadow: 2px 2px 2px #000;
+}
+
+#aboutusBody {
+  background-image: url(../../images/FPHomeDarkerHor.jpg);
+  height: 100vh;
+}
+
+@media screen and (max-width: 670px) {
+  #aboutusBody {
+    background-image: url(../../images/FPFootprintsVert.jpg);
+    height: 100vh;
+  }
+}
