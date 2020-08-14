@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import API from "../../utils/API";
 import logo from "../../images/FPLogo.png";
 import axios from "axios";
@@ -7,12 +8,16 @@ import "./profile.css";
 const Profile = ({ setIsSidebarOpen }) => {
   // Setting our component's initial state
 
-  const [userInfo, setUserInfo] = useState([]);
+  const [userInfo, setUserInfo] = useState({
+    initials: "",
+  });
   const [newNoteContent, setnewNoteContent] = useState("");
   const [userNotes, setUserNotes] = useState([]);
   const [notesByLocation, setNotesByLocation] = useState([]);
   const user = sessionStorage.getItem("username");
   const [parkName, setParkName] = useState("");
+
+  const { id } = useParams();
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -23,25 +28,22 @@ const Profile = ({ setIsSidebarOpen }) => {
       locationNear(lng, lat);
     });
 
-    const user = sessionStorage.getItem("username");
-
-    loadUser(user);
+    loadUser();
   }, []);
 
-  function loadUser(username) {
-    API.getUser(username)
+  function loadUser() {
+    API.getUserById(id)
       .then((res) => {
-        setUserInfo(res.data.data[0]);
+        console.log(res.data.data);
+        setUserInfo(res.data.data);
       })
       .catch((err) => console.log(err));
   }
 
   const locationNear = (lng, lat) => {
     axios.get(`/api/locationsnear/?lng=${lng}&lat=${lat}`).then((res) => {
-      console.log(res);
-      // console.log("testing", res.data.data[0]._id)
+      console.log("testing", res.data.data[0]._id);
       let id = res.data.data[0]._id;
-      console.log(id);
       setParkName(res.data.data[0].name);
       axios.get(`/api/locations/${id}`).then((res) => {
         console.log(res);

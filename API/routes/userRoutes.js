@@ -18,6 +18,11 @@ router.post("/api/signup", (req, res) => {
         console.log(createdUser)
         res.json({
           error: false,
+          data: {
+            _id: createdUser._id,
+            initials: createdUser.initials,
+            username: createdUser.username
+          },
           message: "Successfully created account.",
           
         });
@@ -51,6 +56,8 @@ router.post("/api/login", (req, res)=>{
       }
       if(result){
         return res.status(200).json({
+          error: false,
+          data: user[0],
           message: "Authorization successful"
         })
       }
@@ -62,14 +69,20 @@ router.post("/api/login", (req, res)=>{
 
 })
 
-router.get("/api/users/:username", (req, res) => {
-  console.log(req.params.username)
-  db.User.find({username:req.params.username})   
+router.get("/api/users/:id", (req, res) => {
+
+  db.User.findById(req.params.id)   
     .then((foundUser) => {
-      console.log(foundUser)
+      console.log(foundUser);
+      const responseObject = {
+        _id: foundUser._id,
+        initials: foundUser.initials,
+        username: foundUser.username,
+        notes: foundUser.notes
+      }
       res.json({
         error: false,
-        data: foundUser,
+        data: responseObject,
         message: "User retrieved.",
       });
     })

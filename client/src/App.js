@@ -44,7 +44,7 @@ function App() {
             )}
           />
           <Route
-            path="/profile"
+            path="/profile/:id"
             render={(props) => (
               <Profile {...props} setIsSidebarOpen={setIsSidebarOpen} />
             )}
