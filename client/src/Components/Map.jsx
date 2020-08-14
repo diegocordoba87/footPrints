@@ -91,13 +91,47 @@ export default class Map extends React.Component {
         let target = ev.target;
         if (target instanceof H.map.Marker) {
           behavior.enable();
-          console.log("lat: " + dragMarker.b.lat);
-          console.log("lng: " + dragMarker.b.lng);
-          getDistanceToBrownWood(
-            dragMarker.b.lat,
-            dragMarker.b.lng,
+          const markerLat = dragMarker.b.lat;
+          const markerLng = dragMarker.b.lng;
+          //Distance to brownwood park
+          console.log("brownwood");
+          getDistanceToLocation(
+            markerLat,
+            markerLng,
             brownwood.b.lat,
             brownwood.b.lng
+          );
+          //trailCreek
+          console.log("trailCreek");
+          getDistanceToLocation(
+            markerLat,
+            markerLng,
+            trailCreek.b.lat,
+            trailCreek.b.lng
+          );
+          //morganFalls
+          console.log("morganFalls");
+          getDistanceToLocation(
+            markerLat,
+            markerLng,
+            morganFalls.b.lat,
+            morganFalls.b.lng
+          );
+          //morganFalls
+          console.log("elizabethPorterParkAndSprayground");
+          getDistanceToLocation(
+            markerLat,
+            markerLng,
+            elizabethPorterParkAndSprayground.b.lat,
+            elizabethPorterParkAndSprayground.b.lng
+          );
+          //morganFalls
+          console.log("westPaces");
+          getDistanceToLocation(
+            markerLat,
+            markerLng,
+            westPaces.b.lat,
+            westPaces.b.lng
           );
         }
       },
@@ -158,7 +192,7 @@ export default class Map extends React.Component {
 
     //calculating the distance between 2 coordinates.
 
-    function getDistanceToBrownWood(lat1, lng1, lat2, lng2) {
+    function getDistanceToLocation(lat1, lng1, lat2, lng2) {
       // console.log(brownwood.b.lat);
       // console.log(brownwood.b.lng);
       //Haversine formula: https://en.wikipedia.org/wiki/Haversine_formula
