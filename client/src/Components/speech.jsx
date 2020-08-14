@@ -27,15 +27,12 @@ const Speech = () => {
   return (
     <div>
       <form>
-        <h2>Speech Synthesis</h2>
+        {/* <h2>Speech Synthesis</h2> */}
       
         {supported && (
           <React.Fragment>
-            <p>
-              {`Type a message below then click 'Speak'
-                and SpeechSynthesis will read it out.`}
-            </p>
-            <label htmlFor="voice">Voice</label>
+          
+            {/* <label htmlFor="voice">Voice</label>
             <select
               id="voice"
               name="voice"
@@ -50,8 +47,8 @@ const Speech = () => {
                   {`${option.lang} - ${option.name}`}
                 </option>
               ))}
-            </select>
-            <div style={styleContainerRatePitch}>
+            </select> */}
+            {/* <div style={styleContainerRatePitch}>
               <div style={styleFlexRow}>
                 <label htmlFor="rate">Rate: </label>
                 <div className="rate-value">{rate}</div>
@@ -67,8 +64,8 @@ const Speech = () => {
                   setRate(event.target.value);
                 }}
               />
-            </div>
-            <div style={styleContainerRatePitch}>
+            </div> */}
+            {/* <div style={styleContainerRatePitch}>
               <div style={styleFlexRow}>
                 <label htmlFor="pitch">Pitch: </label>
                 <div className="pitch-value">{pitch}</div>
@@ -84,7 +81,7 @@ const Speech = () => {
                   setPitch(event.target.value);
                 }}
               />
-            </div>
+            </div> */}
             <label htmlFor="message">Message</label>
             <textarea
               id="message"
