@@ -82,8 +82,8 @@ const Speech = () => {
                 }}
               />
             </div> */}
-            <label htmlFor="message">Message</label>
-            <textarea
+            {/* <label htmlFor="message">Message</label> */}
+            {/* <textarea
               id="message"
               name="message"
               rows={3}
@@ -91,7 +91,7 @@ const Speech = () => {
               onChange={(event) => {
                 setText(event.target.value);
               }}
-            />
+            /> */}
             {speaking ? (
               <button type="button" onClick={cancel}>
                 Stop
