@@ -93,7 +93,7 @@ export default class Map extends React.Component {
           behavior.enable();
           console.log("lat: " + dragMarker.b.lat);
           console.log("lng: " + dragMarker.b.lng);
-          getDistanceFromLatLon();
+          getDistanceToBrownWood();
 
         }
       },
@@ -154,26 +154,26 @@ export default class Map extends React.Component {
 
     //calculating the distance between 2 coordinates.
 
-    function getDistanceFromLatLon() {
-      console.log(brownwood.b);
-      // console.log(dragMarker.b.lng);
-      const lat1 = dragMarker.b.lat;
-      const lon1 = dragMarker.b.lng;
-      const lat2 = 33.737831;
-      const lon2 = -84.346715;
+    function getDistanceToBrownWood() {
+      // console.log(brownwood.b.lat);
+      // console.log(brownwood.b.lng);
+      let lat1 = dragMarker.b.lat;
+      let lon1 = dragMarker.b.lng;
+      let lat2 = brownwood.b.lat;
+      let lon2 = brownwood.b.lng;
       //Haversine formula: https://en.wikipedia.org/wiki/Haversine_formula
-      var R = 3958.756; // Radius of the earth in mi
-      var dLat = deg2rad(lat2 - lat1); // deg2rad below
-      var dLon = deg2rad(lon2 - lon1);
-      var a =
+      const R = 3958.756; // Radius of the earth in mi
+      const dLat = deg2rad(lat2 - lat1); // deg2rad below
+      const dLon = deg2rad(lon2 - lon1);
+      const a =
         Math.sin(dLat / 2) * Math.sin(dLat / 2) +
         Math.cos(deg2rad(lat1)) *
           Math.cos(deg2rad(lat2)) *
           Math.sin(dLon / 2) *
           Math.sin(dLon / 2);
-      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      var d = R * c; // Distance in km
-      console.log("Distance: " + d);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      const d = R * c; // Distance in km
+      console.log("Distance: " + d + "mi");
     }
 
     function deg2rad(deg) {
