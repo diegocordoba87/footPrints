@@ -6,22 +6,19 @@ import "./profile.css";
 
 const Profile = ({ setIsSidebarOpen }) => {
   // Setting our component's initial state
-  
+
   const [newNoteContent, setnewNoteContent] = useState("");
-  const notes =[]
-  const user = sessionStorage.getItem("username")
-  
+  const notes = [];
+
   useEffect(() => {
-    console.log(user)
-    
+    const user = sessionStorage.getItem("username");
+
     loadUser(user);
   }, []);
 
   function loadUser(username) {
-    console.log(username)
     API.getUser(username)
       .then((res) => {
-        
         console.log(res);
       })
       .catch((err) => console.log(err));
@@ -32,11 +29,8 @@ const Profile = ({ setIsSidebarOpen }) => {
 
     axios.delete(`/api/note/${id}`).then((res) => {
       window.alert(`Successfully deleted new note`);
-      
     });
   }
-
-
 
   return (
     <div id="profileBody" className="backgroundImage">
@@ -46,7 +40,7 @@ const Profile = ({ setIsSidebarOpen }) => {
           <h2>Profile</h2>
         </div>
         <div className="cardBody" id="profileCardBody">
-          <form  id="profileForm">
+          <form id="profileForm">
             <div className="homeText">New FootPrint:</div>
             <label>
               <textarea
@@ -63,8 +57,6 @@ const Profile = ({ setIsSidebarOpen }) => {
             </label>
             <button id="newFootprintButton">Save FootPrint</button>
           </form>
-          
-          
 
           <div className="cardBody">
             <div className="homeText">My Stories</div>
@@ -74,7 +66,7 @@ const Profile = ({ setIsSidebarOpen }) => {
             <div className="homeText">
               Found FootPrints
               {notes.map((note) => {
-                return(
+                return (
                   <p key={note.title}>
                     {note.content}
                     <button
@@ -85,8 +77,8 @@ const Profile = ({ setIsSidebarOpen }) => {
                       Delete Footprint
                     </button>
                   </p>
-                
-              )})}
+                );
+              })}
             </div>
           </div>
         </div>
