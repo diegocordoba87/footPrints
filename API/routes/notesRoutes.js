@@ -47,7 +47,6 @@ router.get("/api/notes", (req, res) => {
 
 router.get("/api/notes/:id", (req, res) => {
   db.Notes.findById(req.params.id)
-   
     .then((foundnote) => {
       res.json({
         error: false,
