@@ -10,6 +10,7 @@ const Profile = ({ setIsSidebarOpen }) => {
 
   const [newNoteContent, setnewNoteContent] = useState("");
   const notes = [];
+<<<<<<< HEAD
   const user = sessionStorage.getItem("username");
   const [location, setLocation] = useState([]);
 
@@ -32,12 +33,20 @@ const Profile = ({ setIsSidebarOpen }) => {
 
   useEffect(() => {
     console.log(user);
+=======
+
+  useEffect(() => {
+    const user = sessionStorage.getItem("username");
+>>>>>>> a78460b8bed4c3ff45a0176ac73f1c76b8170b86
 
     loadUser(user);
   }, []);
 
   function loadUser(username) {
+<<<<<<< HEAD
     console.log(username);
+=======
+>>>>>>> a78460b8bed4c3ff45a0176ac73f1c76b8170b86
     API.getUser(username)
       .then((res) => {
         console.log(res);
