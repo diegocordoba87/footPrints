@@ -31,6 +31,9 @@ const Home = ({ setIsSidebarOpen }) => {
       case "Michael":
         imgName = Michael;
         break;
+        default:
+          break;
+
     }
     return imgName;
   };
@@ -121,8 +124,8 @@ const Home = ({ setIsSidebarOpen }) => {
                 return (
                   <>
                     <div className="uk-card-small uk-card-default uk-card-body uk-flex-between">
-                      <a key={index}>
-                        <img className="profilePics" src={source} />
+                      <a href = " " key={index}>
+                        <img className="profilePics" src={source} alt={creator.name} />
                       </a>
                       <br />
                       <div className="creatorName">{creator.name}</div>

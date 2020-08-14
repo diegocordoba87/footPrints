@@ -6,7 +6,7 @@ import "./profile.css";
 
 const Profile = ({ setIsSidebarOpen }) => {
   // Setting our component's initial state
-  
+
   const [newNoteContent, setnewNoteContent] = useState("");
   const [userNotes, setUserNotes] = useState([])
   const [notesByLocation, setNotesByLocation]= useState([])
@@ -14,8 +14,8 @@ const Profile = ({ setIsSidebarOpen }) => {
   const [parkName, setParkName] = useState("")
   
   useEffect(() => {
-    console.log(user)
-    
+    const user = sessionStorage.getItem("username");
+
     loadUser(user);
     locationNear()
   }, []);
@@ -23,7 +23,6 @@ const Profile = ({ setIsSidebarOpen }) => {
   function loadUser(username) {
     API.getUser(username)
       .then((res) => {
-        
         console.log(res);
       })
       .catch((err) => console.log(err));
@@ -60,11 +59,8 @@ const Profile = ({ setIsSidebarOpen }) => {
     console.log(id);
     axios.delete(`/api/note/${id}`).then((res) => {
       window.alert(`Successfully deleted new note`);
-      
     });
   }
-
-
 
   return (
     <div id="profileBody" className="backgroundImage">
@@ -74,8 +70,13 @@ const Profile = ({ setIsSidebarOpen }) => {
           <h2>Profile</h2>
         </div>
         <div className="cardBody" id="profileCardBody">
+<<<<<<< HEAD
           <form  id="profileForm">
   <div className="homeText">{parkName} New FootPrint:</div>
+=======
+          <form id="profileForm">
+            <div className="homeText">New FootPrint:</div>
+>>>>>>> 2ec3f3be944872f6f1318528818bb2320421808d
             <label>
               <textarea
                 id="note"
@@ -98,8 +99,10 @@ const Profile = ({ setIsSidebarOpen }) => {
           <div className="cardBody">
             <div className="homeText">
               Found FootPrints
+
               {notesByLocation.map((note) => {
                 return(
+
                   <p key={note.title}>
                     {note.content}
                     <button
@@ -110,8 +113,8 @@ const Profile = ({ setIsSidebarOpen }) => {
                       Delete Footprint
                     </button>
                   </p>
-                
-              )})}
+                );
+              })}
             </div>
           </div>
         </div>
