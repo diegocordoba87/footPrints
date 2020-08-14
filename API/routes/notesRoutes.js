@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require("../models");
 
 router.post("/api/newnote", (req, res) => {
-  console.log(req.boy)
+  console.log(req.body)
   db.Notes.create(req.body)
     .then((createdNote) => {
       res.json({
