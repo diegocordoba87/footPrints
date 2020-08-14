@@ -8,7 +8,7 @@ export default {
   },
 
   getUser: function(username) {
-    return axios.get("/api/users/" + username);
+    return axios.get(`/api/users/${username}`);
   },
 
   getContent: function(id) {
