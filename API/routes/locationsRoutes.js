@@ -5,6 +5,7 @@ const db = require("../models");
 //get all locations
 router.get("/api/locations", (req, res) => {
     db.Location.find({})
+    .populate("notes")
       .then((foundLocations) => {
         
         res.json({
@@ -24,9 +25,10 @@ router.get("/api/locations", (req, res) => {
   });
 
   //get location by id joined with notes
-  router.get("/api/locations/:id", (req, res) => {
+  router.get("/api/location/:id", (req, res) => {
     console.log(req.params.id)
     db.Location.findById(req.params.id).populate("notes")
+    .populate("notes")
       .then((foundLocations) => {
         res.json({
           error: false,
