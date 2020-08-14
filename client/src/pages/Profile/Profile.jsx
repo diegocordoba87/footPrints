@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import mongoose from "mongoose";
 import API from "../../utils/API";
 import logo from "../../images/FPLogo.png";
 import axios from "axios";
@@ -7,40 +6,29 @@ import "./profile.css";
 
 const Profile = ({ setIsSidebarOpen }) => {
   // Setting our component's initial state
-  const [notes, setNotes] = useState([]);
-  const [noteContent, setNoteContent] = useState("");
-  const userID = mongoose.Types.ObjectId("5f33f7f1b22841f37dd7b6fa");
-  // Load all books and store them with setBooks
+
+  const [newNoteContent, setnewNoteContent] = useState("");
+  const notes = [];
+
   useEffect(() => {
-    loadNotes();
+    const user = sessionStorage.getItem("username");
+
+    loadUser(user);
   }, []);
 
-  // Loads all books and sets them to books
-  function loadNotes() {
-    API.getNotes(userID)
+  function loadUser(username) {
+    API.getUser(username)
       .then((res) => {
-        setNotes(res.data.data);
-        console.log(res.data.data);
+        console.log(res);
       })
       .catch((err) => console.log(err));
   }
 
-  function handleSubmit(e){
-    e.preventDefault()
-    
-    axios.post("/api/newnote", {content: noteContent}).then((res)=>{
-      console.log(res)
-      window.alert(`Successfully created new note`);
-      setNoteContent("")
-      loadNotes()
-    })
-  }
   function deleteNote(id) {
     console.log(id);
 
     axios.delete(`/api/note/${id}`).then((res) => {
       window.alert(`Successfully deleted new note`);
-      loadNotes();
     });
   }
 
@@ -52,23 +40,23 @@ const Profile = ({ setIsSidebarOpen }) => {
           <h2>Profile</h2>
         </div>
         <div className="cardBody" id="profileCardBody">
-          <form onSubmit={handleSubmit} id="profileForm">
+          <form id="profileForm">
             <div className="homeText">New FootPrint:</div>
             <label>
               <textarea
                 id="note"
                 type="text"
-                value={noteContent}
+                value={newNoteContent}
                 name="note"
                 onChange={(e) => {
-                  setNoteContent(e.target.value);
+                  setnewNoteContent(e.target.value);
                 }}
                 placeholder="250 words minimum. 1000 words maximum"
                 className="newFPForm"
               />
             </label>
+            <button id="newFootprintButton">Save FootPrint</button>
           </form>
-          <button id="newFootprintButton">Save FootPrint</button>
 
           <div className="cardBody">
             <div className="homeText">My Stories</div>
@@ -78,8 +66,7 @@ const Profile = ({ setIsSidebarOpen }) => {
             <div className="homeText">
               Found FootPrints
               {notes.map((note) => {
-                return(
-                
+                return (
                   <p key={note.title}>
                     {note.content}
                     <button
@@ -90,8 +77,8 @@ const Profile = ({ setIsSidebarOpen }) => {
                       Delete Footprint
                     </button>
                   </p>
-                
-              )})}
+                );
+              })}
             </div>
           </div>
         </div>

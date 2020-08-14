@@ -7,16 +7,15 @@ import "./locations.css";
 const Locations = ({ setIsSidebarOpen }) => {
   const [location, setLocation] = useState([]);
 
-  const testing = [
-    {
-      name: "Marietta",
-    },
-    {
-      name: "Atlanta",
-    },
-  ];
-
   useEffect(() => {
+    const testing = [
+      {
+        name: "Marietta",
+      },
+      {
+        name: "Atlanta",
+      },
+    ];
     axios.get("api/locations").then((locations) => {
       // setLocation(locations.data.data);
       setLocation(testing);
@@ -27,7 +26,7 @@ const Locations = ({ setIsSidebarOpen }) => {
   return (
     <div id="locationsBody" className="backgroundImage">
       <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
-      
+
       <div onClick={() => setIsSidebarOpen(false)}>
         <h2>Locations</h2>
         <div>

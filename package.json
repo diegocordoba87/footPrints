@@ -11,7 +11,8 @@
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "seed": "node seeders/seed.js"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
     "jszip": "^3.5.0",
     "mongoose": "^5.9.27",
     "react-modal-login": "^1.4.5",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "react-speech-kit": "^3.0.1"
   }
 }
