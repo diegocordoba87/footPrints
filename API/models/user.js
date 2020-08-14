@@ -19,7 +19,7 @@ const UserSchema = new Schema({
         required: "Password is Required",
         validate: [({ length }) => length >= 6, "Password should be longer."]
     },
-    foundNotes:[
+    notes:[
         {
             noteId: {
                 type: Schema.Types.ObjectId,
@@ -27,14 +27,7 @@ const UserSchema = new Schema({
             }
         }
     ],
-    writtenNotes:[
-        {
-            noteId: {
-                type: Schema.Types.ObjectId,
-                ref: "Notes"
-            }
-        }
-    ],
+    
     locations:[
         {
             locationId:{

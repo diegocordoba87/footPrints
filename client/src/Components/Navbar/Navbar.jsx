@@ -1,9 +1,27 @@
 import React from "react";
-import { Button } from "react-foundation";
 import navbarLinks from "../../data/navbarLinks.json";
 import "./navbar.css";
 
-const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
+const Navbar = ({ isSidebarOpen, setIsSidebarOpen, activeUser, setActiveUser }) => {
+  
+  const currentURLObj = new URL(window.location.href);
+
+  let filteredNavbarLinks = navbarLinks.filter((linkObj) => {
+    if (activeUser !== "") {
+      return !linkObj.hiddenWhenLoggedIn;
+    } else {
+      return !linkObj.hiddenIfLoggedOut;
+    }
+  });
+
+  filteredNavbarLinks = filteredNavbarLinks.filter((linkObj) => linkObj.href !== currentURLObj.pathname);
+
+  const handleLogOut = () => {
+    setActiveUser('');
+    sessionStorage.setItem("id", "");
+    sessionStorage.setItem('username', '');
+    window.location.assign('/');
+  }
 
   return (
     <div id="navbar">
@@ -16,7 +34,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           ×
         </span>
         {/* mapping through navbar links for display on side navbar */}
-        {navbarLinks.map((link, index) => (
+        {filteredNavbarLinks.map((link, index) => (
           <a
             key={index}
             href={link.href}
@@ -25,15 +43,17 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             {link.title}
           </a>
         ))}
+
+        {activeUser !== "" && <p className="mediumText" onClick={handleLogOut}>Log Out</p>}
       </div>
       {/* hamburger button */}
-      <Button
+      <button
         id="hamburger"
         className="openbtn"
         onClick={() => setIsSidebarOpen(true)}
       >
         ☰
-      </Button>
+      </button>
     </div>
   );
 };

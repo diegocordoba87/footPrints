@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
-router.post("/api/note", (req, res) => {
+router.post("/api/newnote", (req, res) => {
+  console.log(req.boy)
   db.Notes.create(req.body)
     .then((createdNote) => {
       res.json({
@@ -20,6 +21,8 @@ router.post("/api/note", (req, res) => {
       });
     });
 });
+
+
 
 router.get("/api/notes", (req, res) => {
   db.Notes.find()
@@ -41,9 +44,8 @@ router.get("/api/notes", (req, res) => {
     });
 });
 
-router.get("/api/note/:id", (req, res) => {
+router.get("/api/notes/:id", (req, res) => {
   db.Notes.findById(req.params.id)
-   
     .then((foundnote) => {
       res.json({
         error: false,
