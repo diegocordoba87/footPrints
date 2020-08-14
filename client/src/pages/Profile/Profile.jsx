@@ -6,15 +6,15 @@ import "./profile.css";
 
 const Profile = ({ setIsSidebarOpen }) => {
   // Setting our component's initial state
-  
+
   const [newNoteContent, setnewNoteContent] = useState("");
   const [userNotes, setUserNotes] = useState([])
   const [notesByLocation, setNotesByLocation]= useState([])
   const user = sessionStorage.getItem("username")
-  
+
   useEffect(() => {
-    console.log(user)
-    
+    const user = sessionStorage.getItem("username");
+
     loadUser(user);
     locationNear()
   }, []);
@@ -22,7 +22,6 @@ const Profile = ({ setIsSidebarOpen }) => {
   function loadUser(username) {
     API.getUser(username)
       .then((res) => {
-        
         console.log(res);
       })
       .catch((err) => console.log(err));
@@ -46,11 +45,8 @@ const Profile = ({ setIsSidebarOpen }) => {
     console.log(id);
     axios.delete(`/api/note/${id}`).then((res) => {
       window.alert(`Successfully deleted new note`);
-      
     });
   }
-
-
 
   return (
     <div id="profileBody" className="backgroundImage">
@@ -60,7 +56,7 @@ const Profile = ({ setIsSidebarOpen }) => {
           <h2>Profile</h2>
         </div>
         <div className="cardBody" id="profileCardBody">
-          <form  id="profileForm">
+          <form id="profileForm">
             <div className="homeText">New FootPrint:</div>
             <label>
               <textarea
@@ -84,8 +80,10 @@ const Profile = ({ setIsSidebarOpen }) => {
           <div className="cardBody">
             <div className="homeText">
               Found FootPrints
+
               {notesByLocation.map((note) => {
                 return(
+
                   <p key={note.title}>
                     {note.content}
                     <button
@@ -96,8 +94,8 @@ const Profile = ({ setIsSidebarOpen }) => {
                       Delete Footprint
                     </button>
                   </p>
-                
-              )})}
+                );
+              })}
             </div>
           </div>
         </div>
