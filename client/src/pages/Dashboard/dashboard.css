@@ -1,4 +1,75 @@
-.App {
-  font-family: sans-serif;
+* {box-sizing: border-box}
+
+.cardBodyLocations {
+  border-radius: 5px;
+  max-width: 80%;
+  margin: auto;
+  margin-bottom: 2vw;
   text-align: center;
+  box-shadow: 1px 1px 5px #000;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 50%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+#dashboardBody {
+  background-image: url(../../images/FPFootprintsHor.jpg);
+  height: 100vh;
+}
+
+#dashboardTabs {
+  width: 60vw;
+  margin: auto;
+}
+
+#goToLocationDiv {
+  font-family: monospace;
+  color: black;
+  font-size: 2vw;
+  border: #666 solid 5px;
+  margin: 0vw 2vw;
+
+}
+
+#map {
+  height: 27vw;
+  width: 27vw;
+  margin: 2vw;
+}
+
+#newFootprint {
+  border: #666 solid 5px;
+  margin: 2vw;
+}
+#profileForm {
+  margin: 1vw;
+}
+
+@media screen and (max-width: 670px) {
+  #locationsBody {
+    background-image: url(../../images/FPFootprintsVert.jpg);
+    height: 100vh;
+  }
 }

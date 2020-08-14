@@ -96,31 +96,6 @@ const Home = ({ setIsSidebarOpen }) => {
               </a>
             </div> */}
         {/* About us */}
-<<<<<<< HEAD
-=======
-        <div>
-          <div id="aboutus" className="cardBody">
-            About Us
-            <div className="uk-flex uk-flex-center uk-flex-between specialPadding">
-              {aboutUs.map((creator, index) => {
-                const source = getImage(creator.name);
-                return (
-                  <>
-                    <div className="uk-card-small uk-card-default uk-card-body uk-flex-between">
-                      <a href = " " key={index}>
-                        <img className="profilePics" src={source} alt={creator.name} />
-                      </a>
-                      <br />
-                      <div className="creatorName">{creator.name}</div>
-                      <div className="creatorQuote">{creator.quote}</div>
-                    </div>
-                  </>
-                );
-              })}
-            </div>
-          </div>
-        </div>
->>>>>>> a78460b8bed4c3ff45a0176ac73f1c76b8170b86
       </div>
     </div>
   );

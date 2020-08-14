@@ -18,10 +18,12 @@ const LogIn = (props) => {
         username: username,
         password: password,
       })
-      .then((response) => {        
-        if(response.data.message==="Authorization successful"){
-          window.alert("Welcome back!")
-          props.history.push('/profile')
+      .then((response) => {
+        console.log(response);
+        console.log(response.data.message);
+
+        if (response.data.message === "Authorization successful") {
+          props.history.push("/profile");
           setActiveUser(username);
           sessionStorage.setItem("username", username);
           console.log("username: ", username);

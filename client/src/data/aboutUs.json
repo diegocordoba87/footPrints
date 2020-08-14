@@ -23,9 +23,7 @@
   },
   {
     "name": "Michael",
-    "quote1": "Resident Memelord",
-    "quote2": "Placeholder 2",
-    "quote3": "Placeholder 3",
+    "quote": "Memelord in residence who enjoys MOBAs, international cuisine, dank memes, and adventuring. 'If video games have taught me anything, it’s that if you encounter enemies then you’re going the right way.' - Bill Murray",
     "img": "../../images/Michael.jpg"
   }
 ]

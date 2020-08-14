@@ -1,27 +1,70 @@
-import React from "react";
-import { Tabs } from "@feuer/react-tabs";
+import React, { useState, useEffect } from "react";
+import MapComp from "../../Components/MapComp";
+import logo from "../../images/FPLogo.png";
 import "./dashboard.css";
+import NewFootprint from "../../Components/NewFootprint";
 
-export default function Dashboard() {
+const Dashboard = ({ setIsSidebarOpen }) => {
   return (
-    <div className="App">
-      <Tabs
-        tabsProps={{
-          style: {
-            textAlign: "left"
-          }
-        }}
-        activeTab={{
-          id: "tab1"
-        }}
-      >
-        <Tabs.Tab id="tab1" title="Tab 1">
-          <div style={{ padding: 10 }}>This is tab 1</div>
-        </Tabs.Tab>
-        <Tabs.Tab id="tab2" title="Tab 2">
-          <div style={{ padding: 10 }}>This is tab 2</div>
-        </Tabs.Tab>
-      </Tabs>
+    <div id="dashboardBody" className="backgroundImage headerText">
+      <div onClick={() => setIsSidebarOpen(false)}>
+        <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
+        <div id="dashboardTabs">
+          <button class="tablink" onclick="openPage('Home', this, 'red')">
+            Locations
+          </button>
+          <button
+            class="tablink"
+            onclick="openPage('News', this, 'green')"
+            id="defaultOpen"
+          >
+            Footprints
+          </button>
+          <div className="uk-card-default">
+            <NewFootprint />
+            <MapComp />
+          </div>
+        </div>
+      </div>
     </div>
   );
+};
+
+export default Dashboard;
+
+{
+  /* <div className="homeText">
+          Found FootPrints
+          {notes.map((note) => {
+            return (
+              <p key={note.title}>
+                {note.content}
+                <button
+                  onClick={() => {
+                    deleteNote(note._id);
+                  }}
+                >
+                  Delete Footprint
+                </button>
+              </p>
+            );
+          })}
+        </div> */
+}
+
+{
+  /* <div>
+          <Map />
+        </div>
+        <div className="locationDiv">
+          {location.map((locationObj) => (
+            <h4 className="cardBody">{locationObj.name}</h4>
+          ))}
+        </div> */
+}
+
+{
+  /* {notes.map((note) => (
+        <p key={note._id}>{note.content}</p>
+      ))} */
 }

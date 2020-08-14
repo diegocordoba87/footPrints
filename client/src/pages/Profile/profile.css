@@ -1,3 +1,10 @@
+.footprintCards {
+  font-size: 1vw;
+  font-family: monospace;
+  color: #666;
+  text-shadow: 0px 0px 0px #000;
+}
+
 .newFPForm {
   width: 69vw;
 }
@@ -32,7 +39,7 @@
 }
 
 #profileCardBody {
-  padding: .5% 0%;
+  padding: 0.5% 0%;
 }
 
 #profileForm {
@@ -45,3 +52,5 @@
     height: 100vh;
   }
 }
+
+
