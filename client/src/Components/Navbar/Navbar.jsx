@@ -18,6 +18,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen, activeUser, setActiveUser }) 
 
   const handleLogOut = () => {
     setActiveUser('');
+    sessionStorage.setItem("id", "");
     sessionStorage.setItem('username', '');
     window.location.assign('/');
   }
