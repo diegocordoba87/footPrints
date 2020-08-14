@@ -8,12 +8,15 @@ const Profile = ({ setIsSidebarOpen }) => {
   // Setting our component's initial state
 
   const [newNoteContent, setnewNoteContent] = useState("");
-  const notes = [];
+  const [userNotes, setUserNotes] = useState([])
+  const [notesByLocation, setNotesByLocation]= useState([])
+  const user = sessionStorage.getItem("username")
 
   useEffect(() => {
     const user = sessionStorage.getItem("username");
 
     loadUser(user);
+    locationNear()
   }, []);
 
   function loadUser(username) {
@@ -24,9 +27,22 @@ const Profile = ({ setIsSidebarOpen }) => {
       .catch((err) => console.log(err));
   }
 
+  function locationNear(){
+    let lng= -84.365373
+    let lat= 33.852656
+    axios.get(`http://localhost:3001/api/locationsnear/?lng=${lng}&lat=${lat}`).then((res)=>{
+      console.log(res)
+    })
+  }
+
+  function addNote(e){
+    e.preventDefault()
+    console.log(e)
+    
+  }
+
   function deleteNote(id) {
     console.log(id);
-
     axios.delete(`/api/note/${id}`).then((res) => {
       window.alert(`Successfully deleted new note`);
     });
@@ -55,9 +71,8 @@ const Profile = ({ setIsSidebarOpen }) => {
                 className="newFPForm"
               />
             </label>
-            <button id="newFootprintButton">Save FootPrint</button>
+            <button id="newFootprintButton" onSubmit={addNote}>Save FootPrint</button>
           </form>
-
           <div className="cardBody">
             <div className="homeText">My Stories</div>
           </div>
@@ -65,8 +80,10 @@ const Profile = ({ setIsSidebarOpen }) => {
           <div className="cardBody">
             <div className="homeText">
               Found FootPrints
-              {notes.map((note) => {
-                return (
+
+              {notesByLocation.map((note) => {
+                return(
+
                   <p key={note.title}>
                     {note.content}
                     <button
