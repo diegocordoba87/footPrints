@@ -5,11 +5,24 @@
 
 .footprintCards {
   font-size: 1vw;
-  font-family: monospace;
-  color: #666;
-  text-shadow: 0px 0px 0px #000;
-  background-color: #918082;
+  font-family: "M";
+  color: #514A45;
+  text-shadow: none;
+  background-color: #efefef;
+  font-family: 'Mulish', sans-serif;
+  width: 100%;
+  height: 5vw;
+  margin: 1vw;
+  padding: 1vw;
+  border-radius: 0px;
+  transition:all 1s;
 }
+
+.footprintCards:hover {
+  height: 15vw;
+  width: 100%;
+}
+
 .H_ui {
   display: none;
 }
@@ -27,8 +40,17 @@
   width: 69vw;
 }
 
+.pink {
+  background-color: #918082;
+}
+
 .purple {
   background-color: #563e44;
+  margin-bottom: 2vw;
+  margin: 0;
+  padding-bottom: 1vw;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 #locationsBody {
