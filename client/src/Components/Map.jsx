@@ -93,21 +93,21 @@ export default class Map extends React.Component {
           behavior.enable();
           const markerLat = dragMarker.b.lat;
           const markerLng = dragMarker.b.lng;
-          getDistanceToLocation("brownwood", brownwood, markerLat, markerLng);
-          getDistanceToLocation("trailCreek", trailCreek, markerLat, markerLng);
+          getDistanceToLocation("Brownwood Park Recreation Center", brownwood, markerLat, markerLng);
+          getDistanceToLocation("Walker Park (formerly Trail Creek Park)", trailCreek, markerLat, markerLng);
           getDistanceToLocation(
-            "morganFalls",
+            "Morgan Falls Overlook Park",
             morganFalls,
             markerLat,
             markerLng
           );
           getDistanceToLocation(
-            "elizabethPorterParkAndSprayground",
+            "Elizabeth Porter Park & Sprayground",
             elizabethPorterParkAndSprayground,
             markerLat,
             markerLng
           );
-          getDistanceToLocation("westPaces", westPaces, markerLat, markerLng);
+          getDistanceToLocation("WestPaces", westPaces, markerLat, markerLng);
         }
       },
       false
