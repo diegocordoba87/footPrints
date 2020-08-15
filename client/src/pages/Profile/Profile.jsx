@@ -14,7 +14,7 @@ const Profile = (props) => {
   const [userNotes, setUserNotes] = useState([]);
   const [location, setLocation] = useState([]);
   const [newNoteContent, setNewNoteContent] = useState("");
-  const [isLocationDisplayed, setIsLocationDisplayed] = useState(false);
+  const [isLocationDisplayed, setIsLocationDisplayed] = useState(true);
   const { setIsSidebarOpen, setParkName } = props;
   const user = sessionStorage.getItem("username");
 
@@ -46,7 +46,7 @@ const Profile = (props) => {
       if (res.data && res.data.data && res.data.data.length > 0) {
         console.log("testing", res.data.data[0]._id);
         let id = res.data.data[0]._id;
-        // setParkName(res.data.data[0].name);
+        setParkName(res.data.data[0].name);
         axios.get(`/api/locations/${id}`).then((res) => {
           console.log(res);
         });

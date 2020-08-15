@@ -57,7 +57,7 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
               )}
               <input
                 id="initials"
-                className="input"
+                className="inputSignup"
                 type="text"
                 name="initials"
                 value={initials}
@@ -69,7 +69,7 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
                 required
               />
               <input
-                className="input"
+                className="inputSignup"
                 type="email"
                 name="email"
                 value={username}
@@ -81,7 +81,7 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
                 required
               />
               <input
-                className="input"
+                className="inputSignup"
                 type="password"
                 name="password"
                 value={password}
@@ -93,12 +93,11 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
                 required
               />
 
-              <button className="logSignButton input" type="submit">
+              <button className="logSignButton input" type="submit" value="Submit">
                 Get Started
               </button>
             </form>
           </div>
-          <HowItWorks />
         </div>
       </div>
     </div>

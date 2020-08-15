@@ -3,7 +3,7 @@ import "./howitworks.css";
 
 const HowItWorks = () => {
   return (
-    <div>
+    <div id="howitworks">
       <div class="uk-flex uk-flex-center">
         <div className="howitworks howitworksLogin">
           <h2 className="headerText">How It Works</h2>
