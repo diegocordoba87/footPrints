@@ -5,7 +5,9 @@ import API from "../utils/API";
 
 const NewFootprint = (props) => {
   const [parkName, setParkName] = useState("");
-  const { setUserInfo, newNoteContent, setNewNoteContent } = props;
+  const [userInfo, setUserInfo] = useState("");
+
+  const { newNoteContent, setNewNoteContent } = props;
   const { id } = useParams();
 
   const locationNear = (lng, lat) => {
@@ -44,6 +46,12 @@ const NewFootprint = (props) => {
     e.preventDefault();
     axios.post("/api/newnote", { content: newNoteContent }).then((res) => {
       console.log(res);
+      const id = res.data.data._id;
+      console.log("res id: ", id);
+      console.log("userInfo", userInfo._id);
+      axios.put(`/api/users/${userInfo._id}/addnote`, { _id: id }).then((res) => {
+        console.log("note id: ", res);
+      }) 
     });
   }
 
@@ -73,11 +81,11 @@ const NewFootprint = (props) => {
             placeholder="250 words minimum. 1000 words maximum"
             className="newFPForm"
           >
+        </textarea>
+        </label>
         <button id="newFootprintButton" onClick={addNote}>
           Leave Your FootPrint
         </button>
-        </textarea>
-        </label>
       </form>
       <div id="newFootprintAvailable">
         A new FootPrint is available!

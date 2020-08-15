@@ -98,7 +98,8 @@ router.get("/api/users/:id", (req, res) => {
 
 
 router.put("/api/users/:id/addnote", (req, res) => {
-  db.User.findByIdAndUpdate(req.params.id, {$push: {Notes: {_id: req.body._id}}}, { new: true })
+  console.log("req: ", req);
+  db.User.findByIdAndUpdate(req.params.id, {$push: {notes: {id: req.body.id}}}, { new: true })
     .then((updatedUser) => {
       res.json({
         error: false,

@@ -26,11 +26,12 @@ const FootprintsDisplay = (props) => {
   return (
     <div id="footprints">
       <div uk-grid="masonry: true">
-        {footprintSeeds.map((note, index) => {
-          return (
+       
             <div>
               <div className="uk-card uk-card-default footprintCards">
-                <p className="footprintText">{note.text}</p>
+                <p className="footprintText">
+                  
+                </p>
                 <button className="deleteFootprintButton saveDeleteButton">
                   delete
                 </button>
@@ -39,8 +40,7 @@ const FootprintsDisplay = (props) => {
                 </button>
               </div>
             </div>
-          );
-        })}
+
 
         <div className="homeText">
           {notesByLocation.map((note) => {
