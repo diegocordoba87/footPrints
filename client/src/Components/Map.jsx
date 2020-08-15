@@ -93,18 +93,8 @@ export default class Map extends React.Component {
           behavior.enable();
           const markerLat = dragMarker.b.lat;
           const markerLng = dragMarker.b.lng;
-          getDistanceToLocation(
-            "Brownwood Park Recreation Center",
-            brownwood,
-            markerLat,
-            markerLng
-          );
-          getDistanceToLocation(
-            "Walker Park (formerly Trail Creek Park)",
-            trailCreek,
-            markerLat,
-            markerLng
-          );
+          getDistanceToLocation("Brownwood Park Recreation Center", brownwood, markerLat, markerLng);
+          getDistanceToLocation("Walker Park (formerly Trail Creek Park)", trailCreek, markerLat, markerLng);
           getDistanceToLocation(
             "Morgan Falls Overlook Park",
             morganFalls,
@@ -143,7 +133,7 @@ export default class Map extends React.Component {
     );
 
     //create a circle on the map for each park
-    const fenceRadius = 3000;
+    const fenceRadius = 3000
     let trailCreek = new H.map.Circle(
       { lat: 33.971687, lng: -83.357537 },
       fenceRadius
@@ -163,16 +153,10 @@ export default class Map extends React.Component {
     );
     map.addObject(elizabethPorterParkAndSprayground);
 
-    let westPaces = new H.map.Circle(
-      { lat: 33.852656, lng: -84.365373 },
-      fenceRadius
-    );
+    let westPaces = new H.map.Circle({ lat: 33.852656, lng: -84.365373 }, fenceRadius);
     map.addObject(westPaces);
 
-    let brownwood = new H.map.Circle(
-      { lat: 33.737831, lng: -84.346715 },
-      fenceRadius
-    );
+    let brownwood = new H.map.Circle({ lat: 33.737831, lng: -84.346715 }, fenceRadius);
     map.addObject(brownwood);
 
     const ui = H.ui.UI.createDefault(map, defaultLayers);
