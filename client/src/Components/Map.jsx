@@ -183,7 +183,7 @@ export default class Map extends React.Component {
           Math.sin(dLon / 2);
       const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
       const d = R * c; // Distance in mi
-      console.log(d + "mi");
+      // console.log(d + "mi");
       if (d < 1.87) {
         console.log("You can access notes at " + name);
         console.log(d + "mi");
