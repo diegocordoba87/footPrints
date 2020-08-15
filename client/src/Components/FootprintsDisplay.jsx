@@ -34,26 +34,7 @@ const FootprintsDisplay = (props) => {
           );
         })}
 
-        {/* <div className="homeText">
-          Found FootPrints
-          {notes.map((note) => {
-            return (
-              <p key={note.title}>
-                {note.content}
-                <button
-                  onClick={() => {
-                    deleteNote(note._id);
-                  }}
-                >
-                  Delete Footprint
-                </button>
-              </p>
-            );
-          })}
-        </div> */}
-
         <div className="homeText">
-          Found FootPrints
           {notesByLocation.map((note) => {
             return (
               <p key={note.title}>

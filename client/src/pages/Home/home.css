@@ -36,7 +36,7 @@ div.uk-flex.uk-flex-center.uk-flex-between.specialPadding {
 }
 
 .startButton {
-  opacity: .8;
+  opacity: 0.8;
   margin: 1vw 2vw;
   width: 7vw;
   float: right;
@@ -118,21 +118,45 @@ div.uk-flex.uk-flex-center.uk-flex-between.specialPadding {
     clear: both; */
   }
 
+  #heroImage {
+    width: 72vw;
+    position: absolute;
+    top: 66vw;
+    left: 14vw;
+    filter: drop-shadow(8px 8px 2px #000);
+    -webkit-filter: drop-shadow(0px 6px 1px #000);
+    z-index: 1;
+  }
   #homeBody {
     background-image: url(../../images/FPHomeBWVert.jpg);
     height: 100vh;
   }
-
+  #homeLayerOne {
+    margin-top: 75vw;
+    height: 20vw;
+  }
+  #homeTagLine {
+    font-size: 3em;
+    margin: 0vw;
+    text-shadow: 2px 3px 2px #000;
+    padding: 26vw 0vw 6vw 0vw;
+    color: white;
+    height: 55vw;
+  }
   #howitworks {
     /* margin: 10vw 15%;
     width: 70%;
     clear: both; */
   }
+  #tellYours {
+    text-shadow: 2px 3px 2px #000;
+    text-align: center;
+    position: relative;
+    animation-duration: 1s;
+    top: 13vw;
+    right: -19vw;
+    font-size: 9vw;
+    width: 80%;
+    color: white;
+  }
 }
-
-/* Beige F1DDC2
-Green 89B1A3
-Lavender 80797C
-Purple282A3E
-Light Blue 5D8AA5
-Dark Blue 111825 */
