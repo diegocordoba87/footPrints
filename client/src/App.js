@@ -94,16 +94,6 @@ function App() {
               <Footprints {...props} setIsSidebarOpen={setIsSidebarOpen} />
             )}
             style={{ backgroundImage: `url(${footprintsHome})` }}
-<<<<<<< HEAD
-          />
-          {/* test map */}
-          <Route
-            path="/demo"
-            render={(props) => (
-              <Locations {...props} setIsSidebarOpen={setIsSidebarOpen} />
-            )}
-=======
->>>>>>> 4c763f2f4d1b6e11e6888b7690d33164f387394e
           />
         </div>
       </Router>
