@@ -72,12 +72,27 @@ const NewFootprint = (props) => {
             }}
             placeholder="250 words minimum. 1000 words maximum"
             className="newFPForm"
-          />
-        </label>
+          >
         <button id="newFootprintButton" onClick={addNote}>
           Leave Your FootPrint
         </button>
+        </textarea>
+        </label>
       </form>
+      <div id="newFootprintAvailable">
+        A new FootPrint is available!
+        <div>
+          <div id="newFootprintCardBody" className="uk-card uk-card-default footprintCards">
+            <p className="footprintText"></p>
+            <button className="deleteFootprintButton saveDeleteButton">
+              delete
+            </button>
+            <button className="saveFootprintButton saveDeleteButton">
+              save
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

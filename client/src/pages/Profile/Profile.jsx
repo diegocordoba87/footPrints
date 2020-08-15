@@ -91,7 +91,7 @@ const Profile = (props) => {
                 class="tablink"
                 onClick={() => setIsLocationDisplayed(false)}
               >
-                Footprints
+                Collection
               </button>
               <div id="profileHeader">
                 <h2 id="initials">{userInfo.initials}'s Profile</h2>
