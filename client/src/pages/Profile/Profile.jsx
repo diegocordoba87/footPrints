@@ -11,7 +11,8 @@ import "./profile.css";
 const Profile = (props) => {
   // Setting our component's initial state
   const [userInfo, setUserInfo] = useState("");
-  const [userNotes, setUserNotes] = useState([]);
+  // const [userNotes, setUserNotes] = useState([]);
+  const [parkId, setParkId] = useState("");
   const [parkName, setParkName] = useState("");
   const [location, setLocation] = useState([]);
   const [newNoteContent, setNewNoteContent] = useState("");
@@ -30,14 +31,13 @@ const Profile = (props) => {
       locationNear(lng, lat);
     });
 
-    loadUser();
+    loadUser(id, setUserInfo);
   }, []);
 
-  function loadUser() {
-    API.getUserById(id)
+  function loadUser(userId, cb) {
+    API.getUserById(userId)
       .then((res) => {
-        console.log(res.data.data);
-        setUserInfo(res.data.data);
+        cb(res.data.data);
       })
       .catch((err) => console.log(err));
   }
@@ -48,9 +48,7 @@ const Profile = (props) => {
         console.log("testing", res.data.data[0]._id);
         let id = res.data.data[0]._id;
         setParkName(res.data.data[0].name);
-        axios.get(`/api/locations/${id}`).then((res) => {
-          console.log(res);
-        });
+        setParkId(id);
       }
     });
   };
@@ -61,9 +59,11 @@ const Profile = (props) => {
       console.log(res);
       const id = res.data.data._id;
       console.log("res id: ", id);
-      axios.put(`/api/users/${userInfo._id}/addnote`, { _id: id }).then((res) => {
-        console.log("note id: ", res);
-      }) 
+      axios
+        .put(`/api/users/${userInfo._id}/addnote`, { _id: id })
+        .then((res) => {
+          console.log("note id: ", res);
+        });
     });
   }
 
@@ -87,14 +87,14 @@ const Profile = (props) => {
             <div id="dashboardTabs">
               <button
                 id="tablinkLocations"
-                class="tablink"
+                className="tablink"
                 onClick={() => setIsLocationDisplayed(true)}
               >
                 Locations
               </button>
               <button
                 id="tablinkFootprints"
-                class="tablink"
+                className="tablink"
                 onClick={() => setIsLocationDisplayed(false)}
               >
                 Collection
@@ -109,6 +109,7 @@ const Profile = (props) => {
                   {...props}
                   newNoteContent={newNoteContent}
                   setNewNoteContent={setNewNoteContent}
+                  parkId={parkId}
                 />
                 <MapComp
                   {...props}
@@ -123,6 +124,7 @@ const Profile = (props) => {
                   {...props}
                   newNoteContent={newNoteContent}
                   setNewNoteContent={setNewNoteContent}
+                  loadUser={loadUser}
                 />
               </div>
             )}

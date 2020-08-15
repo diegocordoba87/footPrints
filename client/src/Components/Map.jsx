@@ -107,7 +107,7 @@ export default class Map extends React.Component {
             markerLat,
             markerLng
           );
-          getDistanceToLocation("WestPaces", westPaces, markerLat, markerLng);
+          getDistanceToLocation("West Paces Park", westPaces, markerLat, markerLng);
         }
       },
       false

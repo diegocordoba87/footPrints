@@ -76,8 +76,8 @@ router.get("/api/locations", (req, res) => {
 
 //add note to location by location id
 router.put("/api/locations/:id/addnote", (req, res) => {
-  console.log(req.body.notes)
-  db.Location.findByIdAndUpdate(req.params.id, {$push: {notes: req.body.notes}}, { new: true })
+  console.log(req.params.id)
+  db.Location.findByIdAndUpdate(req.params.id, {$push: {notes: req.body.id}}, { new: true })
   .then((updatednote) => {
     res.json({
       error: false,
