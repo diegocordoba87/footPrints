@@ -14,7 +14,7 @@ const Profile = (props) => {
   const [userNotes, setUserNotes] = useState([]);
   const [location, setLocation] = useState([]);
   const [newNoteContent, setNewNoteContent] = useState("");
-  const [isLocationDisplayed, setIsLocationDisplayed] = useState(true);
+  const [isLocationDisplayed, setIsLocationDisplayed] = useState(false);
   const { setIsSidebarOpen, setParkName } = props;
   const user = sessionStorage.getItem("username");
 

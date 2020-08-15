@@ -29,7 +29,10 @@ const FootprintsDisplay = (props) => {
         {footprintSeeds.map((note, index) => {
           return (
             <div>
-              <div className="uk-card uk-card-default footprintCards">{note.text}</div>
+              <div className="uk-card uk-card-default footprintCards">{note.text}
+              <button id="deleteFootprintButton" className="saveDeleteButton">delete</button>
+              <button id="saveFootprintButton" className="saveDeleteButton">save</button>
+              </div>
             </div>
           );
         })}
