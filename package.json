@@ -34,6 +34,7 @@
     "jsonwebtoken": "^8.5.1",
     "jszip": "^3.5.0",
     "mongoose": "^5.9.27",
+    "mongoose-seed": "^0.6.0",
     "react-modal-login": "^1.4.5",
     "react-router-dom": "^5.2.0",
     "react-speech-kit": "^3.0.1"
