@@ -1,5 +1,3 @@
-
-
 #signupBody {
   background-image: url(../../images/FPSignupHor.jpg);
   height: 100vh;
@@ -14,4 +12,11 @@
     background-image: url(../../images/FPSignupVert.jpg);
     height: 100vh;
   }
+  #signupInput {
+    margin: auto;
+    width: 80vw;
+    position: relative;
+    top: 8vw;
+    left: 0vw;
+}
 }

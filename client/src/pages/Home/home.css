@@ -112,11 +112,6 @@ div.uk-flex.uk-flex-center.uk-flex-between.specialPadding {
 }
 
 @media screen and (max-width: 670px) {
-  #aboutus {
-    /* margin: 0vw 15%;
-    width: 70%;
-    clear: both; */
-  }
 
   #heroImage {
     width: 72vw;
@@ -142,11 +137,6 @@ div.uk-flex.uk-flex-center.uk-flex-between.specialPadding {
     padding: 26vw 0vw 6vw 0vw;
     color: white;
     height: 55vw;
-  }
-  #howitworks {
-    /* margin: 10vw 15%;
-    width: 70%;
-    clear: both; */
   }
   #tellYours {
     text-shadow: 2px 3px 2px #000;

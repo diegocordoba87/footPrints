@@ -38,7 +38,7 @@
 #loginError {
   text-shadow: 0px 0px 0px;
   color: #000;
-  font-family: 'Mulish', sans-serif;
+  font-family: "Mulish", sans-serif;
   font-size: 1.1vw;
 }
 
@@ -47,8 +47,36 @@
 }
 
 @media screen and (max-width: 670px) {
-  #homeBody {
+  .cardBodyLogin {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 1px 1px 5px #000;
+    width: 80vw;
+    position: relative;
+    top: 44vw;
+    left: 50vw;
+  }
+  .input {
+    margin: 2.5vw;
+    width: 70vw;
+    padding: 1vw 1vw;
+    border: 3px solid #85616a;
+    border-radius: 5px;
+    box-shadow: 3px 3px 11px;
+    position: relative;
+    top: -10vw;
+    height: 13vw;
+  }
+  #loginBody {
     background-image: url(../../images/FPLoginVert.jpg);
     height: 100vh;
+  }
+  #loginInput {
+    /* margin: auto; */
+    width: 80vw;
+    /* text-align: center; */
+    position: relative;
+    top: 9vw;
   }
 }

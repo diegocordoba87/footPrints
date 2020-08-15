@@ -94,7 +94,7 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
               />
 
               <button className="logSignButton input" type="submit">
-                Login
+                Get Started
               </button>
             </form>
           </div>

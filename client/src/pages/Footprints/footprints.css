@@ -16,6 +16,12 @@
 }
 
 @media screen and (max-width: 670px) {
+  .footprintsPageLogo {
+    margin: 6vw 25vw;
+    width: 50vw;
+    float: center;
+    filter: drop-shadow(1px 1px 1px #000);
+  }
   #footprintsBody {
     background-image: url(../../images/FPFootprintsVert.jpg);
     height: 100vh;
