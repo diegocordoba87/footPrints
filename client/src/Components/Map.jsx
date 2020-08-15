@@ -44,7 +44,7 @@ export default class Map extends React.Component {
       {
         //change map center locations and zoom here
         center: { lat: lat, lng: lng },
-        zoom: 7,
+        zoom: 9,
         pixelRatio: window.devicePixelRatio || 1,
       }
     );
@@ -66,7 +66,7 @@ export default class Map extends React.Component {
     dragMarker.draggable = true;
     map.addObject(dragMarker);
 
-    //disable map draggability while dragMarker is in use
+    //disable map drag ability while dragMarker is in use
     map.addEventListener(
       "dragstart",
       function (ev) {
@@ -83,7 +83,7 @@ export default class Map extends React.Component {
       },
       false
     );
-    // re-enable the default draggability of the underlying map
+    // re-enable the default drag ability of the underlying map
     // when dragging has completed
     map.addEventListener(
       "dragend",
@@ -91,6 +91,23 @@ export default class Map extends React.Component {
         let target = ev.target;
         if (target instanceof H.map.Marker) {
           behavior.enable();
+          const markerLat = dragMarker.b.lat;
+          const markerLng = dragMarker.b.lng;
+          getDistanceToLocation("Brownwood Park Recreation Center", brownwood, markerLat, markerLng);
+          getDistanceToLocation("Walker Park (formerly Trail Creek Park)", trailCreek, markerLat, markerLng);
+          getDistanceToLocation(
+            "Morgan Falls Overlook Park",
+            morganFalls,
+            markerLat,
+            markerLng
+          );
+          getDistanceToLocation(
+            "Elizabeth Porter Park & Sprayground",
+            elizabethPorterParkAndSprayground,
+            markerLat,
+            markerLng
+          );
+          getDistanceToLocation("WestPaces", westPaces, markerLat, markerLng);
         }
       },
       false
@@ -148,6 +165,34 @@ export default class Map extends React.Component {
     // console.log("marker");
     // console.log(dragMarker.b);
 
+    //calculating the distance between 2 coordinates.
+
+    function getDistanceToLocation(name, location, lat1, lng1) {
+      //Haversine formula: https://en.wikipedia.org/wiki/Haversine_formula
+      // console.log(location);
+      let lat2 = location.b.lat;
+      let lng2 = location.b.lng;
+      const R = 3958.756; // Radius of the earth in mi
+      const dLat = deg2rad(lat2 - lat1); // deg2rad below
+      const dLon = deg2rad(lng2 - lng1);
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(deg2rad(lat1)) *
+          Math.cos(deg2rad(lat2)) *
+          Math.sin(dLon / 2) *
+          Math.sin(dLon / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      const d = R * c; // Distance in mi
+      // console.log(d + "mi");
+      if (d < 1.87) {
+        console.log("You can access notes at " + name);
+        console.log(d + "mi");
+      }
+    }
+
+    function deg2rad(deg) {
+      return deg * (Math.PI / 180);
+    }
 
     this.setState({ map });
   };
