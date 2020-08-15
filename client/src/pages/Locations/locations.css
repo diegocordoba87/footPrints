@@ -4,11 +4,11 @@
 
 .locationDiv {
   height: 25vw;
-  width: 50vw;
+  width: 30vw;
   position: relative;
-  top: 5vw;
-  left: 10vw;
-  float: left;
+  top: -28vw;
+  left: -1vw;
+  float: right;
 }
 
 #locationsBody {
@@ -16,13 +16,8 @@
 }
 
 #map {
-  height: 25vw;
-  width: 35vw;
-  position: relative;
-  top: 5vw;
-  left: 10vw;
-  float: left;
-  box-shadow: 40px 40px 0px #867;
+  height: 22vw;
+  margin: 2vw;
 }
 
 @media screen and (max-width: 670px) {
