@@ -44,7 +44,7 @@ export default class Map extends React.Component {
       {
         //change map center locations and zoom here
         center: { lat: lat, lng: lng },
-        zoom: 7,
+        zoom: 9,
         pixelRatio: window.devicePixelRatio || 1,
       }
     );
@@ -66,7 +66,7 @@ export default class Map extends React.Component {
     dragMarker.draggable = true;
     map.addObject(dragMarker);
 
-    //disable map draggability while dragMarker is in use
+    //disable map drag ability while dragMarker is in use
     map.addEventListener(
       "dragstart",
       function (ev) {
@@ -93,20 +93,21 @@ export default class Map extends React.Component {
           behavior.enable();
           const markerLat = dragMarker.b.lat;
           const markerLng = dragMarker.b.lng;
-          console.log("brownwood");
-          getDistanceToLocation(brownwood, markerLat, markerLng);
-          console.log("trailCreek");
-          getDistanceToLocation(trailCreek, markerLat, markerLng);
-          console.log("morganFalls");
-          getDistanceToLocation(morganFalls, markerLat, markerLng);
-          console.log("elizabethPorterParkAndSprayground");
+          getDistanceToLocation("brownwood", brownwood, markerLat, markerLng);
+          getDistanceToLocation("trailCreek", trailCreek, markerLat, markerLng);
           getDistanceToLocation(
+            "morganFalls",
+            morganFalls,
+            markerLat,
+            markerLng
+          );
+          getDistanceToLocation(
+            "elizabethPorterParkAndSprayground",
             elizabethPorterParkAndSprayground,
             markerLat,
             markerLng
           );
-          console.log("westPaces");
-          getDistanceToLocation(westPaces, markerLat, markerLng);
+          getDistanceToLocation("westPaces", westPaces, markerLat, markerLng);
         }
       },
       false
@@ -166,7 +167,7 @@ export default class Map extends React.Component {
 
     //calculating the distance between 2 coordinates.
 
-    function getDistanceToLocation(location, lat1, lng1) {
+    function getDistanceToLocation(name, location, lat1, lng1) {
       //Haversine formula: https://en.wikipedia.org/wiki/Haversine_formula
       // console.log(location);
       let lat2 = location.b.lat;
@@ -183,6 +184,10 @@ export default class Map extends React.Component {
       const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
       const d = R * c; // Distance in mi
       console.log(d + "mi");
+      if (d < 1.87) {
+        console.log("You can access notes at " + name);
+        console.log(d + "mi");
+      }
     }
 
     function deg2rad(deg) {
