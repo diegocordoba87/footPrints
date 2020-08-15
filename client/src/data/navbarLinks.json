@@ -25,13 +25,13 @@
   },
   {
     "title": "How it Works",
-    "href": "/signup/#howitworks",
+    "href": "/aboutus/#howitworks",
     "hiddenWhenLoggedIn": false,
     "hiddenIfLoggedOut": false
   },
   {
     "title": "About Us",
-    "href": "/aboutus",
+    "href": "/aboutus/#aboutus",
     "hiddenWhenLoggedIn": false,
     "hiddenIfLoggedOut": false
   }

@@ -6,17 +6,34 @@ div.uk-flex.specialPadding {
   margin: 5vw;
 }
 .creatorName {
-  font-size: 0.6em;
+  font-size: 2vw;
   padding: 1vw 0vw;
-  color: #85616a;
-  position: relative;
-  top: -2vw;
+  color: #514a45;
+}
+
+.creatorQuote {
+  color: #242527;
 }
 
 .profilePics {
   padding: 1vw 0vw 0vw 0vw;
 }
+.tablinkAbout {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0vw 1vw 1vw 1vw;
+  font-size: 17px;
+  width: 20%;
+  color: #dce5d8;
+  font-family: "Kalam", cursive !important;
+  font-size: 2vw;
+  margin: auto;
+}
 
+.tablinkAbout:hover {
+  background-color: #85616a;
+}
 .uk-card-default {
   margin: 0;
 }
@@ -27,6 +44,10 @@ div.uk-flex.specialPadding {
   padding: 0vw 1vw 1vw 1vw;
 }
 
+#aboutTabs {
+  width: 10vw;
+  margin: auto;
+}
 #aboutus {
   position: relative;
   top: 10vw;
@@ -42,6 +63,10 @@ div.uk-flex.specialPadding {
 
 #aboutUsText {
   padding: 2vw 0vw 0vw 0vw;
+}
+
+#tablinkAbout {
+
 }
 
 @media screen and (max-width: 670px) {

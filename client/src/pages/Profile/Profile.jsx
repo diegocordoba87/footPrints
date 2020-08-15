@@ -14,8 +14,7 @@ const Profile = (props) => {
   const [userNotes, setUserNotes] = useState([]);
   const [location, setLocation] = useState([]);
   const [newNoteContent, setNewNoteContent] = useState("");
-  const [notesByLocation, setNotesByLocation] = useState([]);
-  const [isLocationDisplayed, setIsLocationDisplayed] = useState(true);
+  const [isLocationDisplayed, setIsLocationDisplayed] = useState(false);
   const { setIsSidebarOpen, setParkName } = props;
   const user = sessionStorage.getItem("username");
 
@@ -47,7 +46,7 @@ const Profile = (props) => {
       if (res.data && res.data.data && res.data.data.length > 0) {
         console.log("testing", res.data.data[0]._id);
         let id = res.data.data[0]._id;
-        // setParkName(res.data.data[0].name);
+        setParkName(res.data.data[0].name);
         axios.get(`/api/locations/${id}`).then((res) => {
           console.log(res);
         });
@@ -113,7 +112,7 @@ const Profile = (props) => {
               </div>
             )}
             {isLocationDisplayed === false && (
-              <div className="uk-card-default pink">
+              <div className="pink">
                 <FootprintsDisplay
                   {...props}
                   newNoteContent={newNoteContent}
@@ -121,24 +120,6 @@ const Profile = (props) => {
                 />
               </div>
             )}
-          </div>
-
-          <div className="homeText">
-            Found FootPrints
-            {notesByLocation.map((note) => {
-              return (
-                <p key={note.title}>
-                  {note.content}
-                  <button
-                    onClick={() => {
-                      deleteNote(note._id);
-                    }}
-                  >
-                    Delete Footprint
-                  </button>
-                </p>
-              );
-            })}
           </div>
         </div>
       </div>

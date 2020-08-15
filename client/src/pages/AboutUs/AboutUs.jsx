@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import HowItWorks from "../../Components/HowItWorks/HowItWorks";
 import aboutUs from "../../data/aboutUs.json";
 import Andrea from "../../images/Andrea.png";
 import Diego from "../../images/Diego.jpg";
@@ -9,6 +10,7 @@ import logo from "../../images/FPLogo.png";
 import "./aboutus.css";
 
 const AboutUs = ({ setIsSidebarOpen }) => {
+  const [isProfileDisplayed, setIsProfileDisplayed] = useState(false);
   const getImage = (name) => {
     let imgName;
 
@@ -32,7 +34,6 @@ const AboutUs = ({ setIsSidebarOpen }) => {
     return imgName;
   };
 
-
   return (
     <div>
       <div id="aboutusBody" className="backgroundImage">
@@ -42,25 +43,31 @@ const AboutUs = ({ setIsSidebarOpen }) => {
             src={logo}
             alt="footprints logo"
           />
+          <HowItWorks />
           <div className="uk-animation-fade">
             <div id="aboutus" className="cardBody headerText">
               <p id="aboutUsText">About Us</p>
-              <div className="uk-flex specialPadding" uk-grid>
-                {aboutUs.map((creator, index) => {
-                  const source = getImage(creator.name);
-                  return (
-                    <>
-                      <div className="uk-card-default uk-grid-match">
-                        <a key={index}>
-                          <img className="profilePics" src={source} />
-                        </a>
-                        <br />
-                        <div className="creatorName">{creator.name}</div>
-                        <div className="creatorQuote">{creator.quote}</div>
-                      </div>
-                    </>
-                  );
-                })}
+              <div uk-grid>
+                <div className="aboutTabs">
+                  {aboutUs.map((creator, index) => {
+                    const source = getImage(creator.name);
+                    return (
+                      <>
+                        <button
+                          id="tablinkAbout"
+                          class="tablinkAbout"
+                          onClick={() => setIsProfileDisplayed(true)}
+                        >
+                          <a key={index} href={creator.portfolioLink} target="_blank">
+                            <img className="profilePics" src={source} />
+                          </a>
+                          <div className="creatorName">{creator.name}</div>
+                          <div className="creatorQuote">{creator.quote}</div>
+                        </button>
+                      </>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
