@@ -1,0 +1,110 @@
+.closebtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #dce5d8;
+}
+
+.closebtn:focus {
+  outline: none;
+}
+
+.closebtn:hover {
+  color: #514a45 !important;
+}
+
+.mediumText {
+  padding: 0px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #dce5d8;
+  margin-top: .5vw;
+  cursor: pointer;
+}
+
+.mediumText:focus {
+  outline: none;
+}
+
+.mediumText:hover {
+  color: #514a45 !important;
+}
+
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: #563e44;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #dce5d8 ;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #514a45;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  color: #dce5d8 ;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  color: #dce5d8;
+  padding: 10px 15px;
+  border: none;
+  text-shadow: 2px 2px 5px #000;
+}
+
+.openbtn:hover {
+  background-color: #514a45;
+}
+
+#hamburger {
+  position: relative;
+  overflow-x: hidden;
+  position: fixed;
+  z-index: 1;
+  top: 1vw;
+  left: 1vw;
+  border-radius: 5px;
+  background-color: #563e44;
+  text-shadow: 2px 2px 5px #000;
+  box-shadow: 2px 2px 2px #000;
+}
+
+#hamburger:focus {
+  outline: none;
+}
+
+#hamburger:hover {
+  color: #514a45;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {
+    padding-top: 15px;
+  }
+  .sidebar a {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,47 @@
+.hiwText {
+  padding: 2vw;
+  text-align: left;
+  font-size: 1vw;
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: none;
+}
+
+.howitworks {
+  color: #85616a;
+  text-shadow: 2px 2px 2px #000;
+}
+
+.howitworksLogin {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 1px 1px 5px #000;
+  width: 40vw;
+  color: #000;
+  position: relative;
+  top: 3vw;
+  left: 9vw;
+}
+
+@media screen and (max-width: 670px) {
+  div.howitworks.cardBodyLogin {
+    width: 80vw;
+    position: fixed;
+    top: 40vw;
+    left: 9vw;
+    height: 72vw;
+  }
+  .howitworksLogin {
+    display: none;
+    /* top: 117vw;
+    left: 177vw !important; */
+  }
+  .hiwText {
+    padding: 2vw;
+    text-align: left;
+    font-size: 4vw;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: none;
+    scroll-behavior: smooth;
+  }
+}

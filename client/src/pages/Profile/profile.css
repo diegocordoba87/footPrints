@@ -1,0 +1,147 @@
+.centerCard {
+  margin: auto !important;
+  background-color: #efefef;
+}
+
+.footprintCards {
+  font-size: 1vw;
+  font-family: "M";
+  color: #514A45;
+  text-shadow: none;
+  background-color: #efefef;
+  font-family: 'Mulish', sans-serif;
+  width: 100%;
+  height: 5vw;
+  margin: 1vw;
+  padding: 1vw;
+  border-radius: 0px;
+  transition:all 1s;
+  box-shadow: 0px 2px 5px #000;
+  text-align: justify;
+}
+
+.footprintCards:hover {
+  height: 15vw;
+  width: 100%;
+}
+
+.H_ui {
+  display: none;
+}
+
+.locationDiv {
+  height: 25vw;
+  width: 30vw;
+  position: relative;
+  top: -28vw;
+  left: -1vw;
+  float: right;
+}
+
+.newFPForm {
+  width: 69vw;
+}
+
+.pink {
+  background-color: #918082;
+}
+
+.purple {
+  background-color: #563e44;
+  margin-bottom: 2vw;
+  margin: 0;
+  padding-bottom: 1vw;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.saveDeleteButton {
+  float: right;
+}
+#deleteFootprintButton {
+  background-color: #242527;
+  color: #dce5e8;
+}
+#deleteFootprintButton:hover {
+  background-color: #dce5d8;
+  color: #242527;
+}
+#locationsBody {
+  background-image: url(../../images/FPLocationsHor.jpg);
+}
+
+#map {
+  height: 22vw;
+  margin: 2vw;
+  background-image: url('../../images/LoadingSquare.jpg');
+}
+
+.profileButton {
+  text-align: center;
+  margin: 2vw;
+}
+
+.profileButtonDiv {
+  text-align: center;
+  margin: auto;
+  padding: 1vw 5vw;
+}
+
+#initials {
+  font-family: "Kalam", cursive;
+  color: #514a45;
+  text-shadow: 0px 1px 0px #333;
+  font-size: 3vw;
+  margin: 3vw 0vw 0vw 0vw;
+}
+
+#newFootprintButton {
+  /* border-radius: 5px;
+  background-color: white;
+  position: relative;
+  top: -2vw; */
+}
+
+#note {
+  margin: auto;
+  width: 90%;
+  border-radius: 5px;
+  padding: 1vw 0vw 0vw 1vw;
+  margin-top: 1vw;
+}
+
+#profileBody {
+  background-image: url(../../images/FPProfileHor.jpg);
+}
+
+
+
+#profileForm {
+  margin-top: 2vw;
+}
+#saveFootprintButton {
+  background-color: #514a45;
+  color: #dce5e8;
+}
+#saveFootprintButton:hover {
+  background-color: #dce5d8;
+  color: #242527;
+}
+#tablinkFootprints {
+  background-color: #918082;
+  border-top-right-radius: 5px;
+}
+
+#tablinkLocations {
+  background-color: #563e44;
+  border-top-left-radius: 5px;
+}
+
+@media screen and (max-width: 670px) {
+  #profileBody {
+    background-image: url(../../images/FPProfileVert.jpg);
+    height: 100vh;
+  }
+}
+
+

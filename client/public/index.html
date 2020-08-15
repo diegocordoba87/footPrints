@@ -2,42 +2,56 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Even as the world around us is increasingly distant and divided, there are threads that keep us connected. Our stories. Footsteps is a mobile first application leveraging a geolocation API to connect users to those who have gone before. When a user enters a specific area, they are presented with a story from another random user and may in turn leave their own to be discovered by the next visitor. 
+    Everyone has a story. Tell yours."
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <link rel="icon" href="FPFavicon.png" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Mulish:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <!-- UIkit CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css"
+    />
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-uikit-alert@2.0.2/lib/alert.min.js"></script>
+
+    <script
+      type="text/javascript"
+      src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script
+      src="https://stuk.github.io/jszip/dist/jszip.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+    <title>Footprints</title>
   </head>
+
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>

@@ -1,0 +1,152 @@
+div.uk-flex.uk-flex-center.uk-flex-between.specialPadding {
+  margin: 0vw 4vw;
+}
+
+.cardBody {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  max-width: 70%;
+  margin: auto;
+  margin-bottom: 5vw;
+  object-fit: cover;
+  text-align: center;
+  box-shadow: 1px 1px 5px #000;
+}
+
+.creatorQuote {
+  font-size: 0.4em;
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: none;
+}
+
+.profilePics {
+  width: 8vw;
+}
+
+.scrollButton {
+  height: 4vw;
+  margin: 6vw 0vw;
+  -webkit-filter: drop-shadow(2px 2px 1px #000);
+  filter: drop-shadow(2px 2px 1px #000);
+  padding: 0% 3%;
+}
+
+.specialPadding {
+  padding: 2vw;
+}
+
+.startButton {
+  opacity: 0.8;
+  margin: 1vw 2vw;
+  width: 7vw;
+  float: right;
+  -webkit-filter: drop-shadow(1px 1px 1px #000);
+  filter: drop-shadow(1px 1px 1px #000);
+}
+
+.uk-card-body {
+  border-radius: 5px;
+  max-width: 15%;
+}
+
+.upDownArrows {
+  margin-top: -5vw;
+}
+
+#heroImage {
+  width: 34vw;
+  position: absolute;
+  top: 13vw;
+  left: 31vw;
+  filter: drop-shadow(8px 8px 2px #000);
+  -webkit-filter: drop-shadow(0px 6px 1px #000);
+  z-index: 1;
+}
+
+#homeBody {
+  background-image: url(../../images/FPHomeBWHor.jpg);
+}
+
+#homeButtonOne {
+  position: absolute;
+  top: -5vw;
+  right: 0;
+}
+
+#homeHeader {
+  margin: 0vw;
+  max-width: 100%;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  background-color: rgba(182, 178, 179, 0.5);
+}
+
+#homeLayerOne {
+  margin-top: 24vw;
+}
+
+#homeTagLine {
+  font-size: 1.25em;
+  margin: -9vw 0vw 0vw 22vw;
+  text-shadow: 2px 3px 2px #000;
+  padding: 10vw 0vw 6vw 0vw;
+  color: white;
+}
+
+#story {
+  animation-duration: 2s;
+  animation-delay: 2s;
+  animation-timing-function: linear;
+}
+
+#tellYours {
+  text-shadow: 2px 3px 2px #000;
+  text-align: center;
+  position: relative;
+  animation-duration: 1s;
+  top: -9vw;
+  right: -19vw;
+  font-size: 4vw;
+  width: 80%;
+  color: white;
+}
+
+@media screen and (max-width: 670px) {
+
+  #heroImage {
+    width: 72vw;
+    position: absolute;
+    top: 66vw;
+    left: 14vw;
+    filter: drop-shadow(8px 8px 2px #000);
+    -webkit-filter: drop-shadow(0px 6px 1px #000);
+    z-index: 1;
+  }
+  #homeBody {
+    background-image: url(../../images/FPHomeBWVert.jpg);
+    height: 100vh;
+  }
+  #homeLayerOne {
+    margin-top: 75vw;
+    height: 20vw;
+  }
+  #homeTagLine {
+    font-size: 3em;
+    margin: 0vw;
+    text-shadow: 2px 3px 2px #000;
+    padding: 26vw 0vw 6vw 0vw;
+    color: white;
+    height: 55vw;
+  }
+  #tellYours {
+    text-shadow: 2px 3px 2px #000;
+    text-align: center;
+    position: relative;
+    animation-duration: 1s;
+    top: 13vw;
+    right: -19vw;
+    font-size: 9vw;
+    width: 80%;
+    color: white;
+  }
+}

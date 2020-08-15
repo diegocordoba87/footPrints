@@ -1,0 +1,89 @@
+* {box-sizing: border-box}
+
+.cardBodyLocations {
+  border-radius: 5px;
+  max-width: 80%;
+  margin: auto;
+  margin-bottom: 2vw;
+  text-align: center;
+  box-shadow: 1px 1px 5px #000;
+  background-color: #dce5d8;
+  text-shadow: none;
+  color: #514a45;
+}
+
+/* Style tab links */
+.tablink {
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 50%;
+  color: #dce5d8;
+  font-family: "Kalam", cursive !important;
+  font-size: 2vw;
+  margin: 0vw 0vw 1vw 0vw;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+#dashboardBody {
+  background-image: url(../../images/FPFootprintsHor.jpg);
+  height: 100vh;
+}
+
+#dashboardTabs {
+  width: 60vw;
+  margin: auto;
+}
+
+#goToLocationDiv {
+  font-family: monospace;
+  color: #dce5d8;
+  font-size: 2vw;
+  border: #666 solid 5px;
+  margin: 0vw;
+  padding: 2vw;
+  font-family: 'Mulish', sans-serif;
+  text-shadow: 0px 1px 0px 0px;
+  box-shadow: 0px 5px 3px #000;
+}
+
+#map {
+  height: 27vw;
+  width: 27vw;
+  margin: 2vw;
+}
+
+#newFootprint {
+  font-family: monospace;
+  color: #dce5d8;
+  font-size: 2vw;
+  border: #666 solid 5px;
+  margin: 0vw;
+  padding: 2vw;
+  font-family: 'Mulish', sans-serif;
+  text-shadow: 0px 1px 0px 0px;
+  box-shadow: 0px 5px 3px #000;
+}
+
+
+@media screen and (max-width: 670px) {
+  #locationsBody {
+    background-image: url(../../images/FPFootprintsVert.jpg);
+    height: 100vh;
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.19e3375e.chunk.css",
+    "main.js": "/static/js/main.d58a6c5d.chunk.js",
+    "main.js.map": "/static/js/main.d58a6c5d.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.09b85ec0.js",
+    "runtime-main.js.map": "/static/js/runtime-main.09b85ec0.js.map",
+    "static/js/2.ee3bd180.chunk.js": "/static/js/2.ee3bd180.chunk.js",
+    "static/js/2.ee3bd180.chunk.js.map": "/static/js/2.ee3bd180.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.b79da763a8b4be94efc2bf76b6fb6fcc.js": "/precache-manifest.b79da763a8b4be94efc2bf76b6fb6fcc.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.19e3375e.chunk.css.map": "/static/css/main.19e3375e.chunk.css.map",
+    "static/js/2.ee3bd180.chunk.js.LICENSE.txt": "/static/js/2.ee3bd180.chunk.js.LICENSE.txt",
+    "static/media/profile.css": "/static/media/FPLoginVert.dcceeff8.jpg",
+    "static/media/locations.css": "/static/media/footprintsLocations.fdf735db.jpg",
+    "static/media/signup.css": "/static/media/footprintsSignUp.cf140a0b.jpg",
+    "static/media/home.css": "/static/media/footstepsHome4.c0667d5f.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.09b85ec0.js",
+    "static/js/2.ee3bd180.chunk.js",
+    "static/css/main.19e3375e.chunk.css",
+    "static/js/main.d58a6c5d.chunk.js"
+  ]
+}

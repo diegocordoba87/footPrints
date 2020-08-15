@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Home",
+    "href": "/",
+    "hiddenWhenLoggedIn": false,
+    "hiddenIfLoggedOut": false
+  },
+  {
+    "title": "Log In",
+    "href": "/login",
+    "hiddenWhenLoggedIn": true,
+    "hiddenIfLoggedOut": false
+  },
+  {
+    "title": "Sign Up",
+    "href": "/signup",
+    "hiddenWhenLoggedIn": true,
+    "hiddenIfLoggedOut": false
+  },
+  {
+    "title": "My Profile",
+    "href": "/profile/:id",
+    "hiddenWhenLoggedIn": false,
+    "hiddenIfLoggedOut": true
+  },
+  {
+    "title": "How it Works",
+    "href": "/aboutus/#howitworks",
+    "hiddenWhenLoggedIn": false,
+    "hiddenIfLoggedOut": false
+  },
+  {
+    "title": "About Us",
+    "href": "/aboutus/#aboutus",
+    "hiddenWhenLoggedIn": false,
+    "hiddenIfLoggedOut": false
+  }
+]
