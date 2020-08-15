@@ -8,7 +8,7 @@
   },
   {
     "name": "Diego",
-    "quote": "Diego, the Database King, spends his time reading, and playing Futbal, and reading about Futbal.",
+    "quote": "Diego, the Database King, spends his time reading, and playing Futbol, and reading about Futbol.",
     "img": "../../images/Diego.jpg"
   },
   {
@@ -23,9 +23,7 @@
   },
   {
     "name": "Michael",
-    "quote1": "Resident Memelord",
-    "quote2": "Placeholder 2",
-    "quote3": "Placeholder 3",
+    "quote": "Memelord in residence who enjoys MOBAs, international cuisine, dank memes, and adventuring.",
     "img": "../../images/Michael.jpg"
   }
 ]

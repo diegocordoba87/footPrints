@@ -1,5 +1,44 @@
+.centerCard {
+  margin: auto !important;
+  background-color: #efefef;
+}
+
+.footprintCards {
+  font-size: 1vw;
+  font-family: monospace;
+  color: #666;
+  text-shadow: 0px 0px 0px #000;
+  background-color: #918082;
+}
+.H_ui {
+  display: none;
+}
+
+.locationDiv {
+  height: 25vw;
+  width: 30vw;
+  position: relative;
+  top: -28vw;
+  left: -1vw;
+  float: right;
+}
+
 .newFPForm {
   width: 69vw;
+}
+
+.purple {
+  background-color: #563e44;
+}
+
+#locationsBody {
+  background-image: url(../../images/FPLocationsHor.jpg);
+}
+
+#map {
+  height: 22vw;
+  margin: 2vw;
+  background-image: url('../../images/LoadingSquare.jpg');
 }
 
 .profileButton {
@@ -13,30 +52,47 @@
   padding: 1vw 5vw;
 }
 
+#initials {
+  font-family: "Kalam", cursive;
+  color: #514a45;
+  text-shadow: 0px 1px 0px #333;
+  font-size: 3vw;
+  margin: 3vw 0vw 0vw 0vw;
+}
+
 #newFootprintButton {
-  border-radius: 5px;
+  /* border-radius: 5px;
   background-color: white;
   position: relative;
-  top: -2vw;
+  top: -2vw; */
 }
 
 #note {
   margin: auto;
-  width: 70%;
+  width: 90%;
   border-radius: 5px;
   padding: 1vw 0vw 0vw 1vw;
+  margin-top: 1vw;
 }
 
 #profileBody {
   background-image: url(../../images/FPProfileHor.jpg);
 }
 
-#profileCardBody {
-  padding: .5% 0%;
-}
+
 
 #profileForm {
   margin-top: 2vw;
+}
+
+#tablinkFootprints {
+  background-color: #918082;
+  border-top-right-radius: 5px;
+}
+
+#tablinkLocations {
+  background-color: #563e44;
+  border-top-left-radius: 5px;
 }
 
 @media screen and (max-width: 670px) {
@@ -45,3 +101,5 @@
     height: 100vh;
   }
 }
+
+
