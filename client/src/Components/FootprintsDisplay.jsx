@@ -26,30 +26,31 @@ const FootprintsDisplay = (props) => {
   return (
     <div id="footprints">
       <div uk-grid="masonry: true">
-        {footprintSeeds.map((note, index) => {
-          return (
-            <div>
-              <div className="uk-card uk-card-default footprintCards">{note.text}
-              <button id="deleteFootprintButton" className="saveDeleteButton">delete</button>
-              <button id="saveFootprintButton" className="saveDeleteButton">save</button>
-              </div>
-            </div>
-          );
-        })}
-
         <div className="homeText">
           {notesByLocation.map((note) => {
             return (
-              <p key={note.title}>
-                {note.content}
-                <button
-                  onClick={() => {
-                    deleteNote(note._id);
-                  }}
-                >
-                  Delete Footprint
-                </button>
-              </p>
+              <div>
+                <div className="uk-card uk-card-default footprintCards">
+                  <p className="footprintText">
+                    <p key={note.title}>
+                      {note.content}
+                      <button
+                        onClick={() => {
+                          deleteNote(note._id);
+                        }}
+                      >
+                        Delete Footprint
+                      </button>
+                    </p>
+                  </p>
+                  <button className="deleteFootprintButton saveDeleteButton">
+                    delete
+                  </button>
+                  <button className="saveFootprintButton saveDeleteButton">
+                    save
+                  </button>
+                </div>
+              </div>
             );
           })}
         </div>

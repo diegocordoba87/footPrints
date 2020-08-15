@@ -5,7 +5,11 @@ import API from "../utils/API";
 
 const NewFootprint = (props) => {
   const [parkName, setParkName] = useState("");
-  const { setUserInfo, newNoteContent, setNewNoteContent } = props;
+  const [userInfo, setUserInfo] = useState("");
+  const { location, setLocation } = props;
+
+
+  const { newNoteContent, setNewNoteContent } = props;
   const { id } = useParams();
 
   const locationNear = (lng, lat) => {
@@ -23,7 +27,7 @@ const NewFootprint = (props) => {
   function loadUser() {
     API.getUserById(id)
       .then((res) => {
-        console.log(res.data.data);
+        console.log("userInfo: ", res.data.data[0].content);
         setUserInfo(res.data.data);
       })
       .catch((err) => console.log(err));
@@ -43,7 +47,16 @@ const NewFootprint = (props) => {
   function addNote(e) {
     e.preventDefault();
     axios.post("/api/newnote", { content: newNoteContent }).then((res) => {
-      console.log(res);
+      const id = res.data.data._id;
+      console.log ("id: ", id);
+      console.log("userInfo", userInfo._id);
+      axios.put(`/api/user/${userInfo._id}/addnote`, { id: id }).then((res) => {
+        console.log("note id: ", res);
+        console.log(location);
+        axios.put(`/api/locations/${location._id}/addnote`, { id: id }).then((res) => {
+          console.log(res);
+        })
+      }) 
     });
   }
 
@@ -72,12 +85,27 @@ const NewFootprint = (props) => {
             }}
             placeholder="250 words minimum. 1000 words maximum"
             className="newFPForm"
-          />
+          >
+        </textarea>
         </label>
         <button id="newFootprintButton" onClick={addNote}>
           Leave Your FootPrint
         </button>
       </form>
+      <div id="newFootprintAvailable">
+        A new FootPrint is available!
+        <div>
+          <div id="newFootprintCardBody" className="uk-card uk-card-default footprintCards">
+            <p className="footprintText"></p>
+            <button className="deleteFootprintButton saveDeleteButton">
+              delete
+            </button>
+            <button className="saveFootprintButton saveDeleteButton">
+              save
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

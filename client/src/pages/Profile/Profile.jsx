@@ -12,10 +12,11 @@ const Profile = (props) => {
   // Setting our component's initial state
   const [userInfo, setUserInfo] = useState("");
   const [userNotes, setUserNotes] = useState([]);
+  const [parkName, setParkName] = useState("");
   const [location, setLocation] = useState([]);
   const [newNoteContent, setNewNoteContent] = useState("");
   const [isLocationDisplayed, setIsLocationDisplayed] = useState(false);
-  const { setIsSidebarOpen, setParkName } = props;
+  const { setIsSidebarOpen } = props;
   const user = sessionStorage.getItem("username");
 
   const { id } = useParams();
@@ -58,6 +59,11 @@ const Profile = (props) => {
     e.preventDefault();
     axios.post("/api/newnote", { content: newNoteContent }).then((res) => {
       console.log(res);
+      const id = res.data.data._id;
+      console.log("res id: ", id);
+      axios.put(`/api/users/${userInfo._id}/addnote`, { _id: id }).then((res) => {
+        console.log("note id: ", res);
+      }) 
     });
   }
 
@@ -91,7 +97,7 @@ const Profile = (props) => {
                 class="tablink"
                 onClick={() => setIsLocationDisplayed(false)}
               >
-                Footprints
+                Collection
               </button>
               <div id="profileHeader">
                 <h2 id="initials">{userInfo.initials}'s Profile</h2>
