@@ -6,6 +6,8 @@ import API from "../utils/API";
 const NewFootprint = (props) => {
   const [parkName, setParkName] = useState("");
   const [userInfo, setUserInfo] = useState("");
+  const { location, setLocation } = props;
+
 
   const { newNoteContent, setNewNoteContent } = props;
   const { id } = useParams();
@@ -25,7 +27,7 @@ const NewFootprint = (props) => {
   function loadUser() {
     API.getUserById(id)
       .then((res) => {
-        console.log(res.data.data);
+        console.log("userInfo: ", res.data.data[0].content);
         setUserInfo(res.data.data);
       })
       .catch((err) => console.log(err));
@@ -45,12 +47,15 @@ const NewFootprint = (props) => {
   function addNote(e) {
     e.preventDefault();
     axios.post("/api/newnote", { content: newNoteContent }).then((res) => {
-      console.log(res);
       const id = res.data.data._id;
-      console.log("res id: ", id);
+      console.log ("id: ", id);
       console.log("userInfo", userInfo._id);
-      axios.put(`/api/users/${userInfo._id}/addnote`, { _id: id }).then((res) => {
+      axios.put(`/api/user/${userInfo._id}/addnote`, { id: id }).then((res) => {
         console.log("note id: ", res);
+        console.log(location);
+        axios.put(`/api/locations/${location._id}/addnote`, { id: id }).then((res) => {
+          console.log(res);
+        })
       }) 
     });
   }

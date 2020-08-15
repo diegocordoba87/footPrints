@@ -19,14 +19,12 @@ const UserSchema = new Schema({
         required: "Password is Required",
         validate: [({ length }) => length >= 6, "Password should be longer."]
     },
-    notes:[
+    notes: [
         {
-            id: {
-                type: Schema.Types.ObjectId,
-                ref: "Notes"
-            }
-        }
-    ],
+          type: Schema.Types.ObjectId,
+          ref: "Notes",
+        },
+      ],
     
     locations:[
         {

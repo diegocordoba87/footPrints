@@ -2,8 +2,6 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-
 
 router.post("/api/signup", (req, res) => {
   bcrypt.hash(req.body.password, 10, (err, hash)=>{
@@ -71,7 +69,8 @@ router.post("/api/login", (req, res)=>{
 
 router.get("/api/users/:id", (req, res) => {
 
-  db.User.findById(req.params.id)   
+  db.User.findById(req.params.id)
+    .populate("notes")   
     .then((foundUser) => {
       console.log(foundUser);
       const responseObject = {
@@ -97,25 +96,21 @@ router.get("/api/users/:id", (req, res) => {
 });
 
 
-router.put("/api/users/:id/addnote", (req, res) => {
-  console.log("req: ", req);
-  db.User.findByIdAndUpdate(req.params.id, {$push: {notes: {id: req.body.id}}}, { new: true })
-    .then((updatedUser) => {
-      res.json({
-        error: false,
-        data: updatedUser,
-        message: "Successfully updated user.",
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({
-        error: true,
-        data: null,
-        message: "Unable to update user.",
-      });
+router.put("/api/user/:id/addnote", (req, res) => {
+  console.log("*********************id:", req.body.id)
+  console.log("user ID:", req.params.id)
+  db.User.findByIdAndUpdate(req.params.id, {$push: {notes: req.body.id}}, { new: true })
+  .then((updatednote) => {
+    console.log(updatednote)
+    res.json({
+      error: false,
+      data: updatednote,
+      message: "Successfully updated note.",
     });
-});
+  }).catch((err)=>{
+    console.log(err)
+  })
+})
 
 
 //For testing

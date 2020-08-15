@@ -37,7 +37,7 @@ const LogIn = (props) => {
       <div onClick={() => setIsSidebarOpen(false)}>
         <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
         <div class="uk-flex uk-flex-center">
-          <div className="howitworks cardBodyLogin">
+          <div className="cardBodyLogin">
             <h2 className="headerText">Log In</h2>
 
             <form id="loginInput" onSubmit={handleSubmit}>
