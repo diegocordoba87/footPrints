@@ -1,24 +1,21 @@
 import React, { useState, useEffect } from "react";
-import Map from './Map';
+import Map from "./Map";
 import axios from "axios";
-import '../pages/Profile/profile.css';
+import "../pages/Profile/profile.css";
 
-const MapComp = () => {
-  const [newNoteContent, setnewNoteContent] = useState("");
-  const notes = [];
+const MapComp = (props) => {
   const user = sessionStorage.getItem("username");
-  const [location, setLocation] = useState([]);
-
-  const testing = [
-    {
-      name: "Marietta",
-    },
-    {
-      name: "Atlanta",
-    },
-  ];
+  const { location, setLocation } = props;
 
   useEffect(() => {
+    const testing = [
+      {
+        name: "Marietta",
+      },
+      {
+        name: "Atlanta",
+      },
+    ];
     axios.get("api/locations").then((locations) => {
       // setLocation(locations.data.data);
       setLocation(testing);
@@ -29,13 +26,15 @@ const MapComp = () => {
   return (
     <div>
       <div>
-          <Map />
-        </div>
-        <div className="locationDiv">
-          {location.map((locationObj) => (
-            <h4 className="cardBodyLocations">{locationObj.name}</h4>
-          ))}
-        </div>
+        <Map />
+      </div>
+      <div className="locationDiv">
+        {location.map((locationObj) => (
+          <h4 className="cardBodyLocations">
+            Location name: {locationObj.name}
+          </h4>
+        ))}
+      </div>
     </div>
   );
 };

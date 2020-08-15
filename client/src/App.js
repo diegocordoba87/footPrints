@@ -15,6 +15,9 @@ function App() {
   const sessionActiveUser = sessionStorage.getItem("username") || "";
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeUser, setActiveUser] = useState(sessionActiveUser);
+  const [userInfo, setUserInfo] = useState({
+    initials: "",
+  });
 
   return (
     <div className="App">
@@ -41,7 +44,11 @@ function App() {
           <Route
             path="/profile/:id"
             render={(props) => (
-              <Profile {...props} setIsSidebarOpen={setIsSidebarOpen} />
+              <Profile
+                {...props}
+                setIsSidebarOpen={setIsSidebarOpen}
+                userInfo={userInfo}
+              />
             )}
           />
           <Route

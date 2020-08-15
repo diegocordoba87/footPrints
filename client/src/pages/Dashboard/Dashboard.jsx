@@ -10,16 +10,6 @@ const Dashboard = ({ setIsSidebarOpen }) => {
       <div onClick={() => setIsSidebarOpen(false)}>
         <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
         <div id="dashboardTabs">
-          <button class="tablink" onclick="openPage('Home', this, 'red')">
-            Locations
-          </button>
-          <button
-            class="tablink"
-            onclick="openPage('News', this, 'green')"
-            id="defaultOpen"
-          >
-            Footprints
-          </button>
           <div className="uk-card-default">
             <NewFootprint />
             <MapComp />

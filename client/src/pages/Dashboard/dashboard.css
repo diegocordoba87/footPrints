@@ -11,7 +11,6 @@
 
 /* Style tab links */
 .tablink {
-  background-color: #555;
   color: white;
   float: left;
   border: none;
@@ -20,6 +19,10 @@
   padding: 14px 16px;
   font-size: 17px;
   width: 50%;
+  color: #dce5d8;
+  font-family: "Kalam", cursive !important;
+  font-size: 2vw;
+  margin: 0vw 0vw 1vw 0vw;
 }
 
 .tablink:hover {
@@ -46,11 +49,14 @@
 
 #goToLocationDiv {
   font-family: monospace;
-  color: black;
+  color: #dce5d8;
   font-size: 2vw;
   border: #666 solid 5px;
-  margin: 0vw 2vw;
-
+  margin: 0vw;
+  padding: 2vw;
+  font-family: 'Mulish', sans-serif;
+  text-shadow: 0px 1px 0px 0px;
+  box-shadow: 0px 5px 3px #000;
 }
 
 #map {
@@ -60,8 +66,15 @@
 }
 
 #newFootprint {
+  font-family: monospace;
+  color: #dce5d8;
+  font-size: 2vw;
   border: #666 solid 5px;
-  margin: 2vw;
+  margin: 0vw;
+  padding: 2vw;
+  font-family: 'Mulish', sans-serif;
+  text-shadow: 0px 1px 0px 0px;
+  box-shadow: 0px 5px 3px #000;
 }
 
 

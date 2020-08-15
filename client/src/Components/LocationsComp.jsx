@@ -6,16 +6,6 @@ import NewFootprint from "../Components/NewFootprint";
 const LocationsComp = () => {
   return (
     <div id="dashboardTabs">
-      <button class="tablink" onclick="openPage('Home', this, 'red')">
-        Locations
-      </button>
-      <button
-        class="tablink"
-        onclick="openPage('News', this, 'green')"
-        id="defaultOpen"
-      >
-        Footprints
-      </button>
       <NewFootprint />
       <MapComp />
     </div>

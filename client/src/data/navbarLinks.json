@@ -19,7 +19,7 @@
   },
   {
     "title": "My Profile",
-    "href": "/profile",
+    "href": "/profile/:id",
     "hiddenWhenLoggedIn": false,
     "hiddenIfLoggedOut": true
   },
