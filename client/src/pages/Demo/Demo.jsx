@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Map from "../../Components/Map";
+import Demo from "../../Components/demo";
 import logo from "../../images/FPLogo.png";
-import "./locations.css";
 
-const Locations = ({ setIsSidebarOpen }) => {
+const Demo = ({ setIsSidebarOpen }) => {
   const [location, setLocation] = useState([]);
 
+  const testing = [
+    {
+      name: "test",
+    },
+    {
+      name: "Atlanta",
+    },
+  ];
+
   useEffect(() => {
-    const testing = [
-      {
-        name: "Marietta",
-      },
-      {
-        name: "Atlanta",
-      },
-    ];
     axios.get("api/locations").then((locations) => {
       // setLocation(locations.data.data);
       setLocation(testing);
@@ -28,7 +28,7 @@ const Locations = ({ setIsSidebarOpen }) => {
       <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
 
       <div onClick={() => setIsSidebarOpen(false)}>
-        <h2>Locations</h2>
+        <h2>Footprints</h2>
         <div>
           <div>
             <Map />
@@ -44,4 +44,4 @@ const Locations = ({ setIsSidebarOpen }) => {
   );
 };
 
-export default Locations;
+export default Demo;

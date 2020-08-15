@@ -11,18 +11,21 @@ h1 {
 h2 {
   text-align: center;
   text-shadow: 2px 2px 5px #000;
-  margin: 2vw 20vw;
+  margin: 2vw;
 }
 
 .backgroundImage {
-  background-size: cover;
-  height: 100vw;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-attachment: fixed;
   overflow-x: scroll;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
 }
 
 .logSignButton {
@@ -41,10 +44,11 @@ h2 {
 }
 
 .headerText {
-  color: #f6f5f3;
+  color: #85616a;
   font-size: 3vw;
   font-family: "Kalam", cursive !important;
   text-shadow: 1px 1px 1px #000;
+  text-align: center;
 }
 
 .H_imprint {
@@ -59,9 +63,24 @@ h2 {
 .temporaryPageName {
   text-align: center;
 }
-/* Lavender: 948C94
-Chocolate: 292218
-Khaki: 7C6D57
-Green: 99A49D
-Beige: D5C8B4 
-White: f6f5f3 */
+
+.uk-card-default {
+  width: 60vw;
+  margin: auto;
+}
+
+@media screen and (max-width: 670px) {
+  .headerText {
+    color: #85616a;
+    font-size: 9vw;
+    font-family: "Kalam", cursive !important;
+    text-shadow: 1px 1px 1px #000;
+    text-align: center;
+  }
+  .logSignButton {
+    color: #85616a;
+    background-color: white;
+    width: 25vw;
+    box-shadow: 2px 2px 2px #000;
+  }
+}

@@ -1,98 +1,33 @@
 import React from "react";
-import ReactModalLogin from "react-modal-login";
 
-import { facebookConfig, googleConfig } from "social-config";
+const loginModal = () => {
+  return (
+    <div>
+      <a class="uk-button uk-button-default" href="#modal-center" uk-toggle>
+        Open
+      </a>
 
-class Sample extends React.Component {
-  constructor(props) {
-    super(props);
+      <div id="modal-center" class="uk-flex-top" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+          <button
+            class="uk-modal-close-default"
+            type="button"
+            uk-close
+          ></button>
 
-    this.state = {
-      showModal: false,
-      loading: false,
-      error: null
-    };
-  }
-
-  openModal() {
-    this.setState({
-      showModal: true
-    });
-  }
-
-  closeModal() {
-    this.setState({
-      showModal: false,
-      error: null
-    });
-  }
-
-  onLoginSuccess(method, response) {
-    console.log("logged successfully with " + method);
-  }
-
-  onLoginFail(method, response) {
-    console.log("logging failed with " + method);
-    this.setState({
-      error: response
-    });
-  }
-
-  startLoading() {
-    this.setState({
-      loading: true
-    });
-  }
-
-  finishLoading() {
-    this.setState({
-      loading: false
-    });
-  }
-
-  afterTabsChange() {
-    this.setState({
-      error: null
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <button onClick={() => this.openModal()}>Open Modal</button>
-
-        <ReactModalLogin
-          visible={this.state.showModal}
-          onCloseModal={this.closeModal.bind(this)}
-          loading={this.state.loading}
-          error={this.state.error}
-          tabs={{
-            afterChange: this.afterTabsChange.bind(this)
-          }}
-          loginError={{
-            label: "Couldn't sign in, please try again."
-          }}
-          registerError={{
-            label: "Couldn't sign up, please try again."
-          }}
-          startLoading={this.startLoading.bind(this)}
-          finishLoading={this.finishLoading.bind(this)}
-          providers={{
-            facebook: {
-              config: facebookConfig,
-              onLoginSuccess: this.onLoginSuccess.bind(this),
-              onLoginFail: this.onLoginFail.bind(this),
-              label: "Continue with Facebook"
-            },
-            google: {
-              config: googleConfig,
-              onLoginSuccess: this.onLoginSuccess.bind(this),
-              onLoginFail: this.onLoginFail.bind(this),
-              label: "Continue with Google"
-            }
-          }}
-        />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default loginModal;

@@ -3,14 +3,25 @@
   width: 15vw;
   float: right;
   -webkit-filter: drop-shadow(1px 1px 1px #000);
-  filter: drop-shadow(1px 1px 1px #000);}
+  filter: drop-shadow(1px 1px 1px #000);
+}
 
 #footprintsBody {
   background-image: url(../../images/FPFootprintsHor.jpg);
   height: 100vh;
 }
 
+#footprintsDivs {
+  margin: 10vw 5vw 5vw 5vw;
+}
+
 @media screen and (max-width: 670px) {
+  .footprintsPageLogo {
+    margin: 6vw 25vw;
+    width: 50vw;
+    float: center;
+    filter: drop-shadow(1px 1px 1px #000);
+  }
   #footprintsBody {
     background-image: url(../../images/FPFootprintsVert.jpg);
     height: 100vh;

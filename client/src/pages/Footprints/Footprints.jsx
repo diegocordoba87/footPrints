@@ -6,15 +6,12 @@ import "./footprints.css";
 
 const Footprints = ({ setIsSidebarOpen }) => {
   // Setting our component's initial state
-  const [notes, setNotes] = useState([])
+  const [notes, setNotes] = useState([]);
 
-  
   // Load all books and store them with setBooks
   useEffect(() => {
-    
-    loadNotes()   
-    
-  }, [])
+    loadNotes();
+  }, []);
 
   // Loads all books and sets them to books
   function loadNotes() {
@@ -25,13 +22,68 @@ const Footprints = ({ setIsSidebarOpen }) => {
       .catch((err) => console.log(err));
   }
 
-
-
   return (
     <div id="footprintsBody" className="backgroundImage">
       <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
       <div onClick={() => setIsSidebarOpen(false)}>
-        <h2>My Footprint</h2>
+        <div className="uk-flex-center" uk-grid>
+          <div id="footprintsDivs">
+            <div
+              className="uk-child-width-1-2@s uk-child-width-1-3@m"
+              uk-grid="masonry: true"
+            >
+              <div>
+                <div
+                  className="uk-card uk-card-default uk-flex uk-flex-center uk-flex-middle"
+                  style={{ height: 100 }}
+                >
+                  Item
+                </div>
+              </div>
+              <div>
+                <div
+                  className="uk-card uk-card-default uk-flex uk-flex-center uk-flex-middle"
+                  style={{ height: 130 }}
+                >
+                  Item
+                </div>
+              </div>
+              <div>
+                <div
+                  className="uk-card uk-card-default uk-flex uk-flex-center uk-flex-middle"
+                  style={{ height: 150 }}
+                >
+                  Item
+                </div>
+              </div>
+              <div>
+                <div
+                  className="uk-card uk-card-default uk-flex uk-flex-center uk-flex-middle"
+                  style={{ height: 160 }}
+                >
+                  Item
+                </div>
+              </div>
+              <div>
+                <div
+                  className="uk-card uk-card-default uk-flex uk-flex-center uk-flex-middle"
+                  style={{ height: 120 }}
+                >
+                  Item
+                </div>
+              </div>
+              <div>
+                <div
+                  className="uk-card uk-card-default uk-flex uk-flex-center uk-flex-middle"
+                  style={{ height: 140 }}
+                >
+                  Item
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="uk-flex-first"></div>
+        </div>
 
         {notes.map((note) => (
           <p key={note._id}>{note.content}</p>

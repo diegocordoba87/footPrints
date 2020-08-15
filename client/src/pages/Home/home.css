@@ -1,3 +1,7 @@
+div.uk-flex.uk-flex-center.uk-flex-between.specialPadding {
+  margin: 0vw 4vw;
+}
+
 .cardBody {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
@@ -9,22 +13,10 @@
   box-shadow: 1px 1px 5px #000;
 }
 
-.creatorName {
-  text-align: center;
-  font-size: .6em;
-  padding: 1vw 0vw;
-  color: #85616a;
-}
-
 .creatorQuote {
-  font-size: .4em;
+  font-size: 0.4em;
   font-family: Arial, Helvetica, sans-serif;
   text-shadow: none;
-}
-
-.hiwText {
-  padding: 2vw;
-  text-align: left;
 }
 
 .profilePics {
@@ -43,6 +35,15 @@
   padding: 2vw;
 }
 
+.startButton {
+  opacity: 0.8;
+  margin: 1vw 2vw;
+  width: 7vw;
+  float: right;
+  -webkit-filter: drop-shadow(1px 1px 1px #000);
+  filter: drop-shadow(1px 1px 1px #000);
+}
+
 .uk-card-body {
   border-radius: 5px;
   max-width: 15%;
@@ -53,54 +54,99 @@
 }
 
 #heroImage {
-  width: 41vw;
-  margin-top: 11vw;
+  width: 34vw;
+  position: absolute;
+  top: 13vw;
+  left: 31vw;
   filter: drop-shadow(8px 8px 2px #000);
-  -webkit-filter: drop-shadow(8px 8px 2px #000);
+  -webkit-filter: drop-shadow(0px 6px 1px #000);
+  z-index: 1;
 }
 
 #homeBody {
   background-image: url(../../images/FPHomeBWHor.jpg);
 }
 
-#homeTagLine {
-  font-size: 1.25em;
-  margin: -4vw 0vw 0vw 22vw;
-  text-shadow: 3px 3px 5px #000;
-
+#homeButtonOne {
+  position: absolute;
+  top: -5vw;
+  right: 0;
 }
 
-#howitworks {
-  padding: 2vw;
+#homeHeader {
+  margin: 0vw;
+  max-width: 100%;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  background-color: rgba(182, 178, 179, 0.5);
+}
+
+#homeLayerOne {
+  margin-top: 24vw;
+}
+
+#homeTagLine {
+  font-size: 1.25em;
+  margin: -9vw 0vw 0vw 22vw;
+  text-shadow: 2px 3px 2px #000;
+  padding: 10vw 0vw 6vw 0vw;
+  color: white;
+}
+
+#story {
+  animation-duration: 2s;
+  animation-delay: 2s;
+  animation-timing-function: linear;
 }
 
 #tellYours {
-  margin: -1vw 0vw 0vw 6vw;
-  text-shadow: 2px 2px 3px #000;
+  text-shadow: 2px 3px 2px #000;
+  text-align: center;
+  position: relative;
+  animation-duration: 1s;
+  top: -9vw;
+  right: -19vw;
+  font-size: 4vw;
+  width: 80%;
+  color: white;
 }
 
 @media screen and (max-width: 670px) {
-  #aboutus {
-    /* margin: 0vw 15%;
-    width: 70%;
-    clear: both; */
-  }
 
+  #heroImage {
+    width: 72vw;
+    position: absolute;
+    top: 66vw;
+    left: 14vw;
+    filter: drop-shadow(8px 8px 2px #000);
+    -webkit-filter: drop-shadow(0px 6px 1px #000);
+    z-index: 1;
+  }
   #homeBody {
     background-image: url(../../images/FPHomeBWVert.jpg);
     height: 100vh;
   }
-
-  #howitworks {
-    /* margin: 10vw 15%;
-    width: 70%;
-    clear: both; */
+  #homeLayerOne {
+    margin-top: 75vw;
+    height: 20vw;
+  }
+  #homeTagLine {
+    font-size: 3em;
+    margin: 0vw;
+    text-shadow: 2px 3px 2px #000;
+    padding: 26vw 0vw 6vw 0vw;
+    color: white;
+    height: 55vw;
+  }
+  #tellYours {
+    text-shadow: 2px 3px 2px #000;
+    text-align: center;
+    position: relative;
+    animation-duration: 1s;
+    top: 13vw;
+    right: -19vw;
+    font-size: 9vw;
+    width: 80%;
+    color: white;
   }
 }
-
-/* Beige F1DDC2
-Green 89B1A3
-Lavender 80797C
-Purple282A3E
-Light Blue 5D8AA5
-Dark Blue 111825 */

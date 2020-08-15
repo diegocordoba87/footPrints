@@ -21,27 +21,9 @@ app.get("/api/config", (req, res) => {
     success: true,
   });
 });
-
-app.get("/location", (req, res) => {
-  Axios.post(
-    "https://pos.ls.hereapi.com/positioning/v1/locate?apiKey=x0ctxWIBslUK51f47JpqheGPcD8W3VBNTS_ZoFNTJgo",
-    {
-      gsm: [
-        {
-          mcc: 262,
-          mnc: 1,
-          lac: 5126,
-          cid: 21857,
-        },
-      ],
-    }
-  )
-    .then((axiosRes) => {
-      res.json({
-        data: axiosRes,
-      });
-    })
-    .catch();
+//client\src\pages\Demo\Demo.jsx
+app.get("/demo", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/src/pages/Demo/Demo.jsx"));
 });
 
 app.get("*", (req, res) => {

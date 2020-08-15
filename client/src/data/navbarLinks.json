@@ -19,31 +19,19 @@
   },
   {
     "title": "My Profile",
-    "href": "/profile",
-    "hiddenWhenLoggedIn": false,
-    "hiddenIfLoggedOut": true
-  },
-  {
-    "title": "Locations",
-    "href": "/locations",
-    "hiddenWhenLoggedIn": false,
-    "hiddenIfLoggedOut": true
-  },
-  {
-    "title": "Footprints",
-    "href": "/footprints",
+    "href": "/profile/:id",
     "hiddenWhenLoggedIn": false,
     "hiddenIfLoggedOut": true
   },
   {
     "title": "How it Works",
-    "href": "/#howitworks",
+    "href": "/aboutus/#howitworks",
     "hiddenWhenLoggedIn": false,
     "hiddenIfLoggedOut": false
   },
   {
     "title": "About Us",
-    "href": "/#aboutus",
+    "href": "/aboutus/#aboutus",
     "hiddenWhenLoggedIn": false,
     "hiddenIfLoggedOut": false
   }

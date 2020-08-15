@@ -1,4 +1,29 @@
 
+.inputSignup {
+  margin: 2vw 1vw 0vw 1vw;
+  width: 10vw;
+  padding: 0.5vw 1vw;
+  border: 3px solid #85616a;
+  border-radius: 5px;
+  box-shadow: 3px 3px 11px;
+}
+
+.inputSignup:focus {
+  outline: none;
+}
+
+#initials {
+  font-family: "Kalam", cursive;
+  color: #514a45;
+  text-shadow: 0px 1px 0px #333;
+  font-size: 3vw;
+  margin: -1vw 0vw 0vw 0vw;
+}
+
+#initials.inputSignup {
+  font-size: 1vw;
+  line-height: 1vw;
+}
 
 #signupBody {
   background-image: url(../../images/FPSignupHor.jpg);
@@ -13,5 +38,12 @@
   #signupBody {
     background-image: url(../../images/FPSignupVert.jpg);
     height: 100vh;
+  }
+  #signupInput {
+    margin: auto;
+    width: 80vw;
+    position: relative;
+    top: 8vw;
+    left: 0vw;
   }
 }

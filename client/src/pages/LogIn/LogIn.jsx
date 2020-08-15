@@ -1,87 +1,81 @@
 import React, { useState } from "react";
 import axios from "axios";
 import logo from "../../images/FPLogo.png";
+import HowItWorks from "../../Components/HowItWorks/HowItWorks";
 import "./login.css";
 
 const LogIn = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState(false);
   const { setIsSidebarOpen, setActiveUser } = props;
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     axios
-      .post("/api/login", { 
-        username: username, 
-        password: password 
+      .post("/api/login", {
+        username: username,
+        password: password,
       })
       .then((response) => {        
         if(response.data.message==="Authorization successful"){
-          window.alert("Welcome back!")
-          props.history.push('/profile')
+          props.history.push(`/profile/${response.data.data._id}`)
           setActiveUser(username);
           sessionStorage.setItem("username", username);
-          
+          console.log("username: ", username);
         }
-        else {
-
-          window.alert("Incorrect information. Try again!")
-        }       
-        
-        console.log(response);
-        //put in place for dynamic navbar- can be replaced with cookies
-        
       })
       .catch((err) => {
         console.log(err);
+        setLoginError(true);
       });
   };
 
   return (
     <div id="loginBody" className="backgroundImage">
-      <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
       <div onClick={() => setIsSidebarOpen(false)}>
-        <h2 className="headerText">Log In</h2>
-        <div>
-          <div id="howitworks" className="cardBodyLogin">
-            <div className="uk-card-medium uk-card-default">
-              <form id="loginInput" onSubmit={handleSubmit}>
-                <input
-                  className="input"
-                  type="email"
-                  name="email"
-                  value={username}
-                  onChange={(e) => {
-                    setUsername(e.target.value);
-                  }}
-                  placeholder="Email"
-                  required
-                />
-                <input
-                  className="input"
-                  type="password"
-                  name="password"
-                  value={password}
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
-                  placeholder="Password"
-                  required
-                />
-                <div className="row">
-                  <div className="col s12">
-                    <button
-                      className="logSignButton input"
-                      type="submit"
-                      
-                    >
-                      Login
-                    </button>
-                  </div>
+        <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
+        <div class="uk-flex uk-flex-center">
+          <div className="howitworks cardBodyLogin">
+            <h2 className="headerText">Log In</h2>
+
+            <form id="loginInput" onSubmit={handleSubmit}>
+              {loginError === true && (
+                <div id="loginError" class="uk-alert-danger" uk-alert>
+                  <a class="uk-alert-close" uk-close></a>
+                  <p>Please enter a valid username and password.</p>
                 </div>
-              </form>
-            </div>
+              )}
+              <input
+                className="input"
+                type="email"
+                name="email"
+                value={username}
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                  setLoginError(false);
+                }}
+                placeholder="Email"
+                required
+              />
+              <input
+                className="input"
+                type="password"
+                name="password"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  setLoginError(false);
+                }}
+                placeholder="Password"
+                required
+              />
+
+              <button className="logSignButton input" type="submit" value="Submit">
+                Login
+              </button>
+            </form>
           </div>
         </div>
       </div>

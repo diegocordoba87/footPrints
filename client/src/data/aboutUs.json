@@ -8,13 +8,14 @@
   },
   {
     "name": "Diego",
-    "quote": "Diego, the Database King, spends his time reading, and playing Futbal, and reading about Futbal.",
+    "quote": "Diego, the Database King, spends his time reading, and playing Futbol, and reading about Futbol.",
     "img": "../../images/Diego.jpg"
   },
   {
     "name": "Elizabeth",
     "quote": "When she's not manipulating the DOM, Elizabeth loves the nightlife. She's got to boogey, on the disco 'round.",
-    "img": "../../images/Liz.jpg"
+    "img": "../../images/Liz.jpg",
+    "portfolioLink": "elizabethregas.com"
   },
   {
     "name": "Mark",
@@ -23,9 +24,7 @@
   },
   {
     "name": "Michael",
-    "quote1": "Resident Memelord",
-    "quote2": "Placeholder 2",
-    "quote3": "Placeholder 3",
+    "quote": "Memelord in residence who enjoys MOBAs, international cuisine, dank memes, and adventuring.",
     "img": "../../images/Michael.jpg"
   }
 ]

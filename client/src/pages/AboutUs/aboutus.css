@@ -1,0 +1,77 @@
+div.uk-flex.specialPadding {
+  margin: 0vw 4vw;
+}
+
+#text {
+  margin: 5vw;
+}
+.creatorName {
+  font-size: 2vw;
+  padding: 1vw 0vw;
+  color: #514a45;
+}
+
+.creatorQuote {
+  color: #242527;
+}
+
+.profilePics {
+  padding: 1vw 0vw 0vw 0vw;
+}
+.tablinkAbout {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0vw 1vw 1vw 1vw;
+  font-size: 17px;
+  width: 20%;
+  color: #dce5d8;
+  font-family: "Kalam", cursive !important;
+  font-size: 2vw;
+  margin: auto;
+}
+
+.tablinkAbout:hover {
+  background-color: #85616a;
+}
+.uk-card-default {
+  margin: 0;
+}
+
+.uk-grid-item-match, .uk-grid-match>* {
+  display: block;
+  flex-wrap: wrap;
+  padding: 0vw 1vw 1vw 1vw;
+}
+
+#aboutTabs {
+  width: 10vw;
+  margin: auto;
+}
+#aboutus {
+  position: relative;
+  top: 10vw;
+  width: 70%;
+  color: #85616a;
+  text-shadow: 2px 2px 2px #000;
+}
+
+#aboutusBody {
+  background-image: url(../../images/FPHomeDarkerHor.jpg);
+  height: 100vh;
+}
+
+#aboutUsText {
+  padding: 2vw 0vw 0vw 0vw;
+}
+
+#tablinkAbout {
+
+}
+
+@media screen and (max-width: 670px) {
+  #aboutusBody {
+    background-image: url(../../images/FPFootprintsVert.jpg);
+    height: 100vh;
+  }
+}
