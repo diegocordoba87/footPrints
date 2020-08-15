@@ -68,9 +68,19 @@ h2 {
   width: 60vw;
   margin: auto;
 }
-/* Lavender: 948C94
-Chocolate: 292218
-Khaki: 7C6D57
-Green: 99A49D
-Beige: D5C8B4 
-White: f6f5f3 */
+
+@media screen and (max-width: 670px) {
+  .headerText {
+    color: #85616a;
+    font-size: 9vw;
+    font-family: "Kalam", cursive !important;
+    text-shadow: 1px 1px 1px #000;
+    text-align: center;
+  }
+  .logSignButton {
+    color: #85616a;
+    background-color: white;
+    width: 25vw;
+    box-shadow: 2px 2px 2px #000;
+  }
+}
