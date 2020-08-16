@@ -12,9 +12,8 @@ const Home = ({ setIsSidebarOpen }) => {
 
   const renderLayerOne = () => {
     setTimeout(() => {
-      console.log("one");
       setLayerOne(true);
-    }, 1000);
+    }, 0);
   };
 
   const renderLayerTwo = () => {

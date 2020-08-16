@@ -36,14 +36,14 @@ const LogIn = (props) => {
     <div id="loginBody" className="backgroundImage">
       <div onClick={() => setIsSidebarOpen(false)}>
         <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
-        <div class="uk-flex uk-flex-center">
+        <div className="uk-flex uk-flex-center">
           <div className="cardBodyLogin">
             <h2 className="headerText">Log In</h2>
 
             <form id="loginInput" onSubmit={handleSubmit}>
               {loginError === true && (
-                <div id="loginError" class="uk-alert-danger" uk-alert>
-                  <a class="uk-alert-close" uk-close></a>
+                <div className="loginError uk-alert-danger" uk-alert>
+                  <a className="uk-alert-close" uk-close></a>
                   <p>Please enter a valid username and password.</p>
                 </div>
               )}

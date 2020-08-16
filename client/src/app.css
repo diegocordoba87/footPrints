@@ -11,7 +11,7 @@ h1 {
 h2 {
   text-align: center;
   text-shadow: 2px 2px 5px #000;
-  margin: 2vw;
+  margin: 2vw 2vw 0vw 2vw;
 }
 
 .backgroundImage {
@@ -29,10 +29,11 @@ h2 {
 }
 
 .logSignButton {
-  color: #85616a;
+  color: #242527;
   background-color: white;
   width: 7vw;
   box-shadow: 2px 2px 2px #000;
+  margin-bottom: 3vw;
 }
 
 .center {

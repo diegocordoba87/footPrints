@@ -65,7 +65,7 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
                   setInitials(e.target.value);
                   setSignUpError(false);
                 }}
-                placeholder="Enter your initials"
+                placeholder="Initials"
                 required
               />
               <input
@@ -77,7 +77,7 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
                   setUsername(e.target.value);
                   setSignUpError(false);
                 }}
-                placeholder="Enter your email"
+                placeholder="Email"
                 required
               />
               <input
@@ -89,7 +89,7 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
                   setPassword(e.target.value);
                   setSignUpError(false);
                 }}
-                placeholder="Enter your password"
+                placeholder="Password"
                 required
               />
 
