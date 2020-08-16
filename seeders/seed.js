@@ -14,20 +14,20 @@ let LocationSeed = [
     
   },
   {
-    name: "Morgan Falls",
+    name: "Morgan Falls Overlook Park",
     geometry: {type: "Point", coordinates: [-84.379742, 33.968742]} 
     
   },
   {
-    name: "Trail Creek",
+    name: "Walker Park",
     geometry: {type: "Point", coordinates: [-83.357537, 33.971687]}    
   },
   {
-    name: "Elizabeth Porter Park And Spray ground",
+    name: "Elizabeth Porter Park & Sprayground",
     geometry: {type: "Point", coordinates: [-84.540687, 33.959884]}
   },
   {
-    name: "Brownwood",
+    name: "Brownwood Park Recreation Center",
     geometry: {
       type: "Point",
       coordinates: [-84.346715, 33.737831]
@@ -45,4 +45,3 @@ db.Location.deleteMany({})
     console.error(err);
     process.exit(1);
   });
-

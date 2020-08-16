@@ -11,11 +11,14 @@ import "./profile.css";
 const Profile = (props) => {
   // Setting our component's initial state
   const [userInfo, setUserInfo] = useState("");
-  const [userNotes, setUserNotes] = useState([]);
+  // const [userNotes, setUserNotes] = useState([]);
+  const [parkId, setParkId] = useState("");
   const [parkName, setParkName] = useState("");
   const [location, setLocation] = useState([]);
+  const [allLocations, setAllLocations] = useState([]);
+  const [populatedNote, setPopulatedNote] = useState("");
   const [newNoteContent, setNewNoteContent] = useState("");
-  const [isLocationDisplayed, setIsLocationDisplayed] = useState(false);
+  const [isLocationDisplayed, setIsLocationDisplayed] = useState(true);
   const { setIsSidebarOpen } = props;
   const user = sessionStorage.getItem("username");
 
@@ -29,15 +32,31 @@ const Profile = (props) => {
       console.log(lng);
       locationNear(lng, lat);
     });
-
-    loadUser();
+    loadLocations();
+    loadUser(id, setUserInfo);
   }, []);
 
-  function loadUser() {
-    API.getUserById(id)
+  useEffect(() => {
+    console.log("park id updated");
+    axios.get(`/api/locations/${parkId}`).then((res) => {
+      if (res.data && res.data.data && res.data.data.notes && res.data.data.notes.length > 0) {
+        const index = getRandomIntInclusive(0, res.data.data.notes.length - 1);
+        const noteText = res.data.data.notes[index].content;
+        setPopulatedNote(noteText);
+      }
+    })
+  }, [parkId]);
+
+  const getRandomIntInclusive = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+  }
+
+  function loadUser(userId, cb) {
+    API.getUserById(userId)
       .then((res) => {
-        console.log(res.data.data);
-        setUserInfo(res.data.data);
+        cb(res.data.data);
       })
       .catch((err) => console.log(err));
   }
@@ -48,12 +67,19 @@ const Profile = (props) => {
         console.log("testing", res.data.data[0]._id);
         let id = res.data.data[0]._id;
         setParkName(res.data.data[0].name);
-        axios.get(`/api/locations/${id}`).then((res) => {
-          console.log(res);
-        });
+        setParkId(id);
       }
     });
   };
+
+  const loadLocations = () => {
+    axios.get("/api/locations").then((res) => {
+      console.log(res);
+      if(res.data && res.data.data && res.data.data.length > 0) {
+        setAllLocations(res.data.data);
+      }
+    })
+  }
 
   function addNote(e) {
     e.preventDefault();
@@ -61,9 +87,11 @@ const Profile = (props) => {
       console.log(res);
       const id = res.data.data._id;
       console.log("res id: ", id);
-      axios.put(`/api/users/${userInfo._id}/addnote`, { _id: id }).then((res) => {
-        console.log("note id: ", res);
-      }) 
+      axios
+        .put(`/api/users/${userInfo._id}/addnote`, { _id: id })
+        .then((res) => {
+          console.log("note id: ", res);
+        });
     });
   }
 
@@ -87,14 +115,14 @@ const Profile = (props) => {
             <div id="dashboardTabs">
               <button
                 id="tablinkLocations"
-                class="tablink"
+                className="tablink"
                 onClick={() => setIsLocationDisplayed(true)}
               >
                 Locations
               </button>
               <button
                 id="tablinkFootprints"
-                class="tablink"
+                className="tablink"
                 onClick={() => setIsLocationDisplayed(false)}
               >
                 Collection
@@ -109,11 +137,16 @@ const Profile = (props) => {
                   {...props}
                   newNoteContent={newNoteContent}
                   setNewNoteContent={setNewNoteContent}
+                  parkId={parkId}
+                  populatedNote={populatedNote}
                 />
                 <MapComp
                   {...props}
                   location={location}
                   setLocation={setLocation}
+                  setParkName={setParkName}
+                  setParkId={setParkId}
+                  allLocations={allLocations}
                 />
               </div>
             )}
@@ -123,6 +156,7 @@ const Profile = (props) => {
                   {...props}
                   newNoteContent={newNoteContent}
                   setNewNoteContent={setNewNoteContent}
+                  loadUser={loadUser}
                 />
               </div>
             )}

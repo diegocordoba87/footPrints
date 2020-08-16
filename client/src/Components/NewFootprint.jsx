@@ -6,11 +6,11 @@ import API from "../utils/API";
 const NewFootprint = (props) => {
   const [parkName, setParkName] = useState("");
   const [userInfo, setUserInfo] = useState("");
-  const { location, setLocation } = props;
+  const { parkId, populatedNote } = props;
 
 
   const { newNoteContent, setNewNoteContent } = props;
-  const { id } = useParams();
+  const { id: userId } = useParams();
 
   const locationNear = (lng, lat) => {
     axios.get(`/api/locationsnear/?lng=${lng}&lat=${lat}`).then((res) => {
@@ -25,7 +25,7 @@ const NewFootprint = (props) => {
   };
 
   function loadUser() {
-    API.getUserById(id)
+    API.getUserById(userId)
       .then((res) => {
         console.log("userInfo: ", res.data.data[0].content);
         setUserInfo(res.data.data);
@@ -47,13 +47,12 @@ const NewFootprint = (props) => {
   function addNote(e) {
     e.preventDefault();
     axios.post("/api/newnote", { content: newNoteContent }).then((res) => {
-      const id = res.data.data._id;
-      console.log ("id: ", id);
-      console.log("userInfo", userInfo._id);
-      axios.put(`/api/user/${userInfo._id}/addnote`, { id: id }).then((res) => {
+      const noteId = res.data.data._id;
+      console.log ("id: ", noteId);
+      console.log("userInfo", userId);
+      axios.put(`/api/user/${userId}/addnote`, { id: noteId }).then((res) => {
         console.log("note id: ", res);
-        console.log(location);
-        axios.put(`/api/locations/${location._id}/addnote`, { id: id }).then((res) => {
+        axios.put(`/api/locations/${parkId}/addnote`, { id: noteId }).then((res) => {
           console.log(res);
         })
       }) 
@@ -96,7 +95,7 @@ const NewFootprint = (props) => {
         A new FootPrint is available!
         <div>
           <div id="newFootprintCardBody" className="uk-card uk-card-default footprintCards">
-            <p className="footprintText"></p>
+            <p className="footprintText">{populatedNote}</p>
             <button className="deleteFootprintButton saveDeleteButton">
               delete
             </button>

@@ -1,63 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
+import API from "../utils/API";
 import Map from "./Map";
 import footprintSeeds from "../data/footprintSeeds.json";
 import "../pages/Profile/profile.css";
 
 const FootprintsDisplay = (props) => {
-  const notes = [];
-  const [notesByLocation, setNotesByLocation] = useState([]);
-  const { newNoteContent, setNewNoteContent, location } = props;
+  const [userNotesOnCollectionPage, setUserNotesOnCollectionPage] = useState({
+    notes: [],
+  });
+  const { newNoteContent, setNewNoteContent, location, loadUser } = props;
 
-  function addNote(e) {
-    e.preventDefault();
-    axios.post("/api/newnote", { content: newNoteContent }).then((res) => {
-      console.log(res);
-    });
-  }
+  const { id } = useParams();
 
-  function deleteNote(id) {
-    console.log(id);
-    axios.delete(`/api/note/${id}`).then((res) => {
-      window.alert(`Successfully deleted new note`);
+  useEffect(() => {
+    loadUser(id, setUserNotesOnCollectionPage);
+  }, []);
+
+  const deleteNote = (noteId) => {
+    axios.delete(`/api/note/${noteId}`).then((res) => {
+      loadUser(id, setUserNotesOnCollectionPage);
     });
-  }
+  };
 
   return (
     <div id="footprints">
-      <div uk-grid="masonry: true">
-        <div className="homeText">
-          {notesByLocation.map((note) => {
-            return (
-              <div>
-                <div className="uk-card uk-card-default footprintCards">
-                  <p className="footprintText">
-                    <p key={note.title}>
-                      {note.content}
-                      <button
-                        onClick={() => {
-                          deleteNote(note._id);
-                        }}
-                      >
-                        Delete Footprint
-                      </button>
-                    </p>
-                  </p>
-                  <button className="deleteFootprintButton saveDeleteButton">
-                    delete
-                  </button>
-                  <button className="saveFootprintButton saveDeleteButton">
-                    save
-                  </button>
-                </div>
+      <div uk-grid>
+        {userNotesOnCollectionPage.notes.map((note, index) => {
+          return (
+            <div key={index}>
+              <div className="uk-card-default footprintCards">
+                {note.content}
+                <button
+                  onClick={() => deleteNote(note._id)}
+                  className="deleteFootprintButton saveDeleteButton"
+                >
+                  delete
+                </button>
               </div>
-            );
-          })}
-        </div>
-
-        {notes.map((note) => (
-          <p key={note._id}>{note.content}</p>
-        ))}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
