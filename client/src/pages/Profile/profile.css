@@ -18,6 +18,7 @@
   transition: all 1s;
   box-shadow: 0px 2px 5px #000;
   text-align: justify;
+  overflow: scroll;
 }
 
 .footprintCards:hover {
