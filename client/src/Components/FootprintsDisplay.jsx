@@ -34,9 +34,15 @@ const FootprintsDisplay = (props) => {
                 {note.content}
                 <button
                   onClick={() => deleteNote(note._id)}
-                  className="deleteFootprintButton saveDeleteButton"
+                  className="deleteFootprintButton readDeleteButton"
                 >
-                  delete
+                  Delete
+                </button>
+                <button
+                  onClick={() => deleteNote(note._id)}
+                  className="readFootprintButton readDeleteButton"
+                >
+                  Read
                 </button>
               </div>
             </div>

@@ -96,11 +96,14 @@ const NewFootprint = (props) => {
         <div>
           <div id="newFootprintCardBody" className="uk-card uk-card-default footprintCards">
             <p className="footprintText">{populatedNote}</p>
-            <button className="deleteFootprintButton saveDeleteButton">
+            <button className="deleteFootprintButton readSaveDeleteButton">
               delete
             </button>
-            <button className="saveFootprintButton saveDeleteButton">
+            <button className="saveFootprintButton readSaveDeleteButton">
               save
+            </button>
+            <button className="readFootprintButton readSaveDeleteButton">
+              read
             </button>
           </div>
         </div>
