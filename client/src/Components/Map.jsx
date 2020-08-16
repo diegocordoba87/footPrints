@@ -8,7 +8,7 @@ let allLocations;
 const handleSetPark = (name, setParkName, setParkId, allLocations) => {
   setParkName(name);
   const parkObj = allLocations.find((locationObj) => locationObj.name === name);
-console.log(allLocations)
+console.log("allLocations" + allLocations)
 
   setParkId(parkObj._id);
 };
