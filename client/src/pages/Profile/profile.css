@@ -55,11 +55,17 @@
   border-bottom-right-radius: 5px;
 }
 
-.saveDeleteButton {
+.readDeleteButton {
   float: right;
-  margin-top: 0.5vw;
+  margin: 0vw;
 }
-.saveDeleteButton:focus {
+.readSaveDeleteButton {
+  position: relative;
+  bottom: 3vw;
+  float: right;
+  margin: 0vw;
+}
+.readDeleteButton:focus {
   outline: none;
 }
 .deleteFootprintButton {
@@ -67,6 +73,14 @@
   color: #dce5e8;
 }
 .deleteFootprintButton:hover {
+  background-color: #dce5d8;
+  color: #242527;
+}
+.saveFootprintButton {
+  background-color: #514a45;
+  color: #dce5e8;
+}
+.saveFootprintButton:hover {
   background-color: #dce5d8;
   color: #242527;
 }
@@ -128,11 +142,11 @@
 #profileForm {
   margin-top: 2vw;
 }
-.saveFootprintButton {
-  background-color: #514a45;
+.readFootprintButton {
+  background-color: #9a827e;
   color: #dce5e8;
 }
-.saveFootprintButton:hover {
+.readFootprintButton:hover {
   background-color: #dce5d8;
   color: #242527;
 }
@@ -167,7 +181,7 @@
     overflow: auto;
   }
 
-  .saveDeleteButton {
+  .readDeleteButton {
     margin: auto;
   }
   #initials.inputSignup {
