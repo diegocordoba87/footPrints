@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Speech from "../Components/speech"
 import API from "../utils/API";
 import Map from "./Map";
 import footprintSeeds from "../data/footprintSeeds.json";
@@ -34,10 +35,17 @@ const FootprintsDisplay = (props) => {
                 {note.content}
                 <button
                   onClick={() => deleteNote(note._id)}
-                  className="deleteFootprintButton saveDeleteButton"
+                  className="deleteFootprintButton readDeleteButton"
                 >
-                  delete
+                  Delete
                 </button>
+                <button
+                  // onClick={() => deleteNote(note._id)}
+                  className="readFootprintButton readDeleteButton"
+                >
+                  Read
+                </button>
+                {/* <Speech /> */}
               </div>
             </div>
           );

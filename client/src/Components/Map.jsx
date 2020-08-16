@@ -69,13 +69,14 @@ export default class Map extends React.Component {
 
     //add a marker to a map at user's lat/long position
     let icon = new H.map.Icon("FPFavicon.png");
-    let userMarker = new H.map.Marker({ lat: lat, lng: lng }, { icon: icon });
-    map.addObject(userMarker);
+    // let userMarker = new H.map.Marker({ lat: lat, lng: lng }, { icon: icon });
+    // map.addObject(userMarker);
 
     //create a draggable marker
     let dragMarker = new H.map.Marker(
       { lat: lat + 0.005, lng: lng + 0.005 },
-      { volatility: true }
+      { volatility: true },
+      { icon: icon }
     );
     dragMarker.draggable = true;
     map.addObject(dragMarker);
