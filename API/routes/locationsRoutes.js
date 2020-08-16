@@ -87,6 +87,23 @@ router.put("/api/locations/:id/addnote", (req, res) => {
   })
 })
 
+// remove note ID from location's array without the note's table being affected
+router.put("/api/location/:id/removenote", (req, res) => {
+  console.log("*********************id:", req.body.id)
+  console.log("user ID:", req.params.id)
+  db.Location.findByIdAndUpdate(req.params.id, {$pull: {notes: req.body.id}}, { new: true })
+  .then((updatednote) => {
+    console.log(updatednote)
+    res.json({
+      error: false,
+      data: updatednote,
+      message: "Successfully updated note.",
+    });
+  }).catch((err)=>{
+    console.log(err)
+  })
+})
+
 
 //back end use and testing 
 router.post("/api/addlocation", (req, res)=>{
