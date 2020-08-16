@@ -5,7 +5,7 @@ import "../pages/Profile/profile.css";
 
 const MapComp = (props) => {
   const user = sessionStorage.getItem("username");
-  const { location, setLocation } = props;
+  const { location, setLocation, setParkName, setParkId, allLocations } = props;
 
   useEffect(() => {
     const testing = [
@@ -26,7 +26,11 @@ const MapComp = (props) => {
   return (
     <div>
       <div>
-        <Map />
+        <Map
+          setParkName={setParkName}
+          setParkId={setParkId}
+          allLocations={allLocations}
+        />
       </div>
       <div className="locationDiv">
         {location.map((locationObj) => (

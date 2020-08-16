@@ -15,6 +15,8 @@ const Profile = (props) => {
   const [parkId, setParkId] = useState("");
   const [parkName, setParkName] = useState("");
   const [location, setLocation] = useState([]);
+  const [allLocations, setAllLocations] = useState([]);
+  const [populatedNote, setPopulatedNote] = useState("");
   const [newNoteContent, setNewNoteContent] = useState("");
   const [isLocationDisplayed, setIsLocationDisplayed] = useState(false);
   const { setIsSidebarOpen } = props;
@@ -30,9 +32,26 @@ const Profile = (props) => {
       console.log(lng);
       locationNear(lng, lat);
     });
-
+    loadLocations();
     loadUser(id, setUserInfo);
   }, []);
+
+  useEffect(() => {
+    console.log("park id updated");
+    axios.get(`/api/locations/${parkId}`).then((res) => {
+      if (res.data && res.data.data && res.data.data.notes && res.data.data.notes.length > 0) {
+        const index = getRandomIntInclusive(0, res.data.data.notes.length - 1);
+        const noteText = res.data.data.notes[index].content;
+        setPopulatedNote(noteText);
+      }
+    })
+  }, [parkId]);
+
+  const getRandomIntInclusive = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+  }
 
   function loadUser(userId, cb) {
     API.getUserById(userId)
@@ -52,6 +71,15 @@ const Profile = (props) => {
       }
     });
   };
+
+  const loadLocations = () => {
+    axios.get("/api/locations").then((res) => {
+      console.log(res);
+      if(res.data && res.data.data && res.data.data.length > 0) {
+        setAllLocations(res.data.data);
+      }
+    })
+  }
 
   function addNote(e) {
     e.preventDefault();
@@ -110,11 +138,15 @@ const Profile = (props) => {
                   newNoteContent={newNoteContent}
                   setNewNoteContent={setNewNoteContent}
                   parkId={parkId}
+                  populatedNote={populatedNote}
                 />
                 <MapComp
                   {...props}
                   location={location}
                   setLocation={setLocation}
+                  setParkName={setParkName}
+                  setParkId={setParkId}
+                  allLocations={allLocations}
                 />
               </div>
             )}

@@ -6,7 +6,7 @@ import API from "../utils/API";
 const NewFootprint = (props) => {
   const [parkName, setParkName] = useState("");
   const [userInfo, setUserInfo] = useState("");
-  const { parkId } = props;
+  const { parkId, populatedNote } = props;
 
 
   const { newNoteContent, setNewNoteContent } = props;
@@ -95,7 +95,7 @@ const NewFootprint = (props) => {
         A new FootPrint is available!
         <div>
           <div id="newFootprintCardBody" className="uk-card uk-card-default footprintCards">
-            <p className="footprintText"></p>
+            <p className="footprintText">{populatedNote}</p>
             <button className="deleteFootprintButton saveDeleteButton">
               delete
             </button>

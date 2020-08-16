@@ -22,30 +22,26 @@ const FootprintsDisplay = (props) => {
     axios.delete(`/api/note/${noteId}`).then((res) => {
       loadUser(id, setUserNotesOnCollectionPage);
     });
-  }
+  };
 
   return (
     <div id="footprints">
-      <div uk-grid="masonry: true">
-        <div className="homeText">
-          {userNotesOnCollectionPage.notes.map((note, index) => {
-            return (
-              <div key={index}>
-                <div className="uk-card uk-card-default footprintCards">
-                  <p className="footprintText">
-                    
-                  </p>
-                  <button
-                    onClick={() => deleteNote(note._id)}
-                    className="deleteFootprintButton saveDeleteButton"
-                  >
-                    delete
-                  </button>
-                </div>
+      <div uk-grid>
+        {userNotesOnCollectionPage.notes.map((note, index) => {
+          return (
+            <div key={index}>
+              <div className="uk-card-default footprintCards">
+                {note.content}
+                <button
+                  onClick={() => deleteNote(note._id)}
+                  className="deleteFootprintButton saveDeleteButton"
+                >
+                  delete
+                </button>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
