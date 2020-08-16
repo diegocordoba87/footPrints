@@ -101,9 +101,9 @@ div.uk-flex.specialPadding {
     background-image: url(../../images/FPFootprintsVert.jpg);
     height: 100vh;
   }
-  #AboutUsText {
-    position: relative;
-    top: -32vw;
+  #aboutUsText {
+    top: -32vw !important;
+    position: relative !important;
   }
 
 }
