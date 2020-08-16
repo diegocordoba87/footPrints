@@ -8,7 +8,9 @@ let allLocations;
 const handleSetPark = (name, setParkName, setParkId, allLocations) => {
   setParkName(name);
   const parkObj = allLocations.find((locationObj) => locationObj.name === name);
-  setParkId(parkObj._id);
+  if(parkObj && parkObj._id) {
+    setParkId(parkObj._id);
+  }
 };
 export default class Map extends React.Component {
   mapRef = React.createRef();
@@ -74,7 +76,6 @@ export default class Map extends React.Component {
     let dragMarker = new H.map.Marker(
       { lat: lat + 0.005, lng: lng + 0.005 },
       { volatility: true },
-      { icon: icon }
     );
     dragMarker.draggable = true;
     map.addObject(dragMarker);

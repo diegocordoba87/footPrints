@@ -79,9 +79,21 @@ Fork the repo and suggest changes via github.
 
 ## Contact
 
-[For Scott Griffin's github porfolio, click here.](https://github.com/scott-gr)
+[For Andrea Hamilton's github porfolio, click here.](https://github.com/arhamilton92)
 
-[To contact Scott, please email him at mscottgriffin@gmail.com.](mailto:mscottgriffin@gmail.com)
+[To contact Andrea, please email her at andrea.r.hamilton92@gmail.com.](mailto:andrea.r.hamilton92@gmail.com)
+
+---
+
+[For Diego Cordoba's github porfolio, click here.](https://github.com/diegocordoba87)
+
+[To contact Diego, please email him at diegocordoba87@gmail.com.](mailto:diegocordoba87@gmail.com)
+
+---
+
+[For Elizabeth Regas' github porfolio, click here.](https://github.com/ElizaRegas)
+  
+ [To contact Elizabeth, please email her at elizaregas@gmail.com.](mailto:elizaregas@gmail.com)
 
 ---
 
@@ -91,9 +103,9 @@ Fork the repo and suggest changes via github.
 
 ---
 
-[For Elizabeth Regas' github porfolio, click here.](https://github.com/ElizaRegas)
-  
- [To contact Elizabeth, please email her at elizaregas@gmail.com.](mailto:elizaregas@gmail.com)
+[For Michael Nava's github porfolio, click here.](https://github.com/m1cha3lnava)
+
+[To contact Michael, please email him at m1cha3l.nava@gmail.com.](mailto:m1cha3l.nava@gmail.com)
 
 ---
 
