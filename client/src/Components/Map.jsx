@@ -66,7 +66,7 @@ export default class Map extends React.Component {
     console.log(behavior);
 
     //add a marker to a map at user's lat/long position
-    let icon = new H.map.Icon("FPFavicon.png");
+    let icon = new H.map.Icon("client/public/FPFavicon.png");
     // let userMarker = new H.map.Marker({ lat: lat, lng: lng }, { icon: icon });
     // map.addObject(userMarker);
 
