@@ -6,16 +6,16 @@
 .footprintCards {
   font-size: 1vw;
   font-family: "M";
-  color: #514A45;
+  color: #514a45;
   text-shadow: none;
   background-color: #efefef;
-  font-family: 'Mulish', sans-serif;
+  font-family: "Mulish", sans-serif;
   width: 100%;
   height: 5vw;
   margin: 1vw;
   padding: 1vw;
   border-radius: 0px;
-  transition:all 1s;
+  transition: all 1s;
   box-shadow: 0px 2px 5px #000;
   text-align: justify;
 }
@@ -57,7 +57,7 @@
 
 .saveDeleteButton {
   float: right;
-  margin-top: .5vw;
+  margin-top: 0.5vw;
 }
 .saveDeleteButton:focus {
   outline: none;
@@ -77,7 +77,7 @@
 #map {
   height: 22vw;
   margin: 2vw;
-  background-image: url('../../images/LoadingSquare.jpg');
+  background-image: url("../../images/LoadingSquare.jpg");
 }
 
 .profileButton {
@@ -106,7 +106,7 @@
   border: #666 solid 5px;
   margin: 0vw;
   padding: 2vw;
-  font-family: 'Mulish', sans-serif;
+  font-family: "Mulish", sans-serif;
   text-shadow: 0px 1px 0px 0px;
   box-shadow: 0px 5px 3px #000;
 }
@@ -124,8 +124,6 @@
 #profileBody {
   background-image: url(../../images/FPProfileHor.jpg);
 }
-
-
 
 #profileForm {
   margin-top: 2vw;
@@ -152,10 +150,10 @@
   .footprintCards {
     font-size: 4vw;
     font-family: "M";
-    color: #514A45;
+    color: #514a45;
     text-shadow: none;
     background-color: #efefef;
-    font-family: 'Mulish', sans-serif;
+    font-family: "Mulish", sans-serif;
     width: 100%;
     height: 150px;
     margin: 1vw;
@@ -164,17 +162,20 @@
     transition: all 1s;
     box-shadow: 0px 2px 5px #000;
     text-align: left;
-}
+  }
   .footprintText {
     overflow: auto;
   }
+
   .saveDeleteButton {
     margin: auto;
+  }
+  #initials.inputSignup {
+    font-size: 4vw !important;
+    line-height: 10vw !important;
   }
   #profileBody {
     background-image: url(../../images/FPProfileVert.jpg);
     height: 100vh;
   }
 }
-
-

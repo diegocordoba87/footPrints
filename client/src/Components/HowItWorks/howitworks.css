@@ -1,9 +1,26 @@
+.hiwCardBody {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  width: 70vw !important;
+  margin: auto;
+  margin-bottom: 5vw;
+  object-fit: cover;
+  text-align: center;
+  box-shadow: 1px 1px 5px #000;
+  position: absolute;
+  top: 10vw;
+  left: 15vw;
+  height: 45vw;
+}
 .hiwText {
   padding: 2vw;
   text-align: left;
-  font-size: 1vw;
+  font-size: 1.5vw;
   font-family: Arial, Helvetica, sans-serif;
   text-shadow: none;
+  font-weight: 600;
+  color: #242527;
+
 }
 
 .howitworks {
@@ -16,7 +33,7 @@
   border-radius: 5px;
   text-align: center;
   box-shadow: 1px 1px 5px #000;
-  width: 40vw;
+  width: 69vw;
   color: #000;
   position: relative;
   top: 3vw;
@@ -24,12 +41,24 @@
 }
 
 @media screen and (max-width: 670px) {
-  div.howitworks.cardBodyLogin {
-    width: 80vw;
-    position: fixed;
-    top: 40vw;
-    left: 9vw;
-    height: 72vw;
+  .aboutusCardBody {
+    height: 20vw;
+
+  }
+  .hiwCardBody {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    width: 69vw !important;
+    margin: auto;
+    margin-bottom: 5vw;
+    object-fit: cover;
+    text-align: center;
+    box-shadow: 1px 1px 5px #000;
+    position: absolute;
+    top: 36vw;
+    left: 16vw;
+    height: 70vw;
+    overflow: auto;
   }
   .howitworksLogin {
     display: none;
@@ -43,5 +72,12 @@
     font-family: Arial, Helvetica, sans-serif;
     text-shadow: none;
     scroll-behavior: smooth;
+  }
+  #aboutUs {
+    width: 69%;
+    top: 115vw;
+  }
+  #aboutUsText {
+    top: -32vw;
   }
 }
