@@ -16,10 +16,10 @@ const MapComp = (props) => {
         name: "Atlanta",
       },
     ];
-    axios.get("api/locations").then((locations) => {
+    axios.get("/api/locations").then((locations) => {
       // setLocation(locations.data.data);
-      setLocation(testing);
-      // console.log(locations.data.data);
+      setLocation(locations.data);
+     console.log("location map comp" , locations.data);
     });
   }, []);
 

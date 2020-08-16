@@ -10,16 +10,16 @@ const Locations = ({ setIsSidebarOpen }) => {
   useEffect(() => {
     const testing = [
       {
-        name: "Marietta",
+        name: "Banana",
       },
       {
         name: "Atlanta",
       },
     ];
-    axios.get("api/locations").then((locations) => {
+    axios.get("/api/locations").then((locations) => {
       // setLocation(locations.data.data);
       setLocation(testing);
-      // console.log(locations.data.data);
+      console.log("location 22: ",locations.data.data);
     });
   }, []);
 

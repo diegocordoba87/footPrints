@@ -74,9 +74,9 @@ const Profile = (props) => {
 
   const loadLocations = () => {
     axios.get("/api/locations").then((res) => {
-      console.log(res);
-      if(res.data && res.data.data && res.data.data.length > 0) {
-        setAllLocations(res.data.data);
+      console.log("loadtLocations: ", res);
+      if(res.data && res.data.length > 0) {
+        setAllLocations(res.data);
       }
     })
   }
