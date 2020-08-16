@@ -8,6 +8,8 @@ let allLocations;
 const handleSetPark = (name, setParkName, setParkId, allLocations) => {
   setParkName(name);
   const parkObj = allLocations.find((locationObj) => locationObj.name === name);
+console.log(allLocations)
+
   setParkId(parkObj._id);
 };
 export default class Map extends React.Component {
