@@ -18,7 +18,10 @@ const SpeechComp = ({ footprintText, noteId, deleteNote }) => {
         {supported && (
           <React.Fragment>
             <button
-              onClick={() => deleteNote(noteId)}
+              onClick={(e) => {
+                e.preventDefault();
+                deleteNote(noteId);
+              }}
               className="deleteFootprintButton readDeleteButton"
             >
               Delete

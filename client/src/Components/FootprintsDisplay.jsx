@@ -8,10 +8,17 @@ import footprintSeeds from "../data/footprintSeeds.json";
 import "../pages/Profile/profile.css";
 
 const FootprintsDisplay = (props) => {
-  const [userNotesOnCollectionPage, setUserNotesOnCollectionPage] = useState({
-    notes: [],
-  });
-  const { newNoteContent, setNewNoteContent, location, loadUser } = props;
+  // const [userNotesOnCollectionPage, setUserNotesOnCollectionPage] = useState({
+  //   notes: [],
+  // });
+  const {
+    newNoteContent,
+    setNewNoteContent,
+    location,
+    loadUser,
+    userNotesOnCollectionPage,
+    setUserNotesOnCollectionPage,
+  } = props;
 
   const { id } = useParams();
 

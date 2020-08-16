@@ -4,7 +4,7 @@
 }
 
 .footprintCards {
-  font-size: 1vw;
+  font-size: 1.25vw;
   font-family: "M";
   color: #514a45;
   text-shadow: none;
@@ -69,6 +69,9 @@
   float: right;
   margin: 3vw 0vw 1vw 0vw;
 }
+.readSaveDeleteButton:focus {
+  outline: none;
+}
 .readDeleteButton:focus {
   outline: none;
 }
@@ -128,11 +131,25 @@
   text-shadow: 0px 1px 0px 0px;
   box-shadow: 0px 5px 3px #000;
 }
+#newFootprintButton {
+  position: relative;
+  bottom: 3vw;
+  float: right;
+  margin: 3vw 0vw 1vw 0vw;
+  background-color: #9a827e;
+  color: #dce5e8;
+}
+#newFootprintButton:focus {
+  outline: none;
+}
 #newFootprintCardBody {
   border-radius: 5px;
 }
 #newFootprintText {
-  margin: 0vw 0vw 2vw 0vw;
+  text-align: center !important;
+  margin-bottom: 2vw !important;
+  position: relative;
+  left: 5vw;
 }
 #note {
   margin: auto;
@@ -190,7 +207,7 @@
     box-shadow: 0px 2px 5px #000;
     text-align: left;
   }
-  .footprintText {
+  #footprintText {
     overflow: auto;
     font-size: 1.25vw !important;
   }

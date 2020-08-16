@@ -1,13 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Speech from "./SpeechComp";
 import axios from "axios";
 import API from "../utils/API";
 
 const NewFootprint = (props) => {
   const [parkName, setParkName] = useState("");
-  const [userInfo, setUserInfo] = useState("");
-  const { parkId, populatedNote } = props;
-  const { newNoteContent, setNewNoteContent } = props;
+  const {
+    parkId,
+    populatedNote,
+    setPopulatedNote,
+    setPopulatedNoteId,
+    noteId,
+  } = props;
+  const {
+    newNoteContent,
+    setNewNoteContent,
+    setUserNotesOnCollectionPage,
+  } = props;
   const { id: userId } = useParams();
 
   const locationNear = (lng, lat) => {
@@ -22,15 +32,6 @@ const NewFootprint = (props) => {
     });
   };
 
-  function loadUser() {
-    API.getUserById(userId)
-      .then((res) => {
-        console.log("userInfo: ", res.data.data[0].content);
-        setUserInfo(res.data.data);
-      })
-      .catch((err) => console.log(err));
-  }
-
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
       const lat = position.coords.latitude;
@@ -39,15 +40,12 @@ const NewFootprint = (props) => {
       console.log(lng);
       locationNear(lng, lat);
     });
-    loadUser();
   }, []);
 
   function addNote(e) {
     e.preventDefault();
     axios.post("/api/newnote", { content: newNoteContent }).then((res) => {
       const noteId = res.data.data._id;
-      console.log("id: ", noteId);
-      console.log("userInfo", userId);
       axios.put(`/api/user/${userId}/addnote`, { id: noteId }).then((res) => {
         console.log("note id: ", res);
         axios
@@ -60,12 +58,10 @@ const NewFootprint = (props) => {
     });
   }
 
-  function deleteNote(id) {
-    console.log(id);
-    axios.delete(`/api/note/${id}`).then((res) => {
-      window.alert(`Successfully deleted new note`);
-    });
-  }
+  const clearNewNoteField = () => {
+    setPopulatedNote("");
+    setPopulatedNoteId("");
+  };
 
   return (
     <div>
@@ -96,7 +92,7 @@ const NewFootprint = (props) => {
           ></textarea>
         </label>
         <button id="newFootprintButton" onClick={addNote}>
-          Leave Your FootPrint
+          leave your FootPrint
         </button>
       </form>
       <div id="newFootprintAvailable">
@@ -106,16 +102,24 @@ const NewFootprint = (props) => {
             id="newFootprintCardBody"
             className="uk-card uk-card-default footprintCards"
           >
-            <p className="footprintText">{populatedNote}</p>
-            <button className="deleteFootprintButton readSaveDeleteButton">
-              delete
-            </button>
-            <button className="saveFootprintButton readSaveDeleteButton">
-              save
-            </button>
-            <button className="readFootprintButton readSaveDeleteButton">
-              read
-            </button>
+            <p id="footprintText">{populatedNote}</p>
+
+            {populatedNote !== "" && (
+              <>
+                <button
+                  className="deleteFootprintButton readSaveDeleteButton"
+                  onClick={clearNewNoteField}
+                >
+                  delete
+                </button>
+                <button className="saveFootprintButton readSaveDeleteButton">
+                  save
+                </button>
+                <button className="readFootprintButton readSaveDeleteButton">
+                  read
+                </button>
+              </>
+            )}
           </div>
         </div>
       </div>
