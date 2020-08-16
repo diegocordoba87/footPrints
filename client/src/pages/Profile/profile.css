@@ -12,7 +12,7 @@
   font-family: "Mulish", sans-serif;
   width: 100%;
   height: 5vw;
-  margin: 1vw;
+  margin: 1vw 0vw !important;
   padding: 1vw;
   border-radius: 0px;
   transition: all 1s;
@@ -29,7 +29,10 @@
 .H_ui {
   display: none;
 }
+.homeText {
+  margin-bottom: 1vw;
 
+}
 .locationDiv {
   height: 25vw;
   width: 30vw;
@@ -64,7 +67,7 @@
   position: relative;
   bottom: 3vw;
   float: right;
-  margin: 0vw;
+  margin: 3vw 0vw 1vw 0vw;
 }
 .readDeleteButton:focus {
   outline: none;
@@ -128,9 +131,14 @@
 #newFootprintCardBody {
   border-radius: 5px;
 }
+#newFootprintText {
+  margin: 0vw 0vw 2vw 0vw;
+}
 #note {
   margin: auto;
   width: 55vw;
+  font-size: 1.25vw;
+  font-family: Mulish;
   border-radius: 5px;
   padding: 1vw 0vw 2vw 1vw;
   margin-top: 1vw;
@@ -154,11 +162,15 @@
 #tablinkFootprints {
   background-color: #918082;
   border-top-right-radius: 5px;
+  margin-top: 1vw;
+
 }
 
 #tablinkLocations {
   background-color: #563e44;
   border-top-left-radius: 5px;
+  margin-top: 1vw;
+
 }
 
 @media screen and (max-width: 670px) {
@@ -180,6 +192,7 @@
   }
   .footprintText {
     overflow: auto;
+    font-size: 1.25vw !important;
   }
 
   .readDeleteButton {

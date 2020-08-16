@@ -19,7 +19,7 @@ button.logSignButton.input {
   color: #514a45;
   text-shadow: none;
   font-size: 3vw;
-  margin: -1vw 0vw 0vw 0vw;
+  margin: -1vw 0vw 1vw 0vw;
 }
 
 #initials.inputSignup {

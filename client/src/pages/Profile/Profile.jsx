@@ -11,7 +11,6 @@ import "./profile.css";
 const Profile = (props) => {
   // Setting our component's initial state
   const [userInfo, setUserInfo] = useState("");
-  // const [userNotes, setUserNotes] = useState([]);
   const [parkId, setParkId] = useState("");
   const [parkName, setParkName] = useState("");
   const [location, setLocation] = useState([]);
@@ -20,7 +19,6 @@ const Profile = (props) => {
   const [newNoteContent, setNewNoteContent] = useState("");
   const [isLocationDisplayed, setIsLocationDisplayed] = useState(true);
   const { setIsSidebarOpen } = props;
-  const user = sessionStorage.getItem("username");
 
   const { id } = useParams();
 

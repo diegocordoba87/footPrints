@@ -46,14 +46,16 @@ const NewFootprint = (props) => {
     e.preventDefault();
     axios.post("/api/newnote", { content: newNoteContent }).then((res) => {
       const noteId = res.data.data._id;
-      console.log ("id: ", noteId);
+      console.log("id: ", noteId);
       console.log("userInfo", userId);
       axios.put(`/api/user/${userId}/addnote`, { id: noteId }).then((res) => {
         console.log("note id: ", res);
-        axios.put(`/api/locations/${parkId}/addnote`, { id: noteId }).then((res) => {
-          console.log(res);
-        })
-      }) 
+        axios
+          .put(`/api/locations/${parkId}/addnote`, { id: noteId })
+          .then((res) => {
+            console.log(res);
+          });
+      });
       setNewNoteContent("");
     });
   }
@@ -71,7 +73,15 @@ const NewFootprint = (props) => {
         Go to a marked location <br /> to leave your footprint!
       </div>
       <form id="newFootprint">
-        <div className="homeText">{parkName} Compose Your FootPrint:</div>
+        <div className="homeText">
+          {parkName ? (
+            <div>
+              Welcome to {parkName}! <br /> Please compose your FootPrint:
+            </div>
+          ) : (
+            <div></div>
+          )}
+        </div>
         <label>
           <textarea
             id="note"
@@ -81,19 +91,21 @@ const NewFootprint = (props) => {
             onChange={(e) => {
               setNewNoteContent(e.target.value);
             }}
-            placeholder="250 words minimum. 1000 words maximum"
+            placeholder="1000 words, maximum"
             className="newFPForm"
-          >
-        </textarea>
+          ></textarea>
         </label>
         <button id="newFootprintButton" onClick={addNote}>
           Leave Your FootPrint
         </button>
       </form>
       <div id="newFootprintAvailable">
-        A new FootPrint is available!
+        <div id="newFootprintText">A new FootPrint is available!</div>
         <div>
-          <div id="newFootprintCardBody" className="uk-card uk-card-default footprintCards">
+          <div
+            id="newFootprintCardBody"
+            className="uk-card uk-card-default footprintCards"
+          >
             <p className="footprintText">{populatedNote}</p>
             <button className="deleteFootprintButton readSaveDeleteButton">
               delete
