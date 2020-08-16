@@ -1,5 +1,6 @@
-button.logsignbutton.input {
-  margin-top: 2vw;
+button.logSignButton.input {
+  margin-top: 2vw !important;
+  width: 8vw;
 }
 .inputSignup {
   margin: 2vw 1vw 0vw 1vw;

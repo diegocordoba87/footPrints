@@ -13,7 +13,7 @@ const Home = ({ setIsSidebarOpen }) => {
   const renderLayerOne = () => {
     setTimeout(() => {
       setLayerOne(true);
-    }, 0);
+    }, 50);
   };
 
   const renderLayerTwo = () => {
@@ -22,12 +22,6 @@ const Home = ({ setIsSidebarOpen }) => {
     }, 5000);
   };
 
-  // const renderLayerThree = () => {
-  //   setTimeout(() => {
-  //     setLayerThree(true);
-  //   }, 8000);
-  // };
-
   return (
     <div
       id="homeBody"
@@ -35,14 +29,6 @@ const Home = ({ setIsSidebarOpen }) => {
       onLoad={(renderLayerOne(), renderLayerTwo())}
     >
       <div onClick={() => setIsSidebarOpen(false)}>
-        {/* <a href="/#howitworks">
-          <img
-            id="homeButtonOne"
-            className="scrollButton"
-            src={scrollDown}
-            alt="scroll down button"
-          />
-        </a> */}
         <div className="uk-flex-first uk-flex-center">
           <img id="heroImage" src={logo} alt="footprints logo" />
         </div>
