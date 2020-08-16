@@ -70,8 +70,8 @@ const Profile = (props) => {
       if (res.data && res.data.data && res.data.data.length > 0) {
         console.log("testing", res.data.data[0]._id);
         let id = res.data.data[0]._id;
-        setParkName(res.data.data[0].name);
-        setParkId(id);
+        // setParkName(res.data.data[0].name);
+        // setParkId(id);
       }
     });
   };
