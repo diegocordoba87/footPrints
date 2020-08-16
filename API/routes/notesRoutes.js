@@ -85,12 +85,15 @@ router.put("/api/note/:id", (req, res) => {
 
 
 router.delete("/api/note/:id", (req, res) => {
-  db.Notes.findByIdAndRemove(_id= req.params.id, req.body)
+  
+  console.log(req.params.id)
+  db.Notes.findByIdAndRemove(req.params.id)
     .then((deletedNote) => {
+      
       res.json({
         error: false,
         data: deletedNote,
-        message: "Successfully deleted note.",
+        message: "Successfully delete note.",
       });
     })
     .catch((err) => {

@@ -45,7 +45,7 @@ const AboutUs = ({ setIsSidebarOpen }) => {
           />
           <HowItWorks />
           <div className="uk-animation-fade">
-            <div id="aboutus" className="cardBody headerText">
+            <div id="aboutus" className="cardBody aboutusCardBody headerText">
               <p id="aboutUsText">About Us</p>
               <div uk-grid>
                 <div className="aboutTabs">

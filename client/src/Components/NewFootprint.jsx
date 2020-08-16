@@ -5,8 +5,12 @@ import API from "../utils/API";
 
 const NewFootprint = (props) => {
   const [parkName, setParkName] = useState("");
-  const { setUserInfo, newNoteContent, setNewNoteContent } = props;
-  const { id } = useParams();
+  const [userInfo, setUserInfo] = useState("");
+  const { parkId, populatedNote } = props;
+
+
+  const { newNoteContent, setNewNoteContent } = props;
+  const { id: userId } = useParams();
 
   const locationNear = (lng, lat) => {
     axios.get(`/api/locationsnear/?lng=${lng}&lat=${lat}`).then((res) => {
@@ -21,9 +25,9 @@ const NewFootprint = (props) => {
   };
 
   function loadUser() {
-    API.getUserById(id)
+    API.getUserById(userId)
       .then((res) => {
-        console.log(res.data.data);
+        console.log("userInfo: ", res.data.data[0].content);
         setUserInfo(res.data.data);
       })
       .catch((err) => console.log(err));
@@ -43,7 +47,15 @@ const NewFootprint = (props) => {
   function addNote(e) {
     e.preventDefault();
     axios.post("/api/newnote", { content: newNoteContent }).then((res) => {
-      console.log(res);
+      const noteId = res.data.data._id;
+      console.log ("id: ", noteId);
+      console.log("userInfo", userId);
+      axios.put(`/api/user/${userId}/addnote`, { id: noteId }).then((res) => {
+        console.log("note id: ", res);
+        axios.put(`/api/locations/${parkId}/addnote`, { id: noteId }).then((res) => {
+          console.log(res);
+        })
+      }) 
     });
   }
 
@@ -72,12 +84,30 @@ const NewFootprint = (props) => {
             }}
             placeholder="250 words minimum. 1000 words maximum"
             className="newFPForm"
-          />
+          >
+        </textarea>
         </label>
         <button id="newFootprintButton" onClick={addNote}>
           Leave Your FootPrint
         </button>
       </form>
+      <div id="newFootprintAvailable">
+        A new FootPrint is available!
+        <div>
+          <div id="newFootprintCardBody" className="uk-card uk-card-default footprintCards">
+            <p className="footprintText">{populatedNote}</p>
+            <button className="deleteFootprintButton readSaveDeleteButton">
+              delete
+            </button>
+            <button className="saveFootprintButton readSaveDeleteButton">
+              save
+            </button>
+            <button className="readFootprintButton readSaveDeleteButton">
+              read
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,15 @@
 import React from "react";
 import "../app.css";
 
+let setParkName; 
+let setParkId;
+let allLocations;
+
+const handleSetPark = (name, setParkName, setParkId, allLocations) => {
+  setParkName(name);
+  const parkObj = allLocations.find((locationObj) => locationObj.name === name);
+  setParkId(parkObj._id);
+};
 export default class Map extends React.Component {
   mapRef = React.createRef();
   state = {
@@ -9,6 +18,9 @@ export default class Map extends React.Component {
   };
 
   componentDidMount() {
+    setParkName = this.props.setParkName;
+    setParkId = this.props.setParkId;
+    allLocations = this.props.allLocations;
     // this.createMap(33.9, -83.3);
     this.getCoordinates();
   }
@@ -55,13 +67,14 @@ export default class Map extends React.Component {
 
     //add a marker to a map at user's lat/long position
     let icon = new H.map.Icon("FPFavicon.png");
-    let userMarker = new H.map.Marker({ lat: lat, lng: lng }, { icon: icon });
-    map.addObject(userMarker);
+    // let userMarker = new H.map.Marker({ lat: lat, lng: lng }, { icon: icon });
+    // map.addObject(userMarker);
 
     //create a draggable marker
     let dragMarker = new H.map.Marker(
       { lat: lat + 0.005, lng: lng + 0.005 },
-      { volatility: true }
+      { volatility: true },
+      { icon: icon }
     );
     dragMarker.draggable = true;
     map.addObject(dragMarker);
@@ -93,8 +106,18 @@ export default class Map extends React.Component {
           behavior.enable();
           const markerLat = dragMarker.b.lat;
           const markerLng = dragMarker.b.lng;
-          getDistanceToLocation("Brownwood Park Recreation Center", brownwood, markerLat, markerLng);
-          getDistanceToLocation("Walker Park (formerly Trail Creek Park)", trailCreek, markerLat, markerLng);
+          getDistanceToLocation(
+            "Brownwood Park Recreation Center",
+            brownwood,
+            markerLat,
+            markerLng
+          );
+          getDistanceToLocation(
+            "Walker Park (formerly Trail Creek Park)",
+            trailCreek,
+            markerLat,
+            markerLng
+          );
           getDistanceToLocation(
             "Morgan Falls Overlook Park",
             morganFalls,
@@ -107,7 +130,12 @@ export default class Map extends React.Component {
             markerLat,
             markerLng
           );
-          getDistanceToLocation("WestPaces", westPaces, markerLat, markerLng);
+          getDistanceToLocation(
+            "West Paces Park",
+            westPaces,
+            markerLat,
+            markerLng
+          );
         }
       },
       false
@@ -187,6 +215,7 @@ export default class Map extends React.Component {
       if (d < 1.87) {
         console.log("You can access notes at " + name);
         console.log(d + "mi");
+        handleSetPark(name, setParkName, setParkId, allLocations);
       }
     }
 

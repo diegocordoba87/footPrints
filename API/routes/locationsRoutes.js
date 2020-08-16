@@ -76,14 +76,31 @@ router.get("/api/locations", (req, res) => {
 
 //add note to location by location id
 router.put("/api/locations/:id/addnote", (req, res) => {
-  console.log(req.body.notes)
-  db.Location.findByIdAndUpdate(req.params.id, {$push: {notes: req.body.notes}}, { new: true })
+  console.log(req.params.id)
+  db.Location.findByIdAndUpdate(req.params.id, {$push: {notes: req.body.id}}, { new: true })
   .then((updatednote) => {
     res.json({
       error: false,
       data: updatednote,
       message: "Successfully updated note.",
     });
+  })
+})
+
+// remove note ID from location's array without the note's table being affected
+router.put("/api/location/:id/removenote", (req, res) => {
+  console.log("*********************id:", req.body.id)
+  console.log("user ID:", req.params.id)
+  db.Location.findByIdAndUpdate(req.params.id, {$pull: {notes: req.body.id}}, { new: true })
+  .then((updatednote) => {
+    console.log(updatednote)
+    res.json({
+      error: false,
+      data: updatednote,
+      message: "Successfully updated note.",
+    });
+  }).catch((err)=>{
+    console.log(err)
   })
 })
 
