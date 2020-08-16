@@ -71,6 +71,9 @@ h2 {
 }
 
 @media screen and (max-width: 670px) {
+  button.logSignButton.input {
+    width: 30vw !important;
+}
   .headerText {
     color: #85616a;
     font-size: 9vw;
@@ -78,10 +81,10 @@ h2 {
     text-shadow: 1px 1px 1px #000;
     text-align: center;
   }
-  .logSignButton {
-    color: #85616a;
-    background-color: white;
-    width: 25vw;
-    box-shadow: 2px 2px 2px #000;
+  .inputSignup {
+    width: 70vw !important;
+    margin: 2vw 1vw 5vw 1vw !important;
+
   }
+
 }

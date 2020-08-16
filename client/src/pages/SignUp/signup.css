@@ -38,6 +38,19 @@ button.logSignButton.input {
 }
 
 @media screen and (max-width: 670px) {
+  .cardBodySignup{
+    height: 117vw;
+
+  }
+  .headerTextSignup {
+    margin-top: 10vw;
+
+  }
+
+#getStartedButton {
+    position: relative;
+    top: 0vw;
+}
   #signupBody {
     background-image: url(../../images/FPSignupVert.jpg);
     height: 100vh;

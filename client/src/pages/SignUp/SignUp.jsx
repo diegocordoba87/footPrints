@@ -40,8 +40,8 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
         <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
 
         <div class="uk-flex uk-flex-center">
-          <div id="howitworks" className="cardBodyLogin">
-            <h2 className="headerText">Sign Up</h2>
+          <div id="howitworks" className="cardBodyLogin cardBodySignup">
+            <h2 className="headerText headerTextSignup">Sign Up</h2>
             <form id="signupInput" onSubmit={handleSubmit}>
               {userSignedUp === true && (
                 <div id="userSignedUp" className="uk-alert-primary" uk-alert>
@@ -93,7 +93,7 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
                 required
               />
 
-              <button className="logSignButton input" type="submit" value="Submit">
+              <button id="getStartedButton" className="logSignButton input" type="submit" value="Submit">
                 Get Started
               </button>
             </form>

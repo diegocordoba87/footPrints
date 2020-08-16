@@ -38,7 +38,7 @@ const LogIn = (props) => {
         <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
         <div className="uk-flex uk-flex-center">
           <div className="cardBodyLogin">
-            <h2 className="headerText">Log In</h2>
+            <h2 className="headerText headerTextLogin">Log In</h2>
 
             <form id="loginInput" onSubmit={handleSubmit}>
               {loginError === true && (
