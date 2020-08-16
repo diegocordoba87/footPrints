@@ -7,8 +7,6 @@ const NewFootprint = (props) => {
   const [parkName, setParkName] = useState("");
   const [userInfo, setUserInfo] = useState("");
   const { parkId, populatedNote } = props;
-
-
   const { newNoteContent, setNewNoteContent } = props;
   const { id: userId } = useParams();
 
@@ -56,6 +54,7 @@ const NewFootprint = (props) => {
           console.log(res);
         })
       }) 
+      setNewNoteContent("");
     });
   }
 
