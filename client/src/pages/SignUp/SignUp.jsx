@@ -44,13 +44,13 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
             <h2 className="headerText headerTextSignup">Sign Up</h2>
             <form id="signupInput" onSubmit={handleSubmit}>
               {userSignedUp === true && (
-                <div id="userSignedUp" className="uk-alert-primary" uk-alert>
+                <div className="loginError uk-alert-primary" uk-alert>
                   <a className="uk-alert-close" uk-close></a>
                   <p>You have successfully created an account!</p>
                 </div>
               )}
               {signUpError === true && (
-                <div id="loginError" class="uk-alert-danger" uk-alert>
+                <div className="loginError uk-alert-danger" uk-alert>
                   <a class="uk-alert-close" uk-close></a>
                   <p>Sign up failed. Please try again.</p>
                 </div>
