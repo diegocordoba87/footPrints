@@ -90,7 +90,7 @@ const NewFootprint = (props) => {
             onChange={(e) => {
               setNewNoteContent(e.target.value);
             }}
-            placeholder="1000 words, maximum"
+            placeholder="You can write 500 words, and you can write 500 more. But that's it."
             className="newFPForm"
           ></textarea>
         </label>
@@ -121,9 +121,15 @@ const NewFootprint = (props) => {
                 >
                   save
                 </button>
-                <button className="readFootprintButton readSaveDeleteButton">
+                {/* <button className="readFootprintButton readSaveDeleteButton">
                   read
-                </button>
+                </button> */}
+                <Speech
+                  footprintText={populatedNote}
+                  deleteNote={() => {}}
+                  noteId={noteId}
+                  parentComponent={"newFootprint"}
+                />
               </>
             )}
           </div>

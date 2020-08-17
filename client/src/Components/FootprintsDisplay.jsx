@@ -45,6 +45,7 @@ const FootprintsDisplay = (props) => {
                   footprintText={note.content}
                   deleteNote={deleteNote}
                   noteId={note._id}
+                  parentComponent={"FootprintsDisplay"}
                 />
               </div>
             </div>
