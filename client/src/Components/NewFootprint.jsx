@@ -58,6 +58,7 @@ const NewFootprint = (props) => {
     axios.put(`/api/user/${userId}/addnote`, { id: noteId }).then((res) => {
       console.log("note id: ", res);
     });
+    setPopulatedNote("");
   };
 
   const clearNewNoteField = () => {
