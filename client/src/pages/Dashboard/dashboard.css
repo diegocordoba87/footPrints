@@ -7,9 +7,12 @@
   margin-bottom: 2vw;
   text-align: center;
   box-shadow: 1px 1px 5px #000;
-  background-color: #dce5d8;
+  background-color: #efefef;
   text-shadow: none;
   color: #514a45;
+  font-size: 1.25vw;
+  cursor: pointer;
+  line-height: 3vw;
 }
 
 /* Style tab links */
@@ -82,8 +85,16 @@
 
 
 @media screen and (max-width: 670px) {
+  #goToLocationDiv {
+    font-size: 4vw;
+  }
   #locationsBody {
     background-image: url(../../images/FPFootprintsVert.jpg);
     height: 100vh;
+  }
+  #newFootprint {
+    height: 54vw;
+    font-size: 4vw;
+
   }
 }

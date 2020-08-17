@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSpeechSynthesis } from "react-speech-kit";
 
-const SpeechComp = ({ footprintText, noteId, deleteNote }) => {
+const SpeechComp = ({ footprintText, noteId, deleteNote, parentComponent }) => {
   const [text, setText] = useState(footprintText);
   const [pitch] = useState(0.8);
   const [rate] = useState(0.8);
@@ -10,19 +10,27 @@ const SpeechComp = ({ footprintText, noteId, deleteNote }) => {
 
   const voice = voices[voiceIndex] || null;
 
+  useEffect(() => {
+    setText(footprintText);
+  }, [footprintText]);
+
   return (
     <div>
       <form>
-        {/* <h2>Speech Synthesis</h2> */}
 
         {supported && (
           <React.Fragment>
-            <button
-              onClick={() => deleteNote(noteId)}
-              className="deleteFootprintButton readDeleteButton"
-            >
-              Delete
-            </button>
+            {parentComponent === "FootprintsDisplay" && (
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  deleteNote(noteId);
+                }}
+                className="deleteFootprintButton readDeleteButton"
+              >
+                Delete
+              </button>
+            )}
             <button
               onClick={(e) => {
                 e.preventDefault();
@@ -36,7 +44,6 @@ const SpeechComp = ({ footprintText, noteId, deleteNote }) => {
             >
               {speaking ? "stop" : "read"}
             </button>
-            
           </React.Fragment>
         )}
       </form>

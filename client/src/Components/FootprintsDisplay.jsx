@@ -8,10 +8,17 @@ import footprintSeeds from "../data/footprintSeeds.json";
 import "../pages/Profile/profile.css";
 
 const FootprintsDisplay = (props) => {
-  const [userNotesOnCollectionPage, setUserNotesOnCollectionPage] = useState({
-    notes: [],
-  });
-  const { newNoteContent, setNewNoteContent, location, loadUser } = props;
+  // const [userNotesOnCollectionPage, setUserNotesOnCollectionPage] = useState({
+  //   notes: [],
+  // });
+  const {
+    newNoteContent,
+    setNewNoteContent,
+    location,
+    loadUser,
+    userNotesOnCollectionPage,
+    setUserNotesOnCollectionPage,
+  } = props;
 
   const { id } = useParams();
 
@@ -32,13 +39,13 @@ const FootprintsDisplay = (props) => {
           return (
             <div key={index}>
               <div className="uk-card-default footprintCards">
-                {note.content}
-
                 <Speech
                   footprintText={note.content}
                   deleteNote={deleteNote}
                   noteId={note._id}
+                  parentComponent={"FootprintsDisplay"}
                 />
+                {note.content}
               </div>
             </div>
           );
