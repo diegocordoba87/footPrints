@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { ExternalLink } from "react-external-link";
 import HowItWorks from "../../Components/HowItWorks/HowItWorks";
 import aboutUs from "../../data/aboutUs.json";
 import Andrea from "../../images/Andrea.png";
@@ -92,7 +91,7 @@ const AboutUs = ({ setIsSidebarOpen }) => {
                     const source = getImage(creator.name);
                     return (
                       <>
-                        <ExternalLink
+                        <a
                           key={index}
                           href={creator.portfolioLink}
                           target="_blank"
@@ -107,7 +106,7 @@ const AboutUs = ({ setIsSidebarOpen }) => {
                             <div className="creatorName">{creator.name}</div>
                             <div className="creatorQuote">{creator.quote}</div>
                           </button>
-                        </ExternalLink>
+                        </a>
                       </>
                     );
                   })}
