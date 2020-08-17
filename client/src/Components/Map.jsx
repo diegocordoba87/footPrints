@@ -65,20 +65,21 @@ export default class Map extends React.Component {
 
     //make the map responsive
     const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
-    console.log(behavior);
+    // console.log(behavior);
 
     //add a marker to a map at user's lat/long position
-    let icon = new H.map.Icon("FPFavicon.png");
-    console.log("icon should be here", icon)
-    let userMarker = new H.map.Marker({ lat: lat, lng: lng }, { icon: icon });
-    map.addObject(userMarker);
+    // let footprintIcon = new H.map.Icon("FPFavicon.png");
+
+    // console.log("footprint icon", footprintIcon)
+    // let userMarker = new H.map.Marker({ lat: lat, lng: lng }, { icon: footprintIcon });
+    // map.addObject(userMarker);
 
 
     //create a draggable marker
     let dragMarker = new H.map.Marker(
       { lat: lat + 0.005, lng: lng + 0.005 },
       { volatility: true }
-      // { icon: icon }
+      // { icon: footprintIcon }
     );
     dragMarker.draggable = true;
     map.addObject(dragMarker);
