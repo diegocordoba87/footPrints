@@ -39,7 +39,7 @@
 #logInButton {
   margin-top: 1vw !important;
 }
-#loginError {
+.loginError {
   text-shadow: 0px 0px 0px;
   color: #000;
   font-family: "Mulish", sans-serif;

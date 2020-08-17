@@ -7,7 +7,12 @@ let allLocations;
 
 const handleSetPark = (name, setParkName, setParkId, allLocations) => {
   setParkName(name);
+  console.log("name:", name)
   const parkObj = allLocations.find((locationObj) => locationObj.name === name);
+  console.log("setParkName:", setParkName)
+  console.log("setParkId:", setParkId)
+  console.log("allLocations:", allLocations)
+
   if(parkObj && parkObj._id) {
     setParkId(parkObj._id);
   }
@@ -25,6 +30,12 @@ export default class Map extends React.Component {
     allLocations = this.props.allLocations;
     // this.createMap(33.9, -83.3);
     this.getCoordinates();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.allLocations !== this.props.allLocations) {
+      allLocations = this.props.allLocations;
+    }
   }
 
   //get coordinates from the window then push them to a new map

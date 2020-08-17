@@ -11,16 +11,18 @@ import "./profile.css";
 const Profile = (props) => {
   // Setting our component's initial state
   const [userInfo, setUserInfo] = useState("");
-  // const [userNotes, setUserNotes] = useState([]);
   const [parkId, setParkId] = useState("");
   const [parkName, setParkName] = useState("");
   const [location, setLocation] = useState([]);
   const [allLocations, setAllLocations] = useState([]);
+  const [populatedNoteId, setPopulatedNoteId] = useState("");
   const [populatedNote, setPopulatedNote] = useState("");
   const [newNoteContent, setNewNoteContent] = useState("");
   const [isLocationDisplayed, setIsLocationDisplayed] = useState(true);
+  const [userNotesOnCollectionPage, setUserNotesOnCollectionPage] = useState({
+    notes: [],
+  });
   const { setIsSidebarOpen } = props;
-  const user = sessionStorage.getItem("username");
 
   const { id } = useParams();
 
@@ -42,7 +44,9 @@ const Profile = (props) => {
       if (res.data && res.data.data && res.data.data.notes && res.data.data.notes.length > 0) {
         const index = getRandomIntInclusive(0, res.data.data.notes.length - 1);
         const noteText = res.data.data.notes[index].content;
+        const noteId = res.data.data.notes[index]._id;
         setPopulatedNote(noteText);
+        setPopulatedNoteId(noteId);
       }
     })
   }, [parkId]);
@@ -66,8 +70,8 @@ const Profile = (props) => {
       if (res.data && res.data.data && res.data.data.length > 0) {
         console.log("testing", res.data.data[0]._id);
         let id = res.data.data[0]._id;
-        setParkName(res.data.data[0].name);
-        setParkId(id);
+        // setParkName(res.data.data[0].name);
+        // setParkId(id);
       }
     });
   };
@@ -139,6 +143,11 @@ const Profile = (props) => {
                   setNewNoteContent={setNewNoteContent}
                   parkId={parkId}
                   populatedNote={populatedNote}
+                  setPopulatedNote={setPopulatedNote}
+                  setPopulatedNoteId={setPopulatedNoteId}
+                  setUserNotesOnCollectionPage={setUserNotesOnCollectionPage}
+                  noteId={populatedNoteId}
+                  parkName={parkName}
                 />
                 <MapComp
                   {...props}
@@ -157,6 +166,9 @@ const Profile = (props) => {
                   newNoteContent={newNoteContent}
                   setNewNoteContent={setNewNoteContent}
                   loadUser={loadUser}
+                  setUserInfo={setUserInfo}
+                  userNotesOnCollectionPage={userNotesOnCollectionPage}
+                  setUserNotesOnCollectionPage={setUserNotesOnCollectionPage}
                 />
               </div>
             )}

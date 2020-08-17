@@ -4,7 +4,7 @@
 }
 
 .footprintCards {
-  font-size: 1vw;
+  font-size: 1.25vw;
   font-family: "M";
   color: #514a45;
   text-shadow: none;
@@ -12,12 +12,13 @@
   font-family: "Mulish", sans-serif;
   width: 100%;
   height: 5vw;
-  margin: 1vw;
+  margin: 1vw 0vw !important;
   padding: 1vw;
   border-radius: 0px;
   transition: all 1s;
   box-shadow: 0px 2px 5px #000;
   text-align: justify;
+  overflow: scroll;
 }
 
 .footprintCards:hover {
@@ -28,7 +29,10 @@
 .H_ui {
   display: none;
 }
+.homeText {
+  margin-bottom: 1vw;
 
+}
 .locationDiv {
   height: 25vw;
   width: 30vw;
@@ -36,6 +40,7 @@
   top: -28vw;
   left: -1vw;
   float: right;
+  overflow: auto;
 }
 
 .newFPForm {
@@ -56,14 +61,19 @@
 }
 
 .readDeleteButton {
+  /* position: relative;
+  bottom: -4vw; */
   float: right;
-  margin: 0vw;
+  /* margin: 3vw 0vw 1vw 0vw; */
 }
 .readSaveDeleteButton {
-  position: relative;
-  bottom: 3vw;
+  /* position: relative;
+  bottom: -4vw; */
   float: right;
-  margin: 0vw;
+  /* margin: 3vw 0vw 1vw 0vw; */
+}
+.readSaveDeleteButton:focus {
+  outline: none;
 }
 .readDeleteButton:focus {
   outline: none;
@@ -124,12 +134,31 @@
   text-shadow: 0px 1px 0px 0px;
   box-shadow: 0px 5px 3px #000;
 }
+#newFootprintButton {
+  position: relative;
+  bottom: 3vw;
+  float: right;
+  margin: 3vw 0vw 1vw 0vw;
+  background-color: #9a827e;
+  color: #dce5e8;
+}
+#newFootprintButton:focus {
+  outline: none;
+}
 #newFootprintCardBody {
   border-radius: 5px;
+}
+#newFootprintText {
+  text-align: center !important;
+  margin-bottom: 2vw !important;
+  position: relative;
+  left: 5vw;
 }
 #note {
   margin: auto;
   width: 55vw;
+  font-size: 1.25vw;
+  font-family: Mulish;
   border-radius: 5px;
   padding: 1vw 0vw 2vw 1vw;
   margin-top: 1vw;
@@ -145,6 +174,10 @@
 .readFootprintButton {
   background-color: #9a827e;
   color: #dce5e8;
+  /* position: relative;
+  bottom: -4vw; */
+  float: right;
+  /* margin: 3vw 0vw 1vw 0vw; */
 }
 .readFootprintButton:hover {
   background-color: #dce5d8;
@@ -153,11 +186,15 @@
 #tablinkFootprints {
   background-color: #918082;
   border-top-right-radius: 5px;
+  margin-top: 1vw;
+
 }
 
 #tablinkLocations {
   background-color: #563e44;
   border-top-left-radius: 5px;
+  margin-top: 1vw;
+
 }
 
 @media screen and (max-width: 670px) {
@@ -177,19 +214,39 @@
     box-shadow: 0px 2px 5px #000;
     text-align: left;
   }
-  .footprintText {
+  #footprintText {
     overflow: auto;
+    font-size: 1.25vw !important;
   }
 
   .readDeleteButton {
     margin: auto;
   }
+  #intials {
+    font-size: 4vw;
+  }
   #initials.inputSignup {
     font-size: 4vw !important;
     line-height: 10vw !important;
   }
+  #newFootprintButton {
+    margin: auto;
+    position: relative;
+    bottom: -2vw;
+    left: -8vw;
+  }
+  #note {
+    font-size: 3vw;
+
+  }
   #profileBody {
     background-image: url(../../images/FPProfileVert.jpg);
     height: 100vh;
+  }
+  #tablinkFootprints {
+    font-size: 4vw;
+  }
+  #tablinkLocations {
+    font-size: 4vw;
   }
 }
