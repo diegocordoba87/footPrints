@@ -12,8 +12,6 @@ const NewFootprint = (props) => {
     setPopulatedNote,
     setPopulatedNoteId,
     noteId,
-  } = props;
-  const {
     newNoteContent,
     setNewNoteContent,
     setUserNotesOnCollectionPage,
@@ -42,21 +40,25 @@ const NewFootprint = (props) => {
     });
   }, []);
 
-  function addNote(e) {
+  const addNote = (e) => {
     e.preventDefault();
     axios.post("/api/newnote", { content: newNoteContent }).then((res) => {
       const noteId = res.data.data._id;
-      axios.put(`/api/user/${userId}/addnote`, { id: noteId }).then((res) => {
-        console.log("note id: ", res);
-        axios
-          .put(`/api/locations/${parkId}/addnote`, { id: noteId })
-          .then((res) => {
-            console.log(res);
-          });
-      });
+      axios
+        .put(`/api/locations/${parkId}/addnote`, { id: noteId })
+        .then((res) => {
+          console.log(res);
+        });
       setNewNoteContent("");
     });
   }
+
+  const collectNote = (e) => {
+    e.preventDefault();
+    axios.put(`/api/user/${userId}/addnote`, { id: noteId }).then((res) => {
+      console.log("note id: ", res);
+    });
+  };
 
   const clearNewNoteField = () => {
     setPopulatedNote("");
@@ -112,7 +114,10 @@ const NewFootprint = (props) => {
                 >
                   delete
                 </button>
-                <button className="saveFootprintButton readSaveDeleteButton">
+                <button
+                  className="saveFootprintButton readSaveDeleteButton"
+                  onClick={collectNote}
+                >
                   save
                 </button>
                 <button className="readFootprintButton readSaveDeleteButton">
