@@ -21,10 +21,7 @@ app.get("/api/config", (req, res) => {
     success: true,
   });
 });
-//client\src\pages\Demo\Demo.jsx
-app.get("/demo", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/src/pages/Demo/Demo.jsx"));
-});
+
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));

@@ -24,6 +24,9 @@ const LocationsSchema = new Schema({
       ref: "Notes",
     },
   ],
+  url: {
+    type: String
+  }
 });
 
 const Location = mongoose.model("Location", LocationsSchema);

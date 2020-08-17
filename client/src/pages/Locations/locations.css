@@ -2,15 +2,6 @@
   display: none;
 }
 
-.locationDiv {
-  height: 25vw;
-  width: 30vw;
-  position: relative;
-  top: -28vw;
-  left: -1vw;
-  float: right;
-}
-
 #locationsBody {
   background-image: url(../../images/FPLocationsHor.jpg);
 }

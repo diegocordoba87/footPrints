@@ -131,13 +131,13 @@ div.uk-flex.uk-flex-center.uk-flex-between.specialPadding {
     height: 20vw;
   }
   #homeTagLine {
-    font-size: 3em;
+    font-size: 9vw;
     margin: 0vw;
     text-shadow: 2px 3px 2px #000;
     padding: 26vw 0vw 6vw 0vw;
     color: white;
     height: 55vw;
-  }
+}
   #tellYours {
     text-shadow: 2px 3px 2px #000;
     text-align: center;

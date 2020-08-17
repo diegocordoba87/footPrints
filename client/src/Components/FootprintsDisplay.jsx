@@ -1,62 +1,55 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
+import Speech from "./SpeechComp";
+import API from "../utils/API";
 import Map from "./Map";
 import footprintSeeds from "../data/footprintSeeds.json";
 import "../pages/Profile/profile.css";
 
 const FootprintsDisplay = (props) => {
-  const notes = [];
-  const [notesByLocation, setNotesByLocation] = useState([]);
-  const { newNoteContent, setNewNoteContent, location } = props;
+  // const [userNotesOnCollectionPage, setUserNotesOnCollectionPage] = useState({
+  //   notes: [],
+  // });
+  const {
+    newNoteContent,
+    setNewNoteContent,
+    location,
+    loadUser,
+    userNotesOnCollectionPage,
+    setUserNotesOnCollectionPage,
+  } = props;
 
-  function addNote(e) {
-    e.preventDefault();
-    axios.post("/api/newnote", { content: newNoteContent }).then((res) => {
-      console.log(res);
-    });
-  }
+  const { id } = useParams();
 
-  function deleteNote(id) {
-    console.log(id);
-    axios.delete(`/api/note/${id}`).then((res) => {
-      window.alert(`Successfully deleted new note`);
+  useEffect(() => {
+    loadUser(id, setUserNotesOnCollectionPage);
+  }, []);
+
+  const deleteNote = (noteId) => {
+    axios.delete(`/api/note/${noteId}`).then((res) => {
+      loadUser(id, setUserNotesOnCollectionPage);
     });
-  }
+  };
 
   return (
     <div id="footprints">
-      <div uk-grid="masonry: true">
-        {footprintSeeds.map((note, index) => {
+      <div uk-grid>
+        {userNotesOnCollectionPage.notes.map((note, index) => {
           return (
-            <div>
-              <div className="uk-card uk-card-default footprintCards">{note.text}
-              <button id="deleteFootprintButton" className="saveDeleteButton">delete</button>
-              <button id="saveFootprintButton" className="saveDeleteButton">save</button>
+            <div key={index}>
+              <div className="uk-card-default footprintCards">
+                <Speech
+                  footprintText={note.content}
+                  deleteNote={deleteNote}
+                  noteId={note._id}
+                  parentComponent={"FootprintsDisplay"}
+                />
+                {note.content}
               </div>
             </div>
           );
         })}
-
-        <div className="homeText">
-          {notesByLocation.map((note) => {
-            return (
-              <p key={note.title}>
-                {note.content}
-                <button
-                  onClick={() => {
-                    deleteNote(note._id);
-                  }}
-                >
-                  Delete Footprint
-                </button>
-              </p>
-            );
-          })}
-        </div>
-
-        {notes.map((note) => (
-          <p key={note._id}>{note.content}</p>
-        ))}
       </div>
     </div>
   );

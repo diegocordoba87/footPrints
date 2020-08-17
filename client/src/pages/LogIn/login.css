@@ -7,7 +7,6 @@
   position: relative;
   top: 10vw;
   left: 8vw;
-
 }
 
 .input {
@@ -16,13 +15,15 @@
   padding: 0.5vw 1vw;
   border: 3px solid #85616a;
   border-radius: 5px;
-  box-shadow: 3px 3px 11px;
+  box-shadow: 2px 2px 2px #000;
 }
 
 .input:focus {
   outline: none;
 }
-
+.logInButton {
+  margin-top: 2vw !important;
+}
 .uk-card-default {
   border-radius: 5px;
 }
@@ -35,8 +36,10 @@
   background-image: url(../../images/FPLoginHor.jpg);
   height: 100vh;
 }
-
-#loginError {
+#logInButton {
+  margin-top: 1vw !important;
+}
+.loginError {
   text-shadow: 0px 0px 0px;
   color: #000;
   font-family: "Mulish", sans-serif;
@@ -58,20 +61,39 @@
     top: 44vw;
     left: 50vw;
   }
+  .headerTextLogin {
+    margin-top: 7vw;
+  }
   .input {
-    margin: 2.5vw;
+    margin: 7vw 2.5vw 1vw 2.5vw;
     width: 70vw;
     padding: 1vw 1vw;
     border: 3px solid #85616a;
     border-radius: 5px;
-    box-shadow: 3px 3px 11px;
+    box-shadow: 2px 2px 2px #000;
     position: relative;
     top: -10vw;
     height: 13vw;
   }
+  .inputSignup {
+    width: 70vw !important;
+    margin: 2vw 1vw 6vw 1vw;
+    line-height: 12vw !important;
+  }
+  #initials.inputSignup {
+    font-size: 1vw;
+    line-height: 12vw !important;
+    margin: 1vw 0vw 6vw;
+    /* padding: 1vw; */
+    /* animation-iteration-count: infinite; */
+}
   #loginBody {
     background-image: url(../../images/FPLoginVert.jpg);
     height: 100vh;
+  }
+  #logInButton {
+    width: 25vw;
+    margin: 7vw !important;
   }
   #loginInput {
     /* margin: auto; */

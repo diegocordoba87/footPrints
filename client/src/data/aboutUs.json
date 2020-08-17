@@ -1,30 +1,32 @@
 [
   {
     "name": "Andrea",
-    "quote1": "Futbal Fanatic",
-    "quote2": "Avid Reader",
-    "quote3": "King of the Database",
-    "img": "../../images/Andrea.png"
+    "quote": "Web developer, artist, and pilot, Andrea is one of those unicorns that's great at everything she does.",
+    "img": "../../images/Andrea.png",
+    "portfolioLink": "andrea"
   },
   {
     "name": "Diego",
     "quote": "Diego, the Database King, spends his time reading, and playing Futbol, and reading about Futbol.",
-    "img": "../../images/Diego.jpg"
+    "img": "../../images/Diego.jpg",
+    "portfolioLink": "diego"
   },
   {
     "name": "Elizabeth",
     "quote": "When she's not manipulating the DOM, Elizabeth loves the nightlife. She's got to boogey, on the disco 'round.",
     "img": "../../images/Liz.jpg",
-    "portfolioLink": "elizabethregas.com"
+    "portfolioLink": "elizabeth"
   },
   {
     "name": "Mark",
     "quote": "In his free time, Mark enjoys long walks on the beach, classical literature, and world peace. Also, sarcasm.",
-    "img": "../../images/Mark.jpg"
+    "img": "../../images/Mark.jpg",
+    "portfolioLink": "mark"
   },
   {
     "name": "Michael",
     "quote": "Memelord in residence who enjoys MOBAs, international cuisine, dank memes, and adventuring.",
-    "img": "../../images/Michael.jpg"
+    "img": "../../images/Michael.jpg",
+    "portfolioLink": "michael"
   }
 ]
