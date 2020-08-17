@@ -12,6 +12,7 @@ import footprintsHome from "./images/FPHomeHor.jpg";
 import "./app.css";
 
 function App() {
+  useState();
   const sessionActiveUser = sessionStorage.getItem("username") || "";
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeUser, setActiveUser] = useState(sessionActiveUser);
