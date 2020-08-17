@@ -1,19 +1,19 @@
 import React from "react";
 import "../app.css";
 
-let setParkName; 
+let setParkName;
 let setParkId;
 let allLocations;
 
 const handleSetPark = (name, setParkName, setParkId, allLocations) => {
   setParkName(name);
-  console.log("name:", name)
+  console.log("name:", name);
   const parkObj = allLocations.find((locationObj) => locationObj.name === name);
-  console.log("setParkName:", setParkName)
-  console.log("setParkId:", setParkId)
-  console.log("allLocations:", allLocations)
+  console.log("setParkName:", setParkName);
+  console.log("setParkId:", setParkId);
+  console.log("allLocations:", allLocations);
 
-  if(parkObj && parkObj._id) {
+  if (parkObj && parkObj._id) {
     setParkId(parkObj._id);
   }
 };
@@ -86,7 +86,7 @@ export default class Map extends React.Component {
     //create a draggable marker
     let dragMarker = new H.map.Marker(
       { lat: lat + 0.005, lng: lng + 0.005 },
-      { volatility: true },
+      { volatility: true }
     );
     dragMarker.draggable = true;
     map.addObject(dragMarker);
@@ -118,36 +118,41 @@ export default class Map extends React.Component {
           behavior.enable();
           const markerLat = dragMarker.b.lat;
           const markerLng = dragMarker.b.lng;
-          getDistanceToLocation(
+          let parkOne = getDistanceToLocation(
             "Brownwood Park Recreation Center",
             brownwood,
             markerLat,
             markerLng
           );
-          getDistanceToLocation(
+          let parkTwo = getDistanceToLocation(
             "Walker Park (formerly Trail Creek Park)",
             trailCreek,
             markerLat,
             markerLng
           );
-          getDistanceToLocation(
+          let parkThree = getDistanceToLocation(
             "Morgan Falls Overlook Park",
             morganFalls,
             markerLat,
             markerLng
           );
-          getDistanceToLocation(
+          let parkFour = getDistanceToLocation(
             "Elizabeth Porter Park & Sprayground",
             elizabethPorterParkAndSprayground,
             markerLat,
             markerLng
           );
-          getDistanceToLocation(
+          let parkFive = getDistanceToLocation(
             "West Paces Park",
             westPaces,
             markerLat,
             markerLng
           );
+          if (!parkOne && !parkTwo && !parkThree && !parkFour && !parkFive) {
+            console.log("inside of the banana");
+              setParkName("");
+              setParkId("");
+          }
         }
       },
       false
@@ -207,9 +212,10 @@ export default class Map extends React.Component {
 
     //calculating the distance between 2 coordinates.
 
-    function getDistanceToLocation(name, location, lat1, lng1) {
+    function getDistanceToLocation(name, location, lat1, lng1, parkName) {
       //Haversine formula: https://en.wikipedia.org/wiki/Haversine_formula
       // console.log(location);
+      let isInRange = false;
       let lat2 = location.b.lat;
       let lng2 = location.b.lng;
       const R = 3958.756; // Radius of the earth in mi
@@ -227,7 +233,14 @@ export default class Map extends React.Component {
       if (d < 1.87) {
         console.log("You can access notes at " + name);
         handleSetPark(name, setParkName, setParkId, allLocations);
+        isInRange = true;
       }
+      return isInRange;
+      // else {
+      //   setParkName("");
+      //   setParkId("");
+      //   console.log("else path");
+      // }
     }
 
     function deg2rad(deg) {

@@ -30,7 +30,7 @@ const NewFootprint = (props) => {
         });
       setNewNoteContent("");
     });
-  }
+  };
 
   const collectNote = (e) => {
     e.preventDefault();
@@ -47,73 +47,78 @@ const NewFootprint = (props) => {
 
   return (
     <div>
-      <div id="goToLocationDiv">
-        Go to a marked location <br /> to leave your footprint!
-      </div>
-      <form id="newFootprint">
-        <div className="homeText">
-          {parkName ? (
-            <div>
-              Welcome to {parkName}! <br /> Please compose your FootPrint:
-            </div>
-          ) : (
-            <div></div>
-          )}
+      {!parkId && (
+        <div id="goToLocationDiv">
+          Go to a marked location <br /> to leave your footprint!
         </div>
-        <label>
-          <textarea
-            id="note"
-            type="text"
-            value={newNoteContent}
-            name="note"
-            onChange={(e) => {
-              setNewNoteContent(e.target.value);
-            }}
-            placeholder="You can write 500 words, and you can write 500 more. But that's it."
-            className="newFPForm"
-          ></textarea>
-        </label>
-        <button id="newFootprintButton" onClick={addNote}>
-          leave your FootPrint
-        </button>
-      </form>
-      <div id="newFootprintAvailable">
-        <div id="newFootprintText">A new FootPrint is available!</div>
+      )}
+      {parkId && (
         <div>
-          <div
-            id="newFootprintCardBody"
-            className="uk-card uk-card-default footprintCards"
-          >
-
-            {populatedNote !== "" && (
-              <>
-                <button
-                  className="deleteFootprintButton readSaveDeleteButton"
-                  onClick={clearNewNoteField}
-                >
-                  delete
-                </button>
-                <button
-                  className="saveFootprintButton readSaveDeleteButton"
-                  onClick={collectNote}
-                >
-                  save
-                </button>
-                {/* <button className="readFootprintButton readSaveDeleteButton">
+          <form id="newFootprint">
+            <div className="homeText">
+              {parkName ? (
+                <div>
+                  Welcome to {parkName}! <br /> Please compose your FootPrint:
+                </div>
+              ) : (
+                <div></div>
+              )}
+            </div>
+            <label>
+              <textarea
+                id="note"
+                type="text"
+                value={newNoteContent}
+                name="note"
+                onChange={(e) => {
+                  setNewNoteContent(e.target.value);
+                }}
+                placeholder="You can write 500 words, and you can write 500 more. But that's it."
+                className="newFPForm"
+              ></textarea>
+            </label>
+            <button id="newFootprintButton" onClick={addNote}>
+              leave your FootPrint
+            </button>
+          </form>
+          <div id="newFootprintAvailable">
+            <div id="newFootprintText">A new FootPrint is available!</div>
+            <div>
+              <div
+                id="newFootprintCardBody"
+                className="uk-card uk-card-default footprintCards"
+              >
+                {populatedNote !== "" && (
+                  <>
+                    <button
+                      className="deleteFootprintButton readSaveDeleteButton"
+                      onClick={clearNewNoteField}
+                    >
+                      delete
+                    </button>
+                    <button
+                      className="saveFootprintButton readSaveDeleteButton"
+                      onClick={collectNote}
+                    >
+                      save
+                    </button>
+                    {/* <button className="readFootprintButton readSaveDeleteButton">
                   read
                 </button> */}
-                <Speech
-                  footprintText={populatedNote}
-                  deleteNote={() => {}}
-                  noteId={noteId}
-                  parentComponent={"newFootprint"}
-                />
-              </>
-            )}
-            <p id="footprintText">{populatedNote}</p>
+                    <Speech
+                      footprintText={populatedNote}
+                      deleteNote={() => {}}
+                      noteId={noteId}
+                      parentComponent={"newFootprint"}
+                    />
+                  </>
+                )}
+                <p id="footprintText">{populatedNote}</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
