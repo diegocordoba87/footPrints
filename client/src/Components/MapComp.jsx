@@ -26,7 +26,14 @@ const MapComp = (props) => {
       </div>
       <div className="locationDiv">
         {location.map((locationObj) => (
-          <h4 className="cardBodyLocations">{locationObj.name}</h4>
+          <h4 className="cardBodyLocations">
+            <a
+              href={locationObj.url}
+              target="_blank"
+            >
+              {locationObj.name}
+            </a>
+          </h4>
         ))}
       </div>
     </div>

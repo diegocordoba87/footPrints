@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import HowItWorks from "../../Components/HowItWorks/HowItWorks";
 import aboutUs from "../../data/aboutUs.json";
 import Andrea from "../../images/Andrea.png";
@@ -36,6 +37,43 @@ const AboutUs = ({ setIsSidebarOpen }) => {
 
   return (
     <div>
+      <Router>
+        <Route
+          path="/aboutus/elizabeth"
+          component={() => {
+            window.location.href = "https://github.com/ElizaRegas";
+            return null;
+          }}
+        />
+        <Route
+          path="/aboutus/mark"
+          component={() => {
+            window.location.href = "https://github.com/mjmoon15";
+            return null;
+          }}
+        />
+        <Route
+          path="/aboutus/diego"
+          component={() => {
+            window.location.href = "https://github.com/diegocordoba87";
+            return null;
+          }}
+        />
+        <Route
+          path="/aboutus/michael"
+          component={() => {
+            window.location.href = "https://github.com/m1cha3lnava";
+            return null;
+          }}
+        />
+        <Route
+          path="/aboutus/andrea"
+          component={() => {
+            window.location.href = "https://github.com/arhamilton92";
+            return null;
+          }}
+        />
+      </Router>
       <div id="aboutusBody" className="backgroundImage">
         <div onClick={() => setIsSidebarOpen(false)}>
           <img
@@ -53,17 +91,22 @@ const AboutUs = ({ setIsSidebarOpen }) => {
                     const source = getImage(creator.name);
                     return (
                       <>
-                        <button
-                          id="tablinkAbout"
-                          class="tablinkAbout"
-                          onClick={() => setIsProfileDisplayed(true)}
+                        <a
+                          key={index}
+                          href={creator.portfolioLink}
+                          target="_blank"
                         >
-                          <a key={index} href={creator.portfolioLink} target="_blank">
+                          <button
+                            id="tablinkAbout"
+                            class="tablinkAbout"
+                            onClick={() => setIsProfileDisplayed(true)}
+                          >
                             <img className="profilePics" src={source} />
-                          </a>
-                          <div className="creatorName">{creator.name}</div>
-                          <div className="creatorQuote">{creator.quote}</div>
-                        </button>
+
+                            <div className="creatorName">{creator.name}</div>
+                            <div className="creatorQuote">{creator.quote}</div>
+                          </button>
+                        </a>
                       </>
                     );
                   })}
