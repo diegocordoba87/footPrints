@@ -226,7 +226,6 @@ export default class Map extends React.Component {
       // console.log(d + "mi");
       if (d < 1.87) {
         console.log("You can access notes at " + name);
-        console.log(d + "mi");
         handleSetPark(name, setParkName, setParkId, allLocations);
       }
     }
