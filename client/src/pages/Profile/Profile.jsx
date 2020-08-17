@@ -147,6 +147,7 @@ const Profile = (props) => {
                   setPopulatedNoteId={setPopulatedNoteId}
                   setUserNotesOnCollectionPage={setUserNotesOnCollectionPage}
                   noteId={populatedNoteId}
+                  parkName={parkName}
                 />
                 <MapComp
                   {...props}

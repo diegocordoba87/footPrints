@@ -61,14 +61,16 @@
 }
 
 .readDeleteButton {
+  /* position: relative;
+  bottom: -4vw; */
   float: right;
-  margin: 0vw;
+  /* margin: 3vw 0vw 1vw 0vw; */
 }
 .readSaveDeleteButton {
-  position: relative;
-  bottom: 3vw;
+  /* position: relative;
+  bottom: -4vw; */
   float: right;
-  margin: 3vw 0vw 1vw 0vw;
+  /* margin: 3vw 0vw 1vw 0vw; */
 }
 .readSaveDeleteButton:focus {
   outline: none;
@@ -172,6 +174,10 @@
 .readFootprintButton {
   background-color: #9a827e;
   color: #dce5e8;
+  /* position: relative;
+  bottom: -4vw; */
+  float: right;
+  /* margin: 3vw 0vw 1vw 0vw; */
 }
 .readFootprintButton:hover {
   background-color: #dce5d8;
@@ -216,12 +222,31 @@
   .readDeleteButton {
     margin: auto;
   }
+  #intials {
+    font-size: 4vw;
+  }
   #initials.inputSignup {
     font-size: 4vw !important;
     line-height: 10vw !important;
   }
+  #newFootprintButton {
+    margin: auto;
+    position: relative;
+    bottom: -2vw;
+    left: -8vw;
+  }
+  #note {
+    font-size: 3vw;
+
+  }
   #profileBody {
     background-image: url(../../images/FPProfileVert.jpg);
     height: 100vh;
+  }
+  #tablinkFootprints {
+    font-size: 4vw;
+  }
+  #tablinkLocations {
+    font-size: 4vw;
   }
 }

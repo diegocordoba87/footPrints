@@ -8,14 +8,6 @@ const MapComp = (props) => {
   const { location, setLocation, setParkName, setParkId, allLocations } = props;
 
   useEffect(() => {
-    const testing = [
-      {
-        name: "Marietta",
-      },
-      {
-        name: "Atlanta",
-      },
-    ];
     axios.get("/api/locations").then((locations) => {
       // setLocation(locations.data.data);
       setLocation(locations.data);

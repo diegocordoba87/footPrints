@@ -39,14 +39,13 @@ const FootprintsDisplay = (props) => {
           return (
             <div key={index}>
               <div className="uk-card-default footprintCards">
-                {note.content}
-
                 <Speech
                   footprintText={note.content}
                   deleteNote={deleteNote}
                   noteId={note._id}
                   parentComponent={"FootprintsDisplay"}
                 />
+                {note.content}
               </div>
             </div>
           );

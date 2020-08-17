@@ -2,8 +2,12 @@ import React from "react";
 import navbarLinks from "../../data/navbarLinks.json";
 import "./navbar.css";
 
-const Navbar = ({ isSidebarOpen, setIsSidebarOpen, activeUser, setActiveUser }) => {
-  
+const Navbar = ({
+  isSidebarOpen,
+  setIsSidebarOpen,
+  activeUser,
+  setActiveUser,
+}) => {
   const currentURLObj = new URL(window.location.href);
 
   let filteredNavbarLinks = navbarLinks.filter((linkObj) => {
@@ -14,14 +18,19 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen, activeUser, setActiveUser }) 
     }
   });
 
-  filteredNavbarLinks = filteredNavbarLinks.filter((linkObj) => linkObj.href !== currentURLObj.pathname);
+  filteredNavbarLinks = filteredNavbarLinks.filter(
+    (linkObj) => linkObj.href !== currentURLObj.pathname
+  );
 
   const handleLogOut = () => {
-    setActiveUser('');
-    sessionStorage.setItem("id", "");
-    sessionStorage.setItem('username', '');
-    window.location.assign('/');
-  }
+    setIsSidebarOpen(false);
+    setTimeout(() => {
+      setActiveUser("");
+      sessionStorage.setItem("id", "");
+      sessionStorage.setItem("username", "");
+      window.location.assign("/");
+    }, 1000);
+  };
 
   return (
     <div id="navbar">
@@ -44,7 +53,11 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen, activeUser, setActiveUser }) 
           </a>
         ))}
 
-        {activeUser !== "" && <p className="mediumText" onClick={handleLogOut}>Log Out</p>}
+        {activeUser !== "" && (
+          <p className="mediumText" onClick={handleLogOut}>
+            Log Out
+          </p>
+        )}
       </div>
       {/* hamburger button */}
       <button

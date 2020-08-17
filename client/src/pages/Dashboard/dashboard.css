@@ -85,8 +85,16 @@
 
 
 @media screen and (max-width: 670px) {
+  #goToLocationDiv {
+    font-size: 4vw;
+  }
   #locationsBody {
     background-image: url(../../images/FPFootprintsVert.jpg);
     height: 100vh;
+  }
+  #newFootprint {
+    height: 54vw;
+    font-size: 4vw;
+
   }
 }

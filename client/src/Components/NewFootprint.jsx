@@ -5,7 +5,7 @@ import axios from "axios";
 import API from "../utils/API";
 
 const NewFootprint = (props) => {
-  const [parkName, setParkName] = useState("");
+  // const [parkName, setParkName] = useState("");
   const {
     parkId,
     populatedNote,
@@ -15,30 +15,9 @@ const NewFootprint = (props) => {
     newNoteContent,
     setNewNoteContent,
     setUserNotesOnCollectionPage,
+    parkName,
   } = props;
   const { id: userId } = useParams();
-
-  const locationNear = (lng, lat) => {
-    axios.get(`/api/locationsnear/?lng=${lng}&lat=${lat}`).then((res) => {
-      if (res.data && res.data.data && res.data.data.length > 0) {
-        let id = res.data.data[0]._id;
-        setParkName(res.data.data[0].name);
-        axios.get(`/api/locations/${id}`).then((res) => {
-          console.log(res);
-        });
-      }
-    });
-  };
-
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      const lat = position.coords.latitude;
-      const lng = position.coords.longitude;
-      console.log(lat);
-      console.log(lng);
-      locationNear(lng, lat);
-    });
-  }, []);
 
   const addNote = (e) => {
     e.preventDefault();
@@ -105,7 +84,6 @@ const NewFootprint = (props) => {
             id="newFootprintCardBody"
             className="uk-card uk-card-default footprintCards"
           >
-            <p id="footprintText">{populatedNote}</p>
 
             {populatedNote !== "" && (
               <>
@@ -132,6 +110,7 @@ const NewFootprint = (props) => {
                 />
               </>
             )}
+            <p id="footprintText">{populatedNote}</p>
           </div>
         </div>
       </div>

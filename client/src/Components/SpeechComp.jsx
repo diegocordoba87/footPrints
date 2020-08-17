@@ -17,7 +17,6 @@ const SpeechComp = ({ footprintText, noteId, deleteNote, parentComponent }) => {
   return (
     <div>
       <form>
-        {/* <h2>Speech Synthesis</h2> */}
 
         {supported && (
           <React.Fragment>
