@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSpeechSynthesis } from "react-speech-kit";
 
 const SpeechComp = ({ footprintText, noteId, deleteNote, parentComponent }) => {
@@ -9,6 +9,10 @@ const SpeechComp = ({ footprintText, noteId, deleteNote, parentComponent }) => {
   const { speak, cancel, speaking, supported, voices } = useSpeechSynthesis();
 
   const voice = voices[voiceIndex] || null;
+
+  useEffect(() => {
+    setText(footprintText);
+  }, [footprintText]);
 
   return (
     <div>

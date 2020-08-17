@@ -19,7 +19,7 @@ const MapComp = (props) => {
     axios.get("/api/locations").then((locations) => {
       // setLocation(locations.data.data);
       setLocation(locations.data);
-     console.log("location map comp" , locations.data);
+      console.log("location map comp", locations.data);
     });
   }, []);
 
@@ -34,9 +34,7 @@ const MapComp = (props) => {
       </div>
       <div className="locationDiv">
         {location.map((locationObj) => (
-          <h4 className="cardBodyLocations">
-            Location name: {locationObj.name}
-          </h4>
+          <h4 className="cardBodyLocations">{locationObj.name}</h4>
         ))}
       </div>
     </div>
