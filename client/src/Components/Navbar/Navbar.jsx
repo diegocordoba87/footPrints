@@ -22,6 +22,7 @@ const Navbar = ({
   filteredNavbarLinks = filteredNavbarLinks.filter(
     (linkObj) => linkObj.href !== currentURLObj.pathname
   );
+  
   // setting username and id to empty strings on logout
   const handleLogOut = () => {
     setIsSidebarOpen(false);
