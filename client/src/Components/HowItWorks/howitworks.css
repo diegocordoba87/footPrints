@@ -12,6 +12,7 @@
   left: 15vw;
   height: 45vw;
 }
+
 .hiwText {
   padding: 2vw;
   text-align: left;
@@ -20,7 +21,6 @@
   text-shadow: none;
   font-weight: 600;
   color: #242527;
-
 }
 
 .howitworks {
@@ -43,7 +43,6 @@
 @media screen and (max-width: 670px) {
   .aboutusCardBody {
     height: 20vw;
-
   }
   .hiwCardBody {
     background-color: rgba(255, 255, 255, 0.5);
@@ -60,11 +59,6 @@
     height: 70vw;
     overflow: auto;
   }
-  .howitworksLogin {
-    display: none;
-    /* top: 117vw;
-    left: 177vw !important; */
-  }
   .hiwText {
     padding: 2vw;
     text-align: left;
@@ -72,6 +66,11 @@
     font-family: Arial, Helvetica, sans-serif;
     text-shadow: none;
     scroll-behavior: smooth;
+  }
+  .howitworksLogin {
+    display: none;
+    /* top: 117vw;
+    left: 177vw !important; */
   }
   #aboutUs {
     width: 69%;

@@ -12,7 +12,7 @@
   },
   {
     "name": "Walker Park",
-    "geometry": {"type": "Point", "coordinates": [-83.357537, 33.971687]}    
+    "geometry": {"type": "Point", "coordinates": [-83.359236, 33.968775]}    
   },
   {
     "name": "Elizabeth Porter Park & Sprayground",
@@ -24,5 +24,5 @@
       "type": "Point",
       "coordinates": [-84.346715, 33.737831]
     }
-  },  
-];
+  } 
+]
