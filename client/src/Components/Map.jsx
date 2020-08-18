@@ -127,7 +127,7 @@ export default class Map extends React.Component {
             markerLng
           );
           let parkTwo = getDistanceToLocation(
-            "Walker Park (formerly Trail Creek Park)",
+            "Walker Park",
             trailCreek,
             markerLat,
             markerLng
@@ -181,7 +181,7 @@ export default class Map extends React.Component {
 
     //create a circle on the map for each park
     let trailCreek = new H.map.Circle(
-      { lat: 33.971687, lng: -83.357537 },
+      { lat: 33.968776, lng: -83.359237 },
       3000
     );
     map.addObject(trailCreek);

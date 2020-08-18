@@ -1,20 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Speech from "./SpeechComp";
-import API from "../utils/API";
-import Map from "./Map";
-import footprintSeeds from "../data/footprintSeeds.json";
 import "../pages/Profile/profile.css";
 
 const FootprintsDisplay = (props) => {
-  // const [userNotesOnCollectionPage, setUserNotesOnCollectionPage] = useState({
-  //   notes: [],
-  // });
+
   const {
-    newNoteContent,
-    setNewNoteContent,
-    location,
     loadUser,
     userNotesOnCollectionPage,
     setUserNotesOnCollectionPage,

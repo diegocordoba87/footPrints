@@ -42,7 +42,14 @@
   float: right;
   overflow: auto;
 }
-
+.mappedLocationButtons {
+  font-size: 1.4vw;
+  font-family: 'Mulish', sans-serif;
+  color: #563e44;
+}
+.mappedLocationButtons:hover {
+  color: #918082;
+}
 .newFPForm {
   width: 69vw;
 }
@@ -141,6 +148,7 @@
   margin: 3vw 0vw 1vw 0vw;
   background-color: #9a827e;
   color: #dce5e8;
+  z-index: 2;
 }
 #newFootprintButton:focus {
   outline: none;
@@ -162,6 +170,9 @@
   border-radius: 5px;
   padding: 1vw 0vw 2vw 1vw;
   margin-top: 1vw;
+}
+#note:focus {
+  outline: none;
 }
 
 #profileBody {
@@ -189,12 +200,18 @@
   margin-top: 1vw;
 
 }
+#tablinkFootprints:hover {
+  text-decoration: underline;
+}
 
 #tablinkLocations {
   background-color: #563e44;
   border-top-left-radius: 5px;
   margin-top: 1vw;
 
+}
+#tablinkLocations:hover {
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 670px) {
@@ -214,9 +231,11 @@
     box-shadow: 0px 2px 5px #000;
     text-align: left;
   }
+  
   #footprintText {
     overflow: auto;
-    font-size: 1.25vw !important;
+    font-size: 4vw;
+    padding: 8vw;
   }
 
   .readDeleteButton {
