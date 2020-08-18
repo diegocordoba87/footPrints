@@ -26,7 +26,7 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
         setTimeout(() => {
           setActiveUser(username);
           history.push(`/profile/${id}`);
-        }, 3000);
+        }, 2000);
       })
       .catch((err) => {
         console.log(err);
@@ -44,13 +44,13 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
             <h2 className="headerText headerTextSignup">Sign Up</h2>
             <form id="signupInput" onSubmit={handleSubmit}>
               {userSignedUp === true && (
-                <div className="loginError uk-alert-primary" uk-alert>
+                <div className="loginError uk-alert-primary" uk-alert="true">
                   <a className="uk-alert-close" uk-close></a>
                   <p>You have successfully created an account!</p>
                 </div>
               )}
               {signUpError === true && (
-                <div className="loginError uk-alert-danger" uk-alert>
+                <div id="signUpError" className="loginError uk-alert-danger" uk-alert="true">
                   <a class="uk-alert-close" uk-close></a>
                   <p>Sign up failed. Please try again.</p>
                 </div>

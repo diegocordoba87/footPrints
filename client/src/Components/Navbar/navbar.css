@@ -30,6 +30,19 @@
   color: #514a45 !important;
 }
 
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  color: #dce5d8;
+  padding: 10px 15px;
+  border: none;
+  text-shadow: 2px 2px 5px #000;
+}
+
+.openbtn:hover {
+  background-color: #514a45;
+}
+
 .sidebar {
   height: 100%;
   width: 250px;
@@ -63,19 +76,6 @@
   font-size: 36px;
   margin-left: 50px;
   color: #dce5d8 ;
-}
-
-.openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  color: #dce5d8;
-  padding: 10px 15px;
-  border: none;
-  text-shadow: 2px 2px 5px #000;
-}
-
-.openbtn:hover {
-  background-color: #514a45;
 }
 
 #hamburger {

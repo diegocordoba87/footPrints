@@ -28,6 +28,7 @@ const MapComp = (props) => {
         {location.map((locationObj) => (
           <h4 className="cardBodyLocations">
             <a
+              className="mappedLocationButtons"
               href={locationObj.url}
               target="_blank"
             >

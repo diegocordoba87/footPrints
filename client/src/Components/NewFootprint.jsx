@@ -5,7 +5,7 @@ import axios from "axios";
 import API from "../utils/API";
 
 const NewFootprint = (props) => {
-  // const [parkName, setParkName] = useState("");
+  const [successAlert, setSuccessAlert] = useState(false);
   const {
     parkId,
     populatedNote,
@@ -14,7 +14,7 @@ const NewFootprint = (props) => {
     noteId,
     newNoteContent,
     setNewNoteContent,
-    setUserNotesOnCollectionPage,
+    getNoteFromCurrentPark,
     parkName,
   } = props;
   const { id: userId } = useParams();
@@ -26,8 +26,12 @@ const NewFootprint = (props) => {
       axios
         .put(`/api/locations/${parkId}/addnote`, { id: noteId })
         .then((res) => {
-          console.log(res);
-        });
+          setSuccessAlert(true);
+          setTimeout(() => {
+            setSuccessAlert(false);
+          }, 3000);
+        })
+        .catch((err) => console.log(err));
       setNewNoteContent("");
     });
   };
@@ -65,6 +69,13 @@ const NewFootprint = (props) => {
               )}
             </div>
             <label>
+              {successAlert === true && (
+                <div className="loginError uk-alert-danger" uk-alert="true">
+                  <a className="uk-alert-close" uk-close="true"></a>
+                  <p>You have successfully left your FootPrint!</p>
+                </div>
+              )}
+
               <textarea
                 id="note"
                 type="text"
@@ -76,10 +87,10 @@ const NewFootprint = (props) => {
                 placeholder="You can write 500 words, and you can write 500 more. But that's it."
                 className="newFPForm"
               ></textarea>
+              <button id="newFootprintButton" onClick={addNote}>
+                leave your FootPrint
+              </button>
             </label>
-            <button id="newFootprintButton" onClick={addNote}>
-              leave your FootPrint
-            </button>
           </form>
           <div id="newFootprintAvailable">
             <div id="newFootprintText">A new FootPrint is available!</div>
@@ -92,9 +103,9 @@ const NewFootprint = (props) => {
                   <>
                     <button
                       className="deleteFootprintButton readSaveDeleteButton"
-                      onClick={clearNewNoteField}
+                      onClick={getNoteFromCurrentPark}
                     >
-                      delete
+                      next
                     </button>
                     <button
                       className="saveFootprintButton readSaveDeleteButton"

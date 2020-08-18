@@ -27,19 +27,23 @@ const Profile = (props) => {
   const { id } = useParams();
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      const lat = position.coords.latitude;
-      const lng = position.coords.longitude;
-      console.log(lat);
-      console.log(lng);
-      locationNear(lng, lat);
-    });
+    // Geolocator calling locationNear() to be used to track user location in the future, not for demo
+    // navigator.geolocation.getCurrentPosition(function (position) {
+    //   const lat = position.coords.latitude;
+    //   const lng = position.coords.longitude;
+    //   locationNear(lng, lat);
+    // });
     loadLocations();
     loadUser(id, setUserInfo);
   }, []);
 
   useEffect(() => {
-    console.log("park id updated");
+    if(parkId !== "") {
+      getNoteFromCurrentPark();
+    }
+  }, [parkId]);
+
+  const getNoteFromCurrentPark = () => {
     axios.get(`/api/locations/${parkId}`).then((res) => {
       if (res.data && res.data.data && res.data.data.notes && res.data.data.notes.length > 0) {
         const index = getRandomIntInclusive(0, res.data.data.notes.length - 1);
@@ -48,8 +52,10 @@ const Profile = (props) => {
         setPopulatedNote(noteText);
         setPopulatedNoteId(noteId);
       }
-    })
-  }, [parkId]);
+    }).catch((err) => {
+      console.log(err);
+    }); 
+  };
 
   const getRandomIntInclusive = (min, max) => {
     min = Math.ceil(min);
@@ -64,17 +70,17 @@ const Profile = (props) => {
       })
       .catch((err) => console.log(err));
   }
-
-  const locationNear = (lng, lat) => {
-    axios.get(`/api/locationsnear/?lng=${lng}&lat=${lat}`).then((res) => {
-      if (res.data && res.data.data && res.data.data.length > 0) {
-        console.log("testing", res.data.data[0]._id);
-        let id = res.data.data[0]._id;
+  // locationNear() is in place for future dev to use user's Geolocation.
+  // const locationNear = (lng, lat) => {
+  //   axios.get(`/api/locationsnear/?lng=${lng}&lat=${lat}`).then((res) => {
+  //     if (res.data && res.data.data && res.data.data.length > 0) {
+  //       console.log("testing", res.data.data[0]._id);
+  //       let id = res.data.data[0]._id;
         // setParkName(res.data.data[0].name);
         // setParkId(id);
-      }
-    });
-  };
+  //     }
+  //   });
+  // };
 
   const loadLocations = () => {
     axios.get("/api/locations").then((res) => {
@@ -132,7 +138,7 @@ const Profile = (props) => {
                 Collection
               </button>
               <div id="profileHeader">
-                <h2 id="initials">{userInfo.initials}'s Profile</h2>
+                <h2 id="initials">{userInfo.initials}'s Dashboard</h2>
               </div>
             </div>
             {isLocationDisplayed === true && (
@@ -148,6 +154,7 @@ const Profile = (props) => {
                   setUserNotesOnCollectionPage={setUserNotesOnCollectionPage}
                   noteId={populatedNoteId}
                   parkName={parkName}
+                  getNoteFromCurrentPark={getNoteFromCurrentPark}
                 />
                 <MapComp
                   {...props}

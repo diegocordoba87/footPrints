@@ -10,6 +10,7 @@ const Navbar = ({
 }) => {
   const currentURLObj = new URL(window.location.href);
 
+  // filtering navbar links to be displayed 
   let filteredNavbarLinks = navbarLinks.filter((linkObj) => {
     if (activeUser !== "") {
       return !linkObj.hiddenWhenLoggedIn;
@@ -21,7 +22,8 @@ const Navbar = ({
   filteredNavbarLinks = filteredNavbarLinks.filter(
     (linkObj) => linkObj.href !== currentURLObj.pathname
   );
-
+  
+  // setting username and id to empty strings on logout
   const handleLogOut = () => {
     setIsSidebarOpen(false);
     setTimeout(() => {
@@ -52,7 +54,7 @@ const Navbar = ({
             {link.title}
           </a>
         ))}
-
+        {/* if a user is logged in, put logout on the navbar */}
         {activeUser !== "" && (
           <p className="mediumText" onClick={handleLogOut}>
             Log Out
