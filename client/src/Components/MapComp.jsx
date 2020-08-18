@@ -5,33 +5,35 @@ import "../pages/Profile/profile.css";
 
 const MapComp = (props) => {
   const user = sessionStorage.getItem("username");
-  const { location, setLocation } = props;
+  const { location, setLocation, setParkName, setParkId, allLocations } = props;
 
   useEffect(() => {
-    const testing = [
-      {
-        name: "Marietta",
-      },
-      {
-        name: "Atlanta",
-      },
-    ];
-    axios.get("api/locations").then((locations) => {
+    axios.get("/api/locations").then((locations) => {
       // setLocation(locations.data.data);
-      setLocation(testing);
-      // console.log(locations.data.data);
+      setLocation(locations.data);
+      console.log("location map comp", locations.data);
     });
   }, []);
 
   return (
     <div>
       <div>
-        <Map />
+        <Map
+          setParkName={setParkName}
+          setParkId={setParkId}
+          allLocations={allLocations}
+        />
       </div>
       <div className="locationDiv">
         {location.map((locationObj) => (
           <h4 className="cardBodyLocations">
-            Location name: {locationObj.name}
+            <a
+              className="mappedLocationButtons"
+              href={locationObj.url}
+              target="_blank"
+            >
+              {locationObj.name}
+            </a>
           </h4>
         ))}
       </div>

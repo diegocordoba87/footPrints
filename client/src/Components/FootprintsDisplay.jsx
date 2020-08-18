@@ -1,68 +1,50 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
-import Map from "./Map";
-import footprintSeeds from "../data/footprintSeeds.json";
+import Speech from "./SpeechComp";
 import "../pages/Profile/profile.css";
 
 const FootprintsDisplay = (props) => {
 
-  const notes = [];
-  const { newNoteContent, setNewNoteContent, location } = props;
+  const {
+    loadUser,
+    userNotesOnCollectionPage,
+    setUserNotesOnCollectionPage,
+  } = props;
 
-  function addNote(e) {
-    e.preventDefault();
-    axios.post("/api/newnote", { content: newNoteContent }).then((res) => {
-      console.log(res);
-    });
-  }
+  const { id } = useParams();
 
-  function deleteNote(id) {
-    console.log(id);
-    axios.delete(`/api/note/${id}`).then((res) => {
-      window.alert(`Successfully deleted new note`);
+  useEffect(() => {
+    loadUser(id, setUserNotesOnCollectionPage);
+  }, []);
+
+  const deleteNote = (noteId) => {
+    axios.delete(`/api/note/${noteId}`).then((res) => {
+      loadUser(id, setUserNotesOnCollectionPage);
     });
-  }
+  };
 
   return (
     <div id="footprints">
-      <div uk-grid="masonry: true">
-        {footprintSeeds.map((note, index) => {
+      <div uk-grid>
+        {userNotesOnCollectionPage.notes.map((note, index) => {
           return (
-            <div>
-              <div className="uk-card-default footprintCards">{note.text}</div>
+            <div key={index}>
+              <div className="uk-card-default footprintCards">
+                <Speech
+                  footprintText={note.content}
+                  deleteNote={deleteNote}
+                  noteId={note._id}
+                  parentComponent={"FootprintsDisplay"}
+                />
+                {note.content}
+              </div>
             </div>
           );
         })}
-
-        <div className="homeText">
-          Found FootPrints
-          {notes.map((note) => {
-            return (
-              <p key={note.title}>
-                {note.content}
-                <button
-                  onClick={() => {
-                    deleteNote(note._id);
-                  }}
-                >
-                  Delete Footprint
-                </button>
-              </p>
-            );
-          })}
-        </div>
-
-        <div>
-          <Map />
-        </div>
-
-        {notes.map((note) => (
-          <p key={note._id}>{note.content}</p>
-        ))}
       </div>
     </div>
   );
 };
 
 export default FootprintsDisplay;
-

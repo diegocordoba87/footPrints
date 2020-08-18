@@ -1,6 +1,22 @@
 import React from "react";
 import "../app.css";
 
+let setParkName;
+let setParkId;
+let allLocations;
+
+const handleSetPark = (name, setParkName, setParkId, allLocations) => {
+  setParkName(name);
+  console.log("name:", name);
+  const parkObj = allLocations.find((locationObj) => locationObj.name === name);
+  console.log("setParkName:", setParkName);
+  console.log("setParkId:", setParkId);
+  console.log("allLocations:", allLocations);
+
+  if (parkObj && parkObj._id) {
+    setParkId(parkObj._id);
+  }
+};
 export default class Map extends React.Component {
   mapRef = React.createRef();
   state = {
@@ -9,8 +25,17 @@ export default class Map extends React.Component {
   };
 
   componentDidMount() {
+    setParkName = this.props.setParkName;
+    setParkId = this.props.setParkId;
+    allLocations = this.props.allLocations;
     // this.createMap(33.9, -83.3);
     this.getCoordinates();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.allLocations !== this.props.allLocations) {
+      allLocations = this.props.allLocations;
+    }
   }
 
   //get coordinates from the window then push them to a new map
@@ -51,12 +76,15 @@ export default class Map extends React.Component {
 
     //make the map responsive
     const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
-    console.log(behavior);
+    // console.log(behavior);
 
     //add a marker to a map at user's lat/long position
-    let icon = new H.map.Icon("FPFavicon.png");
-    let userMarker = new H.map.Marker({ lat: lat, lng: lng }, { icon: icon });
-    map.addObject(userMarker);
+    // let footprintIcon = new H.map.Icon("FPFavicon.png");
+
+    // console.log("footprint icon", footprintIcon)
+    // let userMarker = new H.map.Marker({ lat: lat, lng: lng }, { icon: footprintIcon });
+    // map.addObject(userMarker);
+
 
     //create a draggable marker
     let dragMarker = new H.map.Marker(
@@ -83,8 +111,7 @@ export default class Map extends React.Component {
       },
       false
     );
-    // re-enable the default drag ability of the underlying map
-    // when dragging has completed
+    // re-enable default draggability of map when marker dragging is done
     map.addEventListener(
       "dragend",
       function (ev) {
@@ -93,21 +120,41 @@ export default class Map extends React.Component {
           behavior.enable();
           const markerLat = dragMarker.b.lat;
           const markerLng = dragMarker.b.lng;
-          getDistanceToLocation("Brownwood Park Recreation Center", brownwood, markerLat, markerLng);
-          getDistanceToLocation("Walker Park (formerly Trail Creek Park)", trailCreek, markerLat, markerLng);
-          getDistanceToLocation(
+          let parkOne = getDistanceToLocation(
+            "Brownwood Park Recreation Center",
+            brownwood,
+            markerLat,
+            markerLng
+          );
+          let parkTwo = getDistanceToLocation(
+            "Walker Park",
+            trailCreek,
+            markerLat,
+            markerLng
+          );
+          let parkThree = getDistanceToLocation(
             "Morgan Falls Overlook Park",
             morganFalls,
             markerLat,
             markerLng
           );
-          getDistanceToLocation(
+          let parkFour = getDistanceToLocation(
             "Elizabeth Porter Park & Sprayground",
             elizabethPorterParkAndSprayground,
             markerLat,
             markerLng
           );
-          getDistanceToLocation("WestPaces", westPaces, markerLat, markerLng);
+          let parkFive = getDistanceToLocation(
+            "West Paces Park",
+            westPaces,
+            markerLat,
+            markerLng
+          );
+          if (!parkOne && !parkTwo && !parkThree && !parkFour && !parkFive) {
+            console.log("inside of the banana");
+              setParkName("");
+              setParkId("");
+          }
         }
       },
       false
@@ -134,7 +181,7 @@ export default class Map extends React.Component {
 
     //create a circle on the map for each park
     let trailCreek = new H.map.Circle(
-      { lat: 33.971687, lng: -83.357537 },
+      { lat: 33.968776, lng: -83.359237 },
       3000
     );
     map.addObject(trailCreek);
@@ -167,9 +214,10 @@ export default class Map extends React.Component {
 
     //calculating the distance between 2 coordinates.
 
-    function getDistanceToLocation(name, location, lat1, lng1) {
+    function getDistanceToLocation(name, location, lat1, lng1, parkName) {
       //Haversine formula: https://en.wikipedia.org/wiki/Haversine_formula
       // console.log(location);
+      let isInRange = false;
       let lat2 = location.b.lat;
       let lng2 = location.b.lng;
       const R = 3958.756; // Radius of the earth in mi
@@ -186,8 +234,15 @@ export default class Map extends React.Component {
       // console.log(d + "mi");
       if (d < 1.87) {
         console.log("You can access notes at " + name);
-        console.log(d + "mi");
+        handleSetPark(name, setParkName, setParkId, allLocations);
+        isInRange = true;
       }
+      return isInRange;
+      // else {
+      //   setParkName("");
+      //   setParkId("");
+      //   console.log("else path");
+      // }
     }
 
     function deg2rad(deg) {

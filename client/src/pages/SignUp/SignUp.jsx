@@ -26,7 +26,7 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
         setTimeout(() => {
           setActiveUser(username);
           history.push(`/profile/${id}`);
-        }, 3000);
+        }, 2000);
       })
       .catch((err) => {
         console.log(err);
@@ -40,24 +40,24 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
         <img className="footprintsPageLogo" src={logo} alt="footprints logo" />
 
         <div class="uk-flex uk-flex-center">
-          <div id="howitworks" className="cardBodyLogin">
-            <h2 className="headerText">Sign Up</h2>
+          <div id="howitworks" className="cardBodyLogin cardBodySignup">
+            <h2 className="headerText headerTextSignup">Sign Up</h2>
             <form id="signupInput" onSubmit={handleSubmit}>
               {userSignedUp === true && (
-                <div id="userSignedUp" className="uk-alert-primary" uk-alert>
+                <div className="loginError uk-alert-primary" uk-alert="true">
                   <a className="uk-alert-close" uk-close></a>
                   <p>You have successfully created an account!</p>
                 </div>
               )}
               {signUpError === true && (
-                <div id="loginError" class="uk-alert-danger" uk-alert>
+                <div id="signUpError" className="loginError uk-alert-danger" uk-alert="true">
                   <a class="uk-alert-close" uk-close></a>
                   <p>Sign up failed. Please try again.</p>
                 </div>
               )}
               <input
                 id="initials"
-                className="input"
+                className="inputSignup"
                 type="text"
                 name="initials"
                 value={initials}
@@ -65,11 +65,11 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
                   setInitials(e.target.value);
                   setSignUpError(false);
                 }}
-                placeholder="Enter your initials"
+                placeholder="Initials"
                 required
               />
               <input
-                className="input"
+                className="inputSignup"
                 type="email"
                 name="email"
                 value={username}
@@ -77,11 +77,11 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
                   setUsername(e.target.value);
                   setSignUpError(false);
                 }}
-                placeholder="Enter your email"
+                placeholder="Email"
                 required
               />
               <input
-                className="input"
+                className="inputSignup"
                 type="password"
                 name="password"
                 value={password}
@@ -89,16 +89,15 @@ const SignUp = ({ setIsSidebarOpen, history, setActiveUser }) => {
                   setPassword(e.target.value);
                   setSignUpError(false);
                 }}
-                placeholder="Enter your password"
+                placeholder="Password"
                 required
               />
 
-              <button className="logSignButton input" type="submit">
-                Login
+              <button id="getStartedButton" className="logSignButton input" type="submit" value="Submit">
+                Get Started
               </button>
             </form>
           </div>
-          <HowItWorks />
         </div>
       </div>
     </div>

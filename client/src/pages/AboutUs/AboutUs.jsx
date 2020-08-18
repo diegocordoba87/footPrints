@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import HowItWorks from "../../Components/HowItWorks/HowItWorks";
 import aboutUs from "../../data/aboutUs.json";
 import Andrea from "../../images/Andrea.png";
 import Diego from "../../images/Diego.jpg";
@@ -9,6 +11,7 @@ import logo from "../../images/FPLogo.png";
 import "./aboutus.css";
 
 const AboutUs = ({ setIsSidebarOpen }) => {
+  const [isProfileDisplayed, setIsProfileDisplayed] = useState(false);
   const getImage = (name) => {
     let imgName;
 
@@ -32,9 +35,45 @@ const AboutUs = ({ setIsSidebarOpen }) => {
     return imgName;
   };
 
-
   return (
     <div>
+      <Router>
+        <Route
+          path="/aboutus/elizabeth"
+          component={() => {
+            window.location.href = "https://github.com/ElizaRegas";
+            return null;
+          }}
+        />
+        <Route
+          path="/aboutus/mark"
+          component={() => {
+            window.location.href = "https://github.com/mjmoon15";
+            return null;
+          }}
+        />
+        <Route
+          path="/aboutus/diego"
+          component={() => {
+            window.location.href = "https://github.com/diegocordoba87";
+            return null;
+          }}
+        />
+        <Route
+          path="/aboutus/michael"
+          component={() => {
+            window.location.href = "https://github.com/m1cha3lnava";
+            return null;
+          }}
+        />
+        <Route
+          path="/aboutus/andrea"
+          component={() => {
+            window.location.href = "https://github.com/arhamilton92";
+            return null;
+          }}
+        />
+      </Router>
       <div id="aboutusBody" className="backgroundImage">
         <div onClick={() => setIsSidebarOpen(false)}>
           <img
@@ -42,25 +81,36 @@ const AboutUs = ({ setIsSidebarOpen }) => {
             src={logo}
             alt="footprints logo"
           />
+          <HowItWorks />
           <div className="uk-animation-fade">
-            <div id="aboutus" className="cardBody headerText">
+            <div id="aboutus" className="cardBody aboutusCardBody headerText">
               <p id="aboutUsText">About Us</p>
-              <div className="uk-flex specialPadding" uk-grid>
-                {aboutUs.map((creator, index) => {
-                  const source = getImage(creator.name);
-                  return (
-                    <>
-                      <div className="uk-card-default uk-grid-match">
-                        <a key={index}>
-                          <img className="profilePics" src={source} />
+              <div uk-grid>
+                <div className="aboutTabs">
+                  {aboutUs.map((creator, index) => {
+                    const source = getImage(creator.name);
+                    return (
+                      <>
+                        <a
+                          key={index}
+                          href={creator.portfolioLink}
+                          target="_blank"
+                        >
+                          <button
+                            id="tablinkAbout"
+                            class="tablinkAbout"
+                            onClick={() => setIsProfileDisplayed(true)}
+                          >
+                            <img className="profilePics" src={source} />
+
+                            <div className="creatorName">{creator.name}</div>
+                            <div className="creatorQuote">{creator.quote}</div>
+                          </button>
                         </a>
-                        <br />
-                        <div className="creatorName">{creator.name}</div>
-                        <div className="creatorQuote">{creator.quote}</div>
-                      </div>
-                    </>
-                  );
-                })}
+                      </>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>

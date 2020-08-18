@@ -1,0 +1,28 @@
+[
+  
+  {
+    "name": "West Paces Park",
+    "geometry": {"type": "Point", "coordinates": [-84.365373, 33.852656]} 
+    
+  },
+  {
+    "name": "Morgan Falls Overlook Park",
+    "geometry": {"type": "Point", "coordinates": [-84.379742, 33.968742]} 
+    
+  },
+  {
+    "name": "Walker Park",
+    "geometry": {"type": "Point", "coordinates": [-83.359236, 33.968775]}    
+  },
+  {
+    "name": "Elizabeth Porter Park & Sprayground",
+    "geometry": {"type": "Point", "coordinates": [-84.540687, 33.959884]}
+  },
+  {
+    "name": "Brownwood Park Recreation Center",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-84.346715, 33.737831]
+    }
+  },  
+];

@@ -11,54 +11,97 @@ import "./profile.css";
 const Profile = (props) => {
   // Setting our component's initial state
   const [userInfo, setUserInfo] = useState("");
-  const [userNotes, setUserNotes] = useState([]);
+  const [parkId, setParkId] = useState("");
+  const [parkName, setParkName] = useState("");
   const [location, setLocation] = useState([]);
+  const [allLocations, setAllLocations] = useState([]);
+  const [populatedNoteId, setPopulatedNoteId] = useState("");
+  const [populatedNote, setPopulatedNote] = useState("");
   const [newNoteContent, setNewNoteContent] = useState("");
-  const [notesByLocation, setNotesByLocation] = useState([]);
   const [isLocationDisplayed, setIsLocationDisplayed] = useState(true);
-  const { setIsSidebarOpen, setParkName } = props;
-  const user = sessionStorage.getItem("username");
+  const [userNotesOnCollectionPage, setUserNotesOnCollectionPage] = useState({
+    notes: [],
+  });
+  const { setIsSidebarOpen } = props;
 
   const { id } = useParams();
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      const lat = position.coords.latitude;
-      const lng = position.coords.longitude;
-      console.log(lat);
-      console.log(lng);
-      locationNear(lng, lat);
-    });
-
-    loadUser();
+    // Geolocator calling locationNear() to be used to track user location in the future, not for demo
+    // navigator.geolocation.getCurrentPosition(function (position) {
+    //   const lat = position.coords.latitude;
+    //   const lng = position.coords.longitude;
+    //   locationNear(lng, lat);
+    // });
+    loadLocations();
+    loadUser(id, setUserInfo);
   }, []);
 
-  function loadUser() {
-    API.getUserById(id)
+  useEffect(() => {
+    if(parkId !== "") {
+      getNoteFromCurrentPark();
+    }
+  }, [parkId]);
+
+  const getNoteFromCurrentPark = () => {
+    axios.get(`/api/locations/${parkId}`).then((res) => {
+      if (res.data && res.data.data && res.data.data.notes && res.data.data.notes.length > 0) {
+        const index = getRandomIntInclusive(0, res.data.data.notes.length - 1);
+        const noteText = res.data.data.notes[index].content;
+        const noteId = res.data.data.notes[index]._id;
+        setPopulatedNote(noteText);
+        setPopulatedNoteId(noteId);
+      }
+    }).catch((err) => {
+      console.log(err);
+    }); 
+  };
+
+  const getRandomIntInclusive = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+  }
+
+  function loadUser(userId, cb) {
+    API.getUserById(userId)
       .then((res) => {
-        console.log(res.data.data);
-        setUserInfo(res.data.data);
+        cb(res.data.data);
       })
       .catch((err) => console.log(err));
   }
-
-  const locationNear = (lng, lat) => {
-    axios.get(`/api/locationsnear/?lng=${lng}&lat=${lat}`).then((res) => {
-      if (res.data && res.data.data && res.data.data.length > 0) {
-        console.log("testing", res.data.data[0]._id);
-        let id = res.data.data[0]._id;
+  // locationNear() is in place for future dev to use user's Geolocation.
+  // const locationNear = (lng, lat) => {
+  //   axios.get(`/api/locationsnear/?lng=${lng}&lat=${lat}`).then((res) => {
+  //     if (res.data && res.data.data && res.data.data.length > 0) {
+  //       console.log("testing", res.data.data[0]._id);
+  //       let id = res.data.data[0]._id;
         // setParkName(res.data.data[0].name);
-        axios.get(`/api/locations/${id}`).then((res) => {
-          console.log(res);
-        });
+        // setParkId(id);
+  //     }
+  //   });
+  // };
+
+  const loadLocations = () => {
+    axios.get("/api/locations").then((res) => {
+      console.log("loadtLocations: ", res);
+      if(res.data && res.data.length > 0) {
+        setAllLocations(res.data);
       }
-    });
-  };
+    })
+  }
 
   function addNote(e) {
     e.preventDefault();
     axios.post("/api/newnote", { content: newNoteContent }).then((res) => {
       console.log(res);
+      const id = res.data.data._id;
+      console.log("res id: ", id);
+      axios
+        .put(`/api/users/${userInfo._id}/addnote`, { _id: id })
+        .then((res) => {
+          console.log("note id: ", res);
+        });
     });
   }
 
@@ -82,20 +125,20 @@ const Profile = (props) => {
             <div id="dashboardTabs">
               <button
                 id="tablinkLocations"
-                class="tablink"
+                className="tablink"
                 onClick={() => setIsLocationDisplayed(true)}
               >
                 Locations
               </button>
               <button
                 id="tablinkFootprints"
-                class="tablink"
+                className="tablink"
                 onClick={() => setIsLocationDisplayed(false)}
               >
-                Footprints
+                Collection
               </button>
               <div id="profileHeader">
-                <h2 id="initials">{userInfo.initials}'s Profile</h2>
+                <h2 id="initials">{userInfo.initials}'s Dashboard</h2>
               </div>
             </div>
             {isLocationDisplayed === true && (
@@ -104,41 +147,38 @@ const Profile = (props) => {
                   {...props}
                   newNoteContent={newNoteContent}
                   setNewNoteContent={setNewNoteContent}
+                  parkId={parkId}
+                  populatedNote={populatedNote}
+                  setPopulatedNote={setPopulatedNote}
+                  setPopulatedNoteId={setPopulatedNoteId}
+                  setUserNotesOnCollectionPage={setUserNotesOnCollectionPage}
+                  noteId={populatedNoteId}
+                  parkName={parkName}
+                  getNoteFromCurrentPark={getNoteFromCurrentPark}
                 />
                 <MapComp
                   {...props}
                   location={location}
                   setLocation={setLocation}
+                  setParkName={setParkName}
+                  setParkId={setParkId}
+                  allLocations={allLocations}
                 />
               </div>
             )}
             {isLocationDisplayed === false && (
-              <div className="uk-card-default pink">
+              <div className="pink">
                 <FootprintsDisplay
                   {...props}
                   newNoteContent={newNoteContent}
                   setNewNoteContent={setNewNoteContent}
+                  loadUser={loadUser}
+                  setUserInfo={setUserInfo}
+                  userNotesOnCollectionPage={userNotesOnCollectionPage}
+                  setUserNotesOnCollectionPage={setUserNotesOnCollectionPage}
                 />
               </div>
             )}
-          </div>
-
-          <div className="homeText">
-            Found FootPrints
-            {notesByLocation.map((note) => {
-              return (
-                <p key={note.title}>
-                  {note.content}
-                  <button
-                    onClick={() => {
-                      deleteNote(note._id);
-                    }}
-                  >
-                    Delete Footprint
-                  </button>
-                </p>
-              );
-            })}
           </div>
         </div>
       </div>

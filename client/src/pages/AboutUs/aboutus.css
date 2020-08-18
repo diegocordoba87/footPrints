@@ -1,35 +1,65 @@
 div.uk-flex.specialPadding {
   margin: 0vw 4vw;
 }
+.aboutusCardBody {
 
+}
 #text {
   margin: 5vw;
 }
 .creatorName {
-  font-size: 0.6em;
+  font-size: 2vw;
   padding: 1vw 0vw;
-  color: #85616a;
-  position: relative;
-  top: -2vw;
+  color: #514a45;
+}
+
+.creatorQuote {
+  color: #242527;
+  font-size: 1.5vw;
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: none;
+  text-align: left;
 }
 
 .profilePics {
   padding: 1vw 0vw 0vw 0vw;
 }
+.tablinkAbout {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0vw 1vw 1vw 1vw;
+  font-size: 17px;
+  width: 20%;
+  color: #dce5d8;
+  font-family: "Kalam", cursive !important;
+  font-size: 2vw;
+  margin: auto;
+  margin-bottom: 10vw;
+}
 
+.tablinkAbout:hover {
+  background-color: #85616a;
+}
 .uk-card-default {
   margin: 0;
 }
 
-.uk-grid-item-match, .uk-grid-match>* {
+.uk-grid-item-match,
+.uk-grid-match > * {
   display: block;
   flex-wrap: wrap;
   padding: 0vw 1vw 1vw 1vw;
 }
 
+.aboutTabs {
+  width: 70vw;
+  margin: auto;
+  position: absolute;
+}
 #aboutus {
   position: relative;
-  top: 10vw;
+  top: 65vw;
   width: 70%;
   color: #85616a;
   text-shadow: 2px 2px 2px #000;
@@ -41,12 +71,39 @@ div.uk-flex.specialPadding {
 }
 
 #aboutUsText {
-  padding: 2vw 0vw 0vw 0vw;
+  padding: 2vw 0vw 1vw 0vw;
+}
+
+#tablinkAbout {
 }
 
 @media screen and (max-width: 670px) {
+  .aboutTabs {
+
+    width: 70vw;
+    margin: auto;
+    position: relative;
+    top: -32vw;
+
+  }
+  .tablinkAbout {
+    width: 100%;
+    text-align: left;
+    overflow: scroll;
+    margin-bottom: 1vw;
+
+  }
+  #aboutus {
+    top: 114vw;
+    width: 69%;
+  }
   #aboutusBody {
-    background-image: url(../../images/FPFootprintsVert.jpg);
+    background-image: url(../../images/FPHomeDarkerVert.jpg);
     height: 100vh;
   }
+  #aboutUsText {
+    top: -32vw !important;
+    position: relative !important;
+  }
+
 }
