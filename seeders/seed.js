@@ -1,10 +1,20 @@
 let mongoose = require("mongoose");
 let db = require("../API/models");
 
-mongoose.connect("mongodb://localhost/footPrints", {
-  useNewUrlParser: true,
-  useFindAndModify: false
-});
+mongoose
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/footPrints", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Successfully connected to database.");
+  })
+  .catch((err) => {
+    console.log("Unable to connect to database.");
+    console.log(err);
+  });
+
+
 
 let LocationSeed = [
   
