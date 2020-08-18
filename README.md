@@ -1,8 +1,10 @@
-# footSteps
+![Footprints logo](client/src/images/footprintslogo.png "Footprints logo")
+
+# footprints
 
 ![badmath](https://img.shields.io/github/contributors/diegocordoba87/footSteps)
 
-Even as the world around us is increasingly distant and divided, there are threads that keep us connected: our stories. Footsteps is a mobile first application leveraging a geo-location API to connect users to those who have gone before. When a user enters a specific area, they are presented with a story from another random user and may in turn leave their own to be discovered by the next visitor. 
+Even as the world around us is increasingly distant and divided, there are threads that keep us connected: our stories. Footprints is a mobile first application leveraging a geo-location API to connect users to those who have gone before. When a user enters a specific area, they are presented with a story from another random user and may in turn leave their own to be discovered by the next visitor. 
 
 ---
 
